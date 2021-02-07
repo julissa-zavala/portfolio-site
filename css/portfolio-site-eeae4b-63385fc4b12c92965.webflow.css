@@ -10,6 +10,11 @@
   grid-column-gap: 16px;
 }
 
+.hand-svg{
+  display: flex;
+  flex-direction: row;
+}
+
 body {
   font-family: Lato, sans-serif;
   color: #151515;
@@ -10278,6 +10283,8 @@ figcaption {
   .image-6 {
     width: 0px;
   }
+
+
 }
 
 @media screen and (min-width: 1440px) {
@@ -10412,6 +10419,10 @@ figcaption {
 }
 
 @media screen and (max-width: 991px) {
+  #hand{
+    display: none;
+  }
+
   h1 {
     font-size: 40px;
     line-height: 48px;
@@ -15348,7 +15359,7 @@ figcaption {
   }
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1000px) {
   #w-node-30083acaaa26-762a7273 {
     -ms-grid-row: 1;
     grid-row-start: 1;
@@ -15749,4 +15760,8 @@ figcaption {
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+}
+
+#flex-row-hand{
+  flex-direction: row;
 }
