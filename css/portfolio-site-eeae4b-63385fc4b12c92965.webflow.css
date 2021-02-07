@@ -13392,7 +13392,7 @@ figcaption {
     height: 100px;
     margin-top: auto;
     margin-bottom: 41px;
-    margin-left: 0px;
+    margin-left: -1px;
     line-height: 0px;
   }
 
