@@ -9488,7 +9488,7 @@ figcaption {
   z-index: 900;
   width: 60px;
   height: 60px;
-  margin-top: 10px;
+  margin-top: 25px;
   margin-right: 20px;
   padding: 0px;
   background-color: transparent;
@@ -15613,6 +15613,10 @@ figcaption {
 }
 
 @media screen and (max-width: 479px) {
+  .navbar{
+    height: 105px;
+  }
+
   #w-node-30083acaaa26-762a7273 {
     -ms-grid-column: span 4;
     grid-column-start: span 4;
