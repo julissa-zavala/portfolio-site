@@ -38,6 +38,15 @@ body {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
+  margin-bottom: 30px;
+}
+
+.side-by-side-images img{
+  width: 30%;
+}
+
+.two img{
+  width: 45%;
 }
 
 h1 {
