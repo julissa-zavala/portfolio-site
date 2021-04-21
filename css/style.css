@@ -1034,15 +1034,6 @@ hr {
         margin-left:12.5%;
     }
   
-    /* .subgroup-left-side p {
-      font-family: 'Fakt', sans-serif;
-      font-size: 16px;
-      font-weight: 200;
-      line-height: 28px;
-      margin-bottom: 48px;
-      color: var(--primary-text);
-    } */
-  
     .subgroup-right-side p {
       font-family: 'Fakt', sans-serif;
       font-size: 14px;
@@ -1070,7 +1061,6 @@ hr {
   
     .subgroup-left-side {
       padding-left: 0px;
-      /* padding-right: 60px; */
     }
   }
   
@@ -1106,41 +1096,6 @@ hr {
       margin: 15px 15px 0px 15px;
     }
   
-    /* .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
-      color: var(--primary-black);
-    }
-   */
-  
-    /*****Button Underline From Left *******/
-    /* .hvr-underline-from-left {
-      display: inline-block;
-      vertical-align: middle;
-      -webkit-transform: perspective(1px) translateZ(0);
-      transform: perspective(1px) translateZ(0);
-      box-shadow: 0 0 1px transparent;
-      position: relative;
-      overflow: hidden;
-    }
-    .hvr-underline-from-left:before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      left: 0;
-      right: 100%;
-      bottom: 0;
-      background: var(--primary-black);
-      height: 1px;
-      -webkit-transition-property: right;
-      transition-property: right;
-      -webkit-transition-duration: 0.3s;
-      transition-duration: 0.3s;
-      -webkit-transition-timing-function: ease-out;
-      transition-timing-function: ease-out;
-    }
-    .hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
-      right: 0;
-    } */
-  
     .large-img {
       width:100%;
     }
@@ -1153,14 +1108,11 @@ hr {
     }
   
     .portfolio-title {
-      /* T for Tony, Your T-S: */
       font-family: 'Circular Std Black' !important;
       font-size: 28px;
       color: var(--primary-black);
       text-align: center;
     }
-  
-    /* Portfolio Cards Medium Screen */
   
     .card {
       background: #FAFAFA;
@@ -1193,8 +1145,6 @@ hr {
     }
   
     .card-title {
-      /* portfolio-walker-thumbnail: */
-      /* Mirror Mirror: */
       font-family: "Circular Std Black" !important;
       font-size: 18px;
       color: var(--primary-black);
@@ -1202,7 +1152,6 @@ hr {
     }
   
     .card-subtitle {
-      /* UX Design, UX Resear: */
       font-family: "Circular Std Book" !important;
       font-size: 12px;
       color: var(--tertiary-black);
@@ -1210,7 +1159,6 @@ hr {
     }
   
     .card-content {
-      /* Cultivating Mindfuln: */
       font-family: 'Fakt', sans-serif;
       font-weight: 200;
       font-size: 14px;
@@ -1287,7 +1235,7 @@ hr {
     .bg {
     position: absolute;
       width: 100%;
-      height: 100vh; /*same height as jumbotron */
+      height: 100vh;
       top:0;
       left:0;
       z-index: -1;
@@ -1322,9 +1270,6 @@ hr {
       background: url('../assets/cookfresh-jumbotron.jpg') no-repeat center center;
       background-size:cover;
     }
-  
-  
-    /***********Each individual project.HTML*****************/
   
     .article-title {
       font-family: 'Circular Std Black' !important;
@@ -1361,28 +1306,12 @@ hr {
       font-weight: 500;
     }
   
-    /* .subgroup h5 {
-      font-family: 'Circular Std Medium';
-      font-size: 18px;
-      line-height: 32px;
-      color: var(--primary-black);
-    } */
-  
     .subgroup .list-title {
       font-family: 'Circular Std Medium';
       font-size: 15px;
       color: var(--primary-black);
     }
-  
-    /* .subgroup p {
-      font-family: 'Fakt', sans-serif;
-      font-size: 16px;
-      font-weight: 200;
-      line-height: 30px;
-      margin-bottom: 48px;
-      color: var(--primary-text);
-    } */
-  
+
     .subgroup ul {
       font-family: 'Fakt', sans-serif;
       font-size: 16px;
@@ -1409,22 +1338,10 @@ hr {
       text-transform: uppercase;
       letter-spacing: 2px;
       box-shadow: 0 2px 20px 0 rgba(0,0,0,0.14);
-      /* transition: .3s;
-      -webkit-transition: .3s; */
       -webkit-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
       -moz-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
       transition: all 250ms cubic-bezier(.02, .01, .47, 1);
     }
-  
-  
-    /* .black-button:hover { */
-      /* background-color: var(--primary-black); */
-      /* color:white; */
-      /* color:var(--primary-black);
-      box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.16);
-      transform: translate(0px, -6px);
-      transition-delay: 0s !important;
-    } */
   
     .black-button:focus {outline:0;}
   
@@ -1474,8 +1391,6 @@ hr {
       background-color: #FAFAFA;
       color:var(--primary-black);
       box-shadow: 0 2px 20px 0 rgba(0,0,0,0.14);
-      /* transition: .3s;
-      -webkit-transition: .3s; */
       -webkit-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
       -moz-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
       transition: all 250ms cubic-bezier(.02, .01, .47, 1);
@@ -1491,7 +1406,6 @@ hr {
       padding-left: 32px;
     }
   }
-  
   
   /*Mobile screen*/
   @media only screen and (max-width: 767px) {
@@ -1570,10 +1484,6 @@ hr {
       font-weight: 200;
     }
   
-    /* .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
-      color: var(--primary-black);
-    } */
-  
     .portfolio-row {
       padding: 0px 10px 20px 10px;
     }
@@ -1594,14 +1504,12 @@ hr {
     }
   
     .portfolio-title {
-      /* T for Tony, Your T-S: */
       font-family: 'Circular Std Black' !important;
       font-size: 24px;
       color: var(--primary-black);
       text-align: center;
     }
   
-    /* Portfolio Cards Medium Screen */
     .card {
       background: #FAFAFA;
       box-shadow: 0 2px 44px 0 rgba(0,0,0,0.14);
@@ -1633,8 +1541,6 @@ hr {
     }
   
     .card-title {
-      /* portfolio-walker-thumbnail: */
-      /* Mirror Mirror: */
       font-family: "Circular Std Black" !important;
       font-size: 18px;
       color: var(--primary-black);
@@ -1642,7 +1548,6 @@ hr {
     }
   
     .card-subtitle {
-      /* UX Design, UX Resear: */
       font-family: "Circular Std Book" !important;
       font-size: 12px;
       color: var(--tertiary-black);
@@ -1650,7 +1555,6 @@ hr {
     }
   
     .card-content {
-      /* Cultivating Mindfuln: */
       font-family: 'Fakt', sans-serif;
       font-weight: 200;
       font-size: 14px;
@@ -1668,8 +1572,6 @@ hr {
     .main-content {
       padding: 0px 20px 20px 20px;
     }
-  
-    /******Individual product pages.HTML******/
   
     .article-title {
       font-family: 'Circular Std Black' !important;
@@ -1698,10 +1600,10 @@ hr {
   
     .subgroup h4 {
       margin-bottom: 16px;
-      font-family: 'Circular Std Bold';
-      font-size: 16px;
+      font-size: 20px;
       color: var(--primary-black);
       letter-spacing: 0.5px;
+      font-family: 'Futura pt', sans-serif;
     }
   
     .subgroup h5 {
@@ -1712,8 +1614,6 @@ hr {
     }
   
     .subgroup p {
-      font-family: 'Fakt', sans-serif;
-      font-size: 15px;
       font-weight: 300;
       line-height: 24px;
       margin-bottom: 28px;
@@ -1748,7 +1648,6 @@ hr {
   
     .subgroup-left-side h4 {
       margin-bottom: 16px;
-      font-family: 'Circular Std Bold';
       font-size: 16px;
       color: var(--primary-black);
       letter-spacing: 0.5px;
