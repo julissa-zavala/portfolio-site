@@ -1388,7 +1388,7 @@ hr {
       padding: 10px 13px 10px 13px;
       border-radius: 50%;
       z-index: 1;
-      background-color: #FAFAFA;
+      background-color: #e56161;;
       color:var(--primary-black);
       box-shadow: 0 2px 20px 0 rgba(0,0,0,0.14);
       -webkit-transition: all 250ms cubic-bezier(.02, .01, .47, 1);

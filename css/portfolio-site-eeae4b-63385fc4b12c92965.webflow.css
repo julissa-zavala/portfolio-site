@@ -17,14 +17,15 @@ body {
   line-height: 24px;
 }
 
-.hand-svg{
-  display: flex;
-  flex-direction: row;
-}
-
 #portrait{
   border-radius: 10px;
   border: none;
+}
+
+#hand {
+  width: 60%;
+  height: 40em;
+  margin-top: -160px;
 }
 
 .center-images{
@@ -155,7 +156,7 @@ label {
 blockquote {
   margin-bottom: 24px;
   padding: 16px 32px;
-  border-left: 3px solid #ffa949;
+  border-left: 3px solid #ffa949 !important;
   font-size: 20px;
   line-height: 28px;
 }
@@ -345,8 +346,6 @@ figcaption {
   margin-bottom: auto;
   margin-left: 0px;
   padding-top: 0px;
-  padding-right: 40px;
-  padding-left: 40px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -8584,7 +8583,6 @@ figcaption {
 .heading-2 {
   width: 32vw;
   margin-bottom: 86px;
-  margin-left: 60px;
   padding-top: 0px;
   padding-left: 0px;
   background-color: #e56161;
@@ -8593,6 +8591,7 @@ figcaption {
   font-size: 24px;
   font-weight: 500;
   letter-spacing: 1.5px;
+  margin-left: 10em;
 }
 
 .text-block-4 {
@@ -8631,6 +8630,8 @@ figcaption {
 .text-span-3 {
   width: 600px;
   font-size: 50px;
+  font-family: 'Epilogue';
+  font-weight: 700;
 }
 
 .image-2 {
@@ -11164,6 +11165,10 @@ a {
     display: none;
   }
 
+  #hand{
+    display: none;
+  }
+
   h1 {
     font-size: 40px;
     line-height: 48px;
@@ -11239,6 +11244,7 @@ a {
     background-size: 50px;
     background-repeat: repeat;
     background-attachment: scroll;
+    width: 100%;
   }
 
   .section.hero-v2.mobile {
@@ -12620,14 +12626,6 @@ a {
     color: #252323;
   }
 
-  .text-span {
-    border-radius: 0px;
-  }
-
-  .text-span-2 {
-    border-radius: 0px;
-  }
-
   .image-3 {
     margin-top: 35px;
   }
@@ -13933,13 +13931,12 @@ a {
   }
 
   .heading-2 {
-    position: relative;
-    bottom: -32px;
-    width: 90%;
-    margin-right: auto;
-    margin-left: auto;
-    padding-top: 29px;
-    font-size: 23px;
+    width: 60vw;
+    margin-right: 0px;
+    margin-bottom: 108px;
+    margin-left: 20px;
+    margin-top: 90px;
+    text-align: center;
   }
 
   .text-block-4 {
@@ -15356,6 +15353,11 @@ a {
     text-align: left;
   }
 
+  .text-span-3 {
+    font-size: 20px;
+    text-align: center;
+  }
+
   .text-block-4 {
     position: relative;
     bottom: 6px;
@@ -16608,8 +16610,4 @@ a {
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-}
-
-#flex-row-hand{
-  flex-direction: row;
 }
