@@ -8581,7 +8581,7 @@ figcaption {
 }
 
 .heading-2 {
-  width: 32vw;
+  width: 26rem;
   margin-bottom: 86px;
   padding-top: 0px;
   padding-left: 0px;
@@ -8591,7 +8591,7 @@ figcaption {
   font-size: 24px;
   font-weight: 500;
   letter-spacing: 1.5px;
-  margin-left: 10em;
+  margin-left: 8em;
 }
 
 .text-block-4 {
@@ -8629,7 +8629,7 @@ figcaption {
 
 .text-span-3 {
   width: 600px;
-  font-size: 50px;
+  font-size: 42px;
   font-family: 'Epilogue';
   font-weight: 700;
 }
@@ -16219,6 +16219,10 @@ a {
     align-self: center;
     -ms-grid-column-align: center;
     justify-self: center;
+  }
+
+  .text-span-3 {
+    font-size: 50px;
   }
 
   #w-node-_9945ff71-7883-7e4b-3817-30083acaaa27-762a7273 {
