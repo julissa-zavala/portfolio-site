@@ -28,8 +28,9 @@ body {
   margin-top: -160px;
 }
 
-.center-images{
+/* .center-images{
   width: 100%;
+  display: flex;
   justify-content: center;
 }
 
@@ -37,7 +38,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-}
+} */
 
 .side-by-side-images{
   width: 100%;
