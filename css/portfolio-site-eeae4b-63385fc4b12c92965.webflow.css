@@ -10305,7 +10305,7 @@ figcaption {
 
 .heading-9 {
   display: block;
-  width: 50vw;
+  width: 100%;
   margin: 0px auto 40px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -10824,7 +10824,7 @@ a {
 }
 
 .image-14 {
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 
 .paragraph-20 {
