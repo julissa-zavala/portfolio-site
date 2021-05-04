@@ -30,7 +30,6 @@ body {
 
 .center-images{
   width: 100%;
-  display: flex;
   justify-content: center;
 }
 
