@@ -9067,6 +9067,40 @@ figcaption {
   object-fit: contain;
 }
 
+.work-preview-4{
+  position: static;
+  z-index: 2;
+  display: inline-block;
+  overflow: visible;
+  width: 100%;
+  height: 80vh;
+  max-height: none;
+  margin: 0px auto;
+  padding: 0px 40px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: 8px none #fff;
+  border-radius: 0px;
+  background-color: #fdfdf0;
+  background-image: url('../images/pwm_mockup_responsivescreens.png');
+  background-position: 50% 50%;
+  background-size: 950px;
+  background-repeat: no-repeat;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
 .cards-section {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -10730,7 +10764,7 @@ a {
 }
 
 .image-9 {
-  margin-bottom: 100px;
+  /* margin-bottom: 20px; */
 }
 
 .div-block-11 {
@@ -10767,8 +10801,6 @@ a {
 }
 
 .image-10 {
-  margin-bottom: 40px;
-  padding-bottom: 0px;
 }
 
 .image-11 {
