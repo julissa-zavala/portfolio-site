@@ -8677,6 +8677,7 @@ figcaption {
   align-items: center;
   background-color: #e56161;
   color: transparent;
+  border-radius: 1px !important;
 }
 
 .image-4 {
@@ -10707,11 +10708,13 @@ a {
 .block-quote {
   margin-left: 20px;
   font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
 }
 
 .block-quote-2 {
   margin-left: 20px;
-  font-family: 'Poppins', sans-serif;;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
 }
 
 .text-span-11 {
