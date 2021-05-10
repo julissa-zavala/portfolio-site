@@ -65,7 +65,7 @@ h2 {
   margin-top: 0px;
   margin-bottom: 16px;
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
+  color: #111111;
   font-size: 28px;
   line-height: 44px;
   font-weight: 700;
@@ -85,8 +85,8 @@ h4 {
   margin-top: 0px;
   margin-bottom: 12px;
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
-  font-size: 21px;
+  color: #111111;
+  font-size: 24px !important;
   line-height: 28px;
   font-weight: 500;
   letter-spacing: 1px;
@@ -96,7 +96,7 @@ h5 {
   margin-top: 0px;
   margin-bottom: 8px;
   font-family: Roboto, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
   font-weight: 700;
 }
@@ -112,7 +112,7 @@ h6 {
 
 p {
   margin-bottom: 24px;
-  color: #414040;
+  color: #111111;
 }
 
 a {
@@ -327,6 +327,7 @@ figcaption {
 .section.about-me {
   height: 800px;
   background-color: #ffffff;
+  margin-top: 60px;
 }
 
 .wrapper {
@@ -445,9 +446,9 @@ figcaption {
   transition: background-color 400ms ease, border-color 400ms ease, box-shadow 400ms ease, -webkit-transform 400ms ease;
   transition: background-color 400ms ease, border-color 400ms ease, transform 400ms ease, box-shadow 400ms ease;
   transition: background-color 400ms ease, border-color 400ms ease, transform 400ms ease, box-shadow 400ms ease, -webkit-transform 400ms ease;
-  font-family: 'Neutratext book', sans-serif;
+  font-family: 'Poppins', sans-serif;;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
   font-weight: 500;
   text-align: center;
@@ -456,7 +457,7 @@ figcaption {
 
 .button:hover {
   background-color: #f8bb4b;
-  color: #414040;
+  color: #111111;
 }
 
 .button.w--current:hover {
@@ -609,8 +610,8 @@ figcaption {
   -webkit-transition: background-color 400ms ease;
   transition: background-color 400ms ease;
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
-  font-size: 18px;
+  color: #111111;
+  font-size: 16px;
   line-height: 36px;
   font-weight: 700;
 }
@@ -791,7 +792,7 @@ figcaption {
 .view-case-studies-link {
   font-family: 'Futura pt', sans-serif;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
   font-weight: 500;
   letter-spacing: 2.67px;
@@ -842,7 +843,7 @@ figcaption {
   max-width: none;
   margin-right: 0px;
   margin-left: 40px;
-  padding-right: 40px;
+  padding-right: 30px;
   padding-left: 0px;
   -webkit-box-align: start;
   -webkit-align-items: flex-start;
@@ -1127,13 +1128,14 @@ figcaption {
 }
 
 .text-big.text-grey {
-  font-family: 'Neutratext book', sans-serif;
-  color: #414040;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
 }
 
 .text-big.text-grey.mobile {
   color: #151515;
+  margin-top: 70px;
 }
 
 .text-dark-grey {
@@ -1184,7 +1186,7 @@ figcaption {
   -ms-flex-align: center;
   align-items: center;
   background-color: #fbfbfb;
-  color: #414040;
+  color: #111111;
 }
 
 .loading-icon {
@@ -2070,8 +2072,8 @@ figcaption {
   border-radius: 20px;
   background-color: #e56161;
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
-  font-size: 18px;
+  color: #111111;
+  font-size: 16px;
   line-height: 16px;
   text-align: center;
   text-transform: capitalize;
@@ -3719,7 +3721,7 @@ figcaption {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  color: #414040;
+  color: #111111;
   font-size: 15px;
 }
 
@@ -4650,7 +4652,7 @@ figcaption {
   align-items: center;
   border-style: none none solid;
   border-width: 1px 1px 2px;
-  border-color: #000 #000 #414040;
+  border-color: #000 #000 #111111;
 }
 
 .footer-brand {
@@ -4691,7 +4693,7 @@ figcaption {
   background-position: 50% 50%;
   background-size: 16px;
   opacity: 0.3;
-  color: #414040;
+  color: #111111;
 }
 
 .pricing-v2-header {
@@ -6165,7 +6167,7 @@ figcaption {
 
 .page-heading {
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
+  color: #111111;
   text-align: center;
   letter-spacing: 1.5px;
 }
@@ -7522,7 +7524,7 @@ figcaption {
   transition: color 400ms cubic-bezier(.165, .84, .44, 1);
   font-family: 'Futura pt', sans-serif;
   color: #d76864;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
   font-weight: 700;
   letter-spacing: 1.2px;
@@ -7534,7 +7536,7 @@ figcaption {
 }
 
 .category-link.w--current {
-  color: #414040;
+  color: #111111;
 }
 
 .categories {
@@ -7945,7 +7947,7 @@ figcaption {
 .work-card-heading {
   margin: 16px 12px 4px;
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
+  color: #111111;
   text-align: center;
   letter-spacing: 1px;
 }
@@ -8074,8 +8076,8 @@ figcaption {
   margin-right: auto;
   margin-left: auto;
   float: left;
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
   font-weight: 400;
   text-transform: none;
 }
@@ -8120,7 +8122,7 @@ figcaption {
 .work-heading {
   margin-bottom: 24px;
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
+  color: #111111;
   font-size: 36px;
   text-align: left;
 }
@@ -8372,7 +8374,7 @@ figcaption {
   flex: 0 auto;
   font-family: 'Futura pt', sans-serif;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 56px;
   font-weight: 500;
   text-align: left;
@@ -8578,13 +8580,14 @@ figcaption {
 
 .heading-2 {
   width: 26rem;
+  min-width: 26rem;
   margin-bottom: 86px;
   padding-top: 0px;
   padding-left: 0px;
   background-color: #e56161;
-  font-family: 'Futura pt', sans-serif;
-  color: #252323;
-  font-size: 24px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 20px;
   font-weight: 500;
   letter-spacing: 1.5px;
   margin-left: 8em;
@@ -8594,7 +8597,7 @@ figcaption {
   margin-right: auto;
   margin-left: auto;
   font-family: 'Futura pt', sans-serif;
-  color: #252323;
+  color: #111111;
   font-size: 18px;
   font-weight: 500;
   text-align: center;
@@ -8626,8 +8629,8 @@ figcaption {
 .text-span-3 {
   width: 600px;
   font-size: 42px;
-  font-family: 'Epilogue';
-  font-weight: 700;
+  font-family: 'Futura pt', sans-serif;
+  font-weight: 800;
 }
 
 .image-2 {
@@ -8645,7 +8648,7 @@ figcaption {
   position: static;
   padding-top: 81px;
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
+  color: #111111;
   font-size: 24px;
   line-height: 30px;
   font-weight: 500;
@@ -8656,7 +8659,7 @@ figcaption {
 }
 
 .text-span-4 {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .navbar {
@@ -8709,8 +8712,8 @@ figcaption {
   padding-left: 10px;
   border-bottom: 1px none #e56161;
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
-  font-size: 18px;
+  color: #111111;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -8722,15 +8725,15 @@ figcaption {
 }
 
 .nav-link-2.w--current {
-  color: #414040;
+  color: #111111;
 }
 
 .nav-link-3 {
   padding-right: 10px;
   padding-left: 10px;
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
-  font-size: 18px;
+  color: #111111;
+  font-size: 16px;
 }
 
 .nav-link-3:hover {
@@ -8739,7 +8742,7 @@ figcaption {
 }
 
 .nav-link-3.w--current {
-  color: #414040;
+  color: #111111;
 }
 
 .nav-link-4 {
@@ -8747,8 +8750,8 @@ figcaption {
   padding-left: 10px;
   border-bottom: 5px none #e56161;
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
-  font-size: 18px;
+  color: #111111;
+  font-size: 16px;
 }
 
 .nav-link-4:hover {
@@ -8757,7 +8760,7 @@ figcaption {
 }
 
 .nav-link-4.w--current {
-  color: #414040;
+  color: #111111;
 }
 
 .div-block {
@@ -8788,8 +8791,8 @@ figcaption {
 }
 
 .text-block-7 {
-  font-family: 'Neutratext book', sans-serif;
-  color: #414040;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
   font-size: 16px;
   letter-spacing: 1px;
 }
@@ -8799,11 +8802,12 @@ figcaption {
   color: #151515;
   font-weight: 500;
   letter-spacing: 1.5px;
+  font-size: 24px;
 }
 
 .text-span-5 {
   border-bottom: 2px solid #d76864;
-  color: #414040;
+  color: #111111;
 }
 
 .empty-state-2 {
@@ -8819,8 +8823,8 @@ figcaption {
   padding-left: 10px;
   border-bottom: 5px none #e56161;
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
-  font-size: 18px;
+  color: #111111;
+  font-size: 16px;
 }
 
 .nav-link-5:hover {
@@ -8829,7 +8833,7 @@ figcaption {
 }
 
 .nav-link-5.w--current {
-  color: #414040;
+  color: #111111;
 }
 
 .navbar-2 {
@@ -8852,8 +8856,8 @@ figcaption {
   padding-right: 10px;
   padding-left: 10px;
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
-  font-size: 18px;
+  color: #111111;
+  font-size: 16px;
 }
 
 .nav-link-6:hover {
@@ -8862,7 +8866,7 @@ figcaption {
 }
 
 .nav-link-6.w--current {
-  color: #414040;
+  color: #111111;
 }
 
 .nav-link-7 {
@@ -8870,8 +8874,8 @@ figcaption {
   padding-left: 10px;
   border-bottom: 1px none #e56161;
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
-  font-size: 18px;
+  color: #111111;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -8883,7 +8887,7 @@ figcaption {
 }
 
 .nav-link-7.w--current {
-  color: #414040;
+  color: #111111;
 }
 
 .wrapper-2 {
@@ -8918,7 +8922,7 @@ figcaption {
   padding-right: 20px;
   padding-left: 20px;
   font-family: 'Futura pt', sans-serif;
-  color: #252323;
+  color: #111111;
   font-size: 36px;
   font-weight: 500;
   text-align: center;
@@ -8955,7 +8959,7 @@ figcaption {
   background-color: #d76864;
   font-family: 'Futura pt', sans-serif;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 16px;
   text-align: center;
   text-transform: capitalize;
@@ -9217,8 +9221,8 @@ figcaption {
   margin: 16px 12px 4px;
   padding-left: 38px;
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
-  font-size: 18px;
+  color: #111111;
+  font-size: 16px;
   line-height: 24px;
   font-weight: 500;
   text-align: left;
@@ -9408,7 +9412,7 @@ figcaption {
 .work-card-heading-2 {
   margin: 16px 12px 4px;
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
+  color: #111111;
   text-align: center;
   letter-spacing: 1px;
 }
@@ -9481,8 +9485,8 @@ figcaption {
   margin-right: 5px;
   margin-left: 5px;
   font-family: 'Futura pt', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  color: #111111;
+  font-size: 16px;
   line-height: 24px;
   font-weight: 400;
   letter-spacing: 1px;
@@ -9539,7 +9543,7 @@ figcaption {
 }
 
 .link-2 {
-  color: #414040;
+  color: #111111;
 }
 
 .container-2 {
@@ -9549,8 +9553,8 @@ figcaption {
 
 .text-block-8 {
   font-family: 'Futura pt', sans-serif;
-  color: #414040;
-  font-size: 18px;
+  color: #111111;
+  font-size: 16px;
 }
 
 .image-6 {
@@ -9635,8 +9639,8 @@ figcaption {
 }
 
 .text-block-10 {
-  color: #414040;
-  font-size: 18px;
+  color: #111111;
+  font-size: 16px;
 }
 
 .lottie-animation {
@@ -9687,9 +9691,9 @@ figcaption {
   z-index: 1;
   margin-right: 10px;
   margin-left: 20px;
-  font-family: 'Neutratext book', sans-serif;
+  font-family: 'Poppins', sans-serif;;
   color: #e56161;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
 }
 
@@ -9762,7 +9766,7 @@ figcaption {
 .footer-heading-2 {
   margin-top: 0px;
   margin-bottom: 20px;
-  color: #252323;
+  color: #111111;
   font-size: 20px;
   line-height: 1.5;
   font-style: normal;
@@ -9775,9 +9779,9 @@ figcaption {
   display: block;
   margin-bottom: 10px;
   border: 1px none #000;
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   text-align: center;
   letter-spacing: 1px;
   text-decoration: none;
@@ -9804,47 +9808,47 @@ figcaption {
 }
 
 .container-5 {
-  max-height: 54%;
+  height: 54%;
   max-width: 100%;
   margin-top: 0px;
   background-color: #e56161;
 }
 
 .text-span-7 {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .text-block-11 {
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   text-align: center;
 }
 
 .text-block-12 {
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
 }
 
 .text-block-13 {
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   text-align: center;
 }
 
 .text-block-14 {
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   text-align: center;
 }
 
 .link-3 {
   border-bottom: 3px solid #ffffff;
   border-radius: 0px;
-  color: #252323;
+  color: #111111;
 }
 
 .lottie-animation-2 {
@@ -9953,7 +9957,7 @@ figcaption {
 }
 
 .body-text.l {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 32px;
 }
 
@@ -10316,7 +10320,7 @@ figcaption {
 }
 
 .heading-8 {
-  color: #252323;
+  color: #111111;
   text-align: left;
 }
 
@@ -10325,15 +10329,15 @@ figcaption {
 }
 
 .paragraph-3 {
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
 }
 
 .paragraph-4 {
   margin-bottom: 40px;
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -10361,7 +10365,7 @@ figcaption {
   border-color: rgba(248, 187, 75, 0.06);
   border-radius: 18px;
   background-color: rgba(248, 187, 75, 0.66);
-  color: #252323;
+  color: #111111;
   font-size: 32px;
   line-height: 42px;
   text-align: center;
@@ -10369,7 +10373,7 @@ figcaption {
 
 .heading-10 {
   padding-top: 20px;
-  color: #252323;
+  color: #111111;
 }
 
 .bold-text {
@@ -10419,17 +10423,17 @@ a {
 }
 
 .paragraph-6 {
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   line-height: 30px;
 }
 
 .paragraph-7 {
   margin-bottom: 10px;
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -10480,8 +10484,8 @@ a {
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
 }
 
 .paragraph-8 {
@@ -10507,8 +10511,8 @@ a {
   border-radius: 7px;
   background-color: #fff;
   box-shadow: 3px 3px 3px 0 #d1d1d1;
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
   text-align: left;
 }
 
@@ -10548,15 +10552,15 @@ a {
 }
 
 .paragraph-9 {
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
   line-height: 30px;
 }
 
 .paragraph-10 {
   margin-bottom: 40px;
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -10567,9 +10571,9 @@ a {
   border-radius: 20px;
   background-color: #fff;
   box-shadow: 1px 1px 3px 0 #666;
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
 }
 
 .text-block-18 {
@@ -10582,8 +10586,8 @@ a {
   border-radius: 0px;
   background-color: transparent;
   font-family: 'Futura pt', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  color: #111111;
+  font-size: 16px;
   letter-spacing: 1px;
   text-transform: capitalize;
   cursor: pointer;
@@ -10630,7 +10634,7 @@ a {
   /* padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 0px; */
-  font-family: 'Neutratext book', sans-serif;
+  font-family: 'Poppins', sans-serif;;
   font-size: 16px;
   line-height: 30px;
   text-align: center;
@@ -10660,54 +10664,54 @@ a {
 
 .text-span-10 {
   font-family: 'Futura pt', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   text-transform: uppercase;
 }
 
 .paragraph-11 {
   margin-top: 0px;
   margin-bottom: 20px;
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
   line-height: 30px;
 }
 
 .list-item {
   margin-bottom: 20px;
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
   line-height: 30px;
 }
 
 .list-item-2 {
   margin-bottom: 20px;
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
 }
 
 .paragraph-12 {
   margin-top: 60px;
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   line-height: 30px;
 }
 
 .list-item-3 {
   margin-bottom: 20px;
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
   line-height: 30px;
 }
 
 .block-quote {
   margin-left: 20px;
-  font-family: 'Neutratext book', sans-serif;
+  font-family: 'Poppins', sans-serif;;
 }
 
 .block-quote-2 {
   margin-left: 20px;
-  font-family: 'Neutratext book', sans-serif;
+  font-family: 'Poppins', sans-serif;;
 }
 
 .text-span-11 {
@@ -10731,9 +10735,9 @@ a {
 }
 
 .paragraph-13 {
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -10751,8 +10755,8 @@ a {
 }
 
 .paragraph-14 {
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -10780,23 +10784,23 @@ a {
 }
 
 .paragraph-15 {
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   line-height: 30px;
 }
 
 .paragraph-16 {
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   line-height: 30px;
 }
 
 .paragraph-17 {
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -10822,9 +10826,9 @@ a {
   width: 400px;
   margin-bottom: 100px;
   float: left;
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -10849,9 +10853,9 @@ a {
 
 .paragraph-19 {
   width: 400px;
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -10860,9 +10864,9 @@ a {
 }
 
 .paragraph-20 {
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -10871,8 +10875,8 @@ a {
 }
 
 .paragraph-21 {
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -10882,12 +10886,12 @@ a {
 
 .link-4 {
   border-bottom: 3px solid #e56161;
-  color: #414040;
+  color: #111111;
 }
 
 .heading-15 {
   margin-top: 40px;
-  color: #252323;
+  color: #111111;
 }
 
 .image-17 {
@@ -10895,9 +10899,9 @@ a {
 }
 
 .paragraph-22 {
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -10905,9 +10909,9 @@ a {
   margin-top: 40px;
   margin-bottom: 40px;
   background-color: transparent;
-  font-family: 'Neutratext book', sans-serif;
-  color: #252323;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  color: #111111;
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -10919,8 +10923,8 @@ a {
 }
 
 .paragraph-24 {
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
 }
 
 .div-block-14 {
@@ -10929,18 +10933,18 @@ a {
 }
 
 .paragraph-25 {
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
   line-height: 30px;
 }
 
 .paragraph-26 {
-  font-family: 'Neutratext book', sans-serif;
+  font-family: 'Poppins', sans-serif;;
 }
 
 .paragraph30 {
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -10950,14 +10954,14 @@ a {
 }
 
 .paragraph-27 {
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
   line-height: 30px;
 }
 
 .paragraph-28 {
-  font-family: 'Neutratext book', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -10970,15 +10974,15 @@ a {
 }
 
 .heading-16 {
-  color: #252323;
+  color: #111111;
 }
 
 .heading-17 {
-  color: #252323;
+  color: #111111;
 }
 
 .heading-18 {
-  color: #252323;
+  color: #111111;
 }
 
 .bold-text-2 {
@@ -11051,14 +11055,14 @@ a {
 
 .link-5 {
   border-bottom: 2px solid #e56161;
-  color: #252323;
+  color: #111111;
 }
 
 .link-6 {
   border-style: none none solid;
   border-width: 2px;
   border-color: #e56161;
-  color: #252323;
+  color: #111111;
 }
 
 .text-span-23 {
@@ -12072,12 +12076,12 @@ a {
   }
 
   .review-v2-text {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 28px;
   }
 
   .review-v3-author {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
   }
 
@@ -12290,7 +12294,7 @@ a {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
   }
 
@@ -12685,7 +12689,7 @@ a {
   }
 
   .text-block-4 {
-    color: #252323;
+    color: #111111;
   }
 
   .image-3 {
@@ -12843,21 +12847,21 @@ a {
   }
 
   .top-line {
-    background-color: #252323;
+    background-color: #111111;
   }
 
   .middle-line {
-    background-color: #252323;
-    color: #414040;
+    background-color: #111111;
+    color: #111111;
   }
 
   .bottom-line {
-    background-color: #252323;
+    background-color: #111111;
   }
 
   .text-block-10 {
-    color: #414040;
-    font-size: 18px;
+    color: #111111;
+    font-size: 16px;
   }
 
   .footer-2 {
@@ -12960,6 +12964,7 @@ a {
 
   .image-8 {
     margin-bottom: -3px;
+    width: 100%;
   }
 
   .paragraph-8 {
@@ -12999,7 +13004,9 @@ a {
   }
   .section.about-me{
     padding-left: 50px;
+    margin-top: 0px;
   }
+
 
   h4 {
     margin-bottom: 8px;
@@ -13515,7 +13522,7 @@ a {
   }
 
   .logo-text {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
   }
 
@@ -14010,7 +14017,7 @@ a {
   }
 
   .nav-link-2 {
-    color: #414040;
+    color: #111111;
   }
 
   .icon-2 {
@@ -14020,7 +14027,7 @@ a {
   }
 
   .nav-link-7 {
-    color: #414040;
+    color: #111111;
   }
 
   .breadcrumbs-2 {
@@ -14106,20 +14113,20 @@ a {
   }
 
   .top-line {
-    background-color: #252323;
+    background-color: #111111;
   }
 
   .middle-line {
-    background-color: #252323;
+    background-color: #111111;
   }
 
   .bottom-line {
-    background-color: #252323;
+    background-color: #111111;
   }
 
   .text-block-10 {
-    color: #414040;
-    font-size: 18px;
+    color: #111111;
+    font-size: 16px;
   }
 
   .footer-2 {
@@ -14208,15 +14215,15 @@ a {
   }
 
   .text-span-10 {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
 @media screen and (max-width: 479px) {
   h2 {
     font-family: 'Futura pt', sans-serif;
-    color: #414040;
-    font-size: 18px;
+    color: #111111;
+    font-size: 16px;
     letter-spacing: 1px;
   }
 
@@ -14230,13 +14237,13 @@ a {
 
   h4 {
     font-family: 'Futura pt', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     letter-spacing: 1px;
   }
 
   p {
-    color: #414040;
+    color: #111111;
   }
 
   .section {
@@ -14295,8 +14302,9 @@ a {
   }
 
   .section.about-me {
-    height: 850px;
     padding-left: 20px;
+    height: 1000px;
+    margin-top: 0px;
   }
 
   .wrapper {
@@ -15346,7 +15354,7 @@ a {
 
   .work-heading {
     font-family: 'Futura pt', sans-serif;
-    color: #414040;
+    color: #111111;
     font-size: 24px;
   }
 
@@ -15411,7 +15419,7 @@ a {
     -ms-flex-item-align: auto;
     -ms-grid-row-align: auto;
     align-self: auto;
-    font-size: 18px;
+    font-size: 16px;
     text-align: left;
   }
 
@@ -15426,7 +15434,7 @@ a {
     margin-top: 0px;
     margin-bottom: 0px;
     padding-bottom: 0px;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .text-span-3 {
@@ -15594,7 +15602,7 @@ a {
   }
 
   .heading-5 {
-    margin-top: 100px;
+    margin-top: 50px;
   }
 
   .menu-button-3 {
@@ -15673,7 +15681,7 @@ a {
 
   .work-heading-2 {
     font-family: 'Futura pt', sans-serif;
-    color: #414040;
+    color: #111111;
     font-size: 24px;
   }
 
@@ -15754,20 +15762,20 @@ a {
   }
 
   .top-line {
-    background-color: #252323;
+    background-color: #111111;
   }
 
   .middle-line {
-    background-color: #252323;
+    background-color: #111111;
   }
 
   .bottom-line {
-    background-color: #252323;
+    background-color: #111111;
   }
 
   .text-block-10 {
-    color: #414040;
-    font-size: 18px;
+    color: #111111;
+    font-size: 16px;
   }
 
   .lottie-animation {
@@ -15808,7 +15816,6 @@ a {
     -webkit-box-align: start;
     -webkit-align-items: flex-start;
     -ms-flex-align: center;
-
   }
 
   .footer-logo-link {

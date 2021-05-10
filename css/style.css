@@ -1,5 +1,5 @@
 :root {
-    --primary-black: #555555;
+    --primary-black: #111111;
     --secondary-black: #868686;
     --tertiary-black: #aaaaaa;
     --primary-text: #111111;
@@ -102,8 +102,8 @@ hr {
 }
 
 .video-feature-subtitle {
-  font-family: 'Fakt', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   color: var(--primary-black);
@@ -120,8 +120,8 @@ hr {
 }
 
 .video-alternative-subtitle {
-  font-family: 'Fakt', sans-serif;
-  font-size: 18px;
+  font-family: 'Poppins', sans-serif;;
+  font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   color: var(--primary-black);
@@ -130,7 +130,7 @@ hr {
 
 .photos-pros {
   font-family: 'Circular Std Black';
-  font-size: 18px;
+  font-size: 16px;
   color: #5694EE;
   letter-spacing: 0.56px;
 }
@@ -211,7 +211,7 @@ hr {
   }
   
   .jumbotron p {
-    font-family: 'Fakt', sans-serif;
+    font-family: 'Poppins', sans-serif;;
     font-size: 16px;
     font-weight: 100;
     line-height: 32px;
@@ -262,7 +262,7 @@ hr {
   
   .la-line-scale h4 {
     font-family: "Circular Std Black" !important;
-    font-size: 18px;
+    font-size: 16px;
     color: var(--primary-black);
     padding:4px 0px 2px 0px;
   }
@@ -773,7 +773,7 @@ hr {
   .bs-docs-sidebar .nav>li>a {
       color: var(--secondary-black);
       padding: 4px 20px;
-      font-family: 'Fakt', sans-serif;
+      font-family: 'Poppins', sans-serif;;
       font-size: 1.1em;
       font-weight: 200;
   }
@@ -1015,7 +1015,7 @@ hr {
   
     .card-content {
       /* Cultivating Mindfuln: */
-      font-family: 'Fakt', sans-serif;
+      font-family: 'Poppins', sans-serif;;
       font-weight: 200;
       font-size: 16px;
       color: var(--primary-black);
@@ -1035,7 +1035,7 @@ hr {
     }
   
     .subgroup-right-side p {
-      font-family: 'Fakt', sans-serif;
+      font-family: 'Poppins', sans-serif;;
       font-size: 14px;
       font-weight: 200;
       margin-bottom: 32px;
@@ -1044,7 +1044,7 @@ hr {
   
     .subgroup-left-side h4 {
       margin-bottom: 16px;
-      font-size: 20px;
+      /* font-size: 20px; */
       color: var(--primary-black);
       letter-spacing: 0.8px;
       font-family: 'Futura pt', sans-serif;
@@ -1054,7 +1054,7 @@ hr {
     .subgroup-right-side h4 {
       font-family: 'Circular Std Bold', sans-serif;
       font-weight: 400;
-      font-size: 18px;
+      font-size: 16px;
       color: var(--primary-black);
       letter-spacing: 0.8px;
     }
@@ -1074,7 +1074,7 @@ hr {
   
   
     .navbar-default {
-      font-family: 'Fakt', sans-serif;
+      font-family: 'Poppins', sans-serif;;
       font-size: 15px;
       font-weight: 200;
       background-color: #FAFAFA;
@@ -1146,7 +1146,7 @@ hr {
   
     .card-title {
       font-family: "Circular Std Black" !important;
-      font-size: 18px;
+      font-size: 16px;
       color: var(--primary-black);
       margin-bottom: 4px;
     }
@@ -1159,7 +1159,7 @@ hr {
     }
   
     .card-content {
-      font-family: 'Fakt', sans-serif;
+      font-family: 'Poppins', sans-serif;;
       font-weight: 200;
       font-size: 14px;
       color: var(--primary-black);
@@ -1174,7 +1174,7 @@ hr {
     }
   
     .subgroup-left-side p {
-      font-family: 'Fakt', sans-serif;
+      font-family: 'Poppins', sans-serif;;
       font-size: 16px;
       font-weight: 200;
       line-height: 28px;
@@ -1183,7 +1183,7 @@ hr {
     }
   
     .subgroup-right-side p {
-      font-family: 'Fakt', sans-serif;
+      font-family: 'Poppins', sans-serif;;
       font-size: 14px;
       font-weight: 200;
       margin-bottom: 32px;
@@ -1193,7 +1193,7 @@ hr {
     .subgroup-left-side h4 {
       margin-bottom: 16px;
       font-family: 'Circular Std Bold';
-      font-size: 20px;
+      /* font-size: 20px; */
       color: var(--primary-black);
       letter-spacing: 0.8px;
     }
@@ -1201,7 +1201,7 @@ hr {
     .subgroup-right-side h4 {
       font-family: 'Circular Std Bold', sans-serif;
       font-weight: 400;
-      font-size: 18px;
+      font-size: 16px;
       color: var(--primary-black);
       letter-spacing: 0.8px;
     }
@@ -1279,8 +1279,8 @@ hr {
     }
   
     .article-subtitle {
-      font-family: 'Fakt', sans-serif;
-      font-size: 18px;
+      font-family: 'Poppins', sans-serif;;
+      font-size: 16px;
       font-weight: 200;
       line-height: 32px;
       color: var(--secondary-black);
@@ -1313,9 +1313,8 @@ hr {
     }
 
     .subgroup ul {
-      font-family: 'Fakt', sans-serif;
+      font-family: 'Poppins', sans-serif;;
       font-size: 16px;
-      font-weight: 200;
       line-height: 24px;
       margin-bottom: 48px;
       color: var(--primary-text);
@@ -1464,7 +1463,7 @@ hr {
     }
   
     .navbar-default {
-      font-family: 'Fakt', sans-serif;
+      font-family: 'Poppins', sans-serif;;
       font-size: 15px;
       font-weight: 200;
       background-color: #FAFAFA;
@@ -1476,7 +1475,8 @@ hr {
       color: var(--primary-black) !important;
       font-weight: normal;
       font-size: 1.2em;
-      font-family: 'Carolina Mountains', 'Fakt', sans-serif !important;
+      /* ?????? */
+      font-family: 'Carolina Mountains', sans-serif !important;
     }
   
     .navbar-default .navbar-nav>li>a {
@@ -1542,7 +1542,7 @@ hr {
   
     .card-title {
       font-family: "Circular Std Black" !important;
-      font-size: 18px;
+      font-size: 16px;
       color: var(--primary-black);
       margin-bottom: 4px;
     }
@@ -1555,7 +1555,7 @@ hr {
     }
   
     .card-content {
-      font-family: 'Fakt', sans-serif;
+      font-family: 'Poppins', sans-serif;;
       font-weight: 200;
       font-size: 14px;
       color: var(--primary-black);
@@ -1581,7 +1581,7 @@ hr {
     }
   
     .article-subtitle {
-      font-family: 'Fakt', sans-serif;
+      font-family: 'Poppins', sans-serif;;
       font-size: 16px;
       font-weight: 200;
       line-height: 24px;
@@ -1621,7 +1621,7 @@ hr {
     }
   
     .subgroup ul {
-      font-family: 'Fakt', sans-serif;
+      font-family: 'Poppins', sans-serif;;
       font-size: 15px;
       font-weight: 300;
       line-height: 24px;
@@ -1630,7 +1630,7 @@ hr {
     }
   
     .subgroup-left-side p {
-      font-family: 'Fakt', sans-serif;
+      font-family: 'Poppins', sans-serif;;
       font-size: 15px;
       font-weight: 300;
       line-height: 24px;
@@ -1639,7 +1639,7 @@ hr {
     }
   
     .subgroup-right-side p {
-      font-family: 'Fakt', sans-serif;
+      font-family: 'Poppins', sans-serif;;
       font-size: 14px;
       font-weight: 300;
       margin-bottom: 24px;
@@ -1648,7 +1648,7 @@ hr {
   
     .subgroup-left-side h4 {
       margin-bottom: 16px;
-      font-size: 16px;
+      /* font-size: 16px; */
       color: var(--primary-black);
       letter-spacing: 0.5px;
     }
@@ -1837,8 +1837,8 @@ hr {
   
   h6 {
     margin-top: 0px;
-    font-family: 'Fakt', sans-serif;
-    font-size: 18px;
+    font-family: 'Poppins', sans-serif;;
+    font-size: 16px;
     font-weight: 300;
     color: var(--secondary-black);
   }
@@ -1849,7 +1849,7 @@ hr {
   }
   
   .quote {
-    font-family: 'Fakt', sans-serif;
+    font-family: 'Poppins', sans-serif;;
     /* font-style: italic; */
     font-size: 1.8em;
     font-weight: 100;
@@ -1880,7 +1880,7 @@ hr {
   } */
   
   .content-box p {
-    font-family: 'Fakt', sans-serif;
+    font-family: 'Poppins', sans-serif;;
     font-size: 16px;
     font-weight: 200;
     line-height: 24px;
@@ -1892,7 +1892,7 @@ hr {
     font-size: 1.1em;
     font-weight: 300; */
   
-    font-family: 'Fakt', sans-serif;
+    font-family: 'Poppins', sans-serif;;
     font-size: 16px;
     font-weight: 200;
     /* color: var(--primary-black); */
