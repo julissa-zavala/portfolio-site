@@ -9039,7 +9039,7 @@ figcaption {
   background-color: #ffffff;
   background-image: url('../images/mockups_kaus.png');
   background-position: 50% 50%;
-  background-size: 950px;
+  background-size: 60%;
   background-repeat: no-repeat;
   -o-object-fit: contain;
   object-fit: contain;
@@ -10630,7 +10630,7 @@ a {
   background-color: transparent;
   font-family: 'Futura pt', sans-serif;
   color: #111111;
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing: 1px;
   text-transform: capitalize;
   cursor: pointer;
@@ -12813,7 +12813,7 @@ a {
   }
 
   .work-preview-2 {
-    width: auto;
+    width: 100%;
     height: 68vw;
     max-height: none;
     max-width: 100%;
@@ -14100,11 +14100,11 @@ a {
     align-items: center;
     background-color: #fff;
     background-position: 50% 50%;
-    background-size: cover;
+    background-size: 100%;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1);
     -o-object-fit: fill;
     object-fit: fill;
-    background-image: url('../images/smartmockups_kky94xxy.png');
+    background-image: url('../images/mockups_kaus.png');
   }
 
   .cards-section {
@@ -15464,6 +15464,7 @@ a {
     align-self: auto;
     font-size: 16px;
     text-align: left;
+    min-width: 100px;
   }
 
   .text-span-3 {
@@ -15820,9 +15821,9 @@ a {
     font-size: 16px;
   }
 
-  .lottie-animation {
+  /* .lottie-animation {
     display: none;
-  }
+  } */
 
   .footer-2 {
     display: block;
