@@ -105,7 +105,7 @@ hr {
   font-family: 'Poppins', sans-serif;;
   font-size: 16px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 33px;
   color: var(--primary-black);
   padding-bottom: 12px;
 }
@@ -123,7 +123,7 @@ hr {
   font-family: 'Poppins', sans-serif;;
   font-size: 16px;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 33px;
   color: var(--primary-black);
   padding-bottom: 12px;
 }
@@ -214,7 +214,7 @@ hr {
     font-family: 'Poppins', sans-serif;;
     font-size: 16px;
     font-weight: 100;
-    line-height: 32px;
+    line-height: 33px;
     color: var(--secondary-black);
     text-align: center;
   }
@@ -1273,7 +1273,7 @@ hr {
       font-family: 'Poppins', sans-serif;;
       font-size: 16px;
       font-weight: 200;
-      line-height: 32px;
+      line-height: 33px;
       color: var(--secondary-black);
       text-align: center;
     }
@@ -1306,7 +1306,7 @@ hr {
     .subgroup ul {
       font-family: 'Poppins', sans-serif;;
       font-size: 16px;
-      line-height: 24px;
+      line-height: 33px;
       margin-bottom: 48px;
       color: var(--primary-text);
     }
@@ -1575,7 +1575,7 @@ hr {
       font-family: 'Poppins', sans-serif;;
       font-size: 16px;
       font-weight: 200;
-      line-height: 24px;
+      line-height: 33px;
       color: var(--secondary-black);
       text-align: center;
     }
@@ -1605,7 +1605,7 @@ hr {
     }
   
     .subgroup p {
-      line-height: 24px;
+      line-height: 33px;
       margin-bottom: 28px;
       color: var(--primary-text);
     }
@@ -1613,7 +1613,7 @@ hr {
     .subgroup ul {
       font-family: 'Poppins', sans-serif;;
       font-size: 15px;
-      line-height: 24px;
+      line-height: 33px;
       margin-bottom: 28px;
       color: var(--primary-text);
     }
@@ -1621,7 +1621,7 @@ hr {
     .subgroup-left-side p {
       font-family: 'Poppins', sans-serif;;
       font-size: 16px;
-      line-height: 24px;
+      line-height: 33px;
       margin-bottom: 28px;
       color: var(--primary-text);
     }
@@ -1871,7 +1871,7 @@ hr {
     font-family: 'Poppins', sans-serif;;
     font-size: 16px;
     font-weight: 200;
-    line-height: 24px;
+    line-height: 33px;
     color: var(--primary-black);
   }
   
