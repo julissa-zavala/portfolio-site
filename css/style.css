@@ -1063,10 +1063,6 @@ hr {
   /*Larger than medium but smaller than largest screen*/
   @media only screen and (min-width: 768px) and (max-width: 991px) {
   
-    body {
-      margin-top: 120px;
-    }
-  
   
     .navbar-default {
       font-family: 'Poppins', sans-serif;;
@@ -1404,9 +1400,9 @@ hr {
   /*Mobile screen*/
   @media only screen and (max-width: 767px) {
   
-    body {
+    /* body {
       margin-top: 80px;
-    }
+    } */
   
     .video-features {
         max-width: 250px;
