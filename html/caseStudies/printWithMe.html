@@ -11,6 +11,7 @@
   <link href="../../css/webflow.css" rel="stylesheet" type="text/css">
   <meta content="Webflow" name="generator">
   <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
   <link href="../../css/portfolio-site-eeae4b-63385fc4b12c92965.webflow.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -24,6 +25,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
   </script>
+  
   <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
   <script type="text/javascript">
     ! function (o, c) {
@@ -199,17 +201,17 @@
           <p class="paragraph-6">PrintWithMe aims to meet consumers who don’t necessarily need a printer at home but
             still have one-off printing needs for things like shipping and return labels.
             <br><br> The scope of this project is <span class="highlight highlight-eatxplore">to research and redesign
-              the PrintWithMe website to create a stronger user experience.</span></p>
+            PrintWithMe's current website to create a stronger user experience.</span></p>
           <br>
           <div id="problem" class="subgroup">
             <h4 class="heading-8">The Problem</h4>
             <p class="paragraph-4"> PrintWithMe offers people the convenience of printing on the go without any of the
               responsibilities that come with owning and maintaining a printer at home. Though PrintWithMe’s mission is
               to make printing both accessible and convenient, there are still opportunities to <span
-                class="highlight highlight-eatxplore">1) improve the end-to-end printing experience</span> and <span
-                class="highlight highlight-eatxplore">2) create a more enjoyable printing experience.</span>
+                class="highlight highlight-eatxplore">improve the end-to-end printing experience</span> and <span
+                class="highlight highlight-eatxplore">make the process more streamlined for users.</span>
               <br><br>
-              There are three key aspects of the end-to-end printing experience PrintWithMe provides that cause
+              There are three key aspects of using PrintWithMe's self-service printers that cause
               frustration with users. These are:
             </p>
             <ul role="list" class="list-2">
@@ -232,7 +234,7 @@
       <div class="col-lg-7 col-md-7 col-sm-10 col-xs-12 col-centered main-content">
         <section class="group">
           <div id="solution" class="row">
-            <div class="subgroup-left-side col-lg-12 col-md-8 col-sm-12 col-xs-12">
+            <div class="subgroup-left-side col-lg-12 col-sm-12 col-xs-12">
               <h4 class="heading-10">The Solution</h4>
               <p class="paragraph-7"></p>
               <ul role="list" class="list-2">
@@ -245,7 +247,7 @@
                   users to upload their documents directly on the site, preview their document, check out, and receive a
                   QR code to retrieve their document.</li>
 
-                <a href="https://projects.invisionapp.com/share/J4ZZDEKFR5C#/screens"
+                <a href="https://invis.io/GS10YAWFQM86#/450857876_Mobile_Homepage_Copy_3"
                   data-w-id="47da1261-65c3-9db1-b51d-259838678e03" class="button-wrapper w-inline-block">
                   <div style="opacity:0" class="button-background"></div>
                   <div class="button-text">View Protoype</div><img src="../../images/realredarrow-right.svg" width="20"
@@ -278,7 +280,7 @@
               <li class="list-item-2">What makes printing at a print service location <span
                   class="highlight highlight-eatxplore">an enjoyable experience?</span></li>
               <li class="list-item-3">Discover any opportunities to <span class="highlight highlight-eatxplore">improve
-                  on the end-to-end user experience, from finding a printing location to printing out a document.</span>
+                  on the end-to-end user experience.</span>
               </li>
               <li class="list-item-3">Identify the <span class="highlight highlight-eatxplore">different
                   touchpoints</span> (website, business location, physical printer, etc) across systems for using a
@@ -340,7 +342,7 @@
                   <p class="paragraph-11">At this point, I gauged the strengths and weaknesses of PrintWithMe's website,
                     and of the websites of its competitors. However, I needed to see <span
                       class="highlight highlight-eatxplore">how the usability of these websites would play out with real
-                      users.</span> I conducted 1:1 user interviews with 3 participants in order to observe their
+                      users.</span> I conducted 1:1 customer interviews with 3 participants in order to observe their
                     experiences with competitors’ websites as they completed three main tasks for each site.
                     This way, I can test my initial assumptions of what works with PrintWithMe’s website, and what
                     doesn’t.
@@ -348,29 +350,29 @@
                     The tasks participants were asked to complete for each website were:
                   </p>
                   <ol type="1">
-                    <li>Explore homepage and tell me what your first impressions are of this website</li>
-                    <li>Look for information on how to use a self-service printer</li>
-                    <li>Look for the nearest self-service printer location near you</li>
+                    <li class="list-item">Explore homepage and tell me what your first impressions are of this website</li>
+                    <li class="list-item-2">Look for information on how to use a self-service printer</li>
+                    <li class="list-item-3">Look for the nearest self-service printer location near you</li>
                   </ol>
                   <br><br>
                   <p class="paragraph-11">
                     For these customer interviews, I asked participants to complete tasks on three websites total:
-                    <b>Staples</b>, <b>FedEx</b>, and <b>PrintWithMe</b>. While OfficeMax was identified as a direct
+                    <b>Staples</b>, <b>FedEx</b>, and <b>PrintWithMe</b>. While Office Depot was identified as a direct
                     competitor, findings from my competitive analysis and heuristic evaluation found that <span
-                      class="highlight highlight-eatxplore">OfficeMax was a weaker competitor compared to Staples and
-                      FedEx.</span>
+                      class="highlight highlight-eatxplore">OfficeMax was a weaker competitor</span> compared to Staples and
+                      FedEx.
                     Likewise, I did not want to <span class="highlight highlight-eatxplore">overload the interview
                       participants with too many websites</span>, especially with there being three tasks to complete
                     for each website.
                   </p>
                   <br>
                   <div class="center-images">
-                    <a data-fancybox="images27" href="../../images/PWMcurrentlocationsearchtool.png"><img
+                    <a data-fancybox="images27" href="../../images/pwmsearchtool.png"><img
                         src="../../images/PWMcurrentlocationsearchtool.png" alt=""></a>
                   </div>
                   <p class="paragraph-13"><br><br>
-                    One key finding was that all participants felt that <span
-                      class="highlight highlight-eatxplore">PrintWithMe’s location search tool was the most difficult to
+                    One key finding was that all participants identified <span
+                      class="highlight highlight-eatxplore">PrintWithMe’s location search tool as the most difficult to
                       use across the websites tested.</span>
                     <br>This was because:</p>
                   <ul role="list" class="list-2">
@@ -411,7 +413,7 @@
                     data-src="../documents/3520-light-bulb.json" data-loop="1" data-direction="1" data-autoplay="1"
                     data-is-ix2-target="0" data-renderer="svg" data-default-duration="2" data-duration="0"
                     class="lottie-animation-3"></div>
-                  <h4 class="heading-9">How might we design an inviting insurance site users can trust?</h4>
+                  <h4 class="heading-9">How might make it easier for users to find information on how to use PrintWithMe's self-service printers?</h4>
                 </div>
             </div>
             <div id="keytakeaways" class="subgroup">
@@ -454,10 +456,10 @@
         <section class="group">
           <div id="storyBoard" class="row subgroup">
             <h4>Storyboard</h4>
-            <p class="paragraph-15"> Now, I wanted to get a thorough understanding of what barriers exist in the process
-              to print a document with PrintWithMe.
+            <p class="paragraph-15"> Now, I wanted to get a thorough understanding of what barriers exist when printing
+            a document with PrintWithMe.
               So, I created a storyboard narrating the <span class="highlight highlight-eatxplore">user’s current
-                end-to-end experience with PrintWithMe.</span> In order to show an authentic experience, so I kept the
+                end-to-end experience with PrintWithMe.</span> In order to demonstrate an authentic experience, I kept the
               following in mind when creating this initial storyboard:
             </p>
             <ul role="list" class="list-2">
@@ -474,7 +476,7 @@
             </div>
             <br>
             <p class="paragraph-15"> Next, I created a storyboard showing what the <span
-                class="highlight highlight-eatxplore">user’s end-to-end experience could look like with redesign of the
+                class="highlight highlight-eatxplore">user’s end-to-end experience could look like with a redesign of the
                 experience.</span>
               <br>
            </p>
@@ -491,8 +493,8 @@
             <p class="paragraph-17">The two storyboards I created helped me get a sense of the user’s end-to-end
               experience when printing with PrintWithMe. This experience starts from the <span
                 class="highlight highlight-eatxplore">user’s first time navigating the PrintWithMe homepage to actually
-                going to a printer location and printing a document.</span> With that story in mind, I developed a user
-              task flow, using information from the storyboards created.
+                going to a printer location and printing a document.</span> I developed a user
+              task flow using information from the two storyboards created.
               <br><br> This user task flow incorporates both the <span class="highlight highlight-eatxplore">online and
                 physical steps a user takes in order to print a document</span> and is punctuated with key decision
               points the user makes when printing a document.</p>
@@ -548,11 +550,13 @@
               <a data-fancybox="images5" href="../../images/lowfiresponsivewireframesofhomepage.png"><img
                   src="../../images/lowfiresponsivewireframesofhomepage.png"  class="image-14"></a>
             </div>
-            <p class="paragraph-17">I designed the the location page and confirmation pages, however, from scratch because these pages do not exist within PrintWithMe’s current site. I incorporated
+            <p class="paragraph-17">Then I designed the location page and confirmation pages. Because these pages do not exist within PrintWithMe’s current site, I designed these pages from scratch. I incorporated
               elements from the Staples’ and FedEx’s location pages that users liked in my customer interviews and built
               on those design systems.
             </p>
             <br>
+
+
             <div class="center-images">
               <a data-fancybox="images5" href="../../images/locationpageresponsive.png"><img
                   src="../../images/locationpageresponsive.png"  class="image-14"></a>
@@ -561,8 +565,14 @@
               <a data-fancybox="images5" href="../../images/pwm_confirmationpageresponsive.png"><img
                   src="../../images/pwm_confirmationpageresponsive.png"  class="image-14"></a>
             </div>
+
+
+
+          </div>
+
+
             <br><br>
-            <p class="paragraph-17">Then I designed screens for the task flow of uploading a document to print.
+            <p class="paragraph-17">Then I designed screens for the user task flow of uploading a document to print.
             </p>
             <div class="center-images">
               <a data-fancybox="images5" href="../../images/lowfimobile.png"><img
@@ -577,6 +587,7 @@
             <h1 class="heading-12">* * * * *</h1>
             <h1 class="work-heading-2">Prototyping and Testing</h1>
             <div id="testPrototype" class="subgroup">
+              <br>
               <h4>Low-Fidelity Prototype</h4>
               <p class="paragraph-24">
                 I created a low-fidelity prototype to test two user flows: searching for a printer location and
@@ -584,8 +595,8 @@
                 I opted to create a low-fidelity prototype for testing so I could focus on <span
                   class="highlight highlight-eatxplore">testing the user’s experience with the usability and
                   interactions</span> of the site.
-                Since my design solution centers on redesigning the experience of the homepage, location search tool and
-                uploading a document, I wanted to test only those solutions--not what users think about the visual
+                Since my design solution centers on redesigning the  user experience with the homepage, the location search tool and
+                the process of uploading a document, I wanted to test only those solutions--not what users think about the visual
                 design of the site.
               </p>
               <br><a href="https://projects.invisionapp.com/share/J4ZZDEKFR5C#/screens"
@@ -624,30 +635,19 @@
                 <p class="paragraph-25">Opportunities for improvement include:
                 </p>
                 <ul role="list" class="list-2">
-                  <li class="list-item">While most participants found the document upload process simple to use, there
-                    was still some confusion on how the QR code worked. For instance, It wasn’t clear that once the user
-                    went through the document upload process, they had <span class="highlight highlight-eatxplore">only
-                      24 hours to go to a printer location and print their document.</span> Otherwise, their document
-                    would be automatically deleted.
-                    However, this seems like this is mostly a copywriting issue that can be fixed by making the ‘How It
+                  <li class="list-item">Some participants didn't realize that they had <span class="highlight highlight-eatxplore">only
+                      24 hours to go to a printer location and print their document, until they reached the confirmation page.</span>
+                    This can be fixed by making the ‘How It
                     Works’ section on the homepage clearer and more comprehensive.</li>
-                  <li class="list-item-2">Some users suggested making the <span
-                      class="highlight highlight-eatxplore">toggle button more visible in location search tool.</span>
-                  </li>
-                  <li class="list-item-3">When selecting a document to upload, users had trouble understanding what the
-                    next step was. Eventually, users realized they needed to scroll down and click the ‘upload document’
-                    button. This can be fixed by <span class="highlight highlight-eatxplore">moving the ‘upload
-                      document’ button above the fold</span> on this page.</li>
-                  <li class="list-item-2">Users suggested changing the <span
-                      class="highlight highlight-eatxplore">placement of ‘continue as guest’ button</span> so it’s
-                    easily visible in case someone is in a rush to finish printing.</li>
-                  <li class="list-item-2">One user suggested changing the <span
-                      class="highlight highlight-eatxplore">placement of ‘back’ link button in print preview and check
-                      out page.</span></li>
+                    <li class="list-item-2">Some users also were quick to leave the confirmation page, not understanding that they needed to save the QR code before leaving the page in order to retrieve their document. It needs to be <span
+                        class="highlight highlight-eatxplore">clearer that users should save the QR code before leaving the confirmation page.</span>
+                    </li>
                   <li class="list-item-2">One user asked about how <span class="highlight highlight-eatxplore">COVID-19
                       would affect certain locations</span> since some restaurants and cafes have strict rules about the
                     number of guests allowed inside. This can be fixed with a COVID-19 announcement banner on the
                     location page.</li>
+                    <li class="list-item">There was feedback from users about the placement of certain buttons throughout the site. Suggestions included making the <span class="highlight highlight-eatxplore">toggle button more visible in location search tool</span>, and <span class="highlight highlight-eatxplore">changing the placement of the 'continue as guest' button when checking out.</span></li>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -677,10 +677,8 @@
             <div id="keyTakeaways4" class="subgroup">
               <h4 style="margin-top: 30px;">Key Takeaways</h4>
               <p class="paragraph-27">With usability testing, I received a lot of user comments about what worked and
-                didn’t work usability-wise.
-                While I was able to parse out key findings from testing, patterns became clearer when visualized on an
-                affinity map.
-                From here, I assigned priority fixes for my next iteration.</p>
+                didn’t work usability-wise. I learned that it's necessary to assign priority levels to user feedback, otherwise it's easy to get lost in the weeds when making Iterations.
+              One way to do this was creating an affinity map because then I can see which areas of feedback are most common with users. Now I feel confident deciding which design elements to reiterate on when creating my high-fidelity iterations.</p>
             </div>
         </section>
         <section id="finDesigns" class="group" data-aos="fade-up" data-aos-duration="600">
@@ -759,7 +757,6 @@
     </div>
   </div>
   <footer id="footer" class="footer-2">
-    <div class="container-4 w-container"><img src="../../images/wave-7.svg" loading="lazy" alt="" class="image-8"></div>
     <div class="container-5 w-container">
       <div class="footer-flex-container">
         <div class="div-block-6">
@@ -786,7 +783,5 @@
   <script src="../../js/webflow.js" type="text/javascript"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
-
-</html>
 
 </html>

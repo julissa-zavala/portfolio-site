@@ -1183,14 +1183,13 @@ hr {
   
     .subgroup-left-side h4 {
       margin-bottom: 16px;
-      font-family: 'Circular Std Bold';
       /* font-size: 20px; */
       color: var(--primary-black);
       letter-spacing: 0.8px;
+      font-family: 'Futura pt', sans-serif;
     }
   
     .subgroup-right-side h4 {
-      font-family: 'Circular Std Bold', sans-serif;
       font-weight: 400;
       font-size: 16px;
       color: var(--primary-black);

@@ -4586,6 +4586,7 @@ figcaption {
 .main-grid.margin-bottom {
   margin-bottom: 25px;
   margin-left: 13%;
+  width: 100%;
 }
 
 .review-v2-rating {
@@ -9889,7 +9890,7 @@ figcaption {
 }
 
 .link-3 {
-  border-bottom: 3px solid #ffffff;
+  border-bottom: 3px solid #e56161;
   border-radius: 0px;
   color: #111111;
 }
@@ -10968,6 +10969,7 @@ a {
 .paragraph-24 {
   font-family: 'Poppins', sans-serif;;
   font-size: 16px;
+  line-height: 32px;
 }
 
 .div-block-14 {
@@ -12920,6 +12922,7 @@ a {
     margin-top: 0px;
     padding-right: 0px;
     padding-left: 0px;
+    DISPLAY: none;
   }
 
   .footer-flex-container {
@@ -15885,6 +15888,7 @@ a {
 
   .footer-heading-2 {
     margin-top: 20px;
+    color: white;
   }
 
   .container-4 {
