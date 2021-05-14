@@ -9143,7 +9143,7 @@ figcaption {
   border: 8px none #fff;
   border-radius: 0px;
   background-color: #ffffff;
-  background-image: url("../images/spotify_laptop_mockup.png");
+  background-image: url("../images/portfolio_spotify_mockup.png");
   background-position: 50% 50%;
   background-size: 70%;
   background-repeat: no-repeat;
@@ -16886,17 +16886,16 @@ a {
 .carousel {
   background: #EEE;
   border-radius: 10px;
+  padding: 10px 10px;
 }
 
 .carousel-cell {
   width: 100%;
-  height: 500px;
+  height: 400px;
   margin-right: 10px;
   /* background: #8C8; */
   border-radius: 5px;
   counter-increment: gallery-cell;
-  display: flex;
-  justify-content: center;
 }
 
 /* cell number */
@@ -16905,11 +16904,28 @@ a {
   color: white;
 }
 
+.carousel-cell a {
+  height: 400px;
+  width: 100%;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
 .container {
   width: 50%;
 }
 
-.carousel img {
+.carousel-cell img {
   display: block;
-  height: 500px;
+  width: 80%;
+}
+
+.print-with-me a{
+  display: flex;
+  justify-content: center;
+}
+
+.print-with-me a img{
+  width: 65%;
 }

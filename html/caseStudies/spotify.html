@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="shortcut icon" type="image/x-icon" href="../../assets/icon-tab.ico">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
     integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=601a24bce764433e022a7272"
@@ -295,13 +297,13 @@
               <h4>Secondary Research</h4>
               <p class="paragraph-11">I explored Last.fm's music compatibility feature and identified its strengths and weaknesses.
               </p>
-                <div class="center-images">
+                <div class="side-by-side-images">
                 <a data-fancybox="images5" href="../../images/exampleslastfmscores.png"><img
                     src="../../images/exampleslastfmscores.png"  class="image-14"></a>
-              </div>
-              <div class="center-images">
-              <a data-fancybox="images5" href="../../images/lastfm_strengthsandweakness.png"><img
-                  src="../../images/lastfm_strengthsandweakness.png"  class="image-14"></a>
+              <!-- </div>
+              <div class="center-images"> -->
+              <a style="width: 50%;" data-fancybox="images5" href="../../images/lastfm_strengthsandweakness.png"><img
+                 src="../../images/lastfm_strengthsandweakness.png"  class="image-14"></a>
             </div>
               <p class="paragraph-11">
                 <br><br>Then, I explored forums and communities where Last.fm users created more accurate compatibility tools as well as their own data visualizations for this feature.
@@ -355,18 +357,26 @@
               <h4>Branding Research</h4>
               <p class="paragraph-11">Since my goal is to develop a music compatibility feature and integrate that feature into Spotify’s existing design system, it’s important to take a look at Spotify’s biggest example of data visualization found on the app: Spotify Wrapped.
               </p>
-              <div class="center-images">
-              <a data-fancybox="images5" href="../../images/colorexamples.png"><img
-                  src="../../images/colorexamples.png"  class="image-14"></a>
+                <div class="carousel" data-flickity data-flickity-options=' { "imagesLoaded": true, "prevNextButtons" :false, "lazyLoad": true }'>
+                  <div class="carousel-cell">
+                    <a data-fancybox="images5" href="../../images/colorexamples.png">
+                      <img class="carousel-cell-image"  data-flickity-lazyload="../../images/colorexamples.png" />
+                    </a>
+                  </div>
+                  <div class="carousel-cell">
+                    <a data-fancybox="images5" href="../../images/datavisexamples.png">
+                      <img class="carousel-cell-image" data-flickity-lazyload="../../images/datavisexamples.png" />
+                    </a>
+                  </div>
+                  <div class="carousel-cell">
+                    <a data-fancybox="images5" href="../../images/shareablecardsexamples.png">
+                      <img class="carousel-cell-image" data-flickity-lazyload="../../images/shareablecardsexamples.png" />
+                    </a>
+                  </div>
                 </div>
-              <div class="center-images">
-              <a data-fancybox="images5" href="../../images/datavisexamples.png"><img
-                  src="../../images/datavisexamples.png"  class="image-14"></a>
-                </div>
-              <div class="center-images">
-              <a data-fancybox="images5" href="../../images/shareablecardsexamples.png"><img
-                  src="../../images/shareablecardsexamples.png"  class="image-14"></a>
-                </div>
+                <br>
+                <br>
+                <br>
             </div>
             <div id="keytakeaways" class="subgroup">
               <h4>Key Takeaways</h4>
@@ -409,25 +419,23 @@
               <p class="paragraph-15"> I sketched out ideas on Procreate to come up with solutions to the HMW questions I came up with. My goal in creating these sketches was to continuously come up with new ideas without sticking to just one solution.
               </p>
               <br>
-              <div class="center-images">
-                <a data-fancybox="images23" href="../../images/spotifysketch1.png">
+              <div class="side-by-side-images" style="flex-wrap:wrap;">
+                <a style="width: 48%; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; margin: 0 3px 10px 0;" data-fancybox="images23" href="../../images/spotifysketch1.png">
                   <img src="../../images/spotifysketch1.png" class="image-10">
                 </a>
-              <div class="center-images">
-                  <a data-fancybox="images23" href="../../images/spotifysketch2.png">
+                  <a style="width: 48%; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; margin-bottom: 10px;" data-fancybox="images23" href="../../images/spotifysketch2.png">
                     <img src="../../images/spotifysketch2.png" class="image-10">
                   </a>
-              <div class="center-images">
-                <a data-fancybox="images23" href="../../images/spotifysketch3.png">
+                <a style="width: 48%; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;" data-fancybox="images23" href="../../images/spotifysketch3.png">
                   <img src="../../images/spotifysketch3.png" class="image-10">
                 </a>
-              <div class="center-images">
-                <a data-fancybox="images23" href="../../images/spotifysketch4.png">
+                <a style="width: 48%; box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;" data-fancybox="images23" href="../../images/spotifysketch4.png">
                   <img src="../../images/spotifysketch4.png" class="image-10">
                 </a>
             </div>
           </div>
         </section>
+        <br><br>
         <div id="keytakeaways2" class="subgroup">
           <h4>Key Takeaways</h4>
           <p class="paragraph-11">
@@ -460,25 +468,32 @@
               </div>
               <li class="list-item-2">A user going to a another user's profile to look through the music compatibility section.</li>
             </ul>
-            <div style="margin-bottom: 30px;" class="center-images">
-              <a data-fancybox="images35" href="../../images/lowfi_musiccomp_pg1.png"><img
-                  src="../../images/lowfi_musiccomp_pg1.png" class="image-14"></a>
-            </div>
-            <div style="margin-bottom: 30px;" class="center-images">
-              <a data-fancybox="images35" href="../../images/lowfi_musiccomp_pg2.png"><img
-                  src="../../images/lowfi_musiccomp_pg2.png" class="image-14"></a>
-            </div>
-            <div style="margin-bottom: 30px;" class="center-images">
-              <a data-fancybox="images35" href="../../images/lowfi_musiccomp_pg3.png"><img
-                  src="../../images/lowfi_musiccomp_pg3.png" class="image-14"></a>
-            </div>
-            <div style="margin-bottom: 30px;" class="center-images">
-              <a data-fancybox="images35" href="../../images/lowfi_musiccomp_pg4.png"><img
-                  src="../../images/lowfi_musiccomp_pg4.png" class="image-14"></a>
-            </div>
-            <div style="margin-bottom: 30px;" class="center-images">
-              <a data-fancybox="images36" href="../../images/lowfi_musiccomp_pg6.png"><img
-                  src="../../images/lowfi_musiccomp_pg6.png" class="image-14"></a>
+            <div class="carousel" data-flickity data-flickity-options=' { "imagesLoaded": true, "prevNextButtons" :false, "lazyLoad": true }'>
+              <div class="carousel-cell">
+                <a data-fancybox="images36" href="../../images/lowfi_musiccomp_pg1.png">
+                  <img class="carousel-cell-image" data-flickity-lazyload="../../images/lowfi_musiccomp_pg1.png" />
+                </a>
+              </div>
+              <div class="carousel-cell">
+                <a data-fancybox="images36" href="../../images/lowfi_musiccomp_pg2.png">
+                  <img class="carousel-cell-image" data-flickity-lazyload="../../images/lowfi_musiccomp_pg2.png" />
+                </a>
+              </div>
+              <div class="carousel-cell">
+                <a data-fancybox="images36" href="../../images/lowfi_musiccomp_pg3.png">
+                  <img class="carousel-cell-image" data-flickity-lazyload="../../images/lowfi_musiccomp_pg3.png" />
+                </a>
+              </div>
+              <div class="carousel-cell">
+                <a data-fancybox="images36" href="../../images/lowfi_musiccomp_pg4.png">
+                  <img class="carousel-cell-image" data-flickity-lazyload="../../images/lowfi_musiccomp_pg4.png" />
+                </a>
+              </div>
+              <div class="carousel-cell">
+                <a data-fancybox="images36" href="../../images/lowfi_musiccomp_pg6.png">
+                  <img class="carousel-cell-image" data-flickity-lazyload="../../images/lowfi_musiccomp_pg6.png" />
+                </a>
+              </div>
             </div>
           </div>
         </section>
