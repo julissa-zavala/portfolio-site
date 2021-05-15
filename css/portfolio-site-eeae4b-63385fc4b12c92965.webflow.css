@@ -11152,11 +11152,12 @@ a {
   }
 
   .work-preview-4 {
-    height: 55vh;
+    height: 65vh;
   }
 
   .work-preview-5 {
     height: 55vh;
+    margin-bottom: 50px;
   }
 
   .main-grid.margin-bottom {
@@ -11194,6 +11195,22 @@ a {
     padding-bottom: 0px;
     border-radius: 2px;
     background-color: hsla(0, 0%, 50%, 0.3);
+  }
+
+  .work-preview-2 {
+    height: 100vh;
+  }
+
+  .work-preview-3 {
+    height: 100vh;
+  }
+
+  .work-preview-4 {
+    height: 100vh;
+  }
+
+  .work-preview-5 {
+    height: 100vh;
   }
 
   .progress-bar-indicator {
@@ -14404,7 +14421,7 @@ a {
 }
 
   h4 {
-    font-family: 'Futura pt', sans-serif;
+    font-family: 'Futura pt', sans-serif !important;
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -16100,6 +16117,7 @@ a {
 
   .container-9 {
     height: 300px;
+
   }
 
   .text-block-19 {
@@ -16113,7 +16131,6 @@ a {
   .text-block-19.project-duration {
     left: 38px;
     top: -3px;
-    width: 150px;
   }
 
   .text-block-19.tools {
@@ -16918,7 +16935,7 @@ a {
 
 .carousel-cell img {
   display: block;
-  width: 80%;
+  width: 70%;
 }
 
 .print-with-me a{
@@ -16927,5 +16944,5 @@ a {
 }
 
 .print-with-me a img{
-  width: 65%;
+  width: 60%;
 }
