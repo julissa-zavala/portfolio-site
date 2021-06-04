@@ -10441,6 +10441,7 @@ figcaption {
 .heading-10 {
   padding-top: 20px;
   color: #111111;
+  font-family: 'Futura pt', sans-serif;
 }
 
 .bold-text {
@@ -10594,9 +10595,9 @@ a {
 .text-span-9 {
   border-style: solid;
   border-width: 3px;
-  border-color: rgba(218, 211, 197, 0.09);
+  border-color: rgb(255, 242, 191);
   border-radius: 5px;
-  background-color: #f9d286;
+  background-color: rgb(255, 242, 191);
 }
 
 .lottie-animation-3 {
@@ -10811,7 +10812,7 @@ a {
 }
 
 .list-2 {
-  width: auto;
+  width: 100% !important;
   margin-bottom: 40px;
 }
 
