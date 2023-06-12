@@ -1,3 +1,3 @@
-A portfolio website I was hired to build by a UX designer.
+I was hired by a UX designer to build their portfolio website.
 
 Check it out at: www.julissazavala.com
