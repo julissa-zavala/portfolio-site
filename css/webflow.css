@@ -217,12 +217,12 @@ h2 {
 }
 h3 {
   font-size: 24px;
-  line-height: 30px;
+  line-height: 33px;
   margin-top: 20px;
 }
 h4 {
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 33px;
   margin-top: 10px;
 }
 h5 {
@@ -243,7 +243,7 @@ blockquote {
   margin: 0 0 10px 0;
   padding: 10px 20px;
   border-left: 5px solid #E2E2E2;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 22px;
 }
 figure {
@@ -505,9 +505,8 @@ textarea.w-select {
   height: 20px;
 }
 .w-container {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 940px;
+  margin: 0 13%;
+  width: 72%;
 }
 .w-container:before,
 .w-container:after {
@@ -594,7 +593,10 @@ textarea.w-select {
 }
 @media screen and (max-width: 991px) {
   .w-container {
-    max-width: 728px;
+    width: 80%;
+    display: block;
+    /* justify-content: space; */
+    margin: 0 10%;
   }
   .w-hidden-main {
     display: inherit !important;
@@ -815,7 +817,7 @@ textarea.w-select {
   height: 28px;
 }
 .w-widget-twitter-count-shim.w--large .w-widget-twitter-count-inner {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 18px;
 }
 .w-widget-twitter-count-shim:not(.w--vertical) {
@@ -889,7 +891,7 @@ textarea.w-select {
   margin-left: -4px;
 }
 .w-widget-twitter-count-shim.w--vertical .w-widget-twitter-count-inner {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 22px;
 }
 .w-widget-twitter-count-shim.w--vertical.w--large {
@@ -1784,7 +1786,7 @@ textarea.w-select {
   }
 
   .w-container{
-    height: 200px;
+    height: 100px;
   }
 }
 .w-ix-emptyfix:after {
