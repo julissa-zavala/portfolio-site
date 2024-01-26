@@ -796,7 +796,7 @@ hr {
       text-decoration: none;
       font-weight: 400;
       background-color: transparent;
-      border-left: 2px solid #E56161;
+      border-left: 2px solid #b24825;
   }
   /* change font weight for all active links in sidebar*/
   .bs-docs-sidebar .nav>.active>a,
@@ -844,6 +844,8 @@ hr {
     color: var(--primary-black);
     opacity: 0.5;
   }
+
+  
   
   
   /*****Button Underline From Left *******/
@@ -1151,7 +1153,7 @@ hr {
     .subgroup-left-side p {
       font-family: 'Poppins', sans-serif;;
       font-size: 16px;
-      font-weight: 200;
+      font-weight: 400;
       line-height: 28px;
       margin-bottom: 48px;
       color: var(--primary-black);
@@ -1361,7 +1363,7 @@ hr {
       padding: 10px 13px 10px 13px;
       border-radius: 50%;
       z-index: 1;
-      background-color: #e56161;;
+      background-color: #b24825;;
       color:var(--primary-black);
       box-shadow: 0 2px 20px 0 rgba(0,0,0,0.14);
       -webkit-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
