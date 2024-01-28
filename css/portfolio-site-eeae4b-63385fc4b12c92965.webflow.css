@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500&display=swap');
 
 .w-layout-grid {
   display: -ms-grid;
@@ -36,10 +36,12 @@ h5 {
   margin-top: 173px;
 }
 
-#hand {
-  width: 100%;
-  height: 48em;
-  margin-top: -230px;
+#work {
+  padding-left: 12px;
+}
+
+.analogJournal {
+  color: #B24825;
 }
 
 .center-images {
@@ -4598,27 +4600,9 @@ figcaption {
 }
 
 .main-grid {
-  position: relative;
-  top: -60px;
-  display: -ms-grid;
-  display: grid;
-  width: 100%;
-  /* padding-right: 15px;
-  padding-left: 15px; */
-  grid-auto-columns: 1fr;
-  grid-column-gap: 16px;
-  grid-row-gap: 16px;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  -ms-grid-rows: auto;
-  grid-template-rows: auto;
+  width: 40%;
   -webkit-perspective: 2000px;
   perspective: 2000px;
-}
-
-.main-grid.margin-bottom {
-  margin-bottom: 25px;
-  margin-left: 13%;
 }
 
 .review-v2-rating {
@@ -8700,16 +8684,59 @@ figcaption {
 
 .heading-4 {
   position: static;
-  padding-top: 81px;
-  font-family: 'Futura pt', sans-serif;
-  color: #111111;
-  font-size: 24px;
-  line-height: 33px;
+  font-family: 'Work sans';
+  color: #1e1e1e;
+  font-size: 30px;
+  line-height: 35px;
   font-weight: 500;
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+
+.pill {
+  font-family: 'Work sans', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  border-radius: 20px;
+  border: 0.3px solid #1E1E1E;
+  padding: 4px 13px;
+  margin-right: 10px;
+}
+
+.caseStudyCaption {
+  font-family: 'Work sans', sans-serif;
+  font-size: 20px;
+  color: #1e1e1e;
+  margin-bottom: 25px;
+  font-weight: 400;
+}
+
+.caseStudies {
+  display: flex;
+  justify-content: space-around;
+  padding: 110px 0px;
+}
+
+.cta {
+  border: 1px solid #1E1E1E;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #1E1E1E;
+  font-family: "Work sans";
+  font-weight: 400;
+  font-size: 20px;
+  color: #fafafa;
+}
+
+.cta:hover{
+  background-color: #fafafa;
+  color: #1E1E1E;
 }
 
 .image-3 {
   border-radius: 15px;
+  margin-bottom: 20px;
 }
 
 .text-span-4 {
@@ -9776,6 +9803,10 @@ figcaption {
   text-decoration: none;
 }
 
+.learnMoreButton {
+  margin-bottom: 0px;
+}
+
 .button-wrapper.w--current {
   width: 180px;
   min-width: 50px;
@@ -9811,6 +9842,10 @@ figcaption {
   font-size: 16px;
   font-weight: 400;
 }
+
+/* .learnMoreButton {
+  margin: 0px;
+} */
 
 .button-arrow {
   width: 15px;
@@ -11361,8 +11396,9 @@ a {
 }
 
 .linkz:hover {
-  background-color: #FAFAFA;
+  background-color: #B24825;
   color: #1E1E1E;
+  border: 1px solid #1e1e1e;
 }
 
 @media screen and (max-width: 1280px) {
