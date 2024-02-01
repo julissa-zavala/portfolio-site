@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=false;">
-  <title>Student Profile Case Study</title>
-  <meta content="Student Profile Case Study" property="og:title">
-  <meta content="Student Profile Case Study" property="twitter:title">
+  <title>Kaus Case Study</title>
+  <meta content="Kaus Case Study" property="og:title">
+  <meta content="Kaus Case Study" property="twitter:title">
   <meta content="https://julissazavala.com/html/casestudies/studentProfile" property="og:url">
   <meta content="" property="og:description">
   <meta content='../images/mockups_kaus.png' property="og:image">
@@ -28,7 +28,8 @@
   </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
-  </script>  
+  </script>
+  <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
   <script type="text/javascript">
     ! function (o, c) {
       var n = c.documentElement,
@@ -37,8 +38,8 @@
         t + "touch")
     }(window, document);
   </script>
-  <link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon">
-  <link href="../images/webclip.png" rel="apple-touch-icon">
+  <link href="../../images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="../../images/webclip.png" rel="apple-touch-icon">
   <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
   <link rel="stylesheet" type="text/css" href="../../css/style.css" />
@@ -66,6 +67,7 @@
     heap.load("1409449789");
   </script>
 </head>
+
 <body class="body-4">
   <div class="preloader">
     <div class="loading-info"><img src="images/circles-menu-1_1circles-menu-1.gif" alt="" class="loading-icon">
@@ -79,6 +81,8 @@
   <div data-collapse="medium" data-animation="default" data-duration="400" role="banner"
     class="navbar w-nav">
     <div class="w-container">
+      <a href="../../index.html" class="w-nav-brand"><img src="../../images/mediumblacklogo.svg" loading="lazy"
+          data-w-id="a73d8662-7dc2-a7aa-1ff5-51e71ead72e0" alt="" class="image-4"></a>
       <div data-w-id="a73d8662-7dc2-a7aa-1ff5-51e71ead72e1" class="nav-button-animated w-nav-button">
         <div data-w-id="a73d8662-7dc2-a7aa-1ff5-51e71ead72e2" class="top-line"></div>
         <div data-w-id="a73d8662-7dc2-a7aa-1ff5-51e71ead72e3" class="middle-line"></div>
@@ -126,9 +130,9 @@
             <li>
               <a href="#overview">Overview</a>
               <ul class="nav nav-stacked">
-                <li><a href="#problem">Problem</a></li>
-                <li><a href="#solution">Solution</a></li>
-                <li><a href="#context">Context</a></li>
+                <li><a href="#whatPortal">What is the Portal?</a></li>
+                <li><a href="#whyRedesign">Why redesign this page?</a></li>
+                <li><a href="#tldr">TL;DR</a></li>
               </ul>
             </li>
             <li>
@@ -136,7 +140,6 @@
               <ul class="nav nav-stacked">
                 <li><a href="#kickoff">Kickoff</a></li>
                 <li><a href="#def-success">Defining Success</a></li>
-                <li><a href="#understanding-workflows">Understanding Workflows</a></li>
               </ul>
             </li>
             <li>
@@ -146,6 +149,7 @@
                 <li><a href="#navigation">New Way to Navigate</a></li>
                 <li><a href="#history-log">Moving the History Log</a></li>
                 <li><a href="#revamp-header">Revamping the Header</a></li>
+                <li><a href="#student-snapshot">Adding a Student Snapshot</a></li>
               </ul>
             </li>
             <li>
@@ -153,9 +157,8 @@
               <a href="#insights">User Insights</a>
             </li>
             <li>
-              <a href="#final-consid">Final Considerations</a>
+              <a href="#final-iter">Final Iterations</a>
               <ul class="nav nav-stacked">
-                <li><a href="#student-snapshot">Student Snapshot</a></li>
                 <li><a href="#user-flows">Thinking Through User Flows</a></li>
               </ul>
             </li>
@@ -168,7 +171,7 @@
           </ul>
         </div>
       </nav>
-      <h1 style="margin-bottom: 0px;" class="work-heading-2">A comprehensive redesign of the Student Profile</h1>
+      <h1 style="margin-bottom: 0px;" class="work-heading-2">Redesigning the Student Profile</h1>
       <!-- <div class="work-preview-2"></div> -->
       <div class="bg bg-eatxplore" data-aos="fade-up" data-aos-duration="600"></div>
       <div id="top" class="section-2 haze" data-aos="fade-up" data-aos-duration="600">
@@ -187,32 +190,41 @@
           <h1 class="heading-12">* * * * *</h1>
           <h1 class="work-heading-2">Overview</h1>
             <br>
-          <div id="problem" class="subgroup">
-            <h4 class="heading-8">Problem</h4>
-            <p class="paragraph-4">The current state of the Student Profile falls short in prioritizing information effectively and guiding users toward crucial actions. 
-              <span
-                class="text-span-9">The existing design lacks a structured hierarchy for presenting data,
-               coupled with an inflexible layout that challenges the visibility of all panels.</span>  Additionally, certain panels have remained untouched, contributing to outdated functionality that hinders the user experience.<br>
+          <div id="whatPortal" class="row">
+              <div class="subgroup-left-side col-lg-12 col-md-8 col-sm-12 col-xs-12">
+                <h4 class="heading-11">What is the Portal?</h4>
+                <p class="paragraph-4">The Portal serves as a school management tool accessible to all NYC public schools and over 200 housing shelters in the city. It simplifies access to student data for thousands of NYC educators through comprehensive 
+                  daily updates. The aim is to equip educators with an efficient tool, eliminating the need for manual data collection and analysis.
+                </p>
+              </div>
+          </div>
+          <div id="whyRedesign" class="subgroup">
+            <h4 class="heading-8">Why redesign this page?</h4>
+            <p class="paragraph-4">
+              Expanding beyond NYC, the organization aimed to revamp the UI and UX of the Portal. Stakeholders identified the need for a refreshed design before pursuing further expansion. 
+              The redesign followed a recent UI refresh of the entire Portal, focusing on modernization and improved aesthetics. 
+              </p>
+              <div class="center-images">
+                <a data-fancybox="images22" href="../../images/old_beforeUI.png"><img
+                    src="../../images/old_beforeUI.png" alt=""></a>
+              </div>
+              <br>
+              <p class="caption">Before and after of the Student Profile page after the UI refresh work</p>
+              <br>
+              <p class="paragraph-4">              
+              Recognizing its significance through user conversations and analytics, the Student Profile emerged as a priority for redesign. As the most visited page in the Portal, it provides users with a detailed view of a student's data, encompassing attendance, academics, and credits progress.
             </p>
-            <div class="center-images">
-              <a data-fancybox="images22" href="../../images/1_gifofoldprofile.gif"><img
-                  src="../../images/1_gifofoldprofile.gif" alt=""></a>
             </div>
-            <br>
-            <div class="center-images">
-              <a data-fancybox="images22" href="../../images/old_beforeUI.png"><img
-                  src="../../images/old_beforeUI.png" alt=""></a>
-            </div>
-            <p class="caption">Caption here</p>
-            <br>
         </section>
       </div>
       <div class="col-lg-7 col-md-7 col-sm-10 col-xs-12 col-centered main-content">
         <section class="group">
           <br>
+          
+          <div id="tldr" class="row">
           <div class="subgroup-left-side col-lg-12 col-md-8 col-sm-12 col-xs-12">
-            <h4 class="heading-11">Solution</h4>
-            <p class="paragraph-4">Paired with a product manager, I led a comprehensive redesign that addressed these issues, providing a clear information hierarchy, guiding users to key actions—all while telling a story about a student's progress in each content area.
+            <h4 class="heading-11">TL;DR</h4>
+            <p class="paragraph-4">Collaborating with a product manager, I led a redesign targeting user pain points in the Student Profile page. The goal was to introduce a clear information hierarchy, enhancing the user's ability to quickly assess a student's progress across various content areas.
              </p>
             <div class='sliderContainer'>
               <div class='sliderImg background-img'></div>
@@ -220,6 +232,7 @@
               <input type="range" min="1" max="100" value="50" class="slider" name='slider' id="slider">
               <div class='slider-button'></div>
             </div>
+            <p class="caption">Drag slider to view the student profile before this project and after this project.</p>
             <br>
              <a href="#finalDesigns" target="_blank"
                 data-w-id="47da1261-65c3-9db1-b51d-259838678e03" class="button-wrapper w-inline-block final-wrapper">
@@ -228,125 +241,88 @@
                   alt="" class="button-arrow">
               </a>
           </div>
-          <div id="context" class="row">
-            <div class="subgroup-left-side col-lg-12 col-md-8 col-sm-12 col-xs-12">
-              <h4 class="heading-11">Context</h4>
-              <p class="paragraph-7">The Portal serves as a school management tool. The Student Profile page is crucial for many Portal users, offering a <span
-                class="text-span-9">granular view of a specific student's data across various content areas</span>, including attendance, academics, and credits progress. 
-                According to product analytics, the Student Profile is the most visited page in the Portal. 
-                <br>
-              <p class="paragraph-7">
-                  There was a UI redesign of the entire Portal right before this project which improved the look and feel of the profile. However, the <span
-                  class="text-span-9">Student Profile page still felt dense with information and the overall user experience of the page could be improved upon.</span>
-              </p>
-              <br><br>
-              <div class="center-images">
-                <a data-fancybox="images22" href="../../images/1_gifofoldprofile.gif"><img
-                    src="../../images/1_gifofoldprofile.gif" alt=""></a>
-              </div>
-              <p class="caption">Caption here</p>
-              <br><br>
-              <p class="paragraph-7">
-                   The recent UI redesign of the Portal provided an opportunity for our team to implement a comprehensive redesign of the Student Profile, covering diverse school types (including elementary schools, middle schools, and high schools) across New York City.
-               </p>
-              <br>
-              <br>
-              <br>
-            </div>
-          </div>
+        </div>
+          
         </section>
         </section>
         <section id="discovery" class="group">
           <div data-aos="fade-up" data-aos-duration="600" class="discovery">
             <h1 class="heading-12">* * * * *</h1>
             <h1 class="work-heading-2">Discovery</h1>
+            
             </div>
             <div id="kickoff" class="subgroup">
               <h4 class="heading-11">Kickoff</h4>
-              <p class="paragraph-9">At the start of the project, there were many different design possibilites to explore. Although I already knew some of major pain points in the student profile through existing user and stakeholder feedback, 
-                there was no defined mission or specific goals for the ideal student profile experience. To address this, I organized concurrent brainstorming sessions and exploratory interviews with the product team, 
-                leveraging their existing knowledge of the student profile within tight time constraints.</p>
+              <p class="paragraph-11">At the project's start, we identified two pain points based on user research and stakeholder feedback: navigating through data-heavy panels and reducing the height of the student profile header.
+              </p>
+                <div class="center-images">
+                  <a data-fancybox="images22" href="../../images/1_gifofoldprofile.gif"><img
+                      src="../../images/1_gifofoldprofile.gif" alt=""></a>
+                </div>
+                <p class="caption">Drag slider to view the student profile before this project and after this project.</p>
+                <br>
+                  <div class="center-images">
+                    <a data-fancybox="images22" href="../../images/4_metrics.png"><img
+                        src="../../images/4_metrics.png" alt=""></a>
+                  </div>
+                  <p class="caption">Drag slider to view the student profile before this project and after this project.</p>
+              <br>
+              <p class="paragraph-11"> While these issues offered valuable insights, the redesign lacked specific goals. Our next step was to refine our understanding of the "ideal" Student Profile experience and align the product team on a shared vision.
+              </p>
+            </div>
              <br>
               <div id="def-success" class="subgroup">
                 <h4>Defining Success</h4>
-                <p class="paragraph-11">I facilitated a brainstorming session with the members of the product team, including the Director of Product Management, and the Head of Design to understand what success looks like 
-                  and <span
-                      class="text-span-9"> create long-term and short-term goals for the student profile design, as well as identify key deliverables.</span>
+                <p class="paragraph-11">To set specific goals, we organized brainstorming sessions with the product management team and the Head of Design. This brainstorming session helped define long-term and short-term goals for the student profile design.</span>
                  </p>
                 <br>
                 <div class="center-images">
                   <a data-fancybox="images22" href="../../images/2_brainstorming.jpg"><img
                       src="../../images/2_brainstorming.jpg" alt=""></a>
                 </div>
+                <p class="caption">Drag slider to view the student profile before this project and after this project.</p>
                 <br>
-                <div class="center-images">
-                 <a data-fancybox="images22" href="../../images/brainstormingDeliverables.png"><img
-                     src="../../images/brainstormingDeliverables.png" alt=""></a>
-               </div>
               </div>
-            </div>
             <br>
-            <div id="understanding-workflows" class="subgroup">
-              <h4>Understanding Workflows</h4>
-              <p class="paragraph-11">The student profile has 12 panels, each addressing key content areas. As these panels were created individually by different teams over time, 
-                there was siloed knowledge about their design. To address this, I conducted exploratory interviews with product managers from various verticals to understand user needs and common workflows for each panel. 
+              <p class="paragraph-11">To understand the current state of the student profile, I interviewed product managers from different verticals to gather insights on user needs and workflows. This was crucial, given that the student profile comprised 12 panels, 
+                each developed independently by different teams, resulting in siloed knowledge about their design.
               </p>
               <div class="center-images">
-                  <a data-fancybox="images22" href="../../images/3_pmInterviews.png"><img
-                      src="../../images/3_pmInterviews.png" alt=""></a>
+                  <a data-fancybox="images22" href="../../images/3_pmInterviews.png">
+                    <img src="../../images/3_pmInterviews.png" alt="">
+                  </a>
               </div>
-              <br><br>
-              <p class="paragraph-11">
-                In interviews, I discussed stakeholder requests, such as <span
-                class="text-span-9">reducing the height of the student profile header, since many of our users access the Portal on smaller screens like Chromebooks in schools.</span>
-                 Some stakeholders even suggested removing metrics from the header.
-              </p>
-              <div class="center-images">
-                <a data-fancybox="images22" href="../../images/4_metrics.png"><img
-                    src="../../images/4_metrics.png" alt=""></a>
-              </div>
-              <br>
-              <p class="paragraph-11"> However, I learned that <span
-                class="text-span-9">the purpose of these metrics is to provide valuable contextual information to users across different panels.</span> Product managers also acknowledged that some metrics may be redundant 
-                or unnecessary, requiring further consideration. Notably, <span
-                class="text-span-9">the current header lacks the year-to-date (YTD) attendance rate</span>, which is crucial for understanding a student's performance across all panels. For example, if a user sees a student struggling
-                 in the Current Programs panel, knowing their YTD attendance rate adds context to the situation, revealing issues like chronic absenteeism.
-              </p>
-            </div>
+              <p class="caption">Drag slider to view the student profile before this project and after this project.</p>
         </section>
         <section id="approach" class="group" data-aos="fade-up" data-aos-duration="600">
           <h6> </h6><br>
           <h1 class="heading-12">* * * * *</h1>
           <h1 class="work-heading-2">Approach</h1>
           <br>
-          <p class="paragraph-6">At this point, my product manager and I decided to split the design work into phases. This first phase would tackle redesigning the overall layout of the profile, leaving the individual panels for the second phase.
-             The main pain points addressed in Phase 1 were the information overload, difficulty in understanding student status, inefficient information retrieval, and the need for humanizing the data. <span
-             class="text-span-9">The goal for this phase is to create a design with a 
-             clear information hierarchy, strategic nudges for key actions, and a humanized narrative about the student.</span><br><br>My initial gameplan consisted of:<br>
+          <p class="paragraph-6">
+          This research shaped our understanding of the student profile's product strategy. To streamline, my product manager and I split the design into phases. Phase 1 addressed key pain points—information overload, 
+          understanding student status, inefficient retrieval, and humanizing data. The goal: design with a clear hierarchy, strategic nudges, and a humanized student narrative. 
+             <br><br>
+             Phase 1's four main design deliverables:
+             <br>
           </p>
             <ul role="list" class="list-2">
-              <li class="list-item">Exploring a new layout for the student profile</li>
-              <li class="list-item-2">Introducing navigation so users can see at a glance all the panels available and get to those panels easily</li>
-              <li class="list-item-3">Rethinking the student profile header while accomodating stakeholders' request to reduce the height student profile header</li>
+              <li class="list-item">Explore a new layout.</li>
+              <li class="list-item-2">Introduce navigation for easy panel access.</li>
+              <li class="list-item-3">Rethink the student profile header, reducing its height.</li>
+              <li class="list-item-3">Add an overview section for a quick progress summary.</li>
             </ul>
           <div id="exploring-layout" class="subgroup">
             <h4 class="heading-8">Exploring a New Layout</h4>
             <p class="paragraph-4">
-              I designed three blockframe options for the student profile layout, prioritizing navigation space. Addressing the user pain point of overwhelming data, I also explored adding a section for 'action items' to highlight actionable next steps. 
+              Exploring three blockframe options, I prioritized navigation space and addressed the user pain point of overwhelming data by considering an 'action items' section for actionable next steps.
+              From there, I created three low-fi wireframes to share with stakeholders. Stakeholder feedback favored the third option, leading to the decision to convert it into a two-column layout for future mobile responsiveness. 
+              The final design incorporated integrated action items into the navigation using notification badges.
             </p>
             <div class="center-images">
               <a data-fancybox="images22" href="../../images/5_wireframeOne.png"><img
                   src="../../images/5_wireframeOne.png" alt=""></a>
             </div>
-            
-            <p class="paragraph-4">
-              Although the third option was favored, there was a suggestion to <span class="text-span-9">consider future mobile responsiveness.</span> 
-              To make mobile responsiveness on the page easiler to implement in the future, I finalized the design with a two-column layout and integrated action items into the navigation using notification badges.
-            </p>
-            <div class="center-images">
-              <a data-fancybox="images22" href="../../images/5_finalNav_ES.png"><img
-                  src="../../images/5_finalNav_ES.png" alt=""></a>
-              </div>
           </div>
         </section>
       </div>
@@ -366,9 +342,10 @@
         <br><br>
         <div id="history-log" class="subgroup">
           <h4>Moving the History Log</h4>
-          <p class="paragraph-17">To accommodate the new navigation bar and preserve a two-column layout, I relocated the history log from the right side of the student profile to a new panel. Despite some pushback from the product team, my manager and I
-            decided to proceed and gather user feedback during testing. Concurrently, another team was implementing a task management system for the Portal. To integrate tasks within a student's profile, I collaborated with their designer to create a version
-             of the history log panel with added tasks. </p>
+          <p class="paragraph-17">To accommodate the new navigation, I relocated the history log to a new panel. Despite some pushback from the product team on relocating the history log, my product manager and I decided to proceed, aiming to collect user feedback during testing. 
+            <br><br>
+            Simultaneously, another team was implementing a task management system for the Portal. 
+            I collaborated with their designer, adding tasks to the history log panel and incorporating pagination to maintain consistent panel height. </p>
           <br>
           <div class="center-images">
               <a data-fancybox="images22" href="../../images/7_histloggif.gif"><img
@@ -378,10 +355,8 @@
         <br><br>
         <div id="revamp-header" class="subgroup">
           <h4>Revamping the Header</h4>
-          <p class="paragraph-11">The header needed a height reduction, so I created several mockups where the information in the header was condensed to two lines. 
-            Likewise, the Homepage redesign team decided to <span
-            class="text-span-9">add friendly imagery in the Homepage header</span>, 
-            which inspired us to add visuals to the Student Profile header as well. Since I have been spearheading the illustration work throughout the Portal, I illustrated the final header for both pages.
+          <p class="paragraph-11">
+            To reduce the header height, I crafted mockups condensing the information into two lines. In line with discovery phase findings highlighting the need to alleviate the data-heavy nature, I introduced color to the header of this page.
           </p>
           <div class="center-images">
             <a data-fancybox="images22" href="../../images/9_finalheaderProfile.png"><img
@@ -389,52 +364,49 @@
           </div>
           <br>
         </div>
+        <br>
+        <div id="student-snapshot" class="subgroup">
+          <h4>Adding a Student Snapshot</h4>
+          <p class="paragraph-25">In refining the student profile for better information hierarchy and discoverability, a central goal was to create a narrative for the student and ensure users quickly comprehend how the student is performing 
+            across various content areas. Insights from product manager interviews guided the content for a new student snapshot panel at the page's top. This panel provides a summarized overview of the student's data across major content areas, 
+            allowing users to click for deeper exploration.
+          </p>
+          <br>
+          <div class="center-images">
+            <a data-fancybox="images22" href="../../images/12_snapshot.png"><img
+                src="../../images/12_snapshot.png" alt=""></a>
+          </div>
         </section>
         <section id="insights" class="group" data-aos="fade-up" data-aos-duration="600">
           <h1 class="heading-12">* * * * *</h1>
           <h1 class="work-heading-2">User Insights</h1>
           <br>
-          <p class="paragraph-17">I created a prototype showcasing the new Student Profile designs and conducted brief usability testing.</p>
-          <p class="paragraph-17">Insights Include:</p>
+          <p class="paragraph-17">I assembled the various elements of the student profile design and created a prototype for user testing, which included two versions. 
+            In one version, users could click into the panel as a static page, introducing a new flow. The other version allowed seamless scrolling from panel to panel, maintaining the existing flow. 
+            Until this point, feedback primarily came from stakeholders during weekly check-ins, making user opinions on this specific navigation choice invaluable. 
+             <br><br>The feedback was unanimously positive, with only minor design adjustments needed.</p>
+          <p class="paragraph-17">Key insights Include:</p>
           <ul role="list" class="list-2">
             <li class="list-item">Participants highlighted the significance of scrolling between panels, particularly for tasks like adding a graduation plan. Maintaining this scrolling capability was deemed essential.</li>
             <li class="list-item-2">I received a lot of feedback from participants about the information available in the student header, which helped define with metrics were crucial.</li>
             <li class="list-item-3">Surprisingly, participants found the new history log/notes panel more discoverable, with some perceiving it as a new and exciting feature. 
               This positive response confirmed the validity of relocating the history log to a new panel.</li>
-           
           </ul>
         </section>
       </div>
       <div class="col-lg-7 col-md-7 col-sm-10 col-xs-12 col-centered main-content">
-        <section id="final-consid" class="group">
+        <section id="final-iter" class="group">
           <div data-aos="fade-up" data-aos-duration="600">
             <h1 class="heading-12">* * * * *</h1>
-            <h1 class="work-heading-2">Final Considerations</h1>
-            <br>
-            <div id="student-snapshot" class="subgroup">
-              <h4>Student Snapshot</h4>
-              <p class="paragraph-25">While addressing goals like improving information hierarchy and discoverability in the student profile redesign, <span class="text-span-9">a key focus was creating a narrative 
-                for the student and enhancing quick understanding for users.</span> Based on insights from product manager interviews, I designed a new student snapshot panel to live on the top of the page.
-              </p>
-              <br>
-              <div class="center-images">
-                <a data-fancybox="images22" href="../../images/12_snapshot.png"><img
-                    src="../../images/12_snapshot.png" alt=""></a>
-              </div>
-              <br><br>
-              <p class="paragraph-25">
-                This design <span class="text-span-9"> prioritizes crucial information, particularly outstanding items, prompting users to take necessary actions.</span> 
-                 After multiple iterations and stakeholder feedback, we finalized a design that presents high-level student information, encouraging users to delve deeper if needed by clicking into any of the containers, 
-                 bringing users straight to that panel to learn more.
-              </p>
-              <br>
-              <br>
+            <h1 class="work-heading-2">Final Iterations</h1>
             </div>
           </div>
+          <p class="paragraph-17">Based on user feedback, only minor iterations needed to be make on the metrics found in the header. Maintaining scrolling from panel to panel, however, raised questions about the interaction with the existing collapsing and expanding panel experience and the navigation bar.
+          </p>
           <br>
           <div id="user-flows" class="subgroup">
             <h4>Thinking Through User Flows</h4>
-            <p class="paragraph30">With the introduction of the navigation sidebar, I needed to think through the interaction between the sidebar and the existing collapsing and expanding experience of the panels.
+            <p class="paragraph30">Introducing the navigation sidebar prompted a reevaluation of its interaction with the collapsing and expanding panel experience. 
             </p>
             <br>
             <div class="center-images">
@@ -443,9 +415,8 @@
             </div>
             <br>
             <p class="paragraph30">
-              Further,  <span class="text-span-9">a common workflow
-              for users to navigate between user profiles to complete tasks for multiple students, one by one.</span> At this point, there were already inconsistencies in the collapsed and expand state in the panels when going from one student profile to the other. There were
-              also inconsistencies on the default panel visible when the user flipped through student profiles. I designed diagrams these flows, collaborating with engineers to implement these experiences in the backend. 
+              Additionally, streamlining the workflow for users to navigate between user profiles and complete tasks for multiple students 
+              revealed inconsistencies in panel states and default visibility. I designed diagrams to address these flows in collaboration with engineers for backend implementation.
             </p>
             <br>
             <div class="center-images">
@@ -468,15 +439,9 @@
           <h1 class="heading-12">* * * * *</h1>
           <h1 class="work-heading-2">Takeaways</h1>
           <br>
-          <p class="paragraph-28">It's still the early days of the launch of this redesign, but we've received overwhelmingly positive feedback from users.</p>
-            <blockquote class="block-quote"><span class="text-span-12">&quot;</span> <em>Thinking about insurance
-              just stresses me out but I want to learn what it all means one day. </em><span
-              class="text-span-13"><em>&quot;</em></span></blockquote>
-          <blockquote class="block-quote-2"><span class="text-span-11"><em>&quot; </em></span><em>I&#x27;m okay
-              with a completely online insurance company--it&#x27;s not like I&#x27;m going to go in person
-              anywhere during COVID.</em><span><em class="italic-text">&quot;</em></span></blockquote>
+          <p class="paragraph-28">It's still the early days of the launch of this redesign, but we've received overwhelmingly positive feedback from users. There also has been a noticeable uptick in user traffic to the student profile and a corresponding increase in time spent on the page since the updated launch.
             <br><br>
-            <p class="paragraph-28">In four weeks, we undertook a significant overhaul of the Student Profile in the Portal to address usability challenges systematically. Handling a tight deadline and numerous redesign possibilities, I realized how crucial it is to take a phased approach when tackling a project this large. Collaborating closely with stakeholders and seamlessly 
+            In four weeks, we undertook a significant overhaul of the Student Profile in the Portal to address usability challenges systematically. Handling a tight deadline and numerous redesign possibilities, I realized how crucial it is to take a phased approach when tackling a project this large. Collaborating closely with stakeholders and seamlessly 
             incorporating features from other teams made it a collective effort. The revamped Student Profile isn't just updated; it's now user-centric, polished, and adaptable.</p>
         </div>
       </div>
@@ -510,5 +475,7 @@
     </div>
   </footer>
   <script src="../../js/webflow.js" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
+
 </html>
