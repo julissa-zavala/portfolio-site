@@ -102,7 +102,7 @@ hr {
 }
 
 .video-feature-subtitle {
-  font-family: 'Poppins', sans-serif;;
+  font-family: 'Work sans', sans-serif;;
   font-size: 16px;
   font-weight: 400;
   line-height: 33px;
@@ -120,7 +120,7 @@ hr {
 }
 
 .video-alternative-subtitle {
-  font-family: 'Poppins', sans-serif;;
+  font-family: 'Work sans', sans-serif;;
   font-size: 16px;
   font-weight: 400;
   line-height: 33px;
@@ -211,7 +211,7 @@ hr {
   }
   
   .jumbotron p {
-    font-family: 'Poppins', sans-serif;;
+    font-family: 'Work sans', sans-serif;;
     font-size: 16px;
     font-weight: 100;
     line-height: 33px;
@@ -773,7 +773,7 @@ hr {
   .bs-docs-sidebar .nav>li>a {
       color: var(--secondary-black);
       padding: 4px 20px;
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Work sans', sans-serif;;
       font-size: 1.1em;
       font-weight: 200;
   }
@@ -937,7 +937,7 @@ hr {
   
     .card-content {
       /* Cultivating Mindfuln: */
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Work sans', sans-serif;;
       font-weight: 200;
       font-size: 16px;
       color: var(--primary-black);
@@ -957,7 +957,7 @@ hr {
     }
   
     .subgroup-right-side p {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Work sans', sans-serif;;
       font-size: 14px;
       font-weight: 200;
       margin-bottom: 32px;
@@ -992,7 +992,7 @@ hr {
   
   
     .navbar-default {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Work sans', sans-serif;;
       font-size: 15px;
       font-weight: 200;
       background-color: #FAFAFA;
@@ -1077,7 +1077,7 @@ hr {
     }
   
     .card-content {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Work sans', sans-serif;;
       font-weight: 200;
       font-size: 14px;
       color: var(--primary-black);
@@ -1092,7 +1092,7 @@ hr {
     }
   
     .subgroup-left-side p {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Work sans', sans-serif;;
       font-size: 16px;
       font-weight: 400;
       line-height: 28px;
@@ -1101,7 +1101,7 @@ hr {
     }
   
     .subgroup-right-side p {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Work sans', sans-serif;;
       font-size: 14px;
       font-weight: 200;
       margin-bottom: 32px;
@@ -1195,7 +1195,7 @@ hr {
     }
   
     .article-subtitle {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Work sans', sans-serif;;
       font-size: 16px;
       font-weight: 200;
       line-height: 33px;
@@ -1229,7 +1229,7 @@ hr {
     }
 
     .subgroup ul {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Work sans', sans-serif;;
       font-size: 16px;
       line-height: 33px;
       margin-bottom: 48px;
@@ -1379,7 +1379,7 @@ hr {
     }
   
     .navbar-default {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Work sans', sans-serif;;
       font-size: 15px;
       font-weight: 200;
       background-color: #FAFAFA;
@@ -1471,7 +1471,7 @@ hr {
     }
   
     .card-content {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Work sans', sans-serif;;
       font-weight: 200;
       font-size: 14px;
       color: var(--primary-black);
@@ -1497,7 +1497,7 @@ hr {
     }
   
     .article-subtitle {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Work sans', sans-serif;;
       font-size: 16px;
       font-weight: 200;
       line-height: 33px;
@@ -1536,7 +1536,7 @@ hr {
     }
   
     .subgroup ul {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Work sans', sans-serif;;
       font-size: 15px;
       line-height: 33px;
       margin-bottom: 28px;
@@ -1544,7 +1544,7 @@ hr {
     }
   
     .subgroup-left-side p {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Work sans', sans-serif;;
       font-size: 16px;
       line-height: 33px;
       margin-bottom: 28px;
@@ -1552,7 +1552,7 @@ hr {
     }
   
     .subgroup-right-side p {
-      font-family: 'Poppins', sans-serif;;
+      font-family: 'Work sans', sans-serif;;
       font-size: 14px;
       font-weight: 300;
       margin-bottom: 24px;
@@ -1689,21 +1689,21 @@ hr {
   
   h6 {
     margin-top: 0px;
-    font-family: 'Poppins', sans-serif;;
+    font-family: 'Work sans', sans-serif;;
     font-size: 16px;
     font-weight: 300;
     color: var(--secondary-black);
   }
   
   .quote {
-    font-family: 'Poppins', sans-serif;;
+    font-family: 'Work sans', sans-serif;;
     font-size: 1.8em;
     font-weight: 100;
     color: var(--primary-black);
   }
   
   .content-box p {
-    font-family: 'Poppins', sans-serif;;
+    font-family: 'Work sans', sans-serif;;
     font-size: 16px;
     font-weight: 200;
     line-height: 33px;
@@ -1711,7 +1711,7 @@ hr {
   }
   
   .content-box-side p {
-    font-family: 'Poppins', sans-serif;;
+    font-family: 'Work sans', sans-serif;;
     font-size: 16px;
     font-weight: 200;
   }
