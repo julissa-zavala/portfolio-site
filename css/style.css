@@ -9135,6 +9135,7 @@ figcaption {
   background-repeat: no-repeat;
   -o-object-fit: contain;
   object-fit: contain;
+  margin-bottom: 100px;
 }
 
 .work-preview-3{
