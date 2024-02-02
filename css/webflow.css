@@ -48,7 +48,7 @@ html {
 body {
   margin: 0;
   min-height: 100%;
-  background-color: #fff;
+  background-color: #fafafa;
   font-family: Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
@@ -174,7 +174,7 @@ html[data-w-dynpage] [data-w-cloak] {
   bottom: 12px !important;
   left: auto !important;
   color: #AAADB0 !important;
-  background-color: #fff !important;
+  background-color: #fafafa !important;
   border-radius: 3px !important;
   padding: 6px 8px 6px 6px !important;
   font-size: 12px !important;
@@ -333,7 +333,7 @@ label {
   line-height: 1.428571429;
   color: #333333;
   vertical-align: middle;
-  background-color: #ffffff;
+  background-color: #fafafa;
   border: 1px solid #cccccc;
 }
 .w-input:-moz-placeholder,
@@ -504,10 +504,10 @@ textarea.w-select {
 .w-icon-file-upload-uploading {
   height: 20px;
 }
-.w-container {
+/* .w-container {
   margin: 0 13%;
   width: 72%;
-}
+} */
 .w-container:before,
 .w-container:after {
   content: " ";
@@ -999,7 +999,7 @@ textarea.w-select {
   transition: background-color 100ms, color 100ms;
 }
 .w-slider-dot.w-active {
-  background-color: #fff;
+  background-color: #fafafa;
 }
 .w-slider-dot:focus {
   outline: none;
