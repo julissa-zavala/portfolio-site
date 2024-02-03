@@ -169,6 +169,10 @@ img {
   max-width: 100%;
 }
 
+.mobileHeading {
+  display: none;
+}
+
 label {
   display: block;
   margin-bottom: 8px;
@@ -9109,7 +9113,6 @@ figcaption {
   overflow: visible;
   width: 100%;
   height: 80vh;
-  /* max-height: none; */
   margin: 0px auto;
   padding: 0px 40px;
   -webkit-box-orient: vertical;
@@ -11580,6 +11583,15 @@ a {
   #portrait{
     display: none;
   }
+
+  .mobileHeading {
+    display: block;
+    margin-top: 0px;
+  }
+
+  .desktopHeading {
+    display: none;
+  }
   
   .marquee {
     height: 80px;
@@ -13206,12 +13218,13 @@ a {
     max-height: none;
     max-width: 100%;
     margin-right: 0px;
-    margin-bottom: 48px;
+    margin-bottom: 0px;
     margin-left: 0px;
     padding-right: 0px;
     padding-left: 0px;
     border-style: none;
     border-radius: 0px;
+    background-size: 80%;
   }
 
   .cards-grid-container {
@@ -14812,7 +14825,6 @@ padding-bottom: 0px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1);
     -o-object-fit: fill;
     object-fit: fill;
-    background-image: url('../images/mockups_kaus.png');
   }
 
   .cards-section {
@@ -14966,7 +14978,7 @@ padding-bottom: 0px;
   }
 
   .text-span-10 {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
@@ -15046,6 +15058,14 @@ padding-bottom: 0px;
     display: none;
   }
 
+  .paragraph-28 {
+    margin-bottom: 0px !important;
+  }
+
+  .list-2 {
+    padding-left: 0px;
+  }
+
   .heading-4 {
     margin-top: 0px;
     padding-top: 0px;
@@ -15077,8 +15097,16 @@ padding-bottom: 0px;
   }
 
   .work-preview-2 {
-    height: 50vh;
-    background-size: 100%;
+    height: 40vh;
+    background-size: 90%;
+    box-shadow: none;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .mobileHeading {
+    font-size: 22px;
+    margin-top: -26px;
   }
 
   .text-big.text-grey.mobile {
@@ -15161,11 +15189,6 @@ padding-bottom: 0px;
 
   .section.top-section {
     height: auto;
-  }
-
- .navbar{
-    width: 100%;
-    padding: 0 5%;
   }
 
   .section.hero-v2 {
@@ -16378,6 +16401,8 @@ padding-bottom: 0px;
     -o-object-fit: fill;
     object-fit: fill;
     position: relative;
+    width: 100%;
+    margin-bottom: 0px !important;
   }
 
   .nav-menu-2 {
@@ -16517,7 +16542,7 @@ padding-bottom: 0px;
   }
 
   .heading-5 {
-    font-size: 26px;
+    font-size: 22px;
     line-height: normal;
     display: block;
     margin-bottom: 0px;
@@ -16603,6 +16628,14 @@ padding-bottom: 0px;
   .work-heading-2 {
     color: #111111;
     font-size: 24px;
+  }
+
+  .sliderContainer {
+     display: none;
+  }
+
+  .sliderCaption {
+    display: none;
   }
 
   .section-2 {
@@ -16841,21 +16874,25 @@ padding-bottom: 0px;
     width: auto;
   }
 
-  .container-9 {
-    height: 300px;
-  }
-
   .text-block-19 {
     left: 16px;
     top: -60px;
     width: 120px;
-    height: 110px;
+    height: 60px;
     text-align: left;
+    border: none !important;
+    padding: 0px !important;
+    margin-bottom: 30px;
+    font-size: 18px;
   }
 
   .text-block-19.project-duration {
     left: 38px;
     top: -3px;
+  }
+
+  .text-span-10 {
+    font-weight: 500;
   }
 
   .text-block-19.tools {
@@ -17332,8 +17369,8 @@ padding-bottom: 0px;
   }
 
   .container-9 {
-    flex-wrap: wrap;
-    height: 350px;
+    flex-direction: column;
+    height: 195px;
   }
 
   .text-block-19.role {
