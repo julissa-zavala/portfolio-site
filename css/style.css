@@ -96,7 +96,7 @@ h1 {
 h2 {
   margin-top: 0px;
   margin-bottom: 16px;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   font-size: 28px;
   line-height: 44px;
@@ -116,7 +116,7 @@ h3 {
 h4 {
   margin-top: 0px;
   margin-bottom: 12px;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   font-size: 24px !important;
   line-height: 28px;
@@ -641,7 +641,7 @@ figcaption {
   border-radius: 6px;
   -webkit-transition: background-color 400ms ease;
   transition: background-color 400ms ease;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   font-size: 16px;
   line-height: 36px;
@@ -822,7 +822,7 @@ figcaption {
 }
 
 .view-case-studies-link {
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #ffffff;
   font-size: 16px;
   line-height: 33px;
@@ -2111,7 +2111,7 @@ figcaption {
   align-items: center;
   border-radius: 20px;
   background-color: #b24825;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   font-size: 16px;
   line-height: 16px;
@@ -6189,7 +6189,7 @@ figcaption {
 }
 
 .page-heading {
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   text-align: center;
   letter-spacing: 1.5px;
@@ -7545,7 +7545,7 @@ figcaption {
   align-items: center;
   -webkit-transition: color 400ms cubic-bezier(.165, .84, .44, 1);
   transition: color 400ms cubic-bezier(.165, .84, .44, 1);
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #d76864;
   font-size: 16px;
   line-height: 33px;
@@ -7969,7 +7969,7 @@ figcaption {
 
 .work-card-heading {
   margin: 16px 12px 4px;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   text-align: center;
   letter-spacing: 1px;
@@ -8144,7 +8144,7 @@ figcaption {
 
 .work-heading {
   margin-bottom: 24px;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   font-size: 36px;
   text-align: left;
@@ -8323,7 +8323,7 @@ figcaption {
   margin-bottom: 16px;
   padding-top: 0px;
   padding-bottom: 5px;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #ffffff;
   letter-spacing: 1.5px;
   -o-object-fit: fill;
@@ -8395,7 +8395,7 @@ figcaption {
   -webkit-flex: 0 auto;
   -ms-flex: 0 auto;
   flex: 0 auto;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #ffffff;
   font-size: 16px;
   line-height: 56px;
@@ -8636,7 +8636,7 @@ figcaption {
 .text-block-4 {
   margin-right: auto;
   margin-left: auto;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   font-size: 18px;
   font-weight: 500;
@@ -8663,7 +8663,7 @@ figcaption {
 .text-span-3 {
   width: 600px;
   font-size: 42px;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   font-weight: 800;
 }
 
@@ -8675,7 +8675,7 @@ figcaption {
 }
 
 .heading-3 {
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
 }
 
 .heading-4 {
@@ -8801,7 +8801,7 @@ figcaption {
   padding-right: 10px;
   padding-left: 10px;
   border-bottom: 1px none #b24825;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   font-size: 16px;
   font-weight: 500;
@@ -8821,7 +8821,7 @@ figcaption {
 .nav-link-3 {
   padding-right: 10px;
   padding-left: 10px;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   font-size: 16px;
 }
@@ -8839,7 +8839,7 @@ figcaption {
   padding-right: 10px;
   padding-left: 10px;
   border-bottom: 5px none #b24825;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   font-size: 16px;
 }
@@ -8874,7 +8874,7 @@ figcaption {
   -ms-flex-item-align: auto;
   -ms-grid-row-align: auto;
   align-self: auto;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #ffffff;
   font-size: 20px;
   letter-spacing: 1px;
@@ -8913,7 +8913,7 @@ figcaption {
   padding-right: 10px;
   padding-left: 10px;
   border-bottom: 5px none #b24825;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   font-size: 16px;
 }
@@ -8946,7 +8946,7 @@ figcaption {
 .nav-link-6 {
   padding-right: 10px;
   padding-left: 10px;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   font-size: 16px;
 }
@@ -8964,7 +8964,7 @@ figcaption {
   padding-right: 10px;
   padding-left: 10px;
   border-bottom: 1px none #b24825;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   font-size: 16px;
   font-weight: 500;
@@ -9056,7 +9056,7 @@ figcaption {
   align-items: center;
   border-radius: 20px;
   background-color: #d76864;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #ffffff;
   font-size: 16px;
   line-height: 16px;
@@ -9354,7 +9354,7 @@ figcaption {
 .heading-6 {
   margin: 16px 12px 4px;
   padding-left: 38px;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   font-size: 16px;
   line-height: 33px;
@@ -9545,7 +9545,7 @@ figcaption {
 
 .work-card-heading-2 {
   margin: 16px 12px 4px;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   text-align: center;
   letter-spacing: 1px;
@@ -9703,7 +9703,7 @@ figcaption {
 }
 
 .text-block-8 {
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   font-size: 16px;
 }
@@ -9940,7 +9940,7 @@ figcaption {
   font-style: normal;
   text-align: center;
   text-decoration: none;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
 }
 
 .footer-link-2 {
@@ -10544,7 +10544,7 @@ figcaption {
 .heading-10 {
   padding-top: 20px;
   color: #111111;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
 }
 
 .bold-text {
@@ -10756,7 +10756,7 @@ a {
   border: 15px none transparent;
   border-radius: 0px;
   background-color: transparent;
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   color: #111111;
   font-size: 18px;
   letter-spacing: 1px;
@@ -10806,7 +10806,7 @@ a {
 }
 
 .text-span-10 {
-  font-family: 'Futura pt', sans-serif;
+  font-family: 'Work sans', sans-serif;
   font-size: 20px;
   color: #111111;
 }
@@ -15036,7 +15036,7 @@ padding-bottom: 0px;
 
 @media screen and (max-width: 479px) {
   h2 {
-    font-family: 'Futura pt', sans-serif;
+    font-family: 'Work sans', sans-serif;
     color: #111111;
     font-size: 16px;
     letter-spacing: 1px;
@@ -15119,7 +15119,7 @@ padding-bottom: 0px;
   }
 
   h4 {
-    font-family: 'Futura pt', sans-serif !important;
+    font-family: 'Work sans', sans-serif !important;
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -16272,7 +16272,7 @@ padding-bottom: 0px;
   }
 
   .work-heading {
-    font-family: 'Futura pt', sans-serif;
+    font-family: 'Work sans', sans-serif;
     color: #111111;
     font-size: 24px;
   }

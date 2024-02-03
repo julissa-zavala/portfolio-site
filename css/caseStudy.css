@@ -969,7 +969,7 @@ hr {
       /* font-size: 20px; */
       color: var(--primary-black);
       letter-spacing: 0.8px;
-      font-family: 'Futura pt', sans-serif;
+      font-family: 'Work sans', sans-serif;
       font-weight: 500;
     }
   
@@ -1112,7 +1112,7 @@ hr {
       margin-bottom: 16px;
       color: var(--primary-black);
       letter-spacing: 0.8px;
-      font-family: 'Futura pt', sans-serif;
+      font-family: 'Work sans', sans-serif;
     }
   
     .subgroup-right-side h4 {
@@ -1217,7 +1217,7 @@ hr {
       margin-bottom: 16px;
       color: var(--primary-black);
       letter-spacing: 0.8px;
-      font-family: 'Futura pt', sans-serif;
+      font-family: 'Work sans', sans-serif;
       font-size: 20px;
       font-weight: 500;
     }
@@ -1519,7 +1519,7 @@ hr {
       font-size: 20px;
       color: var(--primary-black);
       letter-spacing: 0.5px;
-      font-family: 'Futura pt', sans-serif;
+      font-family: 'Work sans', sans-serif;
     }
   
     .subgroup h5 {
