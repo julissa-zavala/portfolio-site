@@ -204,7 +204,6 @@ figcaption {
 .section {
   position: relative;
   display: block;
-  /* padding-top: 120px; */
   padding-bottom: 0px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -13751,8 +13750,7 @@ a {
   }
 
   .section {
-    position: relative;
-    width: 100%;
+    /* position: relative; */
     margin-left: -3px;
     padding: 64px 0px;
   }
