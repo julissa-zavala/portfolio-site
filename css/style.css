@@ -118,7 +118,7 @@ h4 {
   margin-bottom: 12px;
   font-family: 'Work sans', sans-serif;
   color: #111111;
-  font-size: 24px !important;
+  font-size: 24px;
   line-height: 28px;
   font-weight: 500;
   letter-spacing: 1px;
@@ -6051,18 +6051,18 @@ figcaption {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: #b24825;
+  background-color: #1E1E1E;
   background-image: url('../images/arrow-up-white.svg');
   background-position: 50% 50%;
   background-repeat: no-repeat;
   -webkit-transition: background-color 300ms ease;
   transition: background-color 300ms ease;
-  color: #b24825;
   cursor: pointer;
 }
 
 .top-button:hover {
-  background-color: #f8bb4b;
+  background-color: #B24825;
+  border: 1px solid #1E1E1E;
   background-image: url('../images/arrow-up-white.svg');
   background-position: 50% 50%;
   background-size: auto;
@@ -9812,7 +9812,6 @@ figcaption {
   display: flex;
   width: 200px;
   min-height: 50px;
-  margin-bottom: 50px;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -10601,6 +10600,7 @@ a {
   color: #111111;
   font-size: 16px;
   line-height: 33px;
+  margin-bottom: 20px;
 }
 
 .paragraph-7 {
@@ -10896,6 +10896,7 @@ a {
 
 .heading-11 {
   margin-top: 0px;
+  font-size: 20px;
 }
 
 .list-3 {
@@ -15044,6 +15045,10 @@ padding-bottom: 0px;
     width: 100%;
     border-bottom: 1px solid black;
   }
+
+  .heading-11 {
+    font-size: 20px !important;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -15052,6 +15057,10 @@ padding-bottom: 0px;
     color: #111111;
     font-size: 16px;
     letter-spacing: 1px;
+  }
+
+  .prototype {
+    padding-left: 15px;
   }
 
   .pill {
@@ -15063,7 +15072,7 @@ padding-bottom: 0px;
   }
 
   .list-2 {
-    padding-left: 0px;
+    padding-left: 30px;
   }
 
   .heading-4 {
@@ -16627,7 +16636,7 @@ padding-bottom: 0px;
 
   .work-heading-2 {
     color: #111111;
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .sliderContainer {

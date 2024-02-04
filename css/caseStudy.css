@@ -50,8 +50,7 @@ hr {
 }
 
 .subgroup li {
-  margin-top: 8px;
-  margin-left: 32px;
+  margin-left: 0px;
 }
 
 
@@ -966,7 +965,6 @@ hr {
   
     .subgroup-left-side h4 {
       margin-bottom: 16px;
-      /* font-size: 20px; */
       color: var(--primary-black);
       letter-spacing: 0.8px;
       font-family: 'Work sans', sans-serif;
@@ -1531,7 +1529,7 @@ hr {
   
     .subgroup p {
       line-height: 33px;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
       color: var(--primary-text);
     }
   
