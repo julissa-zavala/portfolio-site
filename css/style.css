@@ -11333,18 +11333,14 @@ a {
   font-size: 14px;
 }
 
-marquee {
+.marquee {
   white-space: nowrap;
-  white-space: -webkit-nowrap; /* Added -webkit- prefix */
-  overflow: hidden;
-  overflow: -webkit-hidden; /* Added -webkit- prefix */
+  overflow-x: marquee;
   box-sizing: border-box;
   background-color: #1e1e1e;
   position: relative;
-  position: relative;
   height: 100px;
   display: flex;
-  display: -webkit-flex; /* Added -webkit- prefix */
   align-items: center;
 }
 
@@ -11378,20 +11374,19 @@ marquee {
 
 .marquee2 p {
   color: #FAFAFA;
-  display: flex;
-  display: -webkit-flex; /* Added -webkit- prefix */
-  align-items: center;
+  display: -webkit-flex;
+  align-items: -webkit-center;
 }
 
 @keyframes marquee {
   0% { transform: translate(0); }
   100% { transform: translate(-100%); }
 }
-
-@-webkit-keyframes marquee { /* Added -webkit- prefix */
+/* 
+@-webkit-keyframes marquee {
   0% { -webkit-transform: translate(0); }
   100% { -webkit-transform: translate(-100%); }
-}
+} */
 
 .linkz {
   background-color: #1E1E1E;
