@@ -11373,8 +11373,6 @@ a {
   margin: 0;
   background-color: #B24825;
   height: 150px;
-  display: flex;
-  align-items: center;
 }
 
 .marquee2 p {
@@ -11583,6 +11581,10 @@ a {
 @media screen and (max-width: 991px) {
   #portrait{
     display: none;
+  }
+
+  .marquee:hover p {
+    animation-play-state: running;
   }
 
   .mobileHeading {
