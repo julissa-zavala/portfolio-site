@@ -11334,11 +11334,12 @@ a {
 }
 
 .marquee {
-  /* width: 100%; */
+  width: 100%;
   white-space: nowrap;
-  /* overflow: hidden; */
-  /* box-sizing: border-box; */
-  background-color: black;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #1e1e1e;
+  position: relative;
   height: 100px;
   display: flex;
   align-items: center;
@@ -11348,7 +11349,6 @@ a {
   display: inline-block;
   padding-left: 100%;
   animation: marquee 60s linear infinite;
-  animation-play-state: running;
   text-transform: uppercase;
   margin: 0px;
 }
