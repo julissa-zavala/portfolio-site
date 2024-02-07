@@ -11334,10 +11334,10 @@ a {
 }
 
 .marquee {
-  width: 100%;
+  /* width: 100%; */
   white-space: nowrap;
-  overflow: hidden;
-  box-sizing: border-box;
+  /* overflow: hidden; */
+  /* box-sizing: border-box; */
   background-color: black;
   height: 100px;
   display: flex;
