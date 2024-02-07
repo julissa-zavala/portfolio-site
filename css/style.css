@@ -11577,16 +11577,6 @@ a {
 
 @media screen and (max-width: 991px) {
 
-  .marquee {
-    width: 100%; /* Set width to 100% for mobile screens */
-    animation: marquee-mobile 20s linear infinite; /* Adjust speed as needed */
-  }
-  
-  @keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-
   #portrait{
     display: none;
   }
