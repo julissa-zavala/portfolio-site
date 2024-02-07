@@ -11335,7 +11335,7 @@ a {
 
 .marquee {
   white-space: nowrap;
-  overflow-x: marquee;
+  overflow: hidden;
   box-sizing: border-box;
   background-color: #1e1e1e;
   position: relative;
@@ -11374,19 +11374,14 @@ a {
 
 .marquee2 p {
   color: #FAFAFA;
-  display: -webkit-flex;
-  align-items: -webkit-center;
+  display: flex;
+  align-items: center;
 }
 
 @keyframes marquee {
   0% { transform: translate(0); }
   100% { transform: translate(-100%); }
 }
-/* 
-@-webkit-keyframes marquee {
-  0% { -webkit-transform: translate(0); }
-  100% { -webkit-transform: translate(-100%); }
-} */
 
 .linkz {
   background-color: #1E1E1E;
@@ -11581,6 +11576,17 @@ a {
 }
 
 @media screen and (max-width: 991px) {
+
+  .marquee {
+    width: 100%; /* Set width to 100% for mobile screens */
+    animation: marquee-mobile 20s linear infinite; /* Adjust speed as needed */
+  }
+  
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
   #portrait{
     display: none;
   }
