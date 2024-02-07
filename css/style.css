@@ -11346,7 +11346,7 @@ a {
 
 .marquee p {
   display: inline-block;
-  animation: marquee 60s linear infinite;
+  animation: marquee 10s linear infinite;
   text-transform: uppercase;
   margin: 0px;
 }
