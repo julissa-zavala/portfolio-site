@@ -11383,6 +11383,11 @@ a {
   100% { transform: translate(-100%); }
 }
 
+@-webkit-keyframes marquee {
+  0% { -webkit-transform: translate(0); }
+  100% { -webkit-transform: translate(-100%); }
+}
+
 .linkz {
   background-color: #1E1E1E;
   height: 87px;
