@@ -59,9 +59,9 @@ img {
   vertical-align: middle;
   display: inline-block;
 }
-html.w-mod-touch * {
+/* html.w-mod-touch * {
   background-attachment: scroll !important;
-}
+} */
 .w-block {
   display: block;
 }
