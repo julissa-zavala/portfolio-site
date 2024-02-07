@@ -8781,24 +8781,23 @@ figcaption {
 }
 
 .nav-menu-2 {
-  width: 96%;
-  right: 13px;
+  width: 96.5%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   margin-top: 30px;
+  margin-right: auto;
   margin-left: auto;
-  padding-right: 0px;
+  padding-right: 50px;
   padding-bottom: 0px;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
-  justify-content: flex-start;
+  justify-content: space-between;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
-  align-items: center;
 }
 
 .nav-link-2 {
@@ -8863,11 +8862,10 @@ figcaption {
 }
 
 .div-block-2 {
-  margin-right: 225px;
+
 }
 
 .div-block-3 {
-  margin-right: 225px;
 }
 
 .text-block-6 {
@@ -11350,6 +11348,7 @@ a {
   display: inline-block;
   padding-left: 100%;
   animation: marquee 60s linear infinite;
+  animation-play-state: running;
   text-transform: uppercase;
   margin: 0px;
 }
@@ -11581,10 +11580,6 @@ a {
 @media screen and (max-width: 991px) {
   #portrait{
     display: none;
-  }
-
-  .marquee:hover p {
-    animation-play-state: running;
   }
 
   .mobileHeading {
@@ -13146,6 +13141,7 @@ a {
     left: 0px;
     right: 0px;
     height: 30vh;
+    padding-right: 0px;
     margin-top: 0px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -13164,16 +13160,16 @@ a {
   }
 
   .div-block-2 {
-    margin-right: 91.1094px;
     margin-bottom: 10px;
-    margin-left: 91.1094px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 20px;
   }
 
   .div-block-3 {
-    margin-right: 89.7188px;
     margin-bottom: 10px;
-    margin-left: 89.7188px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 20px;
   }
 
@@ -14747,7 +14743,7 @@ a {
   }
 
   .marquee {
-padding-bottom: 0px;
+    padding-bottom: 0px;
   }
 
   .heading-2 {
