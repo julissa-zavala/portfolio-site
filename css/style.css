@@ -11333,18 +11333,6 @@ a {
   font-size: 14px;
 }
 
-/* .marquee {
-  display: flex;
-  position: relative;
-  overflow: hidden;
-  white-space: nowrap;
-  background-color: #1e1e1e;
-  resize: horizontal;
-  container-type: inline-size;
-  height: 100px;
-  align-items: center;
-} */
-
 .marquee {
   --gap: 1rem;
   position: relative;
@@ -11399,19 +11387,7 @@ a {
   color: #FAFAFA;
   display: flex;
   align-items: center;
-}
-
-.marquee > * {
-  -webkit-animation: marquee 60s linear infinite both alternate;
-  animation: marquee 60s linear infinite both alternate;
-  text-transform: uppercase;
-  margin: 0px;
-}
-
-.marquee:hover p {
-  animation-play-state: paused;
-} */
-
+}*/
 
 .linkz {
   background-color: #1E1E1E;
@@ -15121,7 +15097,7 @@ a {
   }
 
   .marquee1 {
-    font-size: 26px;
+    font-size: 18px;
   }
 
   .marquee2 {
