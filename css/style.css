@@ -15051,6 +15051,10 @@ a {
 }
 
 @media screen and (max-width: 479px) {
+  .heading-50 {
+    margin-top: 30px;
+  }
+
   h2 {
     font-family: 'Work sans', sans-serif;
     color: #111111;
