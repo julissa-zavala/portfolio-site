@@ -11358,10 +11358,13 @@ a {
   flex-shrink: 0;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   gap: var(--gap);
   min-width: 100%;
-  animation: scroll 10s linear infinite;
-
+  animation: scroll 15s linear infinite;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
 }
 
 @keyframes scroll {
@@ -11376,10 +11379,12 @@ a {
 .marquee1 {
   font-family: 'chaneyextended';
   font-size: 47px;
-  line-height: normal;
+  background-color: #1e1e1e;
   color: #FAFAFA;
-  margin: 0;
+  list-style: none;
+  height: 100px;
 }
+
 /* 
 .marquee2 {
   font-family: 'chaneywide';
