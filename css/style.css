@@ -11334,17 +11334,6 @@ a {
 }
 
 /* .marquee {
-  white-space: nowrap;
-  overflow: hidden;
-  box-sizing: border-box;
-  background-color: #1e1e1e;
-  position: relative;
-  height: 100px;
-  display: flex;
-  align-items: center;
-} */
-
-.marquee {
   display: flex;
   position: relative;
   overflow: hidden;
@@ -11354,14 +11343,35 @@ a {
   container-type: inline-size;
   height: 100px;
   align-items: center;
+} */
+
+.marquee {
+  --gap: 1rem;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: var(--gap);
 }
 
-/* .marquee p {
-  display: inline-block;
-  animation: marquee 10s linear infinite;
-  text-transform: uppercase;
-  margin: 0px;
-} */
+.marquee__content {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  gap: var(--gap);
+  min-width: 100%;
+  animation: scroll 10s linear infinite;
+
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
 
 .marquee1 {
   font-family: 'chaneyextended';
@@ -11370,7 +11380,7 @@ a {
   color: #FAFAFA;
   margin: 0;
 }
-
+/* 
 .marquee2 {
   font-family: 'chaneywide';
   font-size: 90px;
@@ -11395,19 +11405,8 @@ a {
 
 .marquee:hover p {
   animation-play-state: paused;
-}
+} */
 
-@-webkit-keyframes marquee {
-  to {
-    transform: translateX(min(100cqw - 100%, 0px));
-  }
-}
-
-@keyframes marquee {
-  to {
-    transform: translateX(min(100cqw - 100%, 0px));
-  }
-}
 
 .linkz {
   background-color: #1E1E1E;
