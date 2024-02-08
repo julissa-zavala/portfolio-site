@@ -11345,10 +11345,10 @@ a {
   align-items: center;
   gap: var(--gap);
   min-width: 100%;
-  animation: marquee 15s linear infinite;
   list-style: none;
   padding: 0px;
   margin: 0px;
+  animation: marquee 15s linear infinite;
 }
 
 @keyframes marquee {
@@ -11365,7 +11365,7 @@ a {
   font-size: 47px;
   background-color: #1e1e1e;
   color: #FAFAFA;
-  height: 100px; 
+  height: 100px;
 }
 
 .marquee2 {
@@ -15077,12 +15077,16 @@ a {
     font-size: 18px;
   }
 
-  .marquee{
+  .marquee {
     height: 60px;
   }
 
   .marquee1 {
-    font-size: 12px;
+    font-size: 22px;
+  }
+
+  .marquee__content {
+    justify-content: none;
   }
 
   .marquee2 {
