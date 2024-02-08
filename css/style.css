@@ -36,10 +36,6 @@ h5 {
   margin-top: 173px;
 }
 
-.work {
-  padding-left: 12px;
-}
-
 .analogJournal {
   color: #B24825;
 }
@@ -11350,9 +11346,8 @@ a {
   gap: var(--gap);
   min-width: 100%;
   animation: scroll 15s linear infinite;
-  margin: 0px;
-  padding: 0px;
   list-style: none;
+  padding: 0px;
 }
 
 @keyframes scroll {
@@ -11364,14 +11359,14 @@ a {
   }
 }
 
-/* .marquee1 {
-  font-family: 'chaneyextended';
+.marquee1 {
+  /* font-family: 'chaneyextended';
   font-size: 47px;
   background-color: #1e1e1e;
   color: #FAFAFA;
   list-style: none;
-  height: 100px;
-} */
+  height: 100px; */
+}
 
 /* 
 .marquee2 {
@@ -11652,10 +11647,6 @@ a {
 
   .work-preview-2 {
     height: 50vh;
-  }
-
-  .work {
-    padding-left: 0px;
   }
 
   .work-preview-3 {
