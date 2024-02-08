@@ -12511,7 +12511,7 @@ a {
   }
 
   .main-grid {
-    padding-right: 18px;
+    /* padding-right: 18px; */
     padding-left: 8px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
