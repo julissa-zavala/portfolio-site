@@ -11360,7 +11360,8 @@ a {
 }
 
 .marquee1 {
-  font-family: 'chaneyextended';
+  /* font-family: 'chaneyextended'; */
+  font-family: 'papyrus';
   /* font-size: 47px; */
   /* background-color: #1e1e1e; */
   /* color: #FAFAFA; */
