@@ -246,7 +246,6 @@ figcaption {
   position: static;
   height: 30vh;
   margin-top: 0px;
-  /* background-image: url('../images/wave-6.svg'); */
   background-position: 0px 0px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -10806,6 +10805,7 @@ a {
   font-family: 'Work sans', sans-serif;
   font-size: 20px;
   color: #111111;
+  font-weight: 500;
 }
 
 .paragraph-11 {
@@ -10908,6 +10908,14 @@ a {
   padding-top: 20px;
   color: #b24825;
   text-align: center;
+}
+
+.heading-50 {
+  margin-top: 0px;
+  padding-top: 0px;
+  color: #b24825;
+  text-align: center;
+  line-height: normal;
 }
 
 .heading-22 {
@@ -11235,7 +11243,7 @@ a {
 .sliderContainer {
   position: relative;
   width: 100%;
-  height: 600px;
+  height: 500px;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
@@ -11246,17 +11254,17 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-size: 900px 100%;
+  height: 500px;
+  background-size: 760px 100%;
   max-width: 900px;
 }
 
 .background-img {
-  background-image: url('../images/aft4er.png');
+  background-image: url('../images/after.svg');
 }
 
 .foreground-img {
-  background-image: url('../images/before.png');
+  background-image: url('../images/before.svg');
   width: 50%;
 }
 
@@ -11282,7 +11290,7 @@ a {
       -webkit-appearance: none;
       appearance: none;
       width: 6px;
-      height: 600px;
+      height: 456px;
       background: white;
       cursor: pointer;
   }
@@ -11323,7 +11331,7 @@ a {
 
 .caption {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 0px;
   color: #868686;
   font-family: 'Work sans', sans-serif;
   font-size: 14px;
@@ -12511,7 +12519,6 @@ a {
   }
 
   .main-grid {
-    /* padding-right: 18px; */
     padding-left: 8px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
