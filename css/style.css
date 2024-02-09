@@ -6487,14 +6487,6 @@ figcaption {
   flex: 0 0 auto;
 }
 
-.footer {
-  background-color: #fafafa;
-  background-image: url('../images/grain-background.png');
-  background-position: 0px 0px;
-  background-size: 50px;
-  color: #fff;
-}
-
 .footer.mobile-footer {
   background-image: url('../images/wave-7.svg');
   background-position: 50% 100%;
@@ -11612,7 +11604,7 @@ a {
 
   .aboutMeStars {
     padding: 0px !important;
-    margin: 30px 0px -114px 0px;
+    margin: 20px 0px 10px 0px;
   }
 
   .portrait {
@@ -11676,10 +11668,6 @@ a {
   .caseStudies {
      display: block;
      padding: 0px;
-  }
-
-  #footer {
-    margin-top: 120px;
   }
 
   .work-preview-2 {
@@ -12849,11 +12837,6 @@ a {
     padding-left: 16px;
   }
 
-  .footer {
-    padding-right: 20px;
-    padding-left: 20px;
-  }
-
   .bg-element-3 {
     width: 16vw;
     height: 16vw;
@@ -13492,10 +13475,6 @@ a {
     padding-top: 20px;
     padding-bottom: 10px;
     font-size: 30px;
-  }
-
-  #footer {
-    margin-top: 136px;
   }
 
   .heading-23 {
@@ -15091,9 +15070,9 @@ a {
     margin-top: 20px !important;
   }
 
-  /* .marquee {
-    display: none;
-  } */
+  .aboutMeStars {
+    margin-top: 20px !important;
+  }
 
   .portrait {
     margin-top: 20px;
@@ -15289,10 +15268,6 @@ a {
 
   .text-big.text-grey.mobile {
     line-height: 30px;
-  }
-
-  #footer {
-    margin-top: 0px !important;
   }
 
   .aboutList {
