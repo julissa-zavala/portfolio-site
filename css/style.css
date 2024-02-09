@@ -6070,7 +6070,6 @@ figcaption {
 
 .top-button:hover {
   background-color: #B24825;
-  border: 1px solid #1E1E1E;
   background-image: url('../images/arrow-up-white.svg');
   background-position: 50% 50%;
   background-size: auto;
