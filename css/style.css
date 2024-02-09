@@ -15084,7 +15084,7 @@ a {
 @media screen and (max-width: 479px) {
   .aboutMePage {
     margin-top: 0px;
-    width: 90%;
+    width: 100%;
   }
 
   .mobileHeading5 {
@@ -15183,6 +15183,7 @@ a {
 
   .aboutList {
     font-size: 18px;
+    padding-right: 20px;
   }
 
   .work-preview-3 {
