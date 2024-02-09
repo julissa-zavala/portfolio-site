@@ -35771,4 +35771,4 @@ $("#slider").on("input change", (e)=>{
 $(".marquee__content").css("animation-play-state", "paused");
   setTimeout(function() { 
     $(".marquee__content").css("animation-play-state", "running");
-  }, 3000);
+  }, 500);
