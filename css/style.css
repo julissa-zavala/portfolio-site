@@ -9820,6 +9820,13 @@ figcaption {
   text-decoration: none;
 }
 
+.sliderCaption {
+ margin: 0px !important;
+ color: #707070 !important;
+ font-family: 'Work sans', sans-serif !important;
+ font-size: 14px !important;
+}
+
 .learnMoreButton {
   margin-bottom: 0px;
 }
@@ -10898,7 +10905,7 @@ a {
 }
 
 .heading-41 {
-  margin-top: 20px;
+  margin-top: 35px;
 }
 
 .list-3 {
@@ -11340,7 +11347,7 @@ a {
 .caption {
   text-align: center;
   margin-top: 5px;
-  color: #868686;
+  color: #707070;
   font-family: 'Work sans', sans-serif;
   font-size: 14px;
   margin-bottom: 0px !important;
@@ -11596,6 +11603,18 @@ a {
     margin-left: auto;
     margin-right: auto;
   }
+
+  .sliderImg {
+    background-size: 610px 100%;
+  }
+
+  .mobileMargin {
+    margin-bottom: 0px !important;
+  }
+
+  .slider::-webkit-slider-thumb {
+    height: 353px;
+}
 
   .aboutMeSummary {
     width: 100%;
@@ -15066,6 +15085,10 @@ a {
     width: 100%;
   }
 
+  .caption {
+    color: #707070 !important;
+  }
+
   .mobileHeading5 {
     margin-top: 20px !important;
   }
@@ -15080,6 +15103,10 @@ a {
 
   .paragraph-4 {
     margin-bottom: 40px !important;
+  }
+
+  .mobileMargin {
+    margin-bottom: 0px !important;
   }
   
   .heading-50 {
