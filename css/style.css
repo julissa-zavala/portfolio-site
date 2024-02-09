@@ -11366,7 +11366,7 @@ a {
   list-style: none;
   padding: 0px;
   margin: 0px;
-  animation: marquee 15s linear infinite;
+  animation: marquee 30s linear infinite;
 }
 
 @keyframes marquee {
