@@ -35768,5 +35768,7 @@ $("#slider").on("input change", (e)=>{
   $('.slider-button').css('left', `calc(${sliderPos}% - 18px)`)
 });
 
-  $(".marquee__content").css("animation-play-state", "paused");
-  $(".marquee__content").css("animation-play-state", "running");
+$(".marquee__content").css("animation-play-state", "paused");
+  setTimeout(function() { 
+    $(".marquee__content").css("animation-play-state", "running");
+  }, 3000);
