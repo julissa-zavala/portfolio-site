@@ -11340,10 +11340,11 @@ a {
 
 .caption {
   text-align: center;
-  margin-top: 0px;
+  margin-top: 5px;
   color: #868686;
   font-family: 'Work sans', sans-serif;
   font-size: 14px;
+  margin-bottom: 0px !important;
 }
 
 .marquee {
@@ -15129,6 +15130,8 @@ a {
 
   .marquee1 {
     font-size: 22px;
+    /* font-family: 'Work sans';
+    font-weight: 500; */
   }
 
   .marquee {

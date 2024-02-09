@@ -35767,3 +35767,6 @@ $("#slider").on("input change", (e)=>{
   // Update the position of the slider button
   $('.slider-button').css('left', `calc(${sliderPos}% - 18px)`)
 });
+
+  $(".marquee__content").css("animation-play-state", "paused");
+  $(".marquee__content").css("animation-play-state", "running");
