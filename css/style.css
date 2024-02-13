@@ -25,7 +25,7 @@ body {
   height: 0;
 }
 
-.video-container iframe {
+.video-container video {
   position: absolute;
   top: 0;
   width: 68%;
@@ -34,13 +34,13 @@ body {
   transform: translateX(-50%);
 }
 
-.vc1 iframe{
-  width: 95%;
+.vc1 video {
+  width: 100%;
   height: 100%;
 }
 
-.vc2 iframe{
-  width: 73.96%;
+.vc2 video {
+  width: 100%;
   height: 100%;
 }
 
