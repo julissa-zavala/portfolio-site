@@ -133,11 +133,22 @@ $.fn.isOnScreenHighlight = function () {
   return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.bottom || viewport.top > bounds.bottom));
 };
 
+    $(document).ready(function() {
+      var video = $("#vid1");
+      video.on("timeupdate", function() {
+        if(video[0].duration - video[0].currentTime <= 0.1) {
+        video[0].currentTime = 0;
+        video[0].play();
+        }
+      });
+    });
 
-//     var videoElement = document.querySelector('video');
-//     videoElement.addEventListener('timeupdate', function(e) {
-//       if(e.target.duration - e.target.currentTime <= 1) {
-//           e.target.currentTime = 0;
-//           e.target.play();
-//       }
-//     })
+    $(document).ready(function() {
+      var video = $("#vid2");
+      video.on("timeupdate", function() {
+        if(video[0].duration - video[0].currentTime <= 0.1) {
+        video[0].currentTime = 0;
+        video[0].play();
+        }
+      });
+    });
