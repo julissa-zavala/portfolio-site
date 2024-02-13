@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=false;">
+  <meta name="viewport" content="width=device-width">
   <title>Student Profile Case Study</title>
   <meta content="Student Profile Case Study" property="og:title">
   <meta content="Student Profile Case Study" property="twitter:title">
@@ -43,32 +43,8 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://use.fontawesome.com/a891bb0a11.js"></script>
   <script src="../../js/script.js" charset="utf-8"></script>
-  <script type="text/javascript">
-    window.heap = window.heap || [], heap.load = function (e, t) {
-      window.heap.appid = e, window.heap.config = t = t || {};
-      var r = t.forceSSL || "https:" === document.location.protocol,
-        a = document.createElement("script");
-      a.type = "text/javascript", a.async = !0, a.src = (r ? "https:" : "http:") +
-        "//cdn.heapanalytics.com/js/heap-" + e + ".js";
-      var n = document.getElementsByTagName("script")[0];
-      n.parentNode.insertBefore(a, n);
-      for (var o = function (e) {
-          return function () {
-            heap.push([e].concat(Array.prototype.slice.call(arguments, 0)))
-          }
-        }, p = ["addEventProperties", "addUserProperties", "clearEventProperties", "identify",
-          "removeEventProperty", "setEventProperties", "track", "unsetEventProperty"
-        ], c = 0; c < p.length; c++) heap[p[c]] = o(p[c])
-    };
-    heap.load("1409449789");
-  </script>
 </head>
 <body class="body-4">
-  <div class="preloader">
-    <div class="loading-info"><img src="images/circles-menu-1_1circles-menu-1.gif" alt="" class="loading-icon">
-      <div class="loading-text">Loading...</div>
-    </div>
-  </div>
   <div class="back-to-top">
     <div id="Top" class="top"></div>
     <a href="#Top" class="top-button w-inline-block"></a>
@@ -248,9 +224,9 @@
               <h4 class="heading-11 heading-46">Kickoff</h4>
               <p class="paragraph-4">At the project's start, we identified two pain points based on user research and stakeholder feedback: navigating through data-heavy panels and reducing the height of the Student Profile header.
               </p>
-                <div class="video-container" style="margin-top:-13px;">
+                <div class="video-container vc1" style="margin-top:-13px;">
                 <iframe width="560" height="315" frameborder="0" allowfullscreen
-                  src="https://www.youtube.com/embed/IcMGj17MXVE?&loop=1&playlist=IcMGj17MXVE&autoplay=1&mute=1">
+                  src="https://www.youtube.com/embed/IcMGj17MXVE?&loop=1&playlist=IcMGj17MXVE&autoplay=1&mute=1&controls=0">
                 </iframe>
                 </div>
                 <p style="margin-bottom: 30px" class="caption">With 12 data-heavy panels, it's cumbersome to go to a particular panel. Users get around this by collapsing all panels to see which panels are available, then navigating to the desired panel.</p>
@@ -350,9 +326,9 @@
             Simultaneously, another team was implementing a task management system for the Portal and there was a need to show tasks assigned to a student within the Student Profile.
             I collaborated with their designer, adding tasks to the new history log panel (now called Tasks and Notes) and incorporating pagination to maintain consistent panel height. </p>
           <br>
-          <div class="video-container" style="margin-top:-13px;">
-          <iframe width="560" height="315" frameborder="0" allowfullscreen
-            src="https://www.youtube.com/embed/_FhjFbAIsVc?loop=1&playlist=_FhjFbAIsVc&autoplay=1&mute=1">
+          <div  class="video-container vc2" style="margin-top:-13px;">
+          <iframe id="vid2" width="720" height="540" frameborder="0" allowfullscreen
+            src="https://www.youtube.com/embed/_FhjFbAIsVc?&loop=1&playlist=_FhjFbAIsVc&autoplay=1&mute=1&controls=0">
           </iframe>
           </div>
           <p class="caption">The new Tasks and Notes panel lets users switch between viewing assigned tasks and written notes for the student. Users can also toggle to Activity to see metadata related to actions taken on the student via the Portal.</p>
