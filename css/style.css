@@ -9684,6 +9684,7 @@ figcaption {
   order: 1;
   background-color: #b24825;
   opacity: 1;
+  margin-left: 1px;
 }
 
 .d-109-bottom-text-wrapper {
