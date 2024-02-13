@@ -134,7 +134,7 @@ $.fn.isOnScreenHighlight = function () {
 };
 
     $(document).ready(function() {
-      var video = $("#vid1");
+      const video = $("#vid1");
       video.on("timeupdate", function() {
         if(video[0].duration - video[0].currentTime <= 0.1) {
         video[0].currentTime = 0;
@@ -144,7 +144,7 @@ $.fn.isOnScreenHighlight = function () {
     });
 
     $(document).ready(function() {
-      var video = $("#vid2");
+      const video = $("#vid2");
       video.on("timeupdate", function() {
         if(video[0].duration - video[0].currentTime <= 0.1) {
         video[0].currentTime = 0;
@@ -152,3 +152,4 @@ $.fn.isOnScreenHighlight = function () {
         }
       });
     });
+    
