@@ -50,8 +50,7 @@ hr {
 }
 
 .subgroup li {
-  margin-top: 8px;
-  margin-left: 32px;
+  margin-left: 0px;
 }
 
 
@@ -966,10 +965,9 @@ hr {
   
     .subgroup-left-side h4 {
       margin-bottom: 16px;
-      /* font-size: 20px; */
       color: var(--primary-black);
       letter-spacing: 0.8px;
-      font-family: 'Futura pt', sans-serif;
+      font-family: 'Work sans', sans-serif;
       font-weight: 500;
     }
   
@@ -1112,7 +1110,7 @@ hr {
       margin-bottom: 16px;
       color: var(--primary-black);
       letter-spacing: 0.8px;
-      font-family: 'Futura pt', sans-serif;
+      font-family: 'Work sans', sans-serif;
     }
   
     .subgroup-right-side h4 {
@@ -1145,7 +1143,7 @@ hr {
     }
   
     .main-content {
-      padding: 0px 20px 20px 40px;
+      padding: 0px 20px 0px 40px;
     }
   
     .bg {
@@ -1217,7 +1215,7 @@ hr {
       margin-bottom: 16px;
       color: var(--primary-black);
       letter-spacing: 0.8px;
-      font-family: 'Futura pt', sans-serif;
+      font-family: 'Work sans', sans-serif;
       font-size: 20px;
       font-weight: 500;
     }
@@ -1486,7 +1484,7 @@ hr {
     }
   
     .main-content {
-      padding: 0px 20px 20px 20px;
+      padding: 0px 20px 0px 20px;
     }
   
     .article-title {
@@ -1519,7 +1517,7 @@ hr {
       font-size: 20px;
       color: var(--primary-black);
       letter-spacing: 0.5px;
-      font-family: 'Futura pt', sans-serif;
+      font-family: 'Work sans', sans-serif;
     }
   
     .subgroup h5 {
@@ -1531,7 +1529,7 @@ hr {
   
     .subgroup p {
       line-height: 33px;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
       color: var(--primary-text);
     }
   
