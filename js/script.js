@@ -132,3 +132,12 @@ $.fn.isOnScreenHighlight = function () {
   bounds.bottom = bounds.top + this.outerHeight();
   return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.bottom || viewport.top > bounds.bottom));
 };
+
+
+//     var videoElement = document.querySelector('video');
+//     videoElement.addEventListener('timeupdate', function(e) {
+//       if(e.target.duration - e.target.currentTime <= 1) {
+//           e.target.currentTime = 0;
+//           e.target.play();
+//       }
+//     })

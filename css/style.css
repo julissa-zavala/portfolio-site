@@ -28,8 +28,19 @@ body {
 .video-container iframe {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  width: 68%;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.vc1 iframe{
+  width: 95%;
+  height: 100%;
+}
+
+.vc2 iframe{
+  width: 73.96%;
   height: 100%;
 }
 
@@ -45,17 +56,22 @@ h5 {
 
 .portrait{
   border-radius: 8px;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 600px;
+  max-width: 600px;
   margin-top: 150px;
   display: block;
 }
 
 .aboutMeSummary{
   margin-left: 50px;
+  width: 48%;
 }
 
+.aboutMePhoto {
+  width: 48%;
+  display: flex;
+  justify-content: center;
+}
 .analogJournal {
   color: #B24825;
 }
@@ -4233,7 +4249,7 @@ figcaption {
 .aboutMePage {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 98px;
 }
 
@@ -8907,7 +8923,7 @@ figcaption {
   color: #B24825;
   font-weight: 500;
   letter-spacing: 1.5px;
-  font-size: 90px;
+  font-size: 89px;
   line-height: normal;
 }
 
@@ -11443,12 +11459,29 @@ a {
 }
 
 @media screen and (max-width: 1280px) {
+  .heading-5 {
+    font-size: 68px;
+  }
+
+  .portrait {
+    width: 380px;
+    height: 480px;
+  }
+
   .image-6 {
     width: 0px;
   }
 
   .work-preview-2 {
     height: 55vh;
+  }
+
+  .aboutMePhoto {
+    width: 100%;
+  }
+
+  .aboutMeSummary {
+    width: 100%;
   }
 
   .work-preview-3 {
@@ -11469,7 +11502,40 @@ a {
   }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1790px) {
+  .heading-2 {
+    font-size: 117px;
+  }
+
+  .heading-21 {
+    font-size: 50px;
+    width: 60%;
+  }
+
+  .marquee1 {
+    font-size: 50px;
+  }
+
+  .heading-5 {
+    font-size: 117px;
+  }
+
+  .linkz {
+    font-size: 50px;
+  }
+
+  .heading-4 {
+    font-size: 38px;
+  }
+
+  .d-109-top-text {
+    font-size: 50px;
+  }
+
+  .marquee2 {
+    font-size: 117px;
+  }
+
   .progress {
     position: -webkit-sticky;
     position: sticky;
@@ -11659,8 +11725,12 @@ a {
 
   .portrait {
     margin-top: 15px;
+    width: 400px;
   }
 
+  .aboutMePhoto {
+    width: 100%;
+  }
   .mobileHeading {
     display: block;
     margin-top: 0px;
@@ -15130,6 +15200,7 @@ a {
 
   .portrait {
     margin-top: 20px;
+    width: 300px;
   }
 
   .paragraph-4 {

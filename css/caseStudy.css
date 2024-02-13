@@ -138,36 +138,6 @@ hr {
   font-size: 14px !important;
   line-height: 20px !important;
 }
-
-.bg-THD {
-  background: url('../assets/THD-jumbotron.jpg') no-repeat center center;
-  background-size: cover;
-}
-
-.bg-eatxplore {
-    background: url('../assets/eatxplore-jumbotron.jpg') no-repeat center center;
-    background-size: cover;
-  }
-  
-  .bg-walker {
-    background: url('../assets/walker-jumbotron.jpg') no-repeat center center;
-    background-size:cover;
-  }
-  
-  .bg-up {
-    background: url('../assets/up-jumbotron.jpg') no-repeat center center;
-    background-size:cover;
-  }
-  
-  .bg-REI {
-    background: url('../assets/REI-jumbotron.jpg') no-repeat center center;
-    background-size:cover;
-  }
-  
-  .bg-cookfresh {
-    background: url('../assets/cookfresh-jumbotron.jpg') no-repeat center center;
-    background-size:cover;
-  }
   
   .bg-thriller {
     background: url('../assets/thriller-jumbotron-gradient.jpg') no-repeat center center;
@@ -1154,36 +1124,7 @@ hr {
       left:0;
       z-index: -1;
     }
-  
-    .bg-THD {
-      background: url('../assets/THD-jumbotron.jpg') no-repeat center center;
-      background-size: cover;
-    }
-  
-    .bg-eatxplore {
-      background: url('../assets/eatxplore-jumbotron.jpg') no-repeat center center;
-      background-size: cover;
-    }
-  
-    .bg-walker {
-      background: url('../assets/walker-jumbotron.jpg') no-repeat center center;
-      background-size:cover;
-    }
-  
-    .bg-up {
-      background: url('../assets/up-jumbotron.jpg') no-repeat center center;
-      background-size:cover;
-    }
-  
-    .bg-REI {
-      background: url('../assets/REI-jumbotron.jpg') no-repeat center center;
-      background-size:cover;
-    }
-  
-    .bg-cookfresh {
-      background: url('../assets/cookfresh-jumbotron.jpg') no-repeat center center;
-      background-size:cover;
-    }
+
   
     .article-title {
       font-family: 'Circular Std Black' !important;
