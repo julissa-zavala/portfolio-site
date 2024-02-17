@@ -11466,7 +11466,6 @@ a {
 
   .portrait {
     width: 380px;
-    height: 480px;
   }
 
   .image-6 {
@@ -15201,7 +15200,7 @@ a {
 
   .portrait {
     margin-top: 20px;
-    width: 300px;
+    width: 90%;
   }
 
   .paragraph-4 {
