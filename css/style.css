@@ -9381,6 +9381,14 @@ figcaption {
   text-align: center;
 }
 
+.caseStudyLink {
+  color: #1E1E1E;
+}
+
+.caseStudyLink:hover {
+  cursor: pointer;
+}
+
 .heading-6 {
   margin: 16px 12px 4px;
   padding-left: 38px;
@@ -11411,7 +11419,7 @@ a {
   list-style: none;
   padding: 0px;
   margin: 0px;
-  animation: marquee 30s linear infinite;
+  animation: marquee 60s linear infinite;
 }
 
 @keyframes marquee {
@@ -15180,7 +15188,7 @@ a {
   }
 }
 
-@media screen and (max-width: 479px) {
+@media screen and (max-width: 664px) {
   .aboutMePage {
     margin-top: 0px;
     width: 100%;
