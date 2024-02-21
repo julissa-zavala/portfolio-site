@@ -218,9 +218,9 @@ label {
 }
 
 blockquote {
-  margin-bottom: 24px;
+  margin-bottom: 26px !important;
   padding: 16px 32px;
-  border-left: 3px solid #ffa949 !important;
+  border-left: 3px solid #B24825 !important;
   font-size: 20px;
   line-height: 28px;
 }
