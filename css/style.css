@@ -11468,12 +11468,12 @@ a {
 }
 
 @media screen and (max-width: 1280px) {
+.aboutMePage {
+  flex-direction: column;
+}
+
   .heading-5 {
     font-size: 68px;
-  }
-
-  .portrait {
-    width: 380px;
   }
 
   .image-6 {
@@ -11489,7 +11489,11 @@ a {
   }
 
   .aboutMeSummary {
-    width: 100%;
+    width: 92%;
+  }
+
+  .portrait {
+    margin-top: 30px;
   }
 
   .work-preview-3 {
@@ -11739,6 +11743,7 @@ a {
   .aboutMePhoto {
     width: 100%;
   }
+
   .mobileHeading {
     display: block;
     margin-top: 0px;
