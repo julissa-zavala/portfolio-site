@@ -218,9 +218,9 @@ label {
 }
 
 blockquote {
-  margin-bottom: 26px !important;
+  margin-bottom: 24px;
   padding: 16px 32px;
-  border-left: 3px solid #B24825 !important;
+  border-left: 3px solid #ffa949 !important;
   font-size: 20px;
   line-height: 28px;
 }
@@ -9139,7 +9139,7 @@ figcaption {
   display: inline-block;
   overflow: visible;
   width: 100%;
-  height: 80vh;
+  height: 70vh;
   margin: 0px auto;
   padding: 0px 40px;
   -webkit-box-orient: vertical;
@@ -9160,7 +9160,7 @@ figcaption {
   background-color: #fafafa;
   background-image: url('../images/finalmockup.svg');
   background-position: 50% 50%;
-  background-size: 60%;
+  background-size: 60% 100%;
   background-repeat: no-repeat;
   -o-object-fit: contain;
   object-fit: contain;
@@ -9379,14 +9379,6 @@ figcaption {
   justify-content: flex-start;
   color: #6b539a;
   text-align: center;
-}
-
-.caseStudyLink {
-  color: #1E1E1E;
-}
-
-.caseStudyLink:hover {
-  cursor: pointer;
 }
 
 .heading-6 {
@@ -11419,7 +11411,7 @@ a {
   list-style: none;
   padding: 0px;
   margin: 0px;
-  animation: marquee 60s linear infinite;
+  animation: marquee 30s linear infinite;
 }
 
 @keyframes marquee {
@@ -13558,25 +13550,34 @@ a {
     width: 50%;
   }
 
+  .heading-50 {
+    margin-top: 100px;
+  }
+
   .container-9 {
     max-width: 100%;
+    flex-direction: column;
+    height: 195px;
+    font-size: 18px !important;
   }
 
-  .text-block-19 {
-    left: 0px;
-    top: 10px;
-    width: 200px;
-  }
-
-  .text-block-19.project-duration {
-    left: 35px;
-    top: 10px;
-    width: 250px;
+  .text-block-19.role {
+    width: 100%;
+    text-align: center;
+    border-bottom: none;
+    margin-bottom: 30px;
   }
 
   .text-block-19.tools {
-    left: 60px;
-    top: 10px;
+    width: 100% !important;
+    text-align: center;
+  }
+
+  .text-block-19.project-duration {
+    width: 100% !important;
+    text-align: center;
+    border-bottom: none;
+    margin-bottom: 30px;
   }
 
   #w-node-_9945ff71-7883-7e4b-3817-30083acaaa26-762a7273 {
@@ -14801,7 +14802,7 @@ a {
     -ms-flex-align: stretch;
     align-items: stretch;
     background-color: #fafafa;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1); */
   }
 
   .sidebar-work-info {
@@ -14960,7 +14961,7 @@ a {
     background-color: #fafafa;
     background-position: 50% 50%;
     background-size: 100%;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1); */
     -o-object-fit: fill;
     object-fit: fill;
   }
@@ -15164,31 +15165,12 @@ a {
     height: 40vh;
   }
 
-  .container-9 {
-    flex-wrap: wrap;
-    height: 300px;
-  }
-
-  .text-block-19.role {
-    width: 100%;
-    border-bottom: 1px solid black;
-  }
-
-  .text-block-19.tools {
-    width: 100%;
-  }
-
-  .text-block-19.project-duration {
-    width: 100%;
-    border-bottom: 1px solid black;
-  }
-
   .heading-11 {
     font-size: 20px !important;
   }
 }
 
-@media screen and (max-width: 664px) {
+@media screen and (max-width: 479px) {
   .aboutMePage {
     margin-top: 0px;
     width: 100%;
