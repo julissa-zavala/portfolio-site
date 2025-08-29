@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import StudentProfile from "./components/StudentProfile";
+import StudentProfile from "./Pages/StudentProfilePage";
+import Landing from "./Pages/LandingPage";
+import Info from "./Pages/InfoPage";
 import resumeFile from "./images/JulissaZavala_Resume_2024.pdf";
 
 const App = () => {
@@ -19,8 +21,8 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={"Landing"} />
-        <Route path="/about" element={"About"} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/info" element={<Info />} />
         <Route path="/resume" element={resumeElement()} />
         <Route path="/studentProfile" element={<StudentProfile />} />
       </Routes>

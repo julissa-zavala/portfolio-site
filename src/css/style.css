@@ -145,17 +145,6 @@ h3 {
   font-weight: 700;
 }
 
-h4 {
-  margin-top: 0px;
-  margin-bottom: 12px;
-  font-family: 'Work sans', sans-serif;
-  color: #111111;
-  font-size: 24px;
-  line-height: 28px;
-  font-weight: 500;
-  letter-spacing: 1px;
-}
-
 h5 {
   margin-top: 0px;
   margin-bottom: 8px;
@@ -4742,10 +4731,6 @@ figcaption {
   grid-column-gap: 2px;
   grid-template-areas: ". . ."
     ". Area-2 Area";
-}
-
-.footer-heading {
-  margin-bottom: 20px;
 }
 
 .breadcrumbs-arrow {
@@ -9468,17 +9453,6 @@ figcaption {
   letter-spacing: -0.5px;
 }
 
-.container {
-  width: 100%;
-  max-width: 1240px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.container.space-below {
-  margin-bottom: 120px;
-}
-
 .service-card-wrap {
   display: -webkit-box;
   display: -webkit-flex;
@@ -9618,7 +9592,7 @@ figcaption {
   align-items: center;
 }
 
-.d-109-link-block-wrapper {
+/* .d-109-link-block-wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -9634,33 +9608,23 @@ figcaption {
   -ms-flex-align: center;
   align-items: center;
   text-decoration: none;
-}
+} */
 
-.d-109-top-text-wrapper {
+/* .d-109-top-text-wrapper {
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  overflow: hidden;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
   align-items: center;
-}
+  justify-content: center;
+} */
 
-.d-109-top-text {
+/* .d-109-top-text {
   font-family: 'chaneyextended';
   color: #1E1E1E;
   font-size: 47px;
   line-height: normal;
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: 'chaneywide';
   src: url('../fonts/chaney-wide-webfont.eot');
   src: url('../fonts/chaney-wide-webfont.eot?#iefix') format('embedded-opentype'),
@@ -9680,20 +9644,19 @@ figcaption {
        url('../fonts/chaney-extended-webfont.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-}
+} */
 
-.d-109-top-text-line-through {
+/* .d-109-top-text-line-through {
   position: absolute;
   width: 100%;
   height: 10px;
-  -webkit-box-ordinal-group: 2;
-  -webkit-order: 1;
-  -ms-flex-order: 1;
-  order: 1;
+  top: 50%;
+  left: 0;
   background-color: #b24825;
-  opacity: 1;
-  margin-left: 1px;
-}
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.22s ease-in-out;
+} */
 
 .d-109-bottom-text-wrapper {
   position: relative;
@@ -9731,6 +9694,10 @@ figcaption {
   display: block;
   background-color: #1a1a1a;
 }
+
+/* .d-109-link-block-wrapper:hover .d-109-top-text-line-through {
+  transform: translateY(-50%) scaleX(1); 
+} */
 
 .link-2 {
   color: #111111;
@@ -12726,10 +12693,6 @@ a {
     grid-template-rows: auto;
   }
 
-  .footer-heading {
-    margin-bottom: 12px;
-  }
-
   .pricing-v1-background {
     height: 70%;
   }
@@ -13378,26 +13341,6 @@ a {
     grid-column-gap: 20px;
   }
 
-  .container.space-below {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    margin-bottom: 80px;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-align-self: flex-start;
-    -ms-flex-item-align: start;
-    align-self: flex-start;
-  }
-
   .service-card-wrap {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -13909,10 +13852,6 @@ a {
     width: 100%;
   }
 
-  h4 {
-    margin-bottom: 8px;
-    font-size: 20px;
-  }
 
   .section {
     /* position: relative; */
@@ -15326,13 +15265,6 @@ a {
     padding-top: 0px;
     font-size: 26px;
     margin-top: -105px;
-  }
-
-  h4 {
-    font-family: 'Work sans', sans-serif !important;
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: 1px;
   }
 
   p {
@@ -16957,10 +16889,6 @@ a {
     height: 60px;
   }
 
-  .footer-heading-2 {
-    margin-top: 20px;
-  }
-
   .container-4 {
     max-width: 100%;
     margin-top: 0px;
@@ -17612,10 +17540,6 @@ a {
   display: flex; 
   align-items: center;
   justify-content: center;
-}
-
-.container {
-  width: 50%;
 }
 
 .carousel-cell img {
