@@ -1,32 +1,37 @@
-import { Routes, Route } from "react-router-dom";
-import StudentProfile from "./Pages/StudentProfilePage";
+import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Landing from "./Pages/LandingPage";
 import Info from "./Pages/InfoPage";
-import resumeFile from "./images/JulissaZavala_Resume_2024.pdf";
+import DataGrid from "./Pages/DataGridPage";
+import StudentProfile from "./Pages/StudentProfilePage";
+import "./css/index.css";
+import "@shoelace-style/shoelace/dist/themes/light.css";
+import { setBasePath } from "@shoelace-style/shoelace/dist/utilities/base-path.js";
+
+setBasePath(
+  "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/"
+);
+
+const ScrollToTop = ({ children }) => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return children;
+};
 
 const App = () => {
-  const resumeElement = () => {
-    return (
-      <a
-        data-w-id="ffa6c21c-5688-992e-e776-53b0734125e2"
-        target="_blank"
-        href={resumeFile}
-        className="d-109-link-block-wrapper w-inline-block"
-      >
-        Resume
-      </a>
-    );
-  };
-
   return (
-    <>
+    <ScrollToTop>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/info" element={<Info />} />
-        <Route path="/resume" element={resumeElement()} />
+        <Route path="/dataGrid" element={<DataGrid />} />
         <Route path="/studentProfile" element={<StudentProfile />} />
       </Routes>
-    </>
+    </ScrollToTop>
   );
 };
 
