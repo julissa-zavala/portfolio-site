@@ -4,17 +4,27 @@ import Footer from "../components/Footer";
 import clsx from "clsx";
 import downArrowIcon from "../images/down-arrow-black.svg";
 import dots from "../images/dots.svg";
-import dataGridHero from "../images/DataGridHero.svg";
+import heroImage from "../images/hero_SP.svg";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 import beforeImageSVG from "../images/beforeStudentProfile.svg";
-import afterImageSVG from "../images/1_after.svg";
+import afterImageSVG from "../images/after.svg";
 import ReactBeforeSliderComponent from "react-before-after-slider-component";
 import "react-before-after-slider-component/dist/build.css";
-import viewDiagram from "../images/4_viewDiagram.svg";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import "react-image-gallery/styles/css/image-gallery.css";
 import line from "../images/line.svg";
+import brainStorm from "../images/studentProfileBrainstormingSessionTemplate.jpg";
+import drawingBoard from "../images/drawingBoard_SP.svg";
+import skeleton from "../images/skeleton.mp4";
+import skeletonGif from "../images/skeleton.gif";
+import validation from "../images/validation.svg";
+import refinement from "../images/refinement.svg";
+import wireframe from "../images/initialSolutions.svg";
+import attendance from "../images/attendancemodule.mp4";
+import attendanceGif from "../images/attendancemodule.gif";
+import academics from "../images/academicsmodule.mp4";
+import academicsGif from "../images/academicsmodule.gif";
 
 const useStyles = createUseStyles({
   caseStudySection: {
@@ -220,6 +230,8 @@ const useStyles = createUseStyles({
   },
   customVideo: {
     width: "47%",
+    border: "0.5px solid #e4e4e7",
+    borderRadius: 8,
     "@media (min-width: 0px) and (max-width: 1200px)": {
       width: "100%",
     },
@@ -232,13 +244,12 @@ const useStyles = createUseStyles({
   results: {
     display: "flex",
     flexDirection: "column",
-    "@media (min-width: 0px) and (max-width: 1200px)": {
-      width: "25%",
-    },
+    width: "26%",
   },
   resultsPercentage: {
     fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
     marginBottom: 8,
+    fontSize: 22,
   },
   resultsContainer: {
     display: "flex",
@@ -281,7 +292,7 @@ const StudentProfile = () => {
       <section className="container">
         <HeaderNav />
         <section className={classes.caseStudyContainer}>
-          <img src={dataGridHero} className={classes.heroImage} />
+          <img src={heroImage} className={classes.heroImage} />
           <h1 className={classes.mainHeading}>
             From data silos to quick insights: Designing a student overview
             panel
@@ -345,7 +356,7 @@ const StudentProfile = () => {
                 across 5 other Portal features, solving performance constraints
                 while enhancing user experience.
               </p>
-              <p className={classes.title} style={{ marginTop: 16 }}>
+              <p className={classes.title} style={{ marginTop: 32 }}>
                 My role
               </p>
               <p className={classes.description}>
@@ -447,7 +458,7 @@ const StudentProfile = () => {
             </section>
             <div className={classes.caseStudyImageContainer}>
               <Zoom classDialog={classes.zoomBackground}>
-                <img src={beforeImageSVG} width="100%" />
+                <img src={wireframe} width="100%" />
               </Zoom>
             </div>
           </section>
@@ -500,8 +511,15 @@ const StudentProfile = () => {
             </section>
             <div className={classes.caseStudyImageContainer}>
               {" "}
-              <Zoom classDialog={classes.zoomBackground}>
-                <img src={viewDiagram} width="100%" />
+              <Zoom
+                classDialog={classes.zoomBackground}
+                canSwipeToUnzoom={false}
+              >
+                <img
+                  src={brainStorm}
+                  width="100%"
+                  style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+                />
               </Zoom>
             </div>
           </section>
@@ -528,7 +546,7 @@ const StudentProfile = () => {
             </section>
             <div className={classes.caseStudyImageContainer}>
               <Zoom classDialog={classes.zoomBackground}>
-                <img src={beforeImageSVG} width="100%" />
+                <img src={drawingBoard} width="100%" />
               </Zoom>
             </div>
           </section>
@@ -548,26 +566,44 @@ const StudentProfile = () => {
                 I tested the 4-module concept with 5 teachers using realistic
                 student data. Results were clear: 60% reduction in assessment
                 time and increased exploration of detailed information. When
-                stakeholders pushed for progress bars and additional data
-                visualizations, inspired by the visual elements I'd successfully
-                introduced elsewhere in the panel, I used this validation data
-                to advocate for strategic focus.
+                stakeholders pushed for progress bars in the 4 modules and
+                additional data visualizations, inspired by the visual elements
+                I'd successfully introduced elsewhere in the panel, I used this
+                validation data to advocate for strategic focus.
               </p>
               <p className={classes.description}>
                 The compromise was adding progress bars to the respective
                 detailed panels where there's room to explain their complexity,
-                while keeping the overview modules simple. We also replaced the
-                attendance graph with an interactive attendance calendar,
-                addressing their preference for more visual data representation
-                while maintaining core simplicity, since user research showed
-                teachers needed to spot attendance patterns like "3 consecutive
-                absences before a test.”
+                while keeping the overview modules simple.
+              </p>
+              <p className={classes.description}>
+                We also replaced the attendance graph with an interactive
+                attendance calendar, addressing their preference for more visual
+                data representation while maintaining core simplicity, since
+                user research showed school staff needed to quickly identify
+                attendance patterns that could inform intervention decisions.
               </p>
             </section>
             <div className={classes.caseStudyImageContainer}>
               <Zoom classDialog={classes.zoomBackground}>
-                <img src={beforeImageSVG} width="100%" />
+                <img src={validation} width="100%" />
               </Zoom>
+              <p
+                className={classes.caption}
+                style={{ marginBottom: width <= 1200 ? 32 : 48 }}
+              >
+                Some stakeholders pushed for progress bars in the top 4 modules
+              </p>
+              <Zoom classDialog={classes.zoomBackground}>
+                <img src={refinement} width="100%" />
+              </Zoom>
+              <p
+                className={classes.caption}
+                style={{ marginBottom: width <= 1200 ? 12 : 0 }}
+              >
+                Compromise was to add progress bars to the respective panels
+                instead
+              </p>
             </div>
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
@@ -601,11 +637,27 @@ const StudentProfile = () => {
                 design patterns for new features across the platform
               </p>
             </section>
-            <div className={classes.caseStudyImageContainer}>
-              <Zoom classDialog={classes.zoomBackground}>
-                <img src={beforeImageSVG} width="100%" />
-              </Zoom>
-            </div>
+            {width >= 551 && (
+              <video
+                controls={false}
+                autoPlay
+                loop
+                muted
+                className={classes.customVideo}
+                controlsList="nodownload noplaybackrate noremoteplayback"
+                disablePictureInPicture
+              >
+                <source src={skeleton} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
+            {width <= 550 && (
+              <img
+                width="100%"
+                src={skeletonGif}
+                style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+              />
+            )}
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
@@ -625,11 +677,31 @@ const StudentProfile = () => {
                 this meant 5+ second load times that would lose users entirely.
               </p>
             </section>
-            <div className={classes.caseStudyImageContainer}>
-              <Zoom classDialog={classes.zoomBackground}>
-                <img src={beforeImageSVG} width="100%" />
-              </Zoom>
-            </div>
+            {width >= 551 && (
+              <video
+                controls={false}
+                autoPlay
+                loop
+                muted
+                className={classes.customVideo}
+                controlsList="nodownload noplaybackrate noremoteplayback"
+                disablePictureInPicture
+                style={{
+                  width: "35%",
+                  marginLeft: "auto",
+                }}
+              >
+                <source src={attendance} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
+            {width <= 550 && (
+              <img
+                width="100%"
+                src={attendanceGif}
+                style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+              />
+            )}
           </section>
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
@@ -653,11 +725,30 @@ const StudentProfile = () => {
                 displaying comprehensive data.
               </p>
             </section>
-            <div className={classes.caseStudyImageContainer}>
-              <Zoom classDialog={classes.zoomBackground}>
-                <img src={beforeImageSVG} width="100%" />
-              </Zoom>
-            </div>
+            {width >= 551 && (
+              <video
+                controls={false}
+                autoPlay
+                loop
+                className={classes.customVideo}
+                controlsList="nodownload noplaybackrate noremoteplayback"
+                disablePictureInPicture
+                style={{
+                  width: "35%",
+                  marginLeft: "auto",
+                }}
+              >
+                <source src={academics} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            )}
+            {width <= 550 && (
+              <img
+                width="100%"
+                src={academicsGif}
+                style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+              />
+            )}
           </section>
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
@@ -673,7 +764,11 @@ const StudentProfile = () => {
             </section>
             <div className={classes.caseStudyImageContainer}>
               <Zoom classDialog={classes.zoomBackground}>
-                <img src={beforeImageSVG} width="100%" />
+                <img
+                  src={afterImageSVG}
+                  width="100%"
+                  style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+                />
               </Zoom>
             </div>
           </section>
@@ -701,21 +796,11 @@ const StudentProfile = () => {
                 academic context.
               </p>
               <div className={classes.impactContent}>
-                {/* <Zoom classDialog={classes.zoomBackground}>
-                  <img
-                    src={afterImageSVG}
-                    style={{
-                      marginTop: 24,
-                      width: "100%",
-                    }}
-                  />
-                </Zoom> */}
                 <div
                   style={{
                     display: "flex",
                     flexDirection: "column",
                     width: width > 1200 ? "50%" : "100%",
-                    marginBottom: width >= 1200 ? 64 : 0,
                     alignSelf: "center",
                   }}
                 >
@@ -723,36 +808,65 @@ const StudentProfile = () => {
                     style={{
                       fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
                       fontSize: 14,
-                      marginTop: width >= 1200 ? 64 : 32,
+                      marginTop: width >= 1200 ? 24 : 32,
                       marginBottom: 16,
                     }}
                   >
-                    Results after 6 weeks:
+                    Results after 6 months:
                   </p>{" "}
                   <div className={classes.resultsContainer}>
                     <p className={classes.results}>
-                      <span className={classes.resultsPercentage}>91.0%</span>
-                      Reduction in student assessment time
+                      <span className={classes.resultsPercentage}>150%</span>
+                      Increase in student profile page views
                     </p>
                     <p className={classes.results}>
-                      <span className={classes.resultsPercentage}>91.0%</span>
-                      Reduction in student assessment time
+                      <span className={classes.resultsPercentage}>40%</span>
+                      Increase in daily active users on this page
                     </p>
                     <p className={classes.results}>
-                      <span className={classes.resultsPercentage}>91.0%</span>
-                      Reduction in student assessment time
+                      <span className={classes.resultsPercentage}>28%</span>
+                      Growth in monthly active users
                     </p>
                   </div>
+                  <ul
+                    className={classes.description}
+                    style={{
+                      paddingBottom: width <= 1200 && 16,
+                      paddingTop: width <= 1200 && 16,
+                      paddingLeft: 14,
+                      width: "90%",
+                      marginTop: 24,
+                    }}
+                  >
+                    <span style={{ position: "relative", right: 15 }}>
+                      Systems-level impact:
+                    </span>
+                    <li>
+                      Data visualization patterns I introduced were adopted
+                      across 6 different product areas
+                    </li>
+                    <li>
+                      Established the design language for how we present complex
+                      educational data platform-wide
+                    </li>
+                    <li>
+                      Became the most requested feature demo for new district
+                      onboarding
+                    </li>
+                  </ul>
                 </div>
                 <div
                   className={classes.quoteContainer}
-                  style={{ marginTop: 32 }}
+                  style={{ marginTop: width >= 1201 && 32 }}
                 >
                   <p className={classes.quote}>
                     “I can answer parent questions immediately now instead of
                     saying 'let me look that up.”
                   </p>
-                  <p className={classes.caption}>
+                  <p
+                    className={classes.caption}
+                    style={{ marginBottom: width <= 1200 && 13 }}
+                  >
                     - From a conversation with a frequent Portal user
                   </p>
                 </div>
@@ -774,55 +888,36 @@ const StudentProfile = () => {
                 <span className={classes.number}>09</span>Key takeaways
               </p>
               <p className={classes.description}>
-                <span className={classes.bold}>What I learned.</span>
+                <span className={classes.bold}>
+                  Stakeholder alignment is as important as user research.{" "}
+                </span>
                 <br />
-                Stakeholder alignment is as important as user research. Getting
-                5 product teams to agree on design criteria took just as much
-                effort as the actual design work. I learned that framing
+                Getting 5 product teams to agree on design criteria took just as
+                much effort as the actual design work. I learned that framing
                 decisions around shared goals ("tell the student's educational
                 journey") worked better than trying to convince teams my
                 approach was right.
               </p>
               <p className={classes.description}>
                 <span className={classes.bold}>
-                  Constraints actually helped the design.
-                </span>
-                <br />
-                The API performance issue forced us to be more strategic about
-                what information we included. Teachers ended up with a 60%
-                faster workflow, and the skeleton loading solution we built got
-                adopted by other teams. Sometimes limitations push you toward
-                better solutions than unlimited flexibility would.
-              </p>
-              <p className={classes.description}>
-                <span className={classes.bold}>
-                  Data wins arguments that opinions can't.
+                  Data builds consensus that opinions can't.
                 </span>
                 <br />
                 When stakeholders wanted more complexity, showing them that
                 teachers completed tasks 60% faster with the simple version
-                settled the debate. User testing became my best tool for
-                organizational influence, not just design validation.
+                aligned everyone around the focused approach. User testing
+                became my best tool for organizational alignment, not just
+                design validation.
               </p>
               <p className={classes.description}>
                 <span className={classes.bold}>
-                  Data wins arguments that opinions can't.
+                  Good solutions create ripple effects.
                 </span>
                 <br />
-                When stakeholders wanted more complexity, showing them that
-                teachers completed tasks 60% faster with the simple version
-                settled the debate. User testing became my best tool for
-                organizational influence, not just design validation.
-              </p>
-              <p className={classes.description}>
-                <span className={classes.bold}>
-                  The biggest challenge wasn't technical.
-                </span>
-                <br />
-                Managing internal politics and competing team priorities was
-                harder than solving the user experience problems. Teams
-                genuinely thought more data meant more value, and it took both
-                persistence and success metrics to change that thinking.
+                The skeleton loading system we built to solve our performance
+                problem became a reusable pattern adopted by 5 other teams. This
+                taught me that addressing immediate constraints thoughtfully can
+                drive platform-wide improvements.
               </p>
             </section>{" "}
           </section>

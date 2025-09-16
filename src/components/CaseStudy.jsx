@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { createUseStyles } from "react-jss";
 import rightArrowIcon from "../images/right-arrow-black.svg";
 
@@ -26,6 +27,7 @@ const useStyles = createUseStyles({
   caseStudyImage: {
     width: "47%",
     borderRadius: 4,
+    cursor: "pointer",
     "@media (min-width: 0px) and (max-width: 1280px)": {
       width: "clamp(300px, 98%, 608px)",
     },
@@ -111,10 +113,15 @@ const useStyles = createUseStyles({
 
 const CaseStudy = ({ title, description, route, image }) => {
   const classes = useStyles();
+  const navigate = useNavigate();
 
   return (
     <section className={classes.caseStudyContainer}>
-      <img src={image} className={classes.caseStudyImage} />
+      <img
+        src={image}
+        className={classes.caseStudyImage}
+        onClick={() => navigate(route)}
+      />
       <section className={classes.caseStudyInfo}>
         <p className={classes.caseStudyTitle}>{title}</p>
         <span className={classes.caseStudyCompanyName}>

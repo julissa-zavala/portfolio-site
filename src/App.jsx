@@ -23,6 +23,26 @@ const ScrollToTop = ({ children }) => {
 };
 
 const App = () => {
+  useEffect(() => {
+    const preventWheelUnzoom = (e) => {
+      const modal = document.querySelector("[data-rmiz-modal][open]");
+      if (modal) {
+        e.stopImmediatePropagation();
+      }
+    };
+
+    document.addEventListener("wheel", preventWheelUnzoom, {
+      passive: true,
+      capture: true,
+    });
+
+    return () => {
+      document.removeEventListener("wheel", preventWheelUnzoom, {
+        capture: true,
+      });
+    };
+  }, []);
+
   return (
     <ScrollToTop>
       <Routes>

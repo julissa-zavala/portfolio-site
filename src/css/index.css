@@ -96,8 +96,26 @@ sl-icon > svg {
     border-color: #047d5f !important;
 }
 
+.before-after-slider {
+    /* border-top: 1px solid #e4e4e7; */
+    border-radius: 8px;
+}
+
+.before-after-slider__first-photo-container {
+    border-radius: 8px !important;
+}
+
+.before-after-slider__second-photo-container {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    /* border-top: 1px solid #e4e4e7;
+    border-bottom: 1px solid #e4e4e7; */
+    /* height: 98%; */
+}
+
 .before-after-slider__delimiter {
     height: 98%;
+    border-radius: 8px;
 }
 
 /* MEDIA QUERY STYLES */

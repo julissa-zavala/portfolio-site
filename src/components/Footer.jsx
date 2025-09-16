@@ -201,7 +201,7 @@ const Footer = ({ containerStyles }) => {
           rel="noopener noreferrer"
           href={"https://github.com/julissa-zavala/portfolio-site"}
         >
-          Hand coded in React, by me{" "}
+          Hand coded in React{" "}
           <img
             src={diagonalArrowUpIcon}
             alt="Black arrow pointing up to the right diagonally"

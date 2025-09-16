@@ -333,7 +333,7 @@ const DataGrid = () => {
                 returned to working with fresh daily data instead of static
                 exports.
               </p>
-              <p className={classes.title} style={{ marginTop: 16 }}>
+              <p className={classes.title} style={{ marginTop: 32 }}>
                 My role
               </p>
               <p className={classes.description}>
@@ -398,7 +398,11 @@ const DataGrid = () => {
             </section>
             <div className={classes.caseStudyImageContainer}>
               <Zoom classDialog={classes.zoomBackground}>
-                <img src={beforeImageSVG} width="100%" />
+                <img
+                  src={beforeImageSVG}
+                  width="100%"
+                  style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+                />
               </Zoom>
             </div>
           </section>
@@ -574,12 +578,19 @@ const DataGrid = () => {
                 className={classes.customVideo}
                 controlsList="nodownload noplaybackrate noremoteplayback"
                 disablePictureInPicture
+                style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
               >
                 <source src={saveButton} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             )}
-            {width <= 550 && <img width="100%" src={gif} />}
+            {width <= 550 && (
+              <img
+                width="100%"
+                src={gif}
+                style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+              />
+            )}
           </section>
           <img src={width >= 901 ? dots : line} className={classes.dots} />
           <section
@@ -696,12 +707,19 @@ const DataGrid = () => {
                 className={classes.customVideo}
                 controlsList="nodownload noplaybackrate noremoteplayback"
                 disablePictureInPicture
+                style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
               >
                 <source src={sideBar} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             )}
-            {width <= 550 && <img width="100%" src={gif2} />}
+            {width <= 550 && (
+              <img
+                width="100%"
+                src={gif2}
+                style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+              />
+            )}
           </section>
           <img src={width >= 901 ? dots : line} className={classes.dots} />
           <section
