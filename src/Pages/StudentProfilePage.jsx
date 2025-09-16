@@ -15,7 +15,7 @@ import useWindowDimensions from "../hooks/useWindowDimensions";
 import "react-image-gallery/styles/css/image-gallery.css";
 import line from "../images/line.svg";
 import brainStorm from "../images/studentProfileBrainstormingSessionTemplate.jpg";
-import drawingBoard from "../images/drawingBoard_SP.svg";
+import drawingBoard from "../images/drawingboard_SP.svg";
 import skeleton from "../images/skeleton.mp4";
 import skeletonGif from "../images/skeleton.gif";
 import validation from "../images/validation.svg";
