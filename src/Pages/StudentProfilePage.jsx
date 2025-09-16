@@ -245,6 +245,7 @@ const useStyles = createUseStyles({
     display: "flex",
     flexDirection: "column",
     width: "26%",
+    fontSize: 14,
   },
   resultsPercentage: {
     fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
