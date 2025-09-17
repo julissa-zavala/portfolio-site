@@ -316,7 +316,6 @@ const useStyles = createUseStyles({
       transform: "translateY(0px)",
     },
   },
-  // Scroll animation styles
   animatedSection: {
     opacity: 0,
     transform: "translateY(40px)",
@@ -423,20 +422,17 @@ const DataGrid = () => {
     const totalImages = imagesToPreload.length;
     let loadedCount = 0;
 
-    // Animate percentage counter smoothly (skip 69%)
     const animatePercentage = (targetPercentage) => {
       let currentPercentage = 0;
-      setLoadingPercentage(0); // Reset to 0 first
+      setLoadingPercentage(0);
       
       const timer = setInterval(() => {
         currentPercentage += 1;
         
-        // Skip 69%
         if (currentPercentage === 69) {
           currentPercentage += 1;
         }
         
-        // Cap at 100%
         if (currentPercentage > 100) {
           currentPercentage = 100;
         }
@@ -445,14 +441,13 @@ const DataGrid = () => {
         
         if (currentPercentage >= targetPercentage || currentPercentage >= 100) {
           clearInterval(timer);
-          // Ensure we always show 100% before transitioning
           if (currentPercentage >= 100 && loadedCount === totalImages) {
             setTimeout(() => {
               setAllImagesLoaded(true);
-            }, 500); // Show 100% for half a second before transitioning
+            }, 500);
           }
         }
-      }, 20); // Update every 20ms for smooth animation
+      }, 20);
     };
 
     imagesToPreload.forEach(({ key, src }) => {
@@ -462,15 +457,11 @@ const DataGrid = () => {
         loadedCount++;
         const targetPercentage = Math.min(100, Math.round((loadedCount / totalImages) * 100));
         animatePercentage(targetPercentage);
-        
-        // Don't automatically show content here - let the animation handle it
-        // The animatePercentage function will handle showing content when it reaches 100%
       };
       img.src = src;
     });
   }, []);
 
-  // Scroll animation effect
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -482,12 +473,11 @@ const DataGrid = () => {
         });
       },
       {
-        threshold: 0.1, // Trigger when 10% of the element is visible
-        rootMargin: '0px 0px -50px 0px' // Start animation slightly before element comes into view
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
       }
     );
 
-    // Observe all sections
     sectionRefs.current.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
@@ -497,7 +487,7 @@ const DataGrid = () => {
         if (ref) observer.unobserve(ref);
       });
     };
-  }, [allImagesLoaded]); // Re-run when content is loaded
+  }, [allImagesLoaded]);
 
   const beforeImage = {
     imageUrl: beforeImageSVG,
@@ -507,7 +497,6 @@ const DataGrid = () => {
     imageUrl: afterImageSVG,
   };
 
-  // Show loading page until all images are loaded
   if (!allImagesLoaded) {
     return (
       <div className={classes.loadingContainer}>

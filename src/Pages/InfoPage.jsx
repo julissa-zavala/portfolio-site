@@ -154,13 +154,23 @@ const useStyles = createUseStyles({
     borderRadius: 6,
   },
   loadingContainer: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    height: "100vh",
     backgroundColor: "#ffffff",
     fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
+    zIndex: 9999,
+    transition: "opacity 0.5s ease-out",
+    "&.hidden": {
+      opacity: 0,
+      pointerEvents: "none",
+    },
   },
   percentageText: {
     fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
@@ -214,6 +224,7 @@ const Info = () => {
   });
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [loadingPercentage, setLoadingPercentage] = useState(0);
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
     const imagesToPreload = [
@@ -226,7 +237,6 @@ const Info = () => {
     let loadedCount = 0;
     let animationStarted = false;
 
-    // Start the animation once when the first image loads
     const startAnimation = () => {
       if (animationStarted) return;
       animationStarted = true;
@@ -237,12 +247,10 @@ const Info = () => {
       const timer = setInterval(() => {
         currentPercentage += 1;
         
-        // Skip 69%
         if (currentPercentage === 69) {
           currentPercentage += 1;
         }
         
-        // Cap at 100%
         if (currentPercentage > 100) {
           currentPercentage = 100;
         }
@@ -251,14 +259,16 @@ const Info = () => {
         
         if (currentPercentage >= 100) {
           clearInterval(timer);
-          // Show content when all images are loaded and animation reaches 100%
           if (loadedCount === totalImages) {
             setTimeout(() => {
               setAllImagesLoaded(true);
-            }, 1200);
+              setTimeout(() => {
+                setShowLoader(false);
+              }, 500);
+            }, 800);
           }
         }
-      }, 20); // Update every 20ms for smooth animation
+      }, 20);
     };
 
     imagesToPreload.forEach(({ key, src }) => {
@@ -266,8 +276,6 @@ const Info = () => {
       img.onload = () => {
         setImagesLoaded((prev) => ({ ...prev, [key]: true }));
         loadedCount++;
-        
-        // Start animation when first image loads
         if (loadedCount === 1) {
           startAnimation();
         }
@@ -276,19 +284,16 @@ const Info = () => {
     });
   }, []);
 
-  // Show loading page until all images are loaded
-  if (!allImagesLoaded) {
-    return (
-      <div className={classes.loadingContainer}>
-        <div className={classes.percentageText}>
-          {loadingPercentage}%
-          <div className={classes.loadingLineThrough}></div>
-        </div>
-      </div>
-    );
-  }
-
   return (
+    <>
+      {showLoader && (
+        <div className={classes.loadingContainer}>
+          <div className={classes.percentageText}>
+            {loadingPercentage}%
+            <div className={classes.loadingLineThrough}></div>
+          </div>
+        </div>
+      )}
     <div className={`${classes.contentContainer} loaded`}>
       <section className="container">
         <HeaderNav />
@@ -392,6 +397,7 @@ const Info = () => {
       </section>
       <Footer />
     </div>
+    </>
   );
 };
 

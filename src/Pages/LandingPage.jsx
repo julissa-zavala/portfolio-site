@@ -70,7 +70,6 @@ const useStyles = createUseStyles({
   companyName: {
     color: "#767676",
   },
-  // Scroll animation styles
   animatedSection: {
     opacity: 0,
     transform: "translateY(40px)",
@@ -108,7 +107,6 @@ const Landing = () => {
     },
   ];
 
-  // Scroll animation effect
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -120,12 +118,11 @@ const Landing = () => {
         });
       },
       {
-        threshold: 0.1, // Trigger when 10% of the element is visible
-        rootMargin: '0px 0px -50px 0px' // Start animation slightly before element comes into view
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
       }
     );
 
-    // Observe all sections
     sectionRefs.current.forEach((ref) => {
       if (ref) observer.observe(ref);
     });

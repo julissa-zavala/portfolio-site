@@ -1,5 +1,4 @@
 
-/* FONTS */
 
 @font-face {
   font-family: 'Roobert_Latin_Bold';
@@ -15,7 +14,6 @@
   font-style: normal;
 }
 
-/* SHARED STYLES */
 
 * {
     -webkit-box-sizing: border-box;
@@ -97,7 +95,6 @@ sl-icon > svg {
 }
 
 .before-after-slider {
-    /* border-top: 1px solid #e4e4e7; */
     border-radius: 8px;
 }
 
@@ -108,9 +105,6 @@ sl-icon > svg {
 .before-after-slider__second-photo-container {
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
-    /* border-top: 1px solid #e4e4e7;
-    border-bottom: 1px solid #e4e4e7; */
-    /* height: 98%; */
 }
 
 .before-after-slider__delimiter {
@@ -118,7 +112,6 @@ sl-icon > svg {
     border-radius: 8px;
 }
 
-/* MEDIA QUERY STYLES */
 
 @media (min-width: 1201px) and (max-width: 1300px) {
     .before-after-slider__delimiter {

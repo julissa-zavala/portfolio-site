@@ -345,7 +345,6 @@ const useStyles = createUseStyles({
       transform: "translateY(0px)",
     },
   },
-  // Scroll animation styles
   animatedSection: {
     opacity: 0,
     transform: "translateY(40px)",
@@ -355,7 +354,6 @@ const useStyles = createUseStyles({
       transform: "translateY(0)",
     },
   },
-  // Next project section styles
   nextProjectContainer: {
     display: "flex",
     flexDirection: "column",
@@ -458,20 +456,17 @@ const StudentProfile = () => {
     const totalImages = imagesToPreload.length;
     let loadedCount = 0;
 
-    // Animate percentage counter smoothly (skip 69%)
     const animatePercentage = (targetPercentage) => {
       let currentPercentage = 0;
-      setLoadingPercentage(0); // Reset to 0 first
+      setLoadingPercentage(0);
       
       const timer = setInterval(() => {
         currentPercentage += 1;
         
-        // Skip 69%
         if (currentPercentage === 69) {
           currentPercentage += 1;
         }
         
-        // Cap at 100%
         if (currentPercentage > 100) {
           currentPercentage = 100;
         }
@@ -480,14 +475,13 @@ const StudentProfile = () => {
         
         if (currentPercentage >= targetPercentage || currentPercentage >= 100) {
           clearInterval(timer);
-          // Ensure we always show 100% before transitioning
           if (currentPercentage >= 100 && loadedCount === totalImages) {
             setTimeout(() => {
               setAllImagesLoaded(true);
-            }, 500); // Show 100% for half a second before transitioning
+            }, 500);
           }
         }
-      }, 20); // Update every 20ms for smooth animation
+      }, 20);
     };
 
     imagesToPreload.forEach(({ key, src }) => {
@@ -497,19 +491,15 @@ const StudentProfile = () => {
         loadedCount++;
         const targetPercentage = Math.min(100, Math.round((loadedCount / totalImages) * 100));
         animatePercentage(targetPercentage);
-        
-        // Don't automatically show content here - let the animation handle it
-        // The animatePercentage function will handle showing content when it reaches 100%
       };
       img.src = src;
     });
   }, []);
 
-  // Animate numbers function
   const animateNumbers = () => {
     const targetNumbers = { views: 150, dailyUsers: 40, monthlyUsers: 28 };
-    const duration = 4000; // 4 seconds
-    const steps = 60; // 60 steps for smooth animation
+    const duration = 4000;
+    const steps = 60;
     const stepDuration = duration / steps;
     
     let currentStep = 0;
@@ -517,8 +507,6 @@ const StudentProfile = () => {
     const timer = setInterval(() => {
       currentStep++;
       const progress = currentStep / steps;
-      
-      // Use easing function for more natural animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       
       setCurrentNumbers({
@@ -529,13 +517,11 @@ const StudentProfile = () => {
       
       if (currentStep >= steps) {
         clearInterval(timer);
-        // Ensure final values are exact
         setCurrentNumbers(targetNumbers);
       }
     }, stepDuration);
   };
 
-  // Scroll animation effect
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -543,8 +529,6 @@ const StudentProfile = () => {
           if (entry.isIntersecting) {
             const sectionIndex = parseInt(entry.target.dataset.sectionIndex);
             setAnimatedSections(prev => new Set([...prev, sectionIndex]));
-            
-            // Trigger number animation for Impact section (index 12) - only once
             if (sectionIndex === 12 && !impactAnimationTriggered.current) {
               impactAnimationTriggered.current = true;
               setImpactNumbersAnimated(true);
@@ -554,12 +538,11 @@ const StudentProfile = () => {
         });
       },
       {
-        threshold: 0.1, // Trigger when 10% of the element is visible
-        rootMargin: '0px 0px -50px 0px' // Start animation slightly before element comes into view
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
       }
     );
 
-    // Observe all sections
     sectionRefs.current.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
@@ -569,7 +552,7 @@ const StudentProfile = () => {
         if (ref) observer.unobserve(ref);
       });
     };
-  }, [allImagesLoaded]); // Re-run when content is loaded
+  }, [allImagesLoaded]);
 
   const beforeImage = {
     imageUrl: beforeImageSVG,
@@ -579,7 +562,6 @@ const StudentProfile = () => {
     imageUrl: afterImageSVG,
   };
 
-  // Show loading page until all images are loaded
   if (!allImagesLoaded) {
     return (
       <div className={classes.loadingContainer}>
@@ -630,7 +612,6 @@ const StudentProfile = () => {
             </span>
           </div>
 
-          {/* ________________________TL;DR_____________________________ */}
 
           <section 
             className={`${classes.tldr} ${classes.animatedSection} ${animatedSections.has(0) ? 'animate' : ''}`}
@@ -703,7 +684,6 @@ const StudentProfile = () => {
             </section>
           </section>
 
-          {/* ________________________01: UNCOVERING THE REAL PROBLEM_____________________________ */}
 
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(2) ? 'animate' : '')}
@@ -745,7 +725,6 @@ const StudentProfile = () => {
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
-          {/* ________________________02: THE WRONG SOLUTION_____________________________ */}
 
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(3) ? 'animate' : '')}
@@ -791,7 +770,6 @@ const StudentProfile = () => {
           </div>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
-          {/* ________________________03: STRATEGIC FOCUS_____________________________ */}
 
           <section
             className={clsx(classes.caseStudySection, classes.ohTwoStyles, classes.animatedSection, animatedSections.has(4) ? 'animate' : '')}
@@ -838,7 +816,6 @@ const StudentProfile = () => {
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
-          {/* _____________________04: BACK TO THE DRAWING BOARD________________________ */}
 
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(5) ? 'animate' : '')}
@@ -876,7 +853,6 @@ const StudentProfile = () => {
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
-          {/* ________________________05: VALIDATION REFINEMENT________________________ */}
 
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(6) ? 'animate' : '')}
@@ -934,7 +910,6 @@ const StudentProfile = () => {
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
-          {/* ________________________06: SOLVING THE PERFORMANCE CHALLENGE________________________ */}
 
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(7) ? 'animate' : '')}
@@ -989,7 +964,6 @@ const StudentProfile = () => {
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
-          {/* ________________________07: THE FINAL SOLUTION_________________________ */}
 
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(8) ? 'animate' : '')}
@@ -1115,7 +1089,6 @@ const StudentProfile = () => {
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
-          {/* _______________________08:IMPACT_________________________ */}
 
           <section
             className={clsx(classes.caseStudySection, classes.ohTwoStyles, classes.animatedSection, animatedSections.has(12) ? 'animate' : '')}
@@ -1210,7 +1183,6 @@ const StudentProfile = () => {
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
-          {/* _______________________09: KEY TAKEAWAYS________________________ */}
 
           <section
             className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(13) ? 'animate' : '')}
@@ -1259,7 +1231,6 @@ const StudentProfile = () => {
             </section>{" "}
           </section>
           
-          {/* Next Project Section */}
           <div className={classes.nextProjectContainer}>
             <p className={classes.nextProjectHeader}>Next Project</p>
             <p className={classes.nextProjectTitle}>The feature users loved to leave: Redesigning the data grid to stop spreadsheet exodus</p>
