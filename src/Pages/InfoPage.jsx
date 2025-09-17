@@ -81,6 +81,10 @@ const useStyles = createUseStyles({
     top: 3,
     right: 2,
     width: 16,
+    height: 16,
+    imageRendering: "-webkit-optimize-contrast",
+    imageRendering: "optimize-contrast",
+    transform: "translateZ(0)",
   },
   infoImage: {
     width: 264,

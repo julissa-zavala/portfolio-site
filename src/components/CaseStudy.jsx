@@ -102,6 +102,11 @@ const useStyles = createUseStyles({
     position: "relative",
     bottom: 5,
     display: "block",
+    width: 16,
+    height: 16,
+    imageRendering: "-webkit-optimize-contrast",
+    imageRendering: "optimize-contrast",
+    transform: "translateZ(0)",
   },
   caseStudyCompanyName: {
     color: "#767676",

@@ -128,6 +128,11 @@ const useStyles = createUseStyles({
   downArrow: {
     position: "relative",
     top: 4,
+    width: 16,
+    height: 16,
+    imageRendering: "-webkit-optimize-contrast",
+    imageRendering: "optimize-contrast",
+    transform: "translateZ(0)",
   },
   scrollToLearnMoreText: {
     fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
