@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { createUseStyles } from "react-jss";
 import HeaderNav from "../components/HeaderNav";
 import Footer from "../components/Footer";
@@ -324,6 +324,16 @@ const useStyles = createUseStyles({
       transform: "translateY(0px)",
     },
   },
+  // Scroll animation styles
+  animatedSection: {
+    opacity: 0,
+    transform: "translateY(40px)",
+    transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
+    "&.animate": {
+      opacity: 1,
+      transform: "translateY(0)",
+    },
+  },
 });
 
 const StudentProfile = () => {
@@ -341,6 +351,11 @@ const StudentProfile = () => {
   });
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [loadingPercentage, setLoadingPercentage] = useState(0);
+  const [animatedSections, setAnimatedSections] = useState(new Set());
+  const sectionRefs = useRef([]);
+  const [impactNumbersAnimated, setImpactNumbersAnimated] = useState(false);
+  const impactAnimationTriggered = useRef(false);
+  const [currentNumbers, setCurrentNumbers] = useState({ views: 0, dailyUsers: 0, monthlyUsers: 0 });
 
   useEffect(() => {
     const imagesToPreload = [
@@ -404,6 +419,72 @@ const StudentProfile = () => {
     });
   }, []);
 
+  // Animate numbers function
+  const animateNumbers = () => {
+    const targetNumbers = { views: 150, dailyUsers: 40, monthlyUsers: 28 };
+    const duration = 4000; // 4 seconds
+    const steps = 60; // 60 steps for smooth animation
+    const stepDuration = duration / steps;
+    
+    let currentStep = 0;
+    
+    const timer = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+      
+      // Use easing function for more natural animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      
+      setCurrentNumbers({
+        views: Math.round(targetNumbers.views * easeOutQuart),
+        dailyUsers: Math.round(targetNumbers.dailyUsers * easeOutQuart),
+        monthlyUsers: Math.round(targetNumbers.monthlyUsers * easeOutQuart),
+      });
+      
+      if (currentStep >= steps) {
+        clearInterval(timer);
+        // Ensure final values are exact
+        setCurrentNumbers(targetNumbers);
+      }
+    }, stepDuration);
+  };
+
+  // Scroll animation effect
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionIndex = parseInt(entry.target.dataset.sectionIndex);
+            setAnimatedSections(prev => new Set([...prev, sectionIndex]));
+            
+            // Trigger number animation for Impact section (index 12) - only once
+            if (sectionIndex === 12 && !impactAnimationTriggered.current) {
+              impactAnimationTriggered.current = true;
+              setImpactNumbersAnimated(true);
+              animateNumbers();
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the element is visible
+        rootMargin: '0px 0px -50px 0px' // Start animation slightly before element comes into view
+      }
+    );
+
+    // Observe all sections
+    sectionRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      sectionRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, [allImagesLoaded]); // Re-run when content is loaded
+
   const beforeImage = {
     imageUrl: beforeImageSVG,
   };
@@ -465,7 +546,11 @@ const StudentProfile = () => {
 
           {/* ________________________TL;DR_____________________________ */}
 
-          <section className={classes.tldr}>
+          <section 
+            className={`${classes.tldr} ${classes.animatedSection} ${animatedSections.has(0) ? 'animate' : ''}`}
+            ref={el => sectionRefs.current[0] = el}
+            data-section-index="0"
+          >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>TL;DR</p>
               <p className={classes.description}>
@@ -516,7 +601,11 @@ const StudentProfile = () => {
               </p>
             </div>
           </section>
-          <section className={classes.scrollToLearnMore}>
+          <section 
+            className={`${classes.scrollToLearnMore} ${classes.animatedSection} ${animatedSections.has(1) ? 'animate' : ''}`}
+            ref={el => sectionRefs.current[1] = el}
+            data-section-index="1"
+          >
             <section>
               <img
                 src={downArrowIcon}
@@ -537,7 +626,9 @@ const StudentProfile = () => {
           {/* ________________________01: UNCOVERING THE REAL PROBLEM_____________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(2) ? 'animate' : '')}
+            ref={el => sectionRefs.current[2] = el}
+            data-section-index="2"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -577,7 +668,9 @@ const StudentProfile = () => {
           {/* ________________________02: THE WRONG SOLUTION_____________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(3) ? 'animate' : '')}
+            ref={el => sectionRefs.current[3] = el}
+            data-section-index="3"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -600,7 +693,9 @@ const StudentProfile = () => {
             </div>
           </section>
           <div
-            className={classes.quoteContainer}
+            className={`${classes.quoteContainer} ${classes.animatedSection} ${animatedSections.has(9) ? 'animate' : ''}`}
+            ref={el => sectionRefs.current[9] = el}
+            data-section-index="9"
             style={{
               marginRight: "auto",
               marginLeft: "auto",
@@ -620,7 +715,9 @@ const StudentProfile = () => {
           {/* ________________________03: STRATEGIC FOCUS_____________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
+            className={clsx(classes.caseStudySection, classes.ohTwoStyles, classes.animatedSection, animatedSections.has(4) ? 'animate' : '')}
+            ref={el => sectionRefs.current[4] = el}
+            data-section-index="4"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -665,7 +762,9 @@ const StudentProfile = () => {
           {/* _____________________04: BACK TO THE DRAWING BOARD________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(5) ? 'animate' : '')}
+            ref={el => sectionRefs.current[5] = el}
+            data-section-index="5"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -692,7 +791,9 @@ const StudentProfile = () => {
           {/* ________________________05: VALIDATION REFINEMENT________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(6) ? 'animate' : '')}
+            ref={el => sectionRefs.current[6] = el}
+            data-section-index="6"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -748,7 +849,9 @@ const StudentProfile = () => {
           {/* ________________________06: SOLVING THE PERFORMANCE CHALLENGE________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(7) ? 'animate' : '')}
+            ref={el => sectionRefs.current[7] = el}
+            data-section-index="7"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -801,7 +904,9 @@ const StudentProfile = () => {
           {/* ________________________07: THE FINAL SOLUTION_________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(8) ? 'animate' : '')}
+            ref={el => sectionRefs.current[8] = el}
+            data-section-index="8"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -841,7 +946,9 @@ const StudentProfile = () => {
             )}
           </section>
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(10) ? 'animate' : '')}
+            ref={el => sectionRefs.current[10] = el}
+            data-section-index="10"
           >
             <section className={classes.caseStudyInfo}>
               <p
@@ -888,7 +995,9 @@ const StudentProfile = () => {
             )}
           </section>
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(11) ? 'animate' : '')}
+            ref={el => sectionRefs.current[11] = el}
+            data-section-index="11"
           >
             <section className={classes.caseStudyInfo}>
               <p
@@ -914,7 +1023,9 @@ const StudentProfile = () => {
           {/* _______________________08:IMPACT_________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
+            className={clsx(classes.caseStudySection, classes.ohTwoStyles, classes.animatedSection, animatedSections.has(12) ? 'animate' : '')}
+            ref={el => sectionRefs.current[12] = el}
+            data-section-index="12"
           >
             <section
               className={classes.caseStudyInfo}
@@ -953,15 +1064,15 @@ const StudentProfile = () => {
                   </p>{" "}
                   <div className={classes.resultsContainer}>
                     <p className={classes.results}>
-                      <span className={classes.resultsPercentage}>150%</span>
+                      <span className={classes.resultsPercentage}>{currentNumbers.views}%</span>
                       Increase in student profile page views
                     </p>
                     <p className={classes.results}>
-                      <span className={classes.resultsPercentage}>40%</span>
+                      <span className={classes.resultsPercentage}>{currentNumbers.dailyUsers}%</span>
                       Increase in daily active users on this page
                     </p>
                     <p className={classes.results}>
-                      <span className={classes.resultsPercentage}>28%</span>
+                      <span className={classes.resultsPercentage}>{currentNumbers.monthlyUsers}%</span>
                       Growth in monthly active users
                     </p>
                   </div>
@@ -1015,7 +1126,9 @@ const StudentProfile = () => {
           {/* _______________________09: KEY TAKEAWAYS________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(13) ? 'animate' : '')}
+            ref={el => sectionRefs.current[13] = el}
+            data-section-index="13"
           >
             <section
               className={classes.caseStudyInfo}

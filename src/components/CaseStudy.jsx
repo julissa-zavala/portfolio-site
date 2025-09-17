@@ -28,6 +28,10 @@ const useStyles = createUseStyles({
     width: "47%",
     borderRadius: 4,
     cursor: "pointer",
+    transition: "transform 0.3s ease-in-out",
+    "&:hover": {
+      transform: "scale(0.96)",
+    },
     "@media (min-width: 0px) and (max-width: 1280px)": {
       width: "clamp(300px, 98%, 608px)",
     },

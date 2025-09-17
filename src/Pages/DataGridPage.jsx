@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { createUseStyles } from "react-jss";
 import HeaderNav from "../components/HeaderNav";
 import Footer from "../components/Footer";
@@ -295,6 +295,16 @@ const useStyles = createUseStyles({
       transform: "translateY(0px)",
     },
   },
+  // Scroll animation styles
+  animatedSection: {
+    opacity: 0,
+    transform: "translateY(40px)",
+    transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
+    "&.animate": {
+      opacity: 1,
+      transform: "translateY(0)",
+    },
+  },
 });
 
 const DataGrid = () => {
@@ -313,6 +323,8 @@ const DataGrid = () => {
   });
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [loadingPercentage, setLoadingPercentage] = useState(0);
+  const [animatedSections, setAnimatedSections] = useState(new Set());
+  const sectionRefs = useRef([]);
 
   useEffect(() => {
     const imagesToPreload = [
@@ -376,6 +388,35 @@ const DataGrid = () => {
       img.src = src;
     });
   }, []);
+
+  // Scroll animation effect
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionIndex = parseInt(entry.target.dataset.sectionIndex);
+            setAnimatedSections(prev => new Set([...prev, sectionIndex]));
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the element is visible
+        rootMargin: '0px 0px -50px 0px' // Start animation slightly before element comes into view
+      }
+    );
+
+    // Observe all sections
+    sectionRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      sectionRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, [allImagesLoaded]); // Re-run when content is loaded
 
   const beforeImage = {
     imageUrl: beforeImageSVG,
@@ -447,7 +488,11 @@ const DataGrid = () => {
               Figma, Miro, Mixpanel
             </span>
           </div>
-          <section className={classes.tldr}>
+          <section 
+            className={`${classes.tldr} ${classes.animatedSection} ${animatedSections.has(1) ? 'animate' : ''}`}
+            ref={el => sectionRefs.current[1] = el}
+            data-section-index="1"
+          >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>TL;DR</p>
               <p className={classes.description}>
@@ -494,7 +539,11 @@ const DataGrid = () => {
               </p>
             </div>
           </section>
-          <section className={classes.scrollToLearnMore}>
+          <section 
+            className={`${classes.scrollToLearnMore} ${classes.animatedSection} ${animatedSections.has(2) ? 'animate' : ''}`}
+            ref={el => sectionRefs.current[2] = el}
+            data-section-index="2"
+          >
             <section>
               <img
                 src={downArrowIcon}
@@ -512,7 +561,9 @@ const DataGrid = () => {
             </section>
           </section>
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(3) ? 'animate' : '')}
+            ref={el => sectionRefs.current[3] = el}
+            data-section-index="3"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -546,7 +597,9 @@ const DataGrid = () => {
           </section>
           <img src={width >= 901 ? dots : line} className={classes.dots} />
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(4) ? 'animate' : '')}
+            ref={el => sectionRefs.current[4] = el}
+            data-section-index="4"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -597,7 +650,9 @@ const DataGrid = () => {
           </Zoom>
           <img src={width >= 901 ? dots : line} className={classes.dots} />
           <section
-            className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
+            className={clsx(classes.caseStudySection, classes.ohTwoStyles, classes.animatedSection, animatedSections.has(5) ? 'animate' : '')}
+            ref={el => sectionRefs.current[5] = el}
+            data-section-index="5"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -680,7 +735,9 @@ const DataGrid = () => {
           </section>
           <img src={width >= 901 ? dots : line} className={classes.dots} />
           <section
-            className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
+            className={clsx(classes.caseStudySection, classes.ohTwoStyles, classes.animatedSection, animatedSections.has(6) ? 'animate' : '')}
+            ref={el => sectionRefs.current[6] = el}
+            data-section-index="6"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -732,7 +789,9 @@ const DataGrid = () => {
           </section>
           <img src={width >= 901 ? dots : line} className={classes.dots} />
           <section
-            className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
+            className={clsx(classes.caseStudySection, classes.ohTwoStyles, classes.animatedSection, animatedSections.has(7) ? 'animate' : '')}
+            ref={el => sectionRefs.current[7] = el}
+            data-section-index="7"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -762,7 +821,9 @@ const DataGrid = () => {
           </section>
           <img src={width >= 901 ? dots : line} className={classes.dots} />
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(8) ? 'animate' : '')}
+            ref={el => sectionRefs.current[8] = el}
+            data-section-index="8"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
