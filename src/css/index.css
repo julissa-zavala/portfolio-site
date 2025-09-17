@@ -163,7 +163,7 @@ img[src*="initialSolutions.svg"] {
     image-rendering: high-quality;
 }
 
-img[src*="after.svg"] {
+img[src$="/after.svg"] {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
@@ -179,7 +179,7 @@ img[src*="after.svg"] {
     
     /* Additional mobile-specific fixes for blurry SVGs */
     img[src*="initialSolutions.svg"],
-    img[src*="after.svg"] {
+    img[src$="/after.svg"] {
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         -webkit-transform: translate3d(0,0,0);
