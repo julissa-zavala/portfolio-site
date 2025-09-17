@@ -1,7 +1,7 @@
 import { createUseStyles } from "react-jss";
 import HeaderNav from "../components/HeaderNav";
 import Footer from "../components/Footer";
-import clsx from "clsx";
+import clsx from "clsx"; 
 import downArrowIcon from "../images/down-arrow-black.svg";
 import dots from "../images/dots.svg";
 import graph from "../images/3_user_journey.svg";
