@@ -74,7 +74,7 @@ const useStyles = createUseStyles({
     },
   },
   title: {
-    fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
+    fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif", 
     fontSize: 22,
     fontWeight: 800,
   },
@@ -459,15 +459,7 @@ const StudentProfile = () => {
             </section>
             <div className={classes.caseStudyImageContainer}>
               <Zoom classDialog={classes.zoomBackground}>
-                <img 
-                  src={wireframe} 
-                  width="100%" 
-                  style={{
-                    imageRendering: "-webkit-optimize-contrast",
-                    imageRendering: "crisp-edges", 
-                    transform: "translateZ(0)"
-                  }}
-                />
+                <img src={wireframe} width="100%" />
               </Zoom>
             </div>
           </section>
@@ -776,13 +768,7 @@ const StudentProfile = () => {
                 <img
                   src={afterImageSVG}
                   width="100%"
-                  style={{ 
-                    border: "0.5px solid #e4e4e7", 
-                    borderRadius: 8,
-                    imageRendering: "-webkit-optimize-contrast",
-                    imageRendering: "crisp-edges",
-                    transform: "translateZ(0)"
-                  }}
+                  style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
                 />
               </Zoom>
             </div>
