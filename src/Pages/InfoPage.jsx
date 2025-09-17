@@ -187,21 +187,9 @@ const useStyles = createUseStyles({
     bottom: 1,
     left: 0,
     backgroundColor: "#1E1E1E",
-    transform: "translateY(-50%) scaleX(0)",
+    transform: "scaleX(0)",
     transformOrigin: "left center",
-    transition: "transform 0.15s ease-in-out",
-    animation: "$lineThrough 2s ease-in-out infinite",
-  },
-  "@keyframes lineThrough": {
-    "0%": {
-      transform: "translateY(-50%) scaleX(0)",
-    },
-    "50%": {
-      transform: "translateY(-50%) scaleX(1)",
-    },
-    "100%": {
-      transform: "translateY(-50%) scaleX(0)",
-    },
+    transition: "transform 0.1s ease-out",
   },
   contentContainer: {
     opacity: 0,
@@ -284,13 +272,28 @@ const Info = () => {
     });
   }, []);
 
+  useEffect(() => {
+    if (showLoader) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showLoader]);
+
   return (
     <>
       {showLoader && (
         <div className={classes.loadingContainer}>
           <div className={classes.percentageText}>
             {loadingPercentage}%
-            <div className={classes.loadingLineThrough}></div>
+            <div 
+              className={classes.loadingLineThrough}
+              style={{ transform: `scaleX(${loadingPercentage / 100})` }}
+            ></div>
           </div>
         </div>
       )}

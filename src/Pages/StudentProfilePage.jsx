@@ -297,13 +297,19 @@ const useStyles = createUseStyles({
     },
   },
   loadingContainer: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    height: "100vh",
     backgroundColor: "#ffffff",
     fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
+    zIndex: 9999,
+    transition: "opacity 0.5s ease-out",
   },
   percentageText: {
     fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
@@ -320,21 +326,9 @@ const useStyles = createUseStyles({
     bottom: 1,
     left: 0,
     backgroundColor: "#1E1E1E",
-    transform: "translateY(-50%) scaleX(0)",
+    transform: "scaleX(0)",
     transformOrigin: "left center",
-    transition: "transform 0.15s ease-in-out",
-    animation: "$lineThrough 2s ease-in-out infinite",
-  },
-  "@keyframes lineThrough": {
-    "0%": {
-      transform: "translateY(-50%) scaleX(0)",
-    },
-    "50%": {
-      transform: "translateY(-50%) scaleX(1)",
-    },
-    "100%": {
-      transform: "translateY(-50%) scaleX(0)",
-    },
+    transition: "transform 0.1s ease-out",
   },
   contentContainer: {
     opacity: 0,
@@ -435,6 +429,7 @@ const StudentProfile = () => {
   });
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [loadingPercentage, setLoadingPercentage] = useState(0);
+  const [showLoader, setShowLoader] = useState(true);
   const [animatedSections, setAnimatedSections] = useState(new Set());
   const sectionRefs = useRef([]);
   const [impactNumbersAnimated, setImpactNumbersAnimated] = useState(false);
@@ -478,7 +473,10 @@ const StudentProfile = () => {
           if (currentPercentage >= 100 && loadedCount === totalImages) {
             setTimeout(() => {
               setAllImagesLoaded(true);
-            }, 500);
+              setTimeout(() => {
+                setShowLoader(false);
+              }, 500);
+            }, 800);
           }
         }
       }, 20);
@@ -554,6 +552,18 @@ const StudentProfile = () => {
     };
   }, [allImagesLoaded]);
 
+  useEffect(() => {
+    if (showLoader) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showLoader]);
+
   const beforeImage = {
     imageUrl: beforeImageSVG,
   };
@@ -562,18 +572,19 @@ const StudentProfile = () => {
     imageUrl: afterImageSVG,
   };
 
-  if (!allImagesLoaded) {
-    return (
-      <div className={classes.loadingContainer}>
-        <div className={classes.percentageText}>
-          {loadingPercentage}%
-          <div className={classes.loadingLineThrough}></div>
-        </div>
-      </div>
-    );
-  }
-
   return (
+    <>
+      {showLoader && (
+        <div className={classes.loadingContainer}>
+          <div className={classes.percentageText}>
+            {loadingPercentage}%
+            <div 
+              className={classes.loadingLineThrough}
+              style={{ transform: `scaleX(${loadingPercentage / 100})` }}
+            ></div>
+          </div>
+        </div>
+      )}
     <div className={`${classes.contentContainer} loaded`}>
       <section className="container">
         <HeaderNav />
@@ -1248,6 +1259,7 @@ const StudentProfile = () => {
       </section>
       <Footer />
     </div>
+    </>
   );
 };
 
