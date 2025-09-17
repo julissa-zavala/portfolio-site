@@ -74,10 +74,10 @@ const useStyles = createUseStyles({
     position: "absolute",
     width: 68.5,
     height: 1,
-    bottom: 10.5,
+    bottom: 2,
     left: 0,
     backgroundColor: "#1E1E1E",
-    transform: "translateY(-50%) scaleX(0)",
+    transform: "scaleX(0)",
     transformOrigin: "left center",
     transition: "transform 0.15s ease-in-out",
   },
@@ -91,11 +91,15 @@ const useStyles = createUseStyles({
     textDecoration: "none",
     display: "flex",
     flexDirection: "row",
+    alignItems: "center",
     width: 92,
     marginTop: 25,
     "&:hover $readMoreTextLineThrough": {
-      transform: "translateY(-50%) scaleX(1)",
-      bottom: 10.5,
+      transform: "scaleX(1)",
+      bottom: 2,
+    },
+    "&:hover $rightArrow": {
+      transform: "translateX(4px)",
     },
     "@media (min-width: 0px) and (max-width: 499px)": {
       marginTop: 0,
@@ -104,8 +108,15 @@ const useStyles = createUseStyles({
   rightArrow: {
     marginLeft: 7,
     position: "relative",
-    bottom: 5,
-    display: "block",
+    top: 1,
+    display: "inline-block",
+    width: 16,
+    height: 16,
+    verticalAlign: "middle",
+    transition: "transform 0.3s ease-in-out",
+    "&:hover": {
+      transform: "translateX(4px)",
+    },
   },
   caseStudyCompanyName: {
     color: "#767676",

@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { createUseStyles } from "react-jss";
+import { Link } from "react-router-dom";
 import HeaderNav from "../components/HeaderNav";
 import Footer from "../components/Footer";
 import clsx from "clsx"; 
 import downArrowIcon from "../images/down-arrow-black.svg";
+import rightArrowIcon from "../images/right-arrow-black.svg";
 import dots from "../images/dots.svg";  
 import graph from "../images/3_user_journey.svg";
 import dataGridHero from "../images/DataGridHero.svg";
@@ -96,22 +98,41 @@ const useStyles = createUseStyles({
   },
   caseStudyContainer: {
     paddingTop: 48,
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      minHeight: "90vh",
+    },
   },
   heroImage: {
-    marginBottom: 48,
+    marginBottom: 32,
     display: "block",
     width: "100%",
+    maxHeight: "60vh",
+    objectFit: "cover",
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      marginBottom: 24,
+      maxHeight: "50vh",
+    },
   },
   mainHeading: {
     fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
     fontSize: 43,
     textAlign: "left",
-    marginBottom: 24,
+    marginBottom: 16,
+    lineHeight: 1.1,
+    paddingTop: 8,
     "@media (min-width: 0px) and (max-width: 1139px)": {
       width: "100%",
     },
     "@media (min-width: 0px) and (max-width: 550px)": {
       fontSize: 20,
+      marginBottom: 12,
+      paddingTop: 4,
     },
   },
   bold: {
@@ -304,6 +325,66 @@ const useStyles = createUseStyles({
       opacity: 1,
       transform: "translateY(0)",
     },
+  },
+  nextProjectContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: "32px 0",
+    marginTop: 16,
+  },
+  nextProjectHeader: {
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
+    fontSize: 12,
+    color: "#767676",
+    marginBottom: 8,
+    textAlign: "center",
+    textTransform: "uppercase",
+    letterSpacing: "0.5px",
+  },
+  nextProjectTitle: {
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
+    fontSize: 14,
+    marginBottom: 8,
+    textAlign: "center",
+    lineHeight: 1.3,
+  },
+  nextProjectLink: {
+    display: "inline-block",
+    textDecoration: "none",
+    color: "#1E1E1E",
+  },
+  nextProjectCircleButton: {
+    opacity: 1,
+    color: "#444",
+    textAlign: "center",
+    backgroundColor: "#f4f4f8",
+    borderRadius: "200px",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100px",
+    height: "100px",
+    marginTop: "10px",
+    marginBottom: "100px",
+    padding: "0",
+    fontFamily: "Roobert, Verdana, sans-serif",
+    fontSize: "45px",
+    fontWeight: 300,
+    display: "flex",
+    position: "static",
+    left: "50%",
+    right: "0%",
+    transition: "transform 0.3s ease-in-out",
+    "&:hover": {
+      "& $nextProjectArrow": {
+        transform: "translateX(4px)",
+      },
+    },
+  },
+  nextProjectArrow: {
+    width: 48,
+    height: 48,
+    transition: "transform 0.3s ease-in-out",
   },
 });
 
@@ -545,11 +626,7 @@ const DataGrid = () => {
             data-section-index="2"
           >
             <section>
-              <img
-                src={downArrowIcon}
-                alt="Black arrow pointing down"
-                className={classes.downArrow}
-              />
+              
               <h3 className={classes.scrollToLearnMoreText}>
                 Scroll to learn more
               </h3>
@@ -878,23 +955,38 @@ const DataGrid = () => {
             className={clsx(classes.caseStudySection, classes.ohOneStyles)}
           >
             <section className={classes.caseStudyInfo}>
-              <p className={classes.title}>
-                <span className={classes.number}>07</span>Key Learnings
+            <p className={classes.description}>
+                <span className={classes.bold}>
+                  User research reveals root causes, not just symptoms.{" "}
+                </span>
+                <br />
+                What seemed like a simple "save button" request became a complete workflow
+                redesign once I understood how different roles used the data grid. Eight 
+                user interviews uncovered that the real problem wasn't saving configurations.
+                It was starting with role-appropriate ones. This taught me to dig deeper into 
+                user workflows before jumping to solutions.
               </p>
               <p className={classes.description}>
-                This project taught me the importance of looking beyond what
-                users say they need to understand what they actually need.
-                Instead of building the save button users asked for, we dug
-                deeper to understand the root cause (no role-appropriate
-                starting points) and designed a system that solved the broader
-                workflow issue.
+                <span className={classes.bold}>
+                Technical constraints can drive better design decisions.
+                </span>
+                <br />
+                MongoDB's storage limitations forced us to choose 5 focused templates
+                over dozens of specialized ones. Rather than fighting these constraints,
+                I used them to create a cleaner, faster experience that served users better 
+                than unlimited flexibility would have. Sometimes the best solutions come from
+                working with limitations, not around them.
               </p>
               <p className={classes.description}>
-                The constraint lesson was crucial: our MongoDB limitations
-                forced us to be strategic about what to build, which led to a
-                more focused solution than unlimited flexibility would have
-                provided. Sometimes technical constraints push you toward better
-                design decisions.
+                <span className={classes.bold}>
+                Stakeholder alignment requires strategic compromise.
+                </span>
+                <br />
+                Getting various team members to abandon their specialized 
+                template requests took extensive negotiation and user data analysis. 
+                I learned that focusing on core use cases (attendance tracking, GPA trends)
+                and showing how constraints benefit the user experience was more effective
+                than trying to accommodate every stakeholder request.
               </p>
             </section>{" "}
             {width >= 551 && (
@@ -944,6 +1036,21 @@ const DataGrid = () => {
           </section>
         </section>
       </section>
+      
+      <div className={classes.nextProjectContainer}>
+        <p className={classes.nextProjectHeader}>Next Project</p>
+        <p className={classes.nextProjectTitle}>Student Profile: A UX case study on improving academic success</p>
+        <Link to="/studentProfile" className={classes.nextProjectLink}>
+          <div className={classes.nextProjectCircleButton}>
+            <img
+              src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWFycm93LXJpZ2h0LWljb24gbHVjaWRlLWFycm93LXJpZ2h0Ij48cGF0aCBkPSJNNSAxMmgxNCIvPjxwYXRoIGQ9Im0xMiA1IDcgNy03IDciLz48L3N2Zz4="
+              alt="Arrow pointing to the right"
+              className={classes.nextProjectArrow}
+            />
+          </div>
+        </Link>
+      </div>
+      
       <Footer />
     </div>
   );

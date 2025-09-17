@@ -169,11 +169,7 @@ const Landing = () => {
             style={{ height: height - 500 }}
           >
             <section>
-              <img
-                src={downArrowIcon}
-                alt="Black arrow pointing down"
-                className={classes.downArrow}
-              />
+              
               <h3 className={classes.selectedWorkText}>Selected work</h3>
               <img
                 src={downArrowIcon}

@@ -74,6 +74,9 @@ const useStyles = createUseStyles({
     textDecoration: "none",
     "&:hover": {
       opacity: 0.7,
+      "& $diagonalArrowUp": {
+        transform: "translate(2px, -2px)",
+      },
     },
   },
   diagonalArrowUp: {
@@ -81,6 +84,7 @@ const useStyles = createUseStyles({
     top: 3,
     right: 2,
     width: 16,
+    transition: "transform 0.3s ease-in-out",
   },
   infoImage: {
     width: 264,
@@ -220,11 +224,15 @@ const Info = () => {
 
     const totalImages = imagesToPreload.length;
     let loadedCount = 0;
+    let animationStarted = false;
 
-    // Animate percentage counter smoothly (skip 69%)
-    const animatePercentage = (targetPercentage) => {
+    // Start the animation once when the first image loads
+    const startAnimation = () => {
+      if (animationStarted) return;
+      animationStarted = true;
+      
       let currentPercentage = 0;
-      setLoadingPercentage(0); // Reset to 0 first
+      setLoadingPercentage(0);
       
       const timer = setInterval(() => {
         currentPercentage += 1;
@@ -241,13 +249,13 @@ const Info = () => {
         
         setLoadingPercentage(currentPercentage);
         
-        if (currentPercentage >= targetPercentage || currentPercentage >= 100) {
+        if (currentPercentage >= 100) {
           clearInterval(timer);
-          // Ensure we always show 100% before transitioning
-          if (currentPercentage >= 100 && loadedCount === totalImages) {
+          // Show content when all images are loaded and animation reaches 100%
+          if (loadedCount === totalImages) {
             setTimeout(() => {
               setAllImagesLoaded(true);
-            }, 500); // Show 100% for half a second before transitioning
+            }, 1200);
           }
         }
       }, 20); // Update every 20ms for smooth animation
@@ -258,11 +266,11 @@ const Info = () => {
       img.onload = () => {
         setImagesLoaded((prev) => ({ ...prev, [key]: true }));
         loadedCount++;
-        const targetPercentage = Math.min(100, Math.round((loadedCount / totalImages) * 100));
-        animatePercentage(targetPercentage);
         
-        // Don't automatically show content here - let the animation handle it
-        // The animatePercentage function will handle showing content when it reaches 100%
+        // Start animation when first image loads
+        if (loadedCount === 1) {
+          startAnimation();
+        }
       };
       img.src = src;
     });

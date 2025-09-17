@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { createUseStyles } from "react-jss";
+import { Link } from "react-router-dom";
 import HeaderNav from "../components/HeaderNav";
 import Footer from "../components/Footer";
 import clsx from "clsx";
 import downArrowIcon from "../images/down-arrow-black.svg";
+import rightArrowIcon from "../images/right-arrow-black.svg";
 import dots from "../images/dots.svg";
 import heroImage from "../images/hero_SP.svg";
 import Zoom from "react-medium-image-zoom";
@@ -94,22 +96,41 @@ const useStyles = createUseStyles({
   },
   caseStudyContainer: {
     paddingTop: 48,
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      minHeight: "90vh",
+    },
   },
   heroImage: {
-    marginBottom: 48,
+    marginBottom: 32,
     display: "block",
     width: "100%",
+    maxHeight: "60vh",
+    objectFit: "cover",
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      marginBottom: 24,
+      maxHeight: "50vh",
+    },
   },
   mainHeading: {
     fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
     fontSize: 43,
     textAlign: "left",
-    marginBottom: 24,
+    marginBottom: 16,
+    lineHeight: 1.1,
+    paddingTop: 8,
     "@media (min-width: 0px) and (max-width: 1139px)": {
       width: "100%",
     },
     "@media (min-width: 0px) and (max-width: 550px)": {
       fontSize: 20,
+      marginBottom: 12,
+      paddingTop: 4,
     },
   },
   bold: {
@@ -333,6 +354,71 @@ const useStyles = createUseStyles({
       opacity: 1,
       transform: "translateY(0)",
     },
+  },
+  // Next project section styles
+  nextProjectContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "48px 24px",
+    textAlign: "center",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      padding: "32px 16px",
+    },
+  },
+  nextProjectHeader: {
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
+    fontSize: 12,
+    color: "#767676",
+    marginBottom: 8,
+    textAlign: "center",
+    textTransform: "uppercase",
+    letterSpacing: "0.5px",
+  },
+  nextProjectTitle: {
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
+    fontSize: 14,
+    marginBottom: 8,
+    textAlign: "center",
+    lineHeight: 1.3,
+  },
+  nextProjectLink: {
+    display: "inline-block",
+    textDecoration: "none",
+    color: "#1E1E1E",
+  },
+  nextProjectCircleButton: {
+    opacity: 1,
+    color: "#444",
+    textAlign: "center",
+    backgroundColor: "#f4f4f8",
+    borderRadius: "200px",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100px",
+    height: "100px",
+    marginTop: "10px",
+    marginBottom: "100px",
+    padding: "0",
+    fontFamily: "Roobert, Verdana, sans-serif",
+    fontSize: "45px",
+    fontWeight: 300,
+    display: "flex",
+    position: "static",
+    left: "50%",
+    right: "0%",
+    transition: "transform 0.3s ease-in-out",
+    "&:hover": {
+      "& $nextProjectArrow": {
+        transform: "translateX(4px)",
+      },
+    },
+  },
+  nextProjectArrow: {
+    width: 48,
+    height: 48,
+    transition: "transform 0.3s ease-in-out",
   },
 });
 
@@ -562,15 +648,14 @@ const StudentProfile = () => {
               <p className={classes.description}>
                 <span className={classes.bold}>My solution: </span>
                 Designed a student overview panel that synthesizes key insights
-                from across the system - attendance patterns, academic progress,
-                graduation requirements, and intervention data - in one
+                from across main intervention areas, including attendance patterns, academic progress,
+                graduation requirements, and intervention data—in one
                 scannable view.
               </p>
               <p className={classes.description}>
-                <span className={classes.bold}>The impact: </span>43% reduction
-                in student assessment time, 67% increase in panel engagement,
-                and 89% of teachers reported significantly improved workflow
-                efficiency.
+                <span className={classes.bold}>The impact: </span>150% increase in student 
+                profile page views, and 40% increase in daily active users on this page,
+                 and 28% growth in monthly active users. 
               </p>
               <p className={classes.description}>
                 <span className={classes.bold}>Key innovation: </span>Created a
@@ -606,12 +691,7 @@ const StudentProfile = () => {
             ref={el => sectionRefs.current[1] = el}
             data-section-index="1"
           >
-            <section>
-              <img
-                src={downArrowIcon}
-                alt="Black arrow pointing down"
-                className={classes.downArrow}
-              />
+            <section>            
               <h3 className={classes.scrollToLearnMoreText}>
                 Scroll to learn more
               </h3>
@@ -679,10 +759,9 @@ const StudentProfile = () => {
               </p>
               <p className={classes.description}>
                 Given carte blanche to create a dashboard-like summary, I
-                initially created wireframes with 6+ modules including detailed
-                data visualizations for academics, graduation plans, regents,
-                attendance, credits, and tasks/notes. After faciliating a design
-                review with key stakeholders, I received feedback that this
+                initially created wireframes with 6+ modules, basing the 
+                selection of data points on Mixpanel data and stakeholder requests. 
+                After faciliating a design review with key stakeholders, I received feedback that this
                 approach was comprehensive but unfocused.
               </p>
             </section>
@@ -772,12 +851,21 @@ const StudentProfile = () => {
                 board
               </p>
               <p className={classes.description}>
-                Given carte blanche to create a dashboard-like summary, I
-                initially created wireframes with 6+ modules including detailed
-                data visualizations for academics, graduation plans, regents,
-                attendance, credits, and tasks/notes. After faciliating a design
-                review with key stakeholders, I received feedback that this
-                approach was comprehensive but unfocused.
+              With this foundation, I could redesign with clear purpose. After extensive stakeholder 
+              conversations across multiple teams, we landed on 4 core modules that balanced immediate
+               insight with actionable context: current month attendance, current GPA, credits earned, and 
+               regents fulfilled. 
+              </p>
+              <p className={classes.description}>
+              Each module follows the same pattern with the primary metric at top and a contextual 
+              change indicator below, because users needed both "where the student stands now" and 
+              "which direction they're trending." 
+              </p>
+              <p className={classes.description}>
+              The month-over-month and marking period comparisons came from user research showing
+               that static numbers felt meaningless without context. The graduation tracking statuses 
+               addressed counselor workflows around intervention timing. This structure gives educators 
+               the snapshot they need while showing whether each area requires immediate attention.
               </p>
             </section>
             <div className={classes.caseStudyImageContainer}>
@@ -859,7 +947,7 @@ const StudentProfile = () => {
                 performance challenge
               </p>
               <p className={classes.description}>
-                Engineering flagged a critical issue: my panel required loading
+                Engineering flagged a critical issue: the new overview panel required loading
                 data from 4 different backend systems simultaneously (8+ API
                 calls) versus existing on-demand loading. On school Chromebooks,
                 this meant 5+ second load times that would lose users entirely.
@@ -913,10 +1001,15 @@ const StudentProfile = () => {
                 <span className={classes.number}>07</span>The final solution
               </p>
               <p className={classes.description}>
-                Engineering flagged a critical issue: my panel required loading
-                data from 4 different backend systems simultaneously (8+ API
-                calls) versus existing on-demand loading. On school Chromebooks,
-                this meant 5+ second load times that would lose users entirely.
+              Two new data visualizations were introduced as a apart of this work. One is 
+              the interactive calendar widget, which shows daily attendance patterns because visual patterns 
+              reveal insights that percentages hide. 
+              </p>
+              <p className={classes.description}>
+                Teachers can instantly identify concerning patterns—like every Monday 
+                absence suggesting weekend issues, or absences clustered around test dates. 
+                This helps them distinguish between students needing family support versus 
+                academic intervention.
               </p>
             </section>
             {width >= 551 && (
@@ -1004,8 +1097,10 @@ const StudentProfile = () => {
                 className={classes.description}
                 style={{ marginTop: width <= 1200 && 0 }}
               >
-                The final panel synthesized attendance patterns with interactive
-                calendar, projected GPA, credits, and state testing progress.
+                The final design consolidates the four most 
+                critical data points teachers need: attendance patterns, 
+                academic performance, graduation progress, and state testing 
+                requirements—all in one scannable view.
               </p>
             </section>
             <div className={classes.caseStudyImageContainer}>
@@ -1034,15 +1129,7 @@ const StudentProfile = () => {
               <p className={classes.title}>
                 <span className={classes.number}>08</span>Impact
               </p>
-              <p
-                className={classes.description}
-                style={{ width: width > 1200 ? "47%" : "100%" }}
-              >
-                The final panel synthesized attendance patterns (with
-                interactive calendar), projected GPA, credits, and state testing
-                progress. Supporting modules provided detailed attendance and
-                academic context.
-              </p>
+              
               <div className={classes.impactContent}>
                 <div
                   style={{
@@ -1171,6 +1258,21 @@ const StudentProfile = () => {
               </p>
             </section>{" "}
           </section>
+          
+          {/* Next Project Section */}
+          <div className={classes.nextProjectContainer}>
+            <p className={classes.nextProjectHeader}>Next Project</p>
+            <p className={classes.nextProjectTitle}>The feature users loved to leave: Redesigning the data grid to stop spreadsheet exodus</p>
+            <Link to="/dataGrid" className={classes.nextProjectLink}>
+              <div className={classes.nextProjectCircleButton}>
+                <img
+                  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWFycm93LXJpZ2h0LWljb24gbHVjaWRlLWFycm93LXJpZ2h0Ij48cGF0aCBkPSJNNSAxMmgxNCIvPjxwYXRoIGQ9Im0xMiA1IDcgNy03IDciLz48L3N2Zz4="
+                  alt="Arrow pointing to the right"
+                  className={classes.nextProjectArrow}
+                />
+              </div>
+            </Link>
+          </div>
         </section>
       </section>
       <Footer />

@@ -144,12 +144,16 @@ const useStyles = createUseStyles({
     textDecoration: "none",
     "&:hover": {
       opacity: 0.7,
+      "& $diagonalArrowUp": {
+        transform: "translate(2px, -2px)",
+      },
     },
   },
   diagonalArrowUp: {
     position: "relative",
     top: 3,
     right: 2,
+    transition: "transform 0.3s ease-in-out",
     width: 16,
   },
   copyText: {
