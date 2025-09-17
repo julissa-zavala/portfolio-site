@@ -149,6 +149,55 @@ const useStyles = createUseStyles({
     marginLeft: "9%",
     borderRadius: 6,
   },
+  loadingContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100vh",
+    backgroundColor: "#ffffff",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
+  },
+  percentageText: {
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
+    color: "#1E1E1E",
+    fontSize: 14,
+    lineHeight: "normal",
+    position: "relative",
+    marginBottom: 32,
+  },
+  loadingLineThrough: {
+    position: "absolute",
+    width: "100%",
+    height: 1,
+    bottom: 1,
+    left: 0,
+    backgroundColor: "#1E1E1E",
+    transform: "translateY(-50%) scaleX(0)",
+    transformOrigin: "left center",
+    transition: "transform 0.15s ease-in-out",
+    animation: "$lineThrough 2s ease-in-out infinite",
+  },
+  "@keyframes lineThrough": {
+    "0%": {
+      transform: "translateY(-50%) scaleX(0)",
+    },
+    "50%": {
+      transform: "translateY(-50%) scaleX(1)",
+    },
+    "100%": {
+      transform: "translateY(-50%) scaleX(0)",
+    },
+  },
+  contentContainer: {
+    opacity: 0,
+    transform: "translateY(20px)",
+    transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
+    "&.loaded": {
+      opacity: 1,
+      transform: "translateY(0px)",
+    },
+  },
 });
 
 const Info = () => {
@@ -159,6 +208,8 @@ const Info = () => {
     ceramicPot: false,
     ceramicSculpture: false,
   });
+  const [allImagesLoaded, setAllImagesLoaded] = useState(false);
+  const [loadingPercentage, setLoadingPercentage] = useState(0);
 
   useEffect(() => {
     const imagesToPreload = [
@@ -167,17 +218,70 @@ const Info = () => {
       { key: "ceramicSculpture", src: ceramicSculpture },
     ];
 
+    const totalImages = imagesToPreload.length;
+    let loadedCount = 0;
+
+    // Animate percentage counter smoothly (skip 69%)
+    const animatePercentage = (targetPercentage) => {
+      let currentPercentage = 0;
+      setLoadingPercentage(0); // Reset to 0 first
+      
+      const timer = setInterval(() => {
+        currentPercentage += 1;
+        
+        // Skip 69%
+        if (currentPercentage === 69) {
+          currentPercentage += 1;
+        }
+        
+        // Cap at 100%
+        if (currentPercentage > 100) {
+          currentPercentage = 100;
+        }
+        
+        setLoadingPercentage(currentPercentage);
+        
+        if (currentPercentage >= targetPercentage || currentPercentage >= 100) {
+          clearInterval(timer);
+          // Ensure we always show 100% before transitioning
+          if (currentPercentage >= 100 && loadedCount === totalImages) {
+            setTimeout(() => {
+              setAllImagesLoaded(true);
+            }, 500); // Show 100% for half a second before transitioning
+          }
+        }
+      }, 20); // Update every 20ms for smooth animation
+    };
+
     imagesToPreload.forEach(({ key, src }) => {
       const img = new Image();
       img.onload = () => {
         setImagesLoaded((prev) => ({ ...prev, [key]: true }));
+        loadedCount++;
+        const targetPercentage = Math.min(100, Math.round((loadedCount / totalImages) * 100));
+        animatePercentage(targetPercentage);
+        
+        // Don't automatically show content here - let the animation handle it
+        // The animatePercentage function will handle showing content when it reaches 100%
       };
       img.src = src;
     });
   }, []);
 
+  // Show loading page until all images are loaded
+  if (!allImagesLoaded) {
+    return (
+      <div className={classes.loadingContainer}>
+        <div className={classes.percentageText}>
+          {loadingPercentage}%
+          <div className={classes.loadingLineThrough}></div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <>
+    <div className={`${classes.contentContainer} loaded`}>
       <section className="container">
         <HeaderNav />
         <section className={classes.infoContainer}>
@@ -229,7 +333,7 @@ const Info = () => {
               alt="A photo of me, Julissa Zavala, smiling and standing in front of closed storefront in NYC"
               loading="lazy"
               style={{
-                opacity: imagesLoaded.selfie ? 1 : 0,
+                opacity: allImagesLoaded ? 1 : 0,
                 transition: "opacity 0.3s ease",
               }}
             ></img>
@@ -262,7 +366,7 @@ const Info = () => {
               alt="Cerapic pot of a girl with black hair and large hands leaning over and cradling herself"
               className={classes.ceramicPot}
               style={{
-                opacity: imagesLoaded.selfie ? 1 : 0,
+                opacity: allImagesLoaded ? 1 : 0,
                 transition: "opacity 0.3s ease",
               }}
             />
@@ -271,7 +375,7 @@ const Info = () => {
               alt="Ceramic sculpture of a hand holding a flower. The hand has a chrome finish and the flower has yellow petals and a green stem"
               className={classes.ceramicSculpture}
               style={{
-                opacity: imagesLoaded.selfie ? 1 : 0,
+                opacity: allImagesLoaded ? 1 : 0,
                 transition: "opacity 0.3s ease",
               }}
             />
@@ -279,7 +383,7 @@ const Info = () => {
         </section>
       </section>
       <Footer />
-    </>
+    </div>
   );
 };
 
