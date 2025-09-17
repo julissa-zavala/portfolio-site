@@ -128,11 +128,6 @@ const useStyles = createUseStyles({
   downArrow: {
     position: "relative",
     top: 4,
-    width: 16,
-    height: 16,
-    imageRendering: "-webkit-optimize-contrast",
-    imageRendering: "optimize-contrast",
-    transform: "translateZ(0)",
   },
   scrollToLearnMoreText: {
     fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
@@ -464,7 +459,15 @@ const StudentProfile = () => {
             </section>
             <div className={classes.caseStudyImageContainer}>
               <Zoom classDialog={classes.zoomBackground}>
-                <img src={wireframe} width="100%" />
+                <img 
+                  src={wireframe} 
+                  width="100%" 
+                  style={{
+                    imageRendering: "-webkit-optimize-contrast",
+                    imageRendering: "crisp-edges", 
+                    transform: "translateZ(0)"
+                  }}
+                />
               </Zoom>
             </div>
           </section>
@@ -773,7 +776,13 @@ const StudentProfile = () => {
                 <img
                   src={afterImageSVG}
                   width="100%"
-                  style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
+                  style={{ 
+                    border: "0.5px solid #e4e4e7", 
+                    borderRadius: 8,
+                    imageRendering: "-webkit-optimize-contrast",
+                    imageRendering: "crisp-edges",
+                    transform: "translateZ(0)"
+                  }}
                 />
               </Zoom>
             </div>

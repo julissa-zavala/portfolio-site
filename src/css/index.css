@@ -25,24 +25,6 @@
     line-height: 1.5 !important;
 }
 
-/* SVG OPTIMIZATION */
-svg {
-    shape-rendering: geometricPrecision;
-    text-rendering: geometricPrecision;
-}
-
-img[src$=".svg"] {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
-    image-rendering: pixelated;
-    /* Prevent blur from browser scaling */
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    /* Force hardware acceleration */
-    will-change: transform;
-}
-
 body {
     margin: 0px;
 }
@@ -168,18 +150,41 @@ sl-icon > svg {
     }
 }
 
+/* Fix for blurry SVGs containing embedded raster images */
+img[src*="initialSolutions.svg"] {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -moz-crisp-edges;  
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    /* Prevent sub-pixel rendering */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    /* Ensure sharp edges on high DPI displays */
+    image-rendering: high-quality;
+}
+
+img[src*="after.svg"] {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    /* Force hardware acceleration */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
 @media (min-width: 0px) and (max-width: 500px) {
     .container {
         padding: 48px 16px;
     }
     
-    /* Additional SVG optimization for mobile */
-    img[src$=".svg"] {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: optimize-contrast;
+    /* Additional mobile-specific fixes for blurry SVGs */
+    img[src*="initialSolutions.svg"],
+    img[src*="after.svg"] {
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
         -webkit-transform: translate3d(0,0,0);
         transform: translate3d(0,0,0);
+        /* Prevent browser scaling blur */
+        image-rendering: pixelated;
     }
 }
