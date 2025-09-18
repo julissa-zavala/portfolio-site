@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import HeaderNav from "../components/HeaderNav";
 import CaseStudy from "../components/CaseStudy";
 import Footer from "../components/Footer";
@@ -69,11 +70,22 @@ const useStyles = createUseStyles({
   companyName: {
     color: "#767676",
   },
+  animatedSection: {
+    opacity: 0,
+    transform: "translateY(40px)",
+    transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
+    "&.animate": {
+      opacity: 1,
+      transform: "translateY(0)",
+    },
+  },
 });
 
 const Landing = () => {
   const classes = useStyles();
   const { height } = useWindowDimensions();
+  const [animatedSections, setAnimatedSections] = useState(new Set());
+  const sectionRefs = useRef([]);
 
   const caseStudies = [
     {
@@ -94,6 +106,33 @@ const Landing = () => {
       route: "dataGrid",
     },
   ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionIndex = parseInt(entry.target.dataset.sectionIndex);
+            setAnimatedSections(prev => new Set([...prev, sectionIndex]));
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    sectionRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      sectionRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
 
   return (
     <>
@@ -121,15 +160,13 @@ const Landing = () => {
             rates, and designing for multi-role educational platforms.
           </p>
           <section
-            className={classes.selectedWork}
+            className={`${classes.selectedWork} ${classes.animatedSection} ${animatedSections.has(0) ? 'animate' : ''}`}
+            ref={el => sectionRefs.current[0] = el}
+            data-section-index="0"
             style={{ height: height - 500 }}
           >
             <section>
-              <img
-                src={downArrowIcon}
-                alt="Black arrow pointing down"
-                className={classes.downArrow}
-              />
+              
               <h3 className={classes.selectedWorkText}>Selected work</h3>
               <img
                 src={downArrowIcon}
@@ -139,7 +176,11 @@ const Landing = () => {
             </section>
           </section>
         </section>
-        <section className={classes.caseStudiesContainer}>
+        <section 
+          className={`${classes.caseStudiesContainer} ${classes.animatedSection} ${animatedSections.has(1) ? 'animate' : ''}`}
+          ref={el => sectionRefs.current[1] = el}
+          data-section-index="1"
+        >
           {caseStudies.map((caseStudy) => (
             <CaseStudy
               key={caseStudy.route}
@@ -151,7 +192,13 @@ const Landing = () => {
           ))}
         </section>
       </section>
-      <Footer />
+      <div 
+        className={`${classes.animatedSection} ${animatedSections.has(2) ? 'animate' : ''}`}
+        ref={el => sectionRefs.current[2] = el}
+        data-section-index="2"
+      >
+        <Footer />
+      </div>
     </>
   );
 };

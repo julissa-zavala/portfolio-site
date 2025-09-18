@@ -1,8 +1,11 @@
+import { useState, useEffect, useRef } from "react";
 import { createUseStyles } from "react-jss";
+import { Link } from "react-router-dom";
 import HeaderNav from "../components/HeaderNav";
 import Footer from "../components/Footer";
 import clsx from "clsx";
 import downArrowIcon from "../images/down-arrow-black.svg";
+import rightArrowIcon from "../images/right-arrow-black.svg";
 import dots from "../images/dots.svg";
 import heroImage from "../images/hero_SP.svg";
 import Zoom from "react-medium-image-zoom";
@@ -74,7 +77,7 @@ const useStyles = createUseStyles({
     },
   },
   title: {
-    fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
+    fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif", 
     fontSize: 22,
     fontWeight: 800,
   },
@@ -93,22 +96,41 @@ const useStyles = createUseStyles({
   },
   caseStudyContainer: {
     paddingTop: 48,
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      minHeight: "90vh",
+    },
   },
   heroImage: {
-    marginBottom: 48,
+    marginBottom: 32,
     display: "block",
     width: "100%",
+    maxHeight: "60vh",
+    objectFit: "cover",
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      marginBottom: 24,
+      maxHeight: "50vh",
+    },
   },
   mainHeading: {
     fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
     fontSize: 43,
     textAlign: "left",
-    marginBottom: 24,
+    marginBottom: 16,
+    lineHeight: 1.1,
+    paddingTop: 8,
     "@media (min-width: 0px) and (max-width: 1139px)": {
       width: "100%",
     },
     "@media (min-width: 0px) and (max-width: 550px)": {
       fontSize: 20,
+      marginBottom: 12,
+      paddingTop: 4,
     },
   },
   bold: {
@@ -274,11 +296,282 @@ const useStyles = createUseStyles({
       justifyContent: "center",
     },
   },
+  loadingContainer: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#ffffff",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
+    zIndex: 9999,
+    transition: "opacity 0.5s ease-out",
+  },
+  percentageText: {
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
+    color: "#1E1E1E",
+    fontSize: 14,
+    lineHeight: "normal",
+    position: "relative",
+    marginBottom: 32,
+  },
+  loadingLineThrough: {
+    position: "absolute",
+    width: "100%",
+    height: 1,
+    bottom: 1,
+    left: 0,
+    backgroundColor: "#1E1E1E",
+    transform: "scaleX(0)",
+    transformOrigin: "left center",
+    transition: "transform 0.1s ease-out",
+  },
+  contentContainer: {
+    opacity: 0,
+    transform: "translateY(20px)",
+    transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
+    "&.loaded": {
+      opacity: 1,
+      transform: "translateY(0px)",
+    },
+  },
+  animatedSection: {
+    opacity: 0,
+    transform: "translateY(40px)",
+    transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
+    "&.animate": {
+      opacity: 1,
+      transform: "translateY(0)",
+    },
+  },
+  nextProjectContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "48px 24px",
+    textAlign: "center",
+    "@media (min-width: 0px) and (max-width: 1200px)": {
+      padding: "32px 16px",
+    },
+  },
+  nextProjectHeader: {
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
+    fontSize: 12,
+    color: "#767676",
+    marginBottom: 8,
+    textAlign: "center",
+    textTransform: "uppercase",
+    letterSpacing: "0.5px",
+  },
+  nextProjectTitle: {
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
+    fontSize: 14,
+    marginBottom: 8,
+    textAlign: "center",
+    lineHeight: 1.3,
+  },
+  nextProjectLink: {
+    display: "inline-block",
+    textDecoration: "none",
+    color: "#1E1E1E",
+  },
+  nextProjectCircleButton: {
+    opacity: 1,
+    color: "#444",
+    textAlign: "center",
+    backgroundColor: "#f4f4f8",
+    borderRadius: "200px",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100px",
+    height: "100px",
+    marginTop: "10px",
+    marginBottom: "100px",
+    padding: "0",
+    fontFamily: "Roobert, Verdana, sans-serif",
+    fontSize: "45px",
+    fontWeight: 300,
+    display: "flex",
+    position: "static",
+    left: "50%",
+    right: "0%",
+    transition: "transform 0.3s ease-in-out",
+    "&:hover": {
+      "& $nextProjectArrow": {
+        transform: "translateX(4px)",
+      },
+    },
+  },
+  nextProjectArrow: {
+    width: 48,
+    height: 48,
+    transition: "transform 0.3s ease-in-out",
+  },
+  studentProfileVideo: {
+    width: "35%",
+    marginLeft: "auto",
+    "@media (min-width: 551px) and (max-width: 1200px)": {
+      width: "80%",
+      marginLeft: "auto",
+      marginRight: "auto",
+    },
+  },
 });
 
 const StudentProfile = () => {
   const classes = useStyles();
   const { width } = useWindowDimensions();
+  const [imagesLoaded, setImagesLoaded] = useState({
+    heroImage: false,
+    brainStorm: false,
+    beforeImage: false,
+    afterImage: false,
+    drawingBoard: false,
+    validation: false,
+    refinement: false,
+    wireframe: false,
+  });
+  const [allImagesLoaded, setAllImagesLoaded] = useState(false);
+  const [loadingPercentage, setLoadingPercentage] = useState(0);
+  const [showLoader, setShowLoader] = useState(true);
+  const [animatedSections, setAnimatedSections] = useState(new Set());
+  const sectionRefs = useRef([]);
+  const [impactNumbersAnimated, setImpactNumbersAnimated] = useState(false);
+  const impactAnimationTriggered = useRef(false);
+  const [currentNumbers, setCurrentNumbers] = useState({ views: 0, dailyUsers: 0, monthlyUsers: 0 });
+
+  useEffect(() => {
+    const imagesToPreload = [
+      { key: "heroImage", src: heroImage },
+      { key: "brainStorm", src: brainStorm },
+      { key: "beforeImage", src: beforeImageSVG },
+      { key: "afterImage", src: afterImageSVG },
+      { key: "drawingBoard", src: drawingBoard },
+      { key: "validation", src: validation },
+      { key: "refinement", src: refinement },
+      { key: "wireframe", src: wireframe },
+    ];
+
+    const totalImages = imagesToPreload.length;
+    let loadedCount = 0;
+
+    const animatePercentage = (targetPercentage) => {
+      let currentPercentage = 0;
+      setLoadingPercentage(0);
+      
+      const timer = setInterval(() => {
+        currentPercentage += 1;
+        
+        if (currentPercentage === 69) {
+          currentPercentage += 1;
+        }
+        
+        if (currentPercentage > 100) {
+          currentPercentage = 100;
+        }
+        
+        setLoadingPercentage(currentPercentage);
+        
+        if (currentPercentage >= targetPercentage || currentPercentage >= 100) {
+          clearInterval(timer);
+          if (currentPercentage >= 100 && loadedCount === totalImages) {
+            setTimeout(() => {
+              setAllImagesLoaded(true);
+              setTimeout(() => {
+                setShowLoader(false);
+              }, 500);
+            }, 800);
+          }
+        }
+      }, 20);
+    };
+
+    imagesToPreload.forEach(({ key, src }) => {
+      const img = new Image();
+      img.onload = () => {
+        setImagesLoaded((prev) => ({ ...prev, [key]: true }));
+        loadedCount++;
+        const targetPercentage = Math.min(100, Math.round((loadedCount / totalImages) * 100));
+        animatePercentage(targetPercentage);
+      };
+      img.src = src;
+    });
+  }, []);
+
+  const animateNumbers = () => {
+    const targetNumbers = { views: 150, dailyUsers: 40, monthlyUsers: 28 };
+    const duration = 4000;
+    const steps = 60;
+    const stepDuration = duration / steps;
+    
+    let currentStep = 0;
+    
+    const timer = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      
+      setCurrentNumbers({
+        views: Math.round(targetNumbers.views * easeOutQuart),
+        dailyUsers: Math.round(targetNumbers.dailyUsers * easeOutQuart),
+        monthlyUsers: Math.round(targetNumbers.monthlyUsers * easeOutQuart),
+      });
+      
+      if (currentStep >= steps) {
+        clearInterval(timer);
+        setCurrentNumbers(targetNumbers);
+      }
+    }, stepDuration);
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionIndex = parseInt(entry.target.dataset.sectionIndex);
+            setAnimatedSections(prev => new Set([...prev, sectionIndex]));
+            if (sectionIndex === 12 && !impactAnimationTriggered.current) {
+              impactAnimationTriggered.current = true;
+              setImpactNumbersAnimated(true);
+              animateNumbers();
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    sectionRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      sectionRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, [allImagesLoaded]);
+
+  useEffect(() => {
+    if (showLoader) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showLoader]);
 
   const beforeImage = {
     imageUrl: beforeImageSVG,
@@ -290,6 +583,18 @@ const StudentProfile = () => {
 
   return (
     <>
+      {showLoader && (
+        <div className={classes.loadingContainer}>
+          <div className={classes.percentageText}>
+            {loadingPercentage}%
+            <div 
+              className={classes.loadingLineThrough}
+              style={{ transform: `scaleX(${loadingPercentage / 100})` }}
+            ></div>
+          </div>
+        </div>
+      )}
+    <div className={`${classes.contentContainer} loaded`}>
       <section className="container">
         <HeaderNav />
         <section className={classes.caseStudyContainer}>
@@ -327,9 +632,12 @@ const StudentProfile = () => {
             </span>
           </div>
 
-          {/* ________________________TL;DR_____________________________ */}
 
-          <section className={classes.tldr}>
+          <section 
+            className={`${classes.tldr} ${classes.animatedSection} ${animatedSections.has(0) ? 'animate' : ''}`}
+            ref={el => sectionRefs.current[0] = el}
+            data-section-index="0"
+          >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>TL;DR</p>
               <p className={classes.description}>
@@ -341,15 +649,14 @@ const StudentProfile = () => {
               <p className={classes.description}>
                 <span className={classes.bold}>My solution: </span>
                 Designed a student overview panel that synthesizes key insights
-                from across the system - attendance patterns, academic progress,
-                graduation requirements, and intervention data - in one
+                from across main intervention areas, including attendance patterns, academic progress,
+                graduation requirements, and intervention data—in one
                 scannable view.
               </p>
               <p className={classes.description}>
-                <span className={classes.bold}>The impact: </span>43% reduction
-                in student assessment time, 67% increase in panel engagement,
-                and 89% of teachers reported significantly improved workflow
-                efficiency.
+                <span className={classes.bold}>The impact: </span>150% increase in student 
+                profile page views, and 40% increase in daily active users on this page,
+                 and 28% growth in monthly active users. 
               </p>
               <p className={classes.description}>
                 <span className={classes.bold}>Key innovation: </span>Created a
@@ -380,13 +687,12 @@ const StudentProfile = () => {
               </p>
             </div>
           </section>
-          <section className={classes.scrollToLearnMore}>
-            <section>
-              <img
-                src={downArrowIcon}
-                alt="Black arrow pointing down"
-                className={classes.downArrow}
-              />
+          <section 
+            className={`${classes.scrollToLearnMore} ${classes.animatedSection} ${animatedSections.has(1) ? 'animate' : ''}`}
+            ref={el => sectionRefs.current[1] = el}
+            data-section-index="1"
+          >
+            <section>            
               <h3 className={classes.scrollToLearnMoreText}>
                 Scroll to learn more
               </h3>
@@ -398,10 +704,11 @@ const StudentProfile = () => {
             </section>
           </section>
 
-          {/* ________________________01: UNCOVERING THE REAL PROBLEM_____________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(2) ? 'animate' : '')}
+            ref={el => sectionRefs.current[2] = el}
+            data-section-index="2"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -438,10 +745,11 @@ const StudentProfile = () => {
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
-          {/* ________________________02: THE WRONG SOLUTION_____________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(3) ? 'animate' : '')}
+            ref={el => sectionRefs.current[3] = el}
+            data-section-index="3"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -450,10 +758,9 @@ const StudentProfile = () => {
               </p>
               <p className={classes.description}>
                 Given carte blanche to create a dashboard-like summary, I
-                initially created wireframes with 6+ modules including detailed
-                data visualizations for academics, graduation plans, regents,
-                attendance, credits, and tasks/notes. After faciliating a design
-                review with key stakeholders, I received feedback that this
+                initially created wireframes with 6+ modules, basing the 
+                selection of data points on Mixpanel data and stakeholder requests. 
+                After faciliating a design review with key stakeholders, I received feedback that this
                 approach was comprehensive but unfocused.
               </p>
             </section>
@@ -464,7 +771,9 @@ const StudentProfile = () => {
             </div>
           </section>
           <div
-            className={classes.quoteContainer}
+            className={`${classes.quoteContainer} ${classes.animatedSection} ${animatedSections.has(9) ? 'animate' : ''}`}
+            ref={el => sectionRefs.current[9] = el}
+            data-section-index="9"
             style={{
               marginRight: "auto",
               marginLeft: "auto",
@@ -481,10 +790,11 @@ const StudentProfile = () => {
           </div>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
-          {/* ________________________03: STRATEGIC FOCUS_____________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
+            className={clsx(classes.caseStudySection, classes.ohTwoStyles, classes.animatedSection, animatedSections.has(4) ? 'animate' : '')}
+            ref={el => sectionRefs.current[4] = el}
+            data-section-index="4"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -526,10 +836,11 @@ const StudentProfile = () => {
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
-          {/* _____________________04: BACK TO THE DRAWING BOARD________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(5) ? 'animate' : '')}
+            ref={el => sectionRefs.current[5] = el}
+            data-section-index="5"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -537,12 +848,21 @@ const StudentProfile = () => {
                 board
               </p>
               <p className={classes.description}>
-                Given carte blanche to create a dashboard-like summary, I
-                initially created wireframes with 6+ modules including detailed
-                data visualizations for academics, graduation plans, regents,
-                attendance, credits, and tasks/notes. After faciliating a design
-                review with key stakeholders, I received feedback that this
-                approach was comprehensive but unfocused.
+              With this foundation, I could redesign with clear purpose. After extensive stakeholder 
+              conversations across multiple teams, we landed on 4 core modules that balanced immediate
+               insight with actionable context: current month attendance, current GPA, credits earned, and 
+               regents fulfilled. 
+              </p>
+              <p className={classes.description}>
+              Each module follows the same pattern with the primary metric at top and a contextual 
+              change indicator below, because users needed both "where the student stands now" and 
+              "which direction they're trending." 
+              </p>
+              <p className={classes.description}>
+              The month-over-month and marking period comparisons came from user research showing
+               that static numbers felt meaningless without context. The graduation tracking statuses 
+               addressed counselor workflows around intervention timing. This structure gives educators 
+               the snapshot they need while showing whether each area requires immediate attention.
               </p>
             </section>
             <div className={classes.caseStudyImageContainer}>
@@ -553,10 +873,11 @@ const StudentProfile = () => {
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
-          {/* ________________________05: VALIDATION REFINEMENT________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(6) ? 'animate' : '')}
+            ref={el => sectionRefs.current[6] = el}
+            data-section-index="6"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -609,10 +930,11 @@ const StudentProfile = () => {
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
-          {/* ________________________06: SOLVING THE PERFORMANCE CHALLENGE________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(7) ? 'animate' : '')}
+            ref={el => sectionRefs.current[7] = el}
+            data-section-index="7"
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -620,7 +942,7 @@ const StudentProfile = () => {
                 performance challenge
               </p>
               <p className={classes.description}>
-                Engineering flagged a critical issue: my panel required loading
+                Engineering flagged a critical issue: the new overview panel required loading
                 data from 4 different backend systems simultaneously (8+ API
                 calls) versus existing on-demand loading. On school Chromebooks,
                 this meant 5+ second load times that would lose users entirely.
@@ -662,20 +984,27 @@ const StudentProfile = () => {
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
-          {/* ________________________07: THE FINAL SOLUTION_________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(8) ? 'animate' : '')}
+            ref={el => sectionRefs.current[8] = el}
+            data-section-index="8"
+            style={{marginBottom: width <= 1200 && 0}}
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
                 <span className={classes.number}>07</span>The final solution
               </p>
               <p className={classes.description}>
-                Engineering flagged a critical issue: my panel required loading
-                data from 4 different backend systems simultaneously (8+ API
-                calls) versus existing on-demand loading. On school Chromebooks,
-                this meant 5+ second load times that would lose users entirely.
+              Two new data visualizations were introduced as a apart of this work. One is 
+              the interactive calendar widget, which shows daily attendance patterns because visual patterns 
+              reveal insights that percentages hide. 
+              </p>
+              <p className={classes.description}>
+                Teachers can instantly identify concerning patterns—like every Monday 
+                absence suggesting weekend issues, or absences clustered around test dates. 
+                This helps them distinguish between students needing family support versus 
+                academic intervention.
               </p>
             </section>
             {width >= 551 && (
@@ -684,13 +1013,9 @@ const StudentProfile = () => {
                 autoPlay
                 loop
                 muted
-                className={classes.customVideo}
+                className={clsx(classes.customVideo, classes.studentProfileVideo)}
                 controlsList="nodownload noplaybackrate noremoteplayback"
                 disablePictureInPicture
-                style={{
-                  width: "35%",
-                  marginLeft: "auto",
-                }}
               >
                 <source src={attendance} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -705,7 +1030,10 @@ const StudentProfile = () => {
             )}
           </section>
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(10) ? 'animate' : '')}
+            ref={el => sectionRefs.current[10] = el}
+            data-section-index="10"
+            style={{marginBottom: width <= 1200 && 0}}
           >
             <section className={classes.caseStudyInfo}>
               <p
@@ -731,13 +1059,9 @@ const StudentProfile = () => {
                 controls={false}
                 autoPlay
                 loop
-                className={classes.customVideo}
+                className={clsx(classes.customVideo, classes.studentProfileVideo)}
                 controlsList="nodownload noplaybackrate noremoteplayback"
                 disablePictureInPicture
-                style={{
-                  width: "35%",
-                  marginLeft: "auto",
-                }}
               >
                 <source src={academics} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -752,15 +1076,19 @@ const StudentProfile = () => {
             )}
           </section>
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(11) ? 'animate' : '')}
+            ref={el => sectionRefs.current[11] = el}
+            data-section-index="11"
           >
             <section className={classes.caseStudyInfo}>
               <p
                 className={classes.description}
                 style={{ marginTop: width <= 1200 && 0 }}
               >
-                The final panel synthesized attendance patterns with interactive
-                calendar, projected GPA, credits, and state testing progress.
+                The final design consolidates the four most 
+                critical data points teachers need: attendance patterns, 
+                academic performance, graduation progress, and state testing 
+                requirements—all in one scannable view.
               </p>
             </section>
             <div className={classes.caseStudyImageContainer}>
@@ -775,10 +1103,11 @@ const StudentProfile = () => {
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
-          {/* _______________________08:IMPACT_________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohTwoStyles)}
+            className={clsx(classes.caseStudySection, classes.ohTwoStyles, classes.animatedSection, animatedSections.has(12) ? 'animate' : '')}
+            ref={el => sectionRefs.current[12] = el}
+            data-section-index="12"
           >
             <section
               className={classes.caseStudyInfo}
@@ -787,15 +1116,7 @@ const StudentProfile = () => {
               <p className={classes.title}>
                 <span className={classes.number}>08</span>Impact
               </p>
-              <p
-                className={classes.description}
-                style={{ width: width > 1200 ? "47%" : "100%" }}
-              >
-                The final panel synthesized attendance patterns (with
-                interactive calendar), projected GPA, credits, and state testing
-                progress. Supporting modules provided detailed attendance and
-                academic context.
-              </p>
+              
               <div className={classes.impactContent}>
                 <div
                   style={{
@@ -817,15 +1138,15 @@ const StudentProfile = () => {
                   </p>{" "}
                   <div className={classes.resultsContainer}>
                     <p className={classes.results}>
-                      <span className={classes.resultsPercentage}>150%</span>
+                      <span className={classes.resultsPercentage}>{currentNumbers.views}%</span>
                       Increase in student profile page views
                     </p>
                     <p className={classes.results}>
-                      <span className={classes.resultsPercentage}>40%</span>
+                      <span className={classes.resultsPercentage}>{currentNumbers.dailyUsers}%</span>
                       Increase in daily active users on this page
                     </p>
                     <p className={classes.results}>
-                      <span className={classes.resultsPercentage}>28%</span>
+                      <span className={classes.resultsPercentage}>{currentNumbers.monthlyUsers}%</span>
                       Growth in monthly active users
                     </p>
                   </div>
@@ -876,10 +1197,11 @@ const StudentProfile = () => {
           </section>
           <img src={width >= 551 ? dots : line} className={classes.dots} />
 
-          {/* _______________________09: KEY TAKEAWAYS________________________ */}
 
           <section
-            className={clsx(classes.caseStudySection, classes.ohOneStyles)}
+            className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(13) ? 'animate' : '')}
+            ref={el => sectionRefs.current[13] = el}
+            data-section-index="13"
           >
             <section
               className={classes.caseStudyInfo}
@@ -922,9 +1244,24 @@ const StudentProfile = () => {
               </p>
             </section>{" "}
           </section>
+          
+          <div className={classes.nextProjectContainer}>
+            <p className={classes.nextProjectHeader}>Next Project</p>
+            <p className={classes.nextProjectTitle}>The feature users loved to leave: Redesigning the data grid to stop spreadsheet exodus</p>
+            <Link to="/dataGrid" className={classes.nextProjectLink}>
+              <div className={classes.nextProjectCircleButton}>
+                <img
+                  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWFycm93LXJpZ2h0LWljb24gbHVjaWRlLWFycm93LXJpZ2h0Ij48cGF0aCBkPSJNNSAxMmgxNCIvPjxwYXRoIGQ9Im0xMiA1IDcgNy03IDciLz48L3N2Zz4="
+                  alt="Arrow pointing to the right"
+                  className={classes.nextProjectArrow}
+                />
+              </div>
+            </Link>
+          </div>
         </section>
       </section>
       <Footer />
+    </div>
     </>
   );
 };

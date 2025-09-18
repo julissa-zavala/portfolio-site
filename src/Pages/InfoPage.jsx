@@ -74,6 +74,9 @@ const useStyles = createUseStyles({
     textDecoration: "none",
     "&:hover": {
       opacity: 0.7,
+      "& $diagonalArrowUp": {
+        transform: "translate(2px, -2px)",
+      },
     },
   },
   diagonalArrowUp: {
@@ -81,6 +84,7 @@ const useStyles = createUseStyles({
     top: 3,
     right: 2,
     width: 16,
+    transition: "transform 0.3s ease-in-out",
   },
   infoImage: {
     width: 264,
@@ -149,6 +153,53 @@ const useStyles = createUseStyles({
     marginLeft: "9%",
     borderRadius: 6,
   },
+  loadingContainer: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#ffffff",
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
+    zIndex: 9999,
+    transition: "opacity 0.5s ease-out",
+    "&.hidden": {
+      opacity: 0,
+      pointerEvents: "none",
+    },
+  },
+  percentageText: {
+    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
+    color: "#1E1E1E",
+    fontSize: 14,
+    lineHeight: "normal",
+    position: "relative",
+    marginBottom: 32,
+  },
+  loadingLineThrough: {
+    position: "absolute",
+    width: "100%",
+    height: 1,
+    bottom: 1,
+    left: 0,
+    backgroundColor: "#1E1E1E",
+    transform: "scaleX(0)",
+    transformOrigin: "left center",
+    transition: "transform 0.1s ease-out",
+  },
+  contentContainer: {
+    opacity: 0,
+    transform: "translateY(20px)",
+    transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
+    "&.loaded": {
+      opacity: 1,
+      transform: "translateY(0px)",
+    },
+  },
 });
 
 const Info = () => {
@@ -159,6 +210,9 @@ const Info = () => {
     ceramicPot: false,
     ceramicSculpture: false,
   });
+  const [allImagesLoaded, setAllImagesLoaded] = useState(false);
+  const [loadingPercentage, setLoadingPercentage] = useState(0);
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
     const imagesToPreload = [
@@ -167,17 +221,83 @@ const Info = () => {
       { key: "ceramicSculpture", src: ceramicSculpture },
     ];
 
+    const totalImages = imagesToPreload.length;
+    let loadedCount = 0;
+    let animationStarted = false;
+
+    const startAnimation = () => {
+      if (animationStarted) return;
+      animationStarted = true;
+      
+      let currentPercentage = 0;
+      setLoadingPercentage(0);
+      
+      const timer = setInterval(() => {
+        currentPercentage += 1;
+        
+        if (currentPercentage === 69) {
+          currentPercentage += 1;
+        }
+        
+        if (currentPercentage > 100) {
+          currentPercentage = 100;
+        }
+        
+        setLoadingPercentage(currentPercentage);
+        
+        if (currentPercentage >= 100) {
+          clearInterval(timer);
+          if (loadedCount === totalImages) {
+            setTimeout(() => {
+              setAllImagesLoaded(true);
+              setTimeout(() => {
+                setShowLoader(false);
+              }, 500);
+            }, 800);
+          }
+        }
+      }, 20);
+    };
+
     imagesToPreload.forEach(({ key, src }) => {
       const img = new Image();
       img.onload = () => {
         setImagesLoaded((prev) => ({ ...prev, [key]: true }));
+        loadedCount++;
+        if (loadedCount === 1) {
+          startAnimation();
+        }
       };
       img.src = src;
     });
   }, []);
 
+  useEffect(() => {
+    if (showLoader) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [showLoader]);
+
   return (
     <>
+      {showLoader && (
+        <div className={classes.loadingContainer}>
+          <div className={classes.percentageText}>
+            {loadingPercentage}%
+            <div 
+              className={classes.loadingLineThrough}
+              style={{ transform: `scaleX(${loadingPercentage / 100})` }}
+            ></div>
+          </div>
+        </div>
+      )}
+    <div className={`${classes.contentContainer} loaded`}>
       <section className="container">
         <HeaderNav />
         <section className={classes.infoContainer}>
@@ -229,7 +349,7 @@ const Info = () => {
               alt="A photo of me, Julissa Zavala, smiling and standing in front of closed storefront in NYC"
               loading="lazy"
               style={{
-                opacity: imagesLoaded.selfie ? 1 : 0,
+                opacity: allImagesLoaded ? 1 : 0,
                 transition: "opacity 0.3s ease",
               }}
             ></img>
@@ -262,7 +382,7 @@ const Info = () => {
               alt="Cerapic pot of a girl with black hair and large hands leaning over and cradling herself"
               className={classes.ceramicPot}
               style={{
-                opacity: imagesLoaded.selfie ? 1 : 0,
+                opacity: allImagesLoaded ? 1 : 0,
                 transition: "opacity 0.3s ease",
               }}
             />
@@ -271,7 +391,7 @@ const Info = () => {
               alt="Ceramic sculpture of a hand holding a flower. The hand has a chrome finish and the flower has yellow petals and a green stem"
               className={classes.ceramicSculpture}
               style={{
-                opacity: imagesLoaded.selfie ? 1 : 0,
+                opacity: allImagesLoaded ? 1 : 0,
                 transition: "opacity 0.3s ease",
               }}
             />
@@ -279,6 +399,7 @@ const Info = () => {
         </section>
       </section>
       <Footer />
+    </div>
     </>
   );
 };
