@@ -412,6 +412,15 @@ const useStyles = createUseStyles({
     height: 48,
     transition: "transform 0.3s ease-in-out",
   },
+  studentProfileVideo: {
+    width: "35%",
+    marginLeft: "auto",
+    "@media (min-width: 551px) and (max-width: 1200px)": {
+      width: "80%",
+      marginLeft: "auto",
+      marginRight: "auto",
+    },
+  },
 });
 
 const StudentProfile = () => {
@@ -980,6 +989,7 @@ const StudentProfile = () => {
             className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(8) ? 'animate' : '')}
             ref={el => sectionRefs.current[8] = el}
             data-section-index="8"
+            style={{marginBottom: width <= 1200 && 0}}
           >
             <section className={classes.caseStudyInfo}>
               <p className={classes.title}>
@@ -1003,13 +1013,9 @@ const StudentProfile = () => {
                 autoPlay
                 loop
                 muted
-                className={classes.customVideo}
+                className={clsx(classes.customVideo, classes.studentProfileVideo)}
                 controlsList="nodownload noplaybackrate noremoteplayback"
                 disablePictureInPicture
-                style={{
-                  width: "35%",
-                  marginLeft: "auto",
-                }}
               >
                 <source src={attendance} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -1027,6 +1033,7 @@ const StudentProfile = () => {
             className={clsx(classes.caseStudySection, classes.ohOneStyles, classes.animatedSection, animatedSections.has(10) ? 'animate' : '')}
             ref={el => sectionRefs.current[10] = el}
             data-section-index="10"
+            style={{marginBottom: width <= 1200 && 0}}
           >
             <section className={classes.caseStudyInfo}>
               <p
@@ -1052,13 +1059,9 @@ const StudentProfile = () => {
                 controls={false}
                 autoPlay
                 loop
-                className={classes.customVideo}
+                className={clsx(classes.customVideo, classes.studentProfileVideo)}
                 controlsList="nodownload noplaybackrate noremoteplayback"
                 disablePictureInPicture
-                style={{
-                  width: "35%",
-                  marginLeft: "auto",
-                }}
               >
                 <source src={academics} type="video/mp4" />
                 Your browser does not support the video tag.
