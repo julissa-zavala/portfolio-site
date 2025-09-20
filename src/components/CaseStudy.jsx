@@ -97,7 +97,7 @@ const useStyles = createUseStyles({
     marginTop: 25,
     "&:hover $readMoreTextLineThrough": {
       transform: "scaleX(1)",
-      bottom: .7,
+      bottom: 0.7,
     },
     "&:hover $rightArrow": {
       transform: "translateX(4px)",
@@ -122,7 +122,7 @@ const useStyles = createUseStyles({
   caseStudyCompanyName: {
     color: "#767676",
     fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: 100,
   },
 });
@@ -132,14 +132,14 @@ const CaseStudy = ({ title, description, route, image }) => {
   const navigate = useNavigate();
 
   const handleImageClick = () => {
-    trackClick('image', title, 'Case Study Preview');
-    trackCaseStudyInteraction(title, 'click', 'preview_image');
+    trackClick("image", title, "Case Study Preview");
+    trackCaseStudyInteraction(title, "click", "preview_image");
     navigate(route);
   };
 
   const handleReadMoreClick = () => {
-    trackClick('link', 'READ MORE', 'Case Study CTA');
-    trackCaseStudyInteraction(title, 'click', 'read_more_button');
+    trackClick("link", "READ MORE", "Case Study CTA");
+    trackCaseStudyInteraction(title, "click", "read_more_button");
   };
 
   return (
@@ -156,7 +156,11 @@ const CaseStudy = ({ title, description, route, image }) => {
           New Visions For Public Schools
         </span>
         <p className={classes.caseStudyDescription}>{description}</p>
-        <Link to={`/${route}`} className={classes.caseStudyReadMore} onClick={handleReadMoreClick}>
+        <Link
+          to={`/${route}`}
+          className={classes.caseStudyReadMore}
+          onClick={handleReadMoreClick}
+        >
           <div className={classes.readMoreTextText}>READ MORE</div>
           <div className={classes.readMoreTextLineThrough}></div>
           <img
