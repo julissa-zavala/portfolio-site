@@ -218,7 +218,6 @@ const Footer = ({ containerStyles }) => {
     setShowHoverTooltip("none");
     trackClick('button', 'Copy Email', 'Footer');
     
-    // Add a subtle visual feedback before the copy action
     const emailElement = document.querySelector('[data-email-copy]');
     if (emailElement) {
       emailElement.style.transform = 'scale(0.98)';
@@ -254,7 +253,6 @@ const Footer = ({ containerStyles }) => {
   };
 
   const handleClick = () => {
-    // Prevent showing hover tooltip immediately after click
     setShowHoverTooltip("none");
     copyText();
   };
@@ -328,7 +326,7 @@ const Footer = ({ containerStyles }) => {
           )}
         </section>
         <span className={clsx(classes.footerItem, classes.footerCopyright)}>
-          Copyright © Julissa Zavala 2025
+          © Julissa Zavala 2025
         </span>
       </section>
     </footer>

@@ -27,8 +27,9 @@ import attendance from "../images/attendancemodule.mp4";
 import attendanceGif from "../images/attendancemodule.gif";
 import academics from "../images/academicsmodule.mp4";
 import academicsGif from "../images/academicsmodule.gif";
-import arrowRightWhite from "../images/arrow-right-white.svg";
+import rightArrowIcon from "../images/right-arrow-black.svg";
 import { trackClick, trackCaseStudyInteraction, trackVideoInteraction } from "../utils/analytics";
+import pageManager from "../utils/pageManager";
 
 const useStyles = createUseStyles({
   caseStudySection: {
@@ -385,7 +386,7 @@ const useStyles = createUseStyles({
     opacity: 1,
     color: "#444",
     textAlign: "center",
-    backgroundColor: "#01A4DC",
+    backgroundColor: "rgba(30, 30, 30, 0.05)",
     borderRadius: "200px",
     justifyContent: "center",
     alignItems: "center",
@@ -429,7 +430,7 @@ const StudentProfile = () => {
   const { width } = useWindowDimensions();
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [loadingPercentage, setLoadingPercentage] = useState(0);
-  const [showLoader, setShowLoader] = useState(true);
+  const [showLoader, setShowLoader] = useState(!pageManager.hasPageBeenLoaded('studentProfile'));
   const [animatedSections, setAnimatedSections] = useState(new Set());
   const sectionRefs = useRef([]);
   const impactAnimationTriggered = useRef(false);
@@ -440,6 +441,12 @@ const StudentProfile = () => {
   });
 
   useEffect(() => {
+    if (pageManager.hasPageBeenLoaded('studentProfile')) {
+      setAllImagesLoaded(true);
+      setShowLoader(false);
+      return;
+    }
+
     const imagesToPreload = [
       { key: "heroImage", src: heroImage },
       { key: "brainStorm", src: brainStorm },
@@ -476,6 +483,7 @@ const StudentProfile = () => {
           if (currentPercentage >= 100 && loadedCount === totalImages) {
             setTimeout(() => {
               setAllImagesLoaded(true);
+              pageManager.markPageAsLoaded('studentProfile');
               setTimeout(() => {
                 setShowLoader(false);
               }, 500);
@@ -1343,7 +1351,7 @@ const StudentProfile = () => {
               <Link to="/dataGrid" className={classes.nextProjectLink}>
                 <div className={classes.nextProjectCircleButton}>
                   <img
-                    src={arrowRightWhite}
+                    src={rightArrowIcon}
                     alt="Arrow pointing to the right"
                     className={classes.nextProjectArrow}
                     onClick={() => {

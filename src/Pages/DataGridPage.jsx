@@ -24,11 +24,12 @@ import useWindowDimensions from "../hooks/useWindowDimensions";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import line from "../images/line.svg";
-import arrowRightWhite from "../images/arrow-right-white.svg";
+import rightArrowIcon from "../images/right-arrow-black.svg";
 import { trackClick, trackCaseStudyInteraction, trackVideoInteraction } from "../utils/analytics";
 import templateView from "../images/templateView.svg";
 import customView from "../images/customView.svg";
 import defaultView from "../images/defaultView.svg";
+import pageManager from "../utils/pageManager";
 
 const useStyles = createUseStyles({
   caseStudySection: {
@@ -352,7 +353,7 @@ const useStyles = createUseStyles({
     opacity: 1,
     color: "#444",
     textAlign: "center",
-    backgroundColor: "#05AA82",
+    backgroundColor: "rgba(30, 30, 30, 0.05)",
     borderRadius: "200px",
     justifyContent: "center",
     alignItems: "center",
@@ -387,11 +388,17 @@ const DataGrid = () => {
   const { width } = useWindowDimensions();
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [loadingPercentage, setLoadingPercentage] = useState(0);
-  const [showLoader, setShowLoader] = useState(true);
+  const [showLoader, setShowLoader] = useState(!pageManager.hasPageBeenLoaded('dataGrid'));
   const [animatedSections, setAnimatedSections] = useState(new Set());
   const sectionRefs = useRef([]);
 
   useEffect(() => {
+    if (pageManager.hasPageBeenLoaded('dataGrid')) {
+      setAllImagesLoaded(true);
+      setShowLoader(false);
+      return;
+    }
+
     const imagesToPreload = [
       { key: "dataGridHero", src: dataGridHero },
       { key: "graph", src: graph },
@@ -429,6 +436,7 @@ const DataGrid = () => {
           if (currentPercentage >= 100 && loadedCount === totalImages) {
             setTimeout(() => {
               setAllImagesLoaded(true);
+              pageManager.markPageAsLoaded('dataGrid');
               setTimeout(() => {
                 setShowLoader(false);
               }, 500);
@@ -1133,7 +1141,7 @@ const DataGrid = () => {
           <Link to="/studentProfile" className={classes.nextProjectLink}>
             <div className={classes.nextProjectCircleButton}>
               <img
-                src={arrowRightWhite}
+                src={rightArrowIcon}
                 alt="Arrow pointing to the right"
                 className={classes.nextProjectArrow}
                 onClick={() => {

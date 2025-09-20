@@ -10,6 +10,7 @@ import resumeFile from "../images/JulissaZavala_Resume.pdf";
 import { createUseStyles } from "react-jss";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { trackClick, trackDownload, trackVideoInteraction } from "../utils/analytics";
+import pageManager from "../utils/pageManager";
 
 const useStyles = createUseStyles({
   infoContainer: {
@@ -213,9 +214,15 @@ const Info = () => {
   });
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [loadingPercentage, setLoadingPercentage] = useState(0);
-  const [showLoader, setShowLoader] = useState(true);
+  const [showLoader, setShowLoader] = useState(!pageManager.hasPageBeenLoaded('info'));
 
   useEffect(() => {
+    if (pageManager.hasPageBeenLoaded('info')) {
+      setAllImagesLoaded(true);
+      setShowLoader(false);
+      return;
+    }
+
     const imagesToPreload = [
       { key: "selfie", src: selfie },
       { key: "ceramicPot", src: ceramicPot },
@@ -251,6 +258,7 @@ const Info = () => {
           if (loadedCount === totalImages) {
             setTimeout(() => {
               setAllImagesLoaded(true);
+              pageManager.markPageAsLoaded('info');
               setTimeout(() => {
                 setShowLoader(false);
               }, 500);
