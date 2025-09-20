@@ -274,7 +274,7 @@ const Footer = ({ containerStyles }) => {
             )
           }
         >
-          Hand coded in React{" "}
+          Hand coded with React{" "}
           <img
             src={diagonalArrowUpIcon}
             alt="Black arrow pointing up to the right diagonally"
