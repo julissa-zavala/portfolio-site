@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { createUseStyles } from "react-jss";
 import clsx from "clsx";
 import diagonalArrowUpIcon from "../images/diagonal-arrow-up.svg";
-import { trackClick, trackExternalLink, trackDownload } from "../utils/analytics";
+import { trackClick, trackExternalLink } from "../utils/analytics";
 
 const useStyles = createUseStyles({
   footerContainer: {
@@ -216,16 +216,16 @@ const Footer = ({ containerStyles }) => {
 
   const copyText = async () => {
     setShowHoverTooltip("none");
-    trackClick('button', 'Copy Email', 'Footer');
-    
-    const emailElement = document.querySelector('[data-email-copy]');
+    trackClick("button", "Copy Email", "Footer");
+
+    const emailElement = document.querySelector("[data-email-copy]");
     if (emailElement) {
-      emailElement.style.transform = 'scale(0.98)';
+      emailElement.style.transform = "scale(0.98)";
       setTimeout(() => {
-        emailElement.style.transform = 'scale(1)';
+        emailElement.style.transform = "scale(1)";
       }, 100);
     }
-    
+
     try {
       await navigator.clipboard.writeText("hello@julissa.zavala.com");
       setCopied(true);
@@ -266,7 +266,13 @@ const Footer = ({ containerStyles }) => {
           target="_blank"
           rel="noopener noreferrer"
           href={"https://github.com/julissa-zavala/portfolio-site"}
-          onClick={() => trackExternalLink("https://github.com/julissa-zavala/portfolio-site", "Hand coded in React", "Footer")}
+          onClick={() =>
+            trackExternalLink(
+              "https://github.com/julissa-zavala/portfolio-site",
+              "Hand coded in React",
+              "Footer"
+            )
+          }
         >
           Hand coded in React{" "}
           <img
@@ -283,7 +289,13 @@ const Footer = ({ containerStyles }) => {
             target="_blank"
             rel="noopener noreferrer"
             href="https://www.linkedin.com/in/julissazavala/"
-            onClick={() => trackExternalLink("https://www.linkedin.com/in/julissazavala/", "LinkedIn", "Footer")}
+            onClick={() =>
+              trackExternalLink(
+                "https://www.linkedin.com/in/julissazavala/",
+                "LinkedIn",
+                "Footer"
+              )
+            }
           >
             LinkedIn{" "}
             <img
@@ -314,7 +326,7 @@ const Footer = ({ containerStyles }) => {
                 className={clsx(
                   classes.copiedAlert,
                   classes.slideInUp,
-                  classes.pulse,
+                  classes.pulse
                 )}
                 style={{
                   backgroundColor: "#1E1E1E",
@@ -326,7 +338,7 @@ const Footer = ({ containerStyles }) => {
           )}
         </section>
         <span className={clsx(classes.footerItem, classes.footerCopyright)}>
-          © Julissa Zavala 2025
+          Julissa Zavala © 2025
         </span>
       </section>
     </footer>
@@ -334,4 +346,3 @@ const Footer = ({ containerStyles }) => {
 };
 
 export default Footer;
-
