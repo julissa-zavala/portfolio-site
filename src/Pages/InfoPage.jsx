@@ -9,7 +9,11 @@ import ceramicHandsFeet from "../images/ceramicHandsFeet.mp4";
 import resumeFile from "../images/JulissaZavala_Resume.pdf";
 import { createUseStyles } from "react-jss";
 import useWindowDimensions from "../hooks/useWindowDimensions";
-import { trackClick, trackDownload, trackVideoInteraction } from "../utils/analytics";
+import {
+  trackClick,
+  trackDownload,
+  trackVideoInteraction,
+} from "../utils/analytics";
 import pageManager from "../utils/pageManager";
 
 const useStyles = createUseStyles({
@@ -207,17 +211,14 @@ const useStyles = createUseStyles({
 const Info = () => {
   const classes = useStyles();
   const { width } = useWindowDimensions();
-  const [imagesLoaded, setImagesLoaded] = useState({
-    selfie: false,
-    ceramicPot: false,
-    ceramicSculpture: false,
-  });
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [loadingPercentage, setLoadingPercentage] = useState(0);
-  const [showLoader, setShowLoader] = useState(!pageManager.hasPageBeenLoaded('info'));
+  const [showLoader, setShowLoader] = useState(
+    !pageManager.hasPageBeenLoaded("info")
+  );
 
   useEffect(() => {
-    if (pageManager.hasPageBeenLoaded('info')) {
+    if (pageManager.hasPageBeenLoaded("info")) {
       setAllImagesLoaded(true);
       setShowLoader(false);
       return;
@@ -236,29 +237,29 @@ const Info = () => {
     const startAnimation = () => {
       if (animationStarted) return;
       animationStarted = true;
-      
+
       let currentPercentage = 0;
       setLoadingPercentage(0);
-      
+
       const timer = setInterval(() => {
         currentPercentage += 1;
-        
+
         if (currentPercentage === 69) {
           currentPercentage += 1;
         }
-        
+
         if (currentPercentage > 100) {
           currentPercentage = 100;
         }
-        
+
         setLoadingPercentage(currentPercentage);
-        
+
         if (currentPercentage >= 100) {
           clearInterval(timer);
           if (loadedCount === totalImages) {
             setTimeout(() => {
               setAllImagesLoaded(true);
-              pageManager.markPageAsLoaded('info');
+              pageManager.markPageAsLoaded("info");
               setTimeout(() => {
                 setShowLoader(false);
               }, 500);
@@ -268,10 +269,9 @@ const Info = () => {
       }, 20);
     };
 
-    imagesToPreload.forEach(({ key, src }) => {
+    imagesToPreload.forEach(({ src }) => {
       const img = new Image();
       img.onload = () => {
-        setImagesLoaded((prev) => ({ ...prev, [key]: true }));
         loadedCount++;
         if (loadedCount === 1) {
           startAnimation();
@@ -283,13 +283,13 @@ const Info = () => {
 
   useEffect(() => {
     if (showLoader) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
 
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [showLoader]);
 
@@ -299,123 +299,133 @@ const Info = () => {
         <div className={classes.loadingContainer}>
           <div className={classes.percentageText}>
             {loadingPercentage}%
-            <div 
+            <div
               className={classes.loadingLineThrough}
               style={{ transform: `scaleX(${loadingPercentage / 100})` }}
             ></div>
           </div>
         </div>
       )}
-    <div className={`${classes.contentContainer} loaded`}>
-      <section className="container">
-        <HeaderNav />
-        <section className={classes.infoContainer}>
-          <section className={classes.infoContainerLeft}>
-            <section className={classes.infoBio}>
-              <p className={classes.infoBioDetails}>
-                My name is Julissa Zavala and I am currently based in Queens,
-                New York (where I&#8217;m from!).
-                <span className={classes.infoBioDetail}>
-                  I&#8217;ve spent the past four years at New Visions for Public
-                  Schools designing tools for educators and administrators that
-                  help with student tracking and resource management.
-                </span>
-                <span className={classes.infoBioDetail}>
-                  Good design feels seamless. Getting there involves
-                  conversations, testing, and iterating until something works.
-                  I&#8217;m drawn to that problem-solving process and the
-                  details that make the difference between functional and great.
-                </span>
-                <span className={classes.infoBioDetail}>
-                  I design with the belief that technology should adapt to how
-                  people work, not the other way around. I start by figuring out
-                  where current tools fall short, then design solutions that
-                  feel straightforward to use while driving the outcomes the
-                  business needs.
-                </span>
-              </p>
-              <p className={classes.infoBioQuestion}>
-                Want to learn more about my work experience?
-                <br />
-                <a
-                  className={classes.resumePdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={resumeFile}
-                  onClick={() => {
-                    trackClick('link', 'Take a look at my resume', 'About Page');
-                    trackDownload('JulissaZavala_Resume.pdf', 'pdf', 'About Page');
-                  }}
-                >
-                  Take a look at my resume{" "}
-                  <img
-                    src={diagonalArrowUpIcon}
-                    alt="Black arrow pointing up to the right diagonally"
-                    className={classes.diagonalArrowUp}
-                  />
-                </a>
-              </p>
+      <div className={`${classes.contentContainer} loaded`}>
+        <section className="container">
+          <HeaderNav />
+          <section className={classes.infoContainer}>
+            <section className={classes.infoContainerLeft}>
+              <section className={classes.infoBio}>
+                <p className={classes.infoBioDetails}>
+                  My name is Julissa Zavala and I am currently based in Queens,
+                  New York (where I&#8217;m from!).
+                  <span className={classes.infoBioDetail}>
+                    I believe that good design should feel cohesive. Getting
+                    there involves conversations, testing, and iterating until
+                    something works. I&#8217;m drawn to that problem-solving
+                    process and the details that make the difference between
+                    functional and great.
+                  </span>
+                  <span className={classes.infoBioDetail}>
+                    I design with the belief that technology should adapt to how
+                    people work, not the other way around. I start by figuring
+                    out where current tools fall short for the user, then design
+                    solutions that feel straightforward to use while driving the
+                    outcomes the business needs.
+                  </span>
+                </p>
+                <p className={classes.infoBioQuestion}>
+                  Want to learn more about my work experience?
+                  <br />
+                  <a
+                    className={classes.resumePdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={resumeFile}
+                    onClick={() => {
+                      trackClick(
+                        "link",
+                        "Take a look at my resume",
+                        "About Page"
+                      );
+                      trackDownload(
+                        "JulissaZavala_Resume.pdf",
+                        "pdf",
+                        "About Page"
+                      );
+                    }}
+                  >
+                    Take a look at my resume{" "}
+                    <img
+                      src={diagonalArrowUpIcon}
+                      alt="Black arrow pointing up to the right diagonally"
+                      className={classes.diagonalArrowUp}
+                    />
+                  </a>
+                </p>
+              </section>
+              <img
+                className={classes.infoImage}
+                src={selfie}
+                alt="A photo of me, Julissa Zavala, smiling and standing in front of closed storefront in NYC"
+                loading="lazy"
+                style={{
+                  opacity: allImagesLoaded ? 1 : 0,
+                  transition: "opacity 0.3s ease",
+                }}
+              ></img>
             </section>
-            <img
-              className={classes.infoImage}
-              src={selfie}
-              alt="A photo of me, Julissa Zavala, smiling and standing in front of closed storefront in NYC"
-              loading="lazy"
-              style={{
-                opacity: allImagesLoaded ? 1 : 0,
-                transition: "opacity 0.3s ease",
-              }}
-            ></img>
-          </section>
-          <section className={classes.infoContainerRight}>
-            <video
-              controls={width < 500}
-              autoPlay={width > 500}
-              loop
-              muted
-              className={classes.customVideo}
-              controlsList="nodownload noplaybackrate noremoteplayback"
-              disablePictureInPicture
-              onPlay={() => trackVideoInteraction('Ceramic Hands Feet', 'play')}
-              onPause={() => trackVideoInteraction('Ceramic Hands Feet', 'pause')}
-              onEnded={() => trackVideoInteraction('Ceramic Hands Feet', 'complete')}
-            >
-              <source src={ceramicHandsFeet} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            <p className={classes.infoBioDetails3}>
-              When I&#8217;m away from my computer, you can usually find me in
-              the kitchen trying out new recipes, going on long walks with my
-              dog Penny, or more recently, learning how to dance salsa.
-            </p>
-            <p className={classes.infoBioDetails3}>
-              I also really enjoy hands-on creative work like sketching,
-              painting and ceramics. Here&#8217;s some recent ceramics projects
-              I&#8217;ve been working on, at various point of WIP!
-            </p>
-            <img
-              src={ceramicPot}
-              alt="Cerapic pot of a girl with black hair and large hands leaning over and cradling herself"
-              className={classes.ceramicPot}
-              style={{
-                opacity: allImagesLoaded ? 1 : 0,
-                transition: "opacity 0.3s ease",
-              }}
-            />
-            <img
-              src={ceramicSculpture}
-              alt="Ceramic sculpture of a hand holding a flower. The hand has a chrome finish and the flower has yellow petals and a green stem"
-              className={classes.ceramicSculpture}
-              style={{
-                opacity: allImagesLoaded ? 1 : 0,
-                transition: "opacity 0.3s ease",
-              }}
-            />
+            <section className={classes.infoContainerRight}>
+              <video
+                controls={width < 500}
+                autoPlay={width > 500}
+                loop
+                muted
+                className={classes.customVideo}
+                controlsList="nodownload noplaybackrate noremoteplayback"
+                disablePictureInPicture
+                onPlay={() =>
+                  trackVideoInteraction("Ceramic Hands Feet", "play")
+                }
+                onPause={() =>
+                  trackVideoInteraction("Ceramic Hands Feet", "pause")
+                }
+                onEnded={() =>
+                  trackVideoInteraction("Ceramic Hands Feet", "complete")
+                }
+              >
+                <source src={ceramicHandsFeet} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p className={classes.infoBioDetails3}>
+                When I&#8217;m away from my computer, you can usually find me in
+                the kitchen trying out new recipes, going on long walks with my
+                dog Penny, or more recently, learning how to dance salsa.
+              </p>
+              <p className={classes.infoBioDetails3}>
+                I also really enjoy hands-on creative work like sketching,
+                painting and ceramics. Here&#8217;s some recent ceramics
+                projects I&#8217;ve been working on, at various point of WIP!
+              </p>
+              <img
+                src={ceramicPot}
+                alt="Cerapic pot of a girl with black hair and large hands leaning over and cradling herself"
+                className={classes.ceramicPot}
+                style={{
+                  opacity: allImagesLoaded ? 1 : 0,
+                  transition: "opacity 0.3s ease",
+                }}
+              />
+              <img
+                src={ceramicSculpture}
+                alt="Ceramic sculpture of a hand holding a flower. The hand has a chrome finish and the flower has yellow petals and a green stem"
+                className={classes.ceramicSculpture}
+                style={{
+                  opacity: allImagesLoaded ? 1 : 0,
+                  transition: "opacity 0.3s ease",
+                }}
+              />
+            </section>
           </section>
         </section>
-      </section>
-      <Footer />
-    </div>
+        <Footer />
+      </div>
     </>
   );
 };

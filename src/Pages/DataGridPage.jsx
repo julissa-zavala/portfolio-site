@@ -25,7 +25,11 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import line from "../images/line.svg";
 import rightArrowIcon from "../images/right-arrow-black.svg";
-import { trackClick, trackCaseStudyInteraction, trackVideoInteraction } from "../utils/analytics";
+import {
+  trackClick,
+  trackCaseStudyInteraction,
+  trackVideoInteraction,
+} from "../utils/analytics";
 import templateView from "../images/templateView.svg";
 import customView from "../images/customView.svg";
 import defaultView from "../images/defaultView.svg";
@@ -388,12 +392,14 @@ const DataGrid = () => {
   const { width } = useWindowDimensions();
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [loadingPercentage, setLoadingPercentage] = useState(0);
-  const [showLoader, setShowLoader] = useState(!pageManager.hasPageBeenLoaded('dataGrid'));
+  const [showLoader, setShowLoader] = useState(
+    !pageManager.hasPageBeenLoaded("dataGrid")
+  );
   const [animatedSections, setAnimatedSections] = useState(new Set());
   const sectionRefs = useRef([]);
 
   useEffect(() => {
-    if (pageManager.hasPageBeenLoaded('dataGrid')) {
+    if (pageManager.hasPageBeenLoaded("dataGrid")) {
       setAllImagesLoaded(true);
       setShowLoader(false);
       return;
@@ -436,7 +442,7 @@ const DataGrid = () => {
           if (currentPercentage >= 100 && loadedCount === totalImages) {
             setTimeout(() => {
               setAllImagesLoaded(true);
-              pageManager.markPageAsLoaded('dataGrid');
+              pageManager.markPageAsLoaded("dataGrid");
               setTimeout(() => {
                 setShowLoader(false);
               }, 500);
@@ -537,39 +543,94 @@ const DataGrid = () => {
         <section className="container">
           <HeaderNav />
           <section className={classes.caseStudyContainer}>
-            <img src={dataGridHero} className={classes.heroImage} alt="Data grid interface showing student information in a table format with customizable columns and filters" />
+            <img
+              src={dataGridHero}
+              className={classes.heroImage}
+              alt="Data grid interface showing student information in a table format with customizable columns and filters"
+            />
             <h1 className={classes.mainHeading}>
               The feature users loved to leave: Redesigning the data grid to
               stop spreadsheet exodus
             </h1>
-            <div>
-              {" "}
-              <span
-                className={clsx(classes.caseStudyDetails, classes.bold)}
-                style={{ marginRight: 134 }}
-              >
-                Role
-              </span>
-              <span
-                className={clsx(classes.caseStudyDetails, classes.bold)}
-                style={{ marginRight: 30 }}
-              >
-                Duration
-              </span>
-              <span className={clsx(classes.caseStudyDetails, classes.bold)}>
-                Tools
-              </span>
-            </div>
-            <div>
-              {" "}
-              <span className={classes.caseStudyDetails}>
-                Lead Product Designer
-              </span>
-              <span className={classes.caseStudyDetails}>8 Weeks</span>
-              <span className={classes.caseStudyDetails}>
-                Figma, Miro, Mixpanel
-              </span>
-            </div>
+            {width >= 551 && (
+              <>
+                <div>
+                  {" "}
+                  <span
+                    className={clsx(classes.caseStudyDetails, classes.bold)}
+                    style={{ marginRight: 134 }}
+                  >
+                    Role
+                  </span>
+                  <span
+                    className={clsx(classes.caseStudyDetails, classes.bold)}
+                    style={{ marginRight: 30 }}
+                  >
+                    Duration
+                  </span>
+                  <span
+                    className={clsx(classes.caseStudyDetails, classes.bold)}
+                  >
+                    Tools
+                  </span>
+                </div>
+                <div>
+                  {" "}
+                  <span className={classes.caseStudyDetails}>
+                    Lead Product Designer
+                  </span>
+                  <span className={classes.caseStudyDetails}>8 Weeks</span>
+                  <span
+                    className={classes.caseStudyDetails}
+                    style={{ width: "10%" }}
+                  >
+                    Figma, Miro, Mixpanel
+                  </span>
+                </div>
+              </>
+            )}
+            {width <= 550 && (
+              <>
+                <div
+                  className={classes.caseStudyDetails}
+                  style={{ marginBottom: 8 }}
+                >
+                  {" "}
+                  <span
+                    className={classes.bold}
+                    style={{ marginRight: 8, marginBottom: 4 }}
+                  >
+                    Role{" "}
+                  </span>{" "}
+                  <br />
+                  Lead Product Designer
+                </div>
+                <div
+                  className={classes.caseStudyDetails}
+                  style={{ marginBottom: 8 }}
+                >
+                  {" "}
+                  <span
+                    className={classes.bold}
+                    style={{ marginRight: 8, marginBottom: 4 }}
+                  >
+                    Duration{" "}
+                  </span>{" "}
+                  <br />8 Weeks
+                </div>
+                <div className={classes.caseStudyDetails}>
+                  {" "}
+                  <span
+                    className={classes.bold}
+                    style={{ marginRight: 8, marginBottom: 4 }}
+                  >
+                    Tools{" "}
+                  </span>{" "}
+                  <br />
+                  Figma, Miro, Mixpanel
+                </div>
+              </>
+            )}
             <section
               className={`${classes.tldr} ${classes.animatedSection} ${
                 animatedSections.has(1) ? "animate" : ""
@@ -639,8 +700,16 @@ const DataGrid = () => {
                   alt="Black arrow pointing down"
                   className={classes.downArrow}
                   onClick={() => {
-                    trackClick('image', 'Scroll to learn more arrow', 'Data Grid Case Study');
-                    trackCaseStudyInteraction('Data Grid', 'click', 'scroll_arrow');
+                    trackClick(
+                      "image",
+                      "Scroll to learn more arrow",
+                      "Data Grid Case Study"
+                    );
+                    trackCaseStudyInteraction(
+                      "Data Grid",
+                      "click",
+                      "scroll_arrow"
+                    );
                   }}
                 />
               </section>
@@ -686,7 +755,11 @@ const DataGrid = () => {
                 </Zoom>
               </div>
             </section>
-            <img src={width >= 976 ? dots : line} className={classes.dots} alt="Decorative dots or line separator" />
+            <img
+              src={width >= 976 ? dots : line}
+              className={classes.dots}
+              alt="Decorative dots or line separator"
+            />
             <section
               className={clsx(
                 classes.caseStudySection,
@@ -742,9 +815,17 @@ const DataGrid = () => {
               </div>
             </section>
             <Zoom classDialog={clsx(classes.zoomBackground)}>
-              <img className={classes.graphImage} src={graph} alt="User journey diagram showing the workflow problems educators face with the data grid system" />
+              <img
+                className={classes.graphImage}
+                src={graph}
+                alt="User journey diagram showing the workflow problems educators face with the data grid system"
+              />
             </Zoom>
-            <img src={width >= 976 ? dots : line} className={classes.dots} alt="Decorative dots or line separator" />
+            <img
+              src={width >= 976 ? dots : line}
+              className={classes.dots}
+              alt="Decorative dots or line separator"
+            />
             <section
               className={clsx(
                 classes.caseStudySection,
@@ -778,7 +859,11 @@ const DataGrid = () => {
               <div className={classes.caseStudyImageContainer}>
                 {" "}
                 <Zoom classDialog={classes.zoomBackground}>
-                  <img src={viewDiagram} width="100%" alt="Diagram showing the three view types: default views, custom views, and template views for the data grid system" />
+                  <img
+                    src={viewDiagram}
+                    width="100%"
+                    alt="Diagram showing the three view types: default views, custom views, and template views for the data grid system"
+                  />
                 </Zoom>
               </div>
               <div
@@ -827,7 +912,7 @@ const DataGrid = () => {
                     {width >= 977 && (
                       <>
                         <div
-                           style={{
+                          style={{
                             width: "31.5%",
                             border: ".5px solid #E4E4E7",
                             background: "#FFFFFF",
@@ -835,11 +920,15 @@ const DataGrid = () => {
                             padding: 16,
                           }}
                         >
-                           <p className={classes.description} style={{ marginTop: 0 }}>
-                            <span className={classes.bold}>
-                              Template views
-                            </span><br />
-                            Role-based starting points (5 options, 10 columns max) prominently displayed in a sidebar for fast performance and focused workflows.
+                          <p
+                            className={classes.description}
+                            style={{ marginTop: 0 }}
+                          >
+                            <span className={classes.bold}>Template views</span>
+                            <br />
+                            Role-based starting points (5 options, 10 columns
+                            max) prominently displayed in a sidebar for fast
+                            performance and focused workflows.
                           </p>
                         </div>
                         <div
@@ -851,11 +940,17 @@ const DataGrid = () => {
                             padding: 16,
                           }}
                         >
-                          <p className={classes.description} style={{ marginTop: 0 }}>
+                          <p
+                            className={classes.description}
+                            style={{ marginTop: 0 }}
+                          >
                             <span className={classes.bold}>
                               Custom views (called My views)
-                            </span><br />
-                            User-created configurations for flexibility. Could be created from a modified template view, or created from scratch.
+                            </span>
+                            <br />
+                            User-created configurations for flexibility. Could
+                            be created from a modified template view, or created
+                            from scratch.
                           </p>
                         </div>
                         <div
@@ -867,11 +962,20 @@ const DataGrid = () => {
                             padding: 16,
                           }}
                         >
-                          <p className={classes.description} style={{ marginTop: 0 }}>
-                            <span className={classes.bold} style={{ marginBottom: 5 }}>
+                          <p
+                            className={classes.description}
+                            style={{ marginTop: 0 }}
+                          >
+                            <span
+                              className={classes.bold}
+                              style={{ marginBottom: 5 }}
+                            >
                               Default view
-                            </span><br />
-                            A simplified view with 7 columns max that covers essential student details. This would be the first thing users see when they land on the data grid.
+                            </span>
+                            <br />A simplified view with 7 columns max that
+                            covers essential student details. This would be the
+                            first thing users see when they land on the data
+                            grid.
                           </p>
                         </div>
                       </>
@@ -880,7 +984,11 @@ const DataGrid = () => {
                 </div>
               </div>
             </section>
-            <img src={width >= 976 ? dots : line} className={classes.dots} alt="Decorative dots or line separator" />
+            <img
+              src={width >= 976 ? dots : line}
+              className={classes.dots}
+              alt="Decorative dots or line separator"
+            />
             <section
               className={clsx(
                 classes.caseStudySection,
@@ -927,9 +1035,15 @@ const DataGrid = () => {
                   controlsList="nodownload noplaybackrate noremoteplayback"
                   disablePictureInPicture
                   style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
-                  onPlay={() => trackVideoInteraction('Save Button Demo', 'play')}
-                  onPause={() => trackVideoInteraction('Save Button Demo', 'pause')}
-                  onEnded={() => trackVideoInteraction('Save Button Demo', 'complete')}
+                  onPlay={() =>
+                    trackVideoInteraction("Save Button Demo", "play")
+                  }
+                  onPause={() =>
+                    trackVideoInteraction("Save Button Demo", "pause")
+                  }
+                  onEnded={() =>
+                    trackVideoInteraction("Save Button Demo", "complete")
+                  }
                 >
                   <source src={saveButton} type="video/mp4" />
                   Your browser does not support the video tag.
@@ -944,7 +1058,11 @@ const DataGrid = () => {
                 />
               )}
             </section>
-            <img src={width >= 976 ? dots : line} className={classes.dots} alt="Decorative dots or line separator" />
+            <img
+              src={width >= 976 ? dots : line}
+              className={classes.dots}
+              alt="Decorative dots or line separator"
+            />
             <section
               className={clsx(
                 classes.caseStudySection,
@@ -977,11 +1095,19 @@ const DataGrid = () => {
               <div className={classes.caseStudyImageContainer}>
                 {" "}
                 <Zoom classDialog={classes.zoomBackground}>
-                  <img src={workFlow} width="100%" alt="Workflow diagram showing the process for creating and managing custom views in the data grid" />
+                  <img
+                    src={workFlow}
+                    width="100%"
+                    alt="Workflow diagram showing the process for creating and managing custom views in the data grid"
+                  />
                 </Zoom>
               </div>
             </section>
-            <img src={width >= 976 ? dots : line} className={classes.dots} alt="Decorative dots or line separator" />
+            <img
+              src={width >= 976 ? dots : line}
+              className={classes.dots}
+              alt="Decorative dots or line separator"
+            />
             <section
               className={clsx(
                 classes.caseStudySection,
@@ -1040,7 +1166,11 @@ const DataGrid = () => {
                 </p>
               </div>
             </section>
-            <img src={width >= 976 ? dots : line} className={classes.dots} alt="Decorative dots or line separator" />
+            <img
+              src={width >= 976 ? dots : line}
+              className={classes.dots}
+              alt="Decorative dots or line separator"
+            />
             <section
               className={clsx(classes.caseStudySection, classes.ohOneStyles)}
             >
@@ -1092,9 +1222,11 @@ const DataGrid = () => {
                   controlsList="nodownload noplaybackrate noremoteplayback"
                   disablePictureInPicture
                   style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
-                  onPlay={() => trackVideoInteraction('Sidebar Demo', 'play')}
-                  onPause={() => trackVideoInteraction('Sidebar Demo', 'pause')}
-                  onEnded={() => trackVideoInteraction('Sidebar Demo', 'complete')}
+                  onPlay={() => trackVideoInteraction("Sidebar Demo", "play")}
+                  onPause={() => trackVideoInteraction("Sidebar Demo", "pause")}
+                  onEnded={() =>
+                    trackVideoInteraction("Sidebar Demo", "complete")
+                  }
                 >
                   <source src={sideBar} type="video/mp4" />
                   Your browser does not support the video tag.
@@ -1109,7 +1241,11 @@ const DataGrid = () => {
                 />
               )}
             </section>
-            <img src={width >= 976 ? dots : line} className={classes.dots} alt="Decorative dots or line separator" />
+            <img
+              src={width >= 976 ? dots : line}
+              className={classes.dots}
+              alt="Decorative dots or line separator"
+            />
             <section
               className={clsx(classes.caseStudySection, classes.ohOneStyles)}
             >
@@ -1145,8 +1281,16 @@ const DataGrid = () => {
                 alt="Arrow pointing to the right"
                 className={classes.nextProjectArrow}
                 onClick={() => {
-                  trackClick('button', 'Next Project Arrow', 'Data Grid Case Study');
-                  trackCaseStudyInteraction('Data Grid', 'click', 'next_project_button');
+                  trackClick(
+                    "button",
+                    "Next Project Arrow",
+                    "Data Grid Case Study"
+                  );
+                  trackCaseStudyInteraction(
+                    "Data Grid",
+                    "click",
+                    "next_project_button"
+                  );
                 }}
               />
             </div>

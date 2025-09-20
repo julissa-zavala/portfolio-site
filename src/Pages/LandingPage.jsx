@@ -83,9 +83,10 @@ const useStyles = createUseStyles({
 
 const Landing = () => {
   const classes = useStyles();
-  const { height } = useWindowDimensions();
+  const { height, width } = useWindowDimensions();
   const [animatedSections, setAnimatedSections] = useState(new Set());
   const sectionRefs = useRef([]);
+  const initialHeightRef = useRef(null);
 
   const caseStudies = [
     {
@@ -108,27 +109,35 @@ const Landing = () => {
   ];
 
   useEffect(() => {
+    if (width >= 551) return;
+    if (initialHeightRef.current === null && height) {
+      initialHeightRef.current = height - 500;
+    }
+  }, [height, width]);
+
+  useEffect(() => {
+    const ref = sectionRefs.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const sectionIndex = parseInt(entry.target.dataset.sectionIndex);
-            setAnimatedSections(prev => new Set([...prev, sectionIndex]));
+            setAnimatedSections((prev) => new Set([...prev, sectionIndex]));
           }
         });
       },
       {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: "0px 0px -50px 0px",
       }
     );
 
-    sectionRefs.current.forEach((ref) => {
+    ref.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => {
-      sectionRefs.current.forEach((ref) => {
+      ref.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };
@@ -160,13 +169,16 @@ const Landing = () => {
             rates, and designing for multi-role educational platforms.
           </p>
           <section
-            className={`${classes.selectedWork} ${classes.animatedSection} ${animatedSections.has(0) ? 'animate' : ''}`}
-            ref={el => sectionRefs.current[0] = el}
+            className={`${classes.selectedWork} ${classes.animatedSection} ${
+              animatedSections.has(0) ? "animate" : ""
+            }`}
+            ref={(el) => (sectionRefs.current[0] = el)}
             data-section-index="0"
-            style={{ height: height - 500 }}
+            style={{
+              height: initialHeightRef.current || height - 500,
+            }}
           >
             <section>
-              
               <h3 className={classes.selectedWorkText}>Selected work</h3>
               <img
                 src={downArrowIcon}
@@ -176,9 +188,11 @@ const Landing = () => {
             </section>
           </section>
         </section>
-        <section 
-          className={`${classes.caseStudiesContainer} ${classes.animatedSection} ${animatedSections.has(1) ? 'animate' : ''}`}
-          ref={el => sectionRefs.current[1] = el}
+        <section
+          className={`${classes.caseStudiesContainer} ${
+            classes.animatedSection
+          } ${animatedSections.has(1) ? "animate" : ""}`}
+          ref={(el) => (sectionRefs.current[1] = el)}
           data-section-index="1"
         >
           {caseStudies.map((caseStudy) => (
@@ -192,9 +206,11 @@ const Landing = () => {
           ))}
         </section>
       </section>
-      <div 
-        className={`${classes.animatedSection} ${animatedSections.has(2) ? 'animate' : ''}`}
-        ref={el => sectionRefs.current[2] = el}
+      <div
+        className={`${classes.animatedSection} ${
+          animatedSections.has(2) ? "animate" : ""
+        }`}
+        ref={(el) => (sectionRefs.current[2] = el)}
         data-section-index="2"
       >
         <Footer />
