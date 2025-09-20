@@ -7,6 +7,7 @@ import StudentProfile from "./Pages/StudentProfilePage";
 import "./css/index.css";
 import "@shoelace-style/shoelace/dist/themes/light.css";
 import { setBasePath } from "@shoelace-style/shoelace/dist/utilities/base-path.js";
+import { trackPageView } from "./utils/analytics";
 
 setBasePath(
   "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/"
@@ -23,6 +24,8 @@ const ScrollToTop = ({ children }) => {
 };
 
 const App = () => {
+  const location = useLocation();
+
   useEffect(() => {
     const preventWheelUnzoom = (e) => {
       const modal = document.querySelector("[data-rmiz-modal][open]");
@@ -42,6 +45,16 @@ const App = () => {
       });
     };
   }, []);
+
+  useEffect(() => {
+    const pageName = location.pathname === '/' ? 'Landing Page' : 
+                   location.pathname === '/info' ? 'About Page' :
+                   location.pathname === '/dataGrid' ? 'Data Grid Case Study' :
+                   location.pathname === '/studentProfile' ? 'Student Profile Case Study' :
+                   'Unknown Page';
+    
+    trackPageView(pageName, location.pathname);
+  }, [location]);
 
   return (
     <ScrollToTop>

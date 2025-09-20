@@ -9,6 +9,7 @@ import ceramicHandsFeet from "../images/ceramicHandsFeet.mp4";
 import resumeFile from "../images/JulissaZavala_Resume.pdf";
 import { createUseStyles } from "react-jss";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+import { trackClick, trackDownload, trackVideoInteraction } from "../utils/analytics";
 
 const useStyles = createUseStyles({
   infoContainer: {
@@ -333,6 +334,10 @@ const Info = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   href={resumeFile}
+                  onClick={() => {
+                    trackClick('link', 'Take a look at my resume', 'About Page');
+                    trackDownload('JulissaZavala_Resume.pdf', 'pdf', 'About Page');
+                  }}
                 >
                   Take a look at my resume{" "}
                   <img
@@ -363,6 +368,9 @@ const Info = () => {
               className={classes.customVideo}
               controlsList="nodownload noplaybackrate noremoteplayback"
               disablePictureInPicture
+              onPlay={() => trackVideoInteraction('Ceramic Hands Feet', 'play')}
+              onPause={() => trackVideoInteraction('Ceramic Hands Feet', 'pause')}
+              onEnded={() => trackVideoInteraction('Ceramic Hands Feet', 'complete')}
             >
               <source src={ceramicHandsFeet} type="video/mp4" />
               Your browser does not support the video tag.

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { createUseStyles } from "react-jss";
 import rightArrowIcon from "../images/right-arrow-black.svg";
+import { trackClick, trackCaseStudyInteraction } from "../utils/analytics";
 
 const useStyles = createUseStyles({
   caseStudyContainer: {
@@ -96,7 +97,7 @@ const useStyles = createUseStyles({
     marginTop: 25,
     "&:hover $readMoreTextLineThrough": {
       transform: "scaleX(1)",
-      bottom: 2,
+      bottom: .7,
     },
     "&:hover $rightArrow": {
       transform: "translateX(4px)",
@@ -130,12 +131,24 @@ const CaseStudy = ({ title, description, route, image }) => {
   const classes = useStyles();
   const navigate = useNavigate();
 
+  const handleImageClick = () => {
+    trackClick('image', title, 'Case Study Preview');
+    trackCaseStudyInteraction(title, 'click', 'preview_image');
+    navigate(route);
+  };
+
+  const handleReadMoreClick = () => {
+    trackClick('link', 'READ MORE', 'Case Study CTA');
+    trackCaseStudyInteraction(title, 'click', 'read_more_button');
+  };
+
   return (
     <section className={classes.caseStudyContainer}>
       <img
         src={image}
         className={classes.caseStudyImage}
-        onClick={() => navigate(route)}
+        alt={`Case study preview image for ${title}`}
+        onClick={handleImageClick}
       />
       <section className={classes.caseStudyInfo}>
         <p className={classes.caseStudyTitle}>{title}</p>
@@ -143,7 +156,7 @@ const CaseStudy = ({ title, description, route, image }) => {
           New Visions For Public Schools
         </span>
         <p className={classes.caseStudyDescription}>{description}</p>
-        <Link to={`/${route}`} className={classes.caseStudyReadMore}>
+        <Link to={`/${route}`} className={classes.caseStudyReadMore} onClick={handleReadMoreClick}>
           <div className={classes.readMoreTextText}>READ MORE</div>
           <div className={classes.readMoreTextLineThrough}></div>
           <img

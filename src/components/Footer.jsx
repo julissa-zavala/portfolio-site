@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { createUseStyles } from "react-jss";
 import clsx from "clsx";
 import diagonalArrowUpIcon from "../images/diagonal-arrow-up.svg";
+import { trackClick, trackExternalLink, trackDownload } from "../utils/analytics";
 
 const useStyles = createUseStyles({
   footerContainer: {
@@ -56,7 +57,19 @@ const useStyles = createUseStyles({
   },
   footerEmail: {
     marginLeft: 8,
-    cursor: "default",
+    cursor: "pointer",
+    position: "relative",
+    transition: "all 0.2s ease-in-out",
+    borderRadius: 4,
+    padding: "2px 4px",
+    "&:hover": {
+      backgroundColor: "rgba(30, 30, 30, 0.05)",
+      transform: "translateY(-1px)",
+    },
+    "&:active": {
+      transform: "translateY(0)",
+      backgroundColor: "rgba(30, 30, 30, 0.1)",
+    },
   },
   footerCopyright: {
     cursor: "text",
@@ -72,61 +85,95 @@ const useStyles = createUseStyles({
   copiedAlert: {
     fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     position: "absolute",
-    width: 55,
-    height: 23,
+    width: "auto",
+    minWidth: 60,
+    height: 32,
     backgroundColor: "#1E1E1E",
     color: "white",
     textAlign: "center",
-    left: 178,
+    left: 188,
     marginTop: 5,
-    padding: 2,
-    borderRadius: 3,
+    paddingTop: 5,
+    borderRadius: 8,
     fontSize: 12,
+    fontWeight: 500,
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+    backdropFilter: "blur(10px)",
+    border: "1px solid rgba(255, 255, 255, 0.1)",
     "@media (min-width: 0px) and (max-width: 652px)": {
-      left: 146,
+      left: 156,
     },
   },
-  arrowUp: {
-    position: "absolute",
-    width: 0,
-    height: 0,
-    borderLeft: "5px solid transparent",
-    borderRight: "5px solid transparent",
-    borderBottom: "5px solid #1E1E1E",
-    left: 201,
-    "@media (min-width: 0px) and (max-width: 652px)": {
-      left: 170,
-    },
-  },
-  "@keyframes fadeIn": {
+  "@keyframes slideInUp": {
     "0%": {
       opacity: 0,
+      transform: "translateY(8px) scale(0.95)",
     },
     "100%": {
       opacity: 1,
+      transform: "translateY(0) scale(1)",
     },
   },
-  "@keyframes fadeOut": {
+  "@keyframes slideOutDown": {
     "0%": {
       opacity: 1,
+      transform: "translateY(0) scale(1)",
     },
     "100%": {
       opacity: 0,
+      transform: "translateY(8px) scale(0.95)",
     },
   },
-  fadeIn: {
+  "@keyframes pulse": {
+    "0%": {
+      transform: "scale(1)",
+    },
+    "50%": {
+      transform: "scale(1.05)",
+    },
+    "100%": {
+      transform: "scale(1)",
+    },
+  },
+  "@keyframes checkmark": {
+    "0%": {
+      transform: "scale(0)",
+      opacity: 0,
+    },
+    "50%": {
+      transform: "scale(1.2)",
+      opacity: 1,
+    },
+    "100%": {
+      transform: "scale(1)",
+      opacity: 1,
+    },
+  },
+  slideInUp: {
     opacity: 1,
-    animationName: "$fadeIn",
+    animationName: "$slideInUp",
     animationIterationCount: 1,
-    animationTimingFunction: "ease-in",
-    animationDuration: "1s",
+    animationTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+    animationDuration: "0.2s",
   },
-  fadeOut: {
+  slideOutDown: {
     opacity: 0,
-    animationName: "$fadeOut",
+    animationName: "$slideOutDown",
     animationIterationCount: 1,
-    animationTimingFunction: "ease-out",
-    animationDuration: "1.5s",
+    animationTimingFunction: "cubic-bezier(0.4, 0, 1, 1)",
+    animationDuration: "0.15s",
+  },
+  pulse: {
+    animationName: "$pulse",
+    animationIterationCount: 1,
+    animationTimingFunction: "ease-in-out",
+    animationDuration: "0.3s",
+  },
+  checkmark: {
+    animationName: "$checkmark",
+    animationIterationCount: 1,
+    animationTimingFunction: "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+    animationDuration: "0.4s",
   },
   footerTextLineThrough: {
     position: "absolute",
@@ -169,10 +216,21 @@ const Footer = ({ containerStyles }) => {
 
   const copyText = async () => {
     setShowHoverTooltip("none");
+    trackClick('button', 'Copy Email', 'Footer');
+    
+    // Add a subtle visual feedback before the copy action
+    const emailElement = document.querySelector('[data-email-copy]');
+    if (emailElement) {
+      emailElement.style.transform = 'scale(0.98)';
+      setTimeout(() => {
+        emailElement.style.transform = 'scale(1)';
+      }, 100);
+    }
+    
     try {
       await navigator.clipboard.writeText("hello@julissa.zavala.com");
       setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      setTimeout(() => setCopied(false), 2500);
     } catch (err) {
       console.log(err);
       if (inputRef.current) {
@@ -180,7 +238,7 @@ const Footer = ({ containerStyles }) => {
         inputRef.current.setSelectionRange(0, 99999);
         document.execCommand("copy");
         setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+        setTimeout(() => setCopied(false), 2500);
       }
     }
   };
@@ -195,6 +253,12 @@ const Footer = ({ containerStyles }) => {
     setShowHoverTooltip("none");
   };
 
+  const handleClick = () => {
+    // Prevent showing hover tooltip immediately after click
+    setShowHoverTooltip("none");
+    copyText();
+  };
+
   return (
     <footer className={classes.footerContainer} style={containerStyles}>
       <section className={classes.footerLinksCopyright}>
@@ -204,6 +268,7 @@ const Footer = ({ containerStyles }) => {
           target="_blank"
           rel="noopener noreferrer"
           href={"https://github.com/julissa-zavala/portfolio-site"}
+          onClick={() => trackExternalLink("https://github.com/julissa-zavala/portfolio-site", "Hand coded in React", "Footer")}
         >
           Hand coded in React{" "}
           <img
@@ -220,6 +285,7 @@ const Footer = ({ containerStyles }) => {
             target="_blank"
             rel="noopener noreferrer"
             href="https://www.linkedin.com/in/julissazavala/"
+            onClick={() => trackExternalLink("https://www.linkedin.com/in/julissazavala/", "LinkedIn", "Footer")}
           >
             LinkedIn{" "}
             <img
@@ -230,41 +296,34 @@ const Footer = ({ containerStyles }) => {
           </a>
           <span>/</span>
           <a
-            onClick={copyText}
+            onClick={handleClick}
             className={clsx(classes.footerItem, classes.footerEmail)}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            data-email-copy
           >
             hello@julissa.zavala.com
           </a>
           <div
-            className={clsx(classes.copiedAlert)}
+            className={clsx(classes.copiedAlert, classes.slideInUp)}
             style={{ display: ShowHoverTooltip }}
           >
             Copy
           </div>
-          <div
-            className={clsx(classes.arrowUp)}
-            style={{ display: ShowHoverTooltip }}
-          ></div>
           {copied && (
             <>
               <div
                 className={clsx(
                   classes.copiedAlert,
-                  classes.fadeIn,
-                  classes.fadeOut
+                  classes.slideInUp,
+                  classes.pulse,
                 )}
+                style={{
+                  backgroundColor: "#1E1E1E",
+                }}
               >
                 Copied!
               </div>
-              <div
-                className={clsx(
-                  classes.arrowUp,
-                  classes.fadeIn,
-                  classes.fadeOut
-                )}
-              ></div>
             </>
           )}
         </section>
@@ -277,3 +336,4 @@ const Footer = ({ containerStyles }) => {
 };
 
 export default Footer;
+
