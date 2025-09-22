@@ -29,7 +29,6 @@ import academics from "../images/academicsmodule.mp4";
 import academicsGif from "../images/academicsmodule.gif";
 import rightArrowIcon from "../images/right-arrow-black.svg";
 import { trackClick, trackCaseStudyInteraction, trackVideoInteraction } from "../utils/analytics";
-import pageManager from "../utils/pageManager";
 
 const useStyles = createUseStyles({
   caseStudySection: {

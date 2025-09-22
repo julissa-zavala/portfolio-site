@@ -33,7 +33,6 @@ import {
 import templateView from "../images/templateView.svg";
 import customView from "../images/customView.svg";
 import defaultView from "../images/defaultView.svg";
-import pageManager from "../utils/pageManager";
 
 const useStyles = createUseStyles({
   caseStudySection: {

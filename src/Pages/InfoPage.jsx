@@ -14,7 +14,6 @@ import {
   trackDownload,
   trackVideoInteraction,
 } from "../utils/analytics";
-import pageManager from "../utils/pageManager";
 
 const useStyles = createUseStyles({
   infoContainer: {
