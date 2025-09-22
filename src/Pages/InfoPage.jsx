@@ -234,7 +234,7 @@ const Info = () => {
       setLoadingPercentage(0);
 
       const timer = setInterval(() => {
-        currentPercentage += 2; // Speed up animation (was += 1)
+        currentPercentage += 2;
 
         if (currentPercentage === 69) {
           currentPercentage += 1;
@@ -253,11 +253,11 @@ const Info = () => {
               setAllImagesLoaded(true);
               setTimeout(() => {
                 setShowLoader(false);
-              }, 300); // Faster transition (was 500)
-            }, 400); // Faster completion delay (was 800)
+              }, 300);
+            }, 400);
           }
         }
-      }, 15); // Faster interval (was 20)
+      }, 15);
     };
 
     imagesToPreload.forEach(({ src }) => {
