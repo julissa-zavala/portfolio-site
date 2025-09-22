@@ -213,17 +213,9 @@ const Info = () => {
   const { width } = useWindowDimensions();
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [loadingPercentage, setLoadingPercentage] = useState(0);
-  const [showLoader, setShowLoader] = useState(
-    !pageManager.hasPageBeenLoaded("info")
-  );
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
-    if (pageManager.hasPageBeenLoaded("info")) {
-      setAllImagesLoaded(true);
-      setShowLoader(false);
-      return;
-    }
-
     const imagesToPreload = [
       { key: "selfie", src: selfie },
       { key: "ceramicPot", src: ceramicPot },
@@ -242,7 +234,7 @@ const Info = () => {
       setLoadingPercentage(0);
 
       const timer = setInterval(() => {
-        currentPercentage += 1;
+        currentPercentage += 2; // Speed up animation (was += 1)
 
         if (currentPercentage === 69) {
           currentPercentage += 1;
@@ -259,14 +251,13 @@ const Info = () => {
           if (loadedCount === totalImages) {
             setTimeout(() => {
               setAllImagesLoaded(true);
-              pageManager.markPageAsLoaded("info");
               setTimeout(() => {
                 setShowLoader(false);
-              }, 500);
-            }, 800);
+              }, 300); // Faster transition (was 500)
+            }, 400); // Faster completion delay (was 800)
           }
         }
-      }, 20);
+      }, 15); // Faster interval (was 20)
     };
 
     imagesToPreload.forEach(({ src }) => {

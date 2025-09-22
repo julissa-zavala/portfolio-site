@@ -392,19 +392,11 @@ const DataGrid = () => {
   const { width } = useWindowDimensions();
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [loadingPercentage, setLoadingPercentage] = useState(0);
-  const [showLoader, setShowLoader] = useState(
-    !pageManager.hasPageBeenLoaded("dataGrid")
-  );
+  const [showLoader, setShowLoader] = useState(true);
   const [animatedSections, setAnimatedSections] = useState(new Set());
   const sectionRefs = useRef([]);
 
   useEffect(() => {
-    if (pageManager.hasPageBeenLoaded("dataGrid")) {
-      setAllImagesLoaded(true);
-      setShowLoader(false);
-      return;
-    }
-
     const imagesToPreload = [
       { key: "dataGridHero", src: dataGridHero },
       { key: "graph", src: graph },
@@ -425,7 +417,7 @@ const DataGrid = () => {
       setLoadingPercentage(0);
 
       const timer = setInterval(() => {
-        currentPercentage += 1;
+        currentPercentage += 2; // Speed up animation (was += 1)
 
         if (currentPercentage === 69) {
           currentPercentage += 1;
@@ -442,14 +434,13 @@ const DataGrid = () => {
           if (currentPercentage >= 100 && loadedCount === totalImages) {
             setTimeout(() => {
               setAllImagesLoaded(true);
-              pageManager.markPageAsLoaded("dataGrid");
               setTimeout(() => {
                 setShowLoader(false);
-              }, 500);
-            }, 800);
+              }, 300); // Faster transition (was 500)
+            }, 400); // Faster completion delay (was 800)
           }
         }
-      }, 20);
+      }, 15); // Faster interval (was 20)
     };
 
     imagesToPreload.forEach(({ src }) => {

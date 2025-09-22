@@ -430,7 +430,7 @@ const StudentProfile = () => {
   const { width } = useWindowDimensions();
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [loadingPercentage, setLoadingPercentage] = useState(0);
-  const [showLoader, setShowLoader] = useState(!pageManager.hasPageBeenLoaded('studentProfile'));
+  const [showLoader, setShowLoader] = useState(true);
   const [animatedSections, setAnimatedSections] = useState(new Set());
   const sectionRefs = useRef([]);
   const impactAnimationTriggered = useRef(false);
@@ -441,12 +441,6 @@ const StudentProfile = () => {
   });
 
   useEffect(() => {
-    if (pageManager.hasPageBeenLoaded('studentProfile')) {
-      setAllImagesLoaded(true);
-      setShowLoader(false);
-      return;
-    }
-
     const imagesToPreload = [
       { key: "heroImage", src: heroImage },
       { key: "brainStorm", src: brainStorm },
@@ -466,7 +460,7 @@ const StudentProfile = () => {
       setLoadingPercentage(0);
 
       const timer = setInterval(() => {
-        currentPercentage += 1;
+        currentPercentage += 2; // Speed up animation (was += 1)
 
         if (currentPercentage === 69) {
           currentPercentage += 1;
@@ -483,14 +477,13 @@ const StudentProfile = () => {
           if (currentPercentage >= 100 && loadedCount === totalImages) {
             setTimeout(() => {
               setAllImagesLoaded(true);
-              pageManager.markPageAsLoaded('studentProfile');
               setTimeout(() => {
                 setShowLoader(false);
-              }, 500);
-            }, 800);
+              }, 300); // Faster transition (was 500)
+            }, 400); // Faster completion delay (was 800)
           }
         }
-      }, 20);
+      }, 15); // Faster interval (was 20)
     };
 
     imagesToPreload.forEach(({ src }) => {
