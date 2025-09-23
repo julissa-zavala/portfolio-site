@@ -598,39 +598,83 @@ const StudentProfile = () => {
               From data silos to quick insights: Designing a student overview
               panel
             </h1>
-            <div>
-              {" "}
-              <span
-                className={clsx(classes.caseStudyDetails, classes.bold)}
-                style={{ marginRight: 134 }}
-              >
-                Role
-              </span>
-              <span
-                className={clsx(classes.caseStudyDetails, classes.bold)}
-                style={{ marginRight: 30 }}
-              >
-                Duration
-              </span>
-              <span className={clsx(classes.caseStudyDetails, classes.bold)}>
-                Tools
-              </span>
-            </div>
-            <div>
-              {" "}
-              <span className={classes.caseStudyDetails}>
-                Lead Product Designer
-              </span>
-              <span className={classes.caseStudyDetails}>13 Weeks</span>
-              <span className={classes.caseStudyDetails}>
-                Figma, Miro, Mixpanel
-              </span>
-            </div>
-
+            {width >= 551 && (
+              <>
+                <div>
+                  {" "}
+                  <span
+                    className={clsx(classes.caseStudyDetails, classes.bold)}
+                    style={{ marginRight: 134 }}
+                  >
+                    Role
+                  </span>
+                  <span
+                    className={clsx(classes.caseStudyDetails, classes.bold)}
+                    style={{ marginRight: 30 }}
+                  >
+                    Duration
+                  </span>
+                  <span className={clsx(classes.caseStudyDetails, classes.bold)}>
+                    Tools
+                  </span>
+                </div>
+                <div>
+                  {" "}
+                  <span className={classes.caseStudyDetails}>
+                    Lead Product Designer
+                  </span>
+                  <span className={classes.caseStudyDetails}>13 Weeks</span>
+                  <span className={classes.caseStudyDetails}>
+                    Figma, Miro, Mixpanel
+                  </span>
+                </div>
+              </>
+            )}
+            {width <= 550 && (
+              <>
+                <div
+                  className={classes.caseStudyDetails}
+                  style={{ marginBottom: 8 }}
+                >
+                  {" "}
+                  <span
+                    className={classes.bold}
+                    style={{ marginRight: 8, marginBottom: 4 }}
+                  >
+                    Role{" "}
+                  </span>{" "}
+                  <br />
+                  Lead Product Designer
+                </div>
+                <div
+                  className={classes.caseStudyDetails}
+                  style={{ marginBottom: 8 }}
+                >
+                  {" "}
+                  <span
+                    className={classes.bold}
+                    style={{ marginRight: 8, marginBottom: 4 }}
+                  >
+                    Duration{" "}
+                  </span>{" "}
+                  <br />13 Weeks
+                </div>
+                <div className={classes.caseStudyDetails}>
+                  {" "}
+                  <span
+                    className={classes.bold}
+                    style={{ marginRight: 8, marginBottom: 4 }}
+                  >
+                    Tools{" "}
+                  </span>{" "}
+                  <br />
+                  Figma, Miro, Mixpanel
+                </div>
+              </>
+            )}
             <section
-              className={`${classes.tldr} ${classes.animatedSection} ${
-                animatedSections.has(0) ? "animate" : ""
-              }`}
+              className={`${classes.tldr} ${classes.animatedSection} ${animatedSections.has(0) ? "animate" : ""
+                }`}
               ref={(el) => (sectionRefs.current[0] = el)}
               data-section-index="0"
             >
@@ -686,9 +730,8 @@ const StudentProfile = () => {
               </div>
             </section>
             <section
-              className={`${classes.scrollToLearnMore} ${
-                classes.animatedSection
-              } ${animatedSections.has(1) ? "animate" : ""}`}
+              className={`${classes.scrollToLearnMore} ${classes.animatedSection
+                } ${animatedSections.has(1) ? "animate" : ""}`}
               ref={(el) => (sectionRefs.current[1] = el)}
               data-section-index="1"
             >
@@ -784,9 +827,8 @@ const StudentProfile = () => {
               </div>
             </section>
             <div
-              className={`${classes.quoteContainer} ${
-                classes.animatedSection
-              } ${animatedSections.has(9) ? "animate" : ""}`}
+              className={`${classes.quoteContainer} ${classes.animatedSection
+                } ${animatedSections.has(9) ? "animate" : ""}`}
               ref={(el) => (sectionRefs.current[9] = el)}
               data-section-index="9"
               style={{

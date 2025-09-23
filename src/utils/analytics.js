@@ -1,30 +1,27 @@
-// Google Tag Manager utility functions
+// Google Analytics 4 utility functions
 // This file provides a centralized way to track events throughout the application
 
-// Initialize dataLayer if it doesn't exist
-window.dataLayer = window.dataLayer || [];
+const GA4_MEASUREMENT_ID = 'G-L0Z9GJ31VC';
 
 /**
- * Push an event to Google Tag Manager
- * @param {string} event - The event name
+ * Send an event to Google Analytics 4
+ * @param {string} eventName - The event name
  * @param {Object} parameters - Additional parameters to send with the event
  */
-export const gtmPush = (event, parameters = {}) => {
+export const gtagEvent = (eventName, parameters = {}) => {
   try {
-    // Check if dataLayer exists and is accessible
-    if (typeof window !== 'undefined' && window.dataLayer && Array.isArray(window.dataLayer)) {
-      window.dataLayer.push({
-        event,
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', eventName, {
         ...parameters,
-        timestamp: new Date().toISOString(),
         page_url: window.location.href,
         page_title: document.title,
+        timestamp: new Date().toISOString(),
       });
     } else {
-      console.warn('Analytics: dataLayer not available, event not tracked:', event);
+      console.warn('Analytics: gtag not available, event not tracked:', eventName);
     }
   } catch (error) {
-    console.warn('Analytics: Failed to push event:', event, error);
+    console.warn('Analytics: Failed to send event:', eventName, error);
   }
 };
 
@@ -34,10 +31,10 @@ export const gtmPush = (event, parameters = {}) => {
  * @param {string} pagePath - Path of the page
  */
 export const trackPageView = (pageName, pagePath = window.location.pathname) => {
-  gtmPush('page_view', {
-    page_name: pageName,
-    page_path: pagePath,
+  gtagEvent('page_view', {
+    page_title: pageName,
     page_location: window.location.href,
+    page_path: pagePath,
   });
 };
 
@@ -49,9 +46,10 @@ export const trackPageView = (pageName, pagePath = window.location.pathname) => 
  * @param {string} action - What action was performed (click, hover, etc.)
  */
 export const trackClick = (elementType, elementText, elementLocation, action = 'click') => {
-  gtmPush('element_click', {
+  gtagEvent('click', {
+    event_category: 'engagement',
+    event_label: elementText,
     element_type: elementType,
-    element_text: elementText,
     element_location: elementLocation,
     action,
   });
@@ -64,7 +62,9 @@ export const trackClick = (elementType, elementText, elementLocation, action = '
  * @param {string} section - Section of the case study
  */
 export const trackCaseStudyInteraction = (caseStudyName, action, section = '') => {
-  gtmPush('case_study_interaction', {
+  gtagEvent('case_study_interaction', {
+    event_category: 'case_study',
+    event_label: caseStudyName,
     case_study_name: caseStudyName,
     action,
     section,
@@ -77,7 +77,9 @@ export const trackCaseStudyInteraction = (caseStudyName, action, section = '') =
  * @param {string} pageName - Name of the page
  */
 export const trackScrollDepth = (scrollDepth, pageName) => {
-  gtmPush('scroll_depth', {
+  gtagEvent('scroll', {
+    event_category: 'engagement',
+    event_label: `${pageName} - ${scrollDepth}%`,
     scroll_depth: scrollDepth,
     page_name: pageName,
   });
@@ -89,8 +91,11 @@ export const trackScrollDepth = (scrollDepth, pageName) => {
  * @param {string} pageName - Name of the page
  */
 export const trackTimeOnPage = (timeSpent, pageName) => {
-  gtmPush('time_on_page', {
-    time_spent: timeSpent,
+  gtagEvent('timing_complete', {
+    event_category: 'engagement',
+    event_label: pageName,
+    name: 'time_on_page',
+    value: timeSpent,
     page_name: pageName,
   });
 };
@@ -102,7 +107,9 @@ export const trackTimeOnPage = (timeSpent, pageName) => {
  * @param {number} currentTime - Current time in video (for play/pause)
  */
 export const trackVideoInteraction = (videoName, action, currentTime = 0) => {
-  gtmPush('video_interaction', {
+  gtagEvent('video_interaction', {
+    event_category: 'video',
+    event_label: videoName,
     video_name: videoName,
     action,
     current_time: currentTime,
@@ -116,7 +123,9 @@ export const trackVideoInteraction = (videoName, action, currentTime = 0) => {
  * @param {string} location - Where the image is located
  */
 export const trackImageInteraction = (imageName, action, location) => {
-  gtmPush('image_interaction', {
+  gtagEvent('image_interaction', {
+    event_category: 'engagement',
+    event_label: imageName,
     image_name: imageName,
     action,
     location,
@@ -130,7 +139,9 @@ export const trackImageInteraction = (imageName, action, location) => {
  * @param {string} linkLocation - Where the link is located
  */
 export const trackExternalLink = (linkUrl, linkText, linkLocation) => {
-  gtmPush('external_link_click', {
+  gtagEvent('click', {
+    event_category: 'outbound',
+    event_label: linkText,
     link_url: linkUrl,
     link_text: linkText,
     link_location: linkLocation,
@@ -144,7 +155,9 @@ export const trackExternalLink = (linkUrl, linkText, linkLocation) => {
  * @param {string} fieldName - Name of the field (for focus/blur events)
  */
 export const trackFormInteraction = (formName, action, fieldName = '') => {
-  gtmPush('form_interaction', {
+  gtagEvent('form_interaction', {
+    event_category: 'form',
+    event_label: formName,
     form_name: formName,
     action,
     field_name: fieldName,
@@ -158,7 +171,9 @@ export const trackFormInteraction = (formName, action, fieldName = '') => {
  * @param {string} location - Where the download link is located
  */
 export const trackDownload = (fileName, fileType, location) => {
-  gtmPush('file_download', {
+  gtagEvent('file_download', {
+    event_category: 'download',
+    event_label: fileName,
     file_name: fileName,
     file_type: fileType,
     location,
@@ -171,12 +186,11 @@ export const trackDownload = (fileName, fileType, location) => {
  * @param {Object} customData - Custom data to send with the event
  */
 export const trackCustomEvent = (eventName, customData = {}) => {
-  gtmPush(eventName, customData);
+  gtagEvent(eventName, customData);
 };
 
-// Export all tracking functions
 export default {
-  gtmPush,
+  gtagEvent,
   trackPageView,
   trackClick,
   trackCaseStudyInteraction,

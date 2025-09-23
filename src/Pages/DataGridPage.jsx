@@ -622,9 +622,8 @@ const DataGrid = () => {
               </>
             )}
             <section
-              className={`${classes.tldr} ${classes.animatedSection} ${
-                animatedSections.has(1) ? "animate" : ""
-              }`}
+              className={`${classes.tldr} ${classes.animatedSection} ${animatedSections.has(1) ? "animate" : ""
+                }`}
               ref={(el) => (sectionRefs.current[1] = el)}
               data-section-index="1"
             >
@@ -675,9 +674,8 @@ const DataGrid = () => {
               </div>
             </section>
             <section
-              className={`${classes.scrollToLearnMore} ${
-                classes.animatedSection
-              } ${animatedSections.has(2) ? "animate" : ""}`}
+              className={`${classes.scrollToLearnMore} ${classes.animatedSection
+                } ${animatedSections.has(2) ? "animate" : ""}`}
               ref={(el) => (sectionRefs.current[2] = el)}
               data-section-index="2"
             >

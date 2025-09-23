@@ -191,12 +191,15 @@ gtag('event', 'case_study_interaction', {
 
 ### Debug Commands
 ```javascript
+// Check gtag function
 console.log(window.gtag);
 
+// Manually trigger event
 gtag('event', 'test_event', {
   test_data: 'test_value'
 });
 
+// Check if GA4 is loaded
 console.log(window.dataLayer);
 ```
 
