@@ -883,10 +883,7 @@ const StudentProfile = () => {
               </section>
               <div className={classes.caseStudyImageContainer}>
                 {" "}
-                <Zoom
-                  classDialog={classes.zoomBackground}
-                  canSwipeToUnzoom={false}
-                >
+                <Zoom classDialog={classes.zoomBackground}>
                   <img
                     src={brainStorm}
                     width="100%"

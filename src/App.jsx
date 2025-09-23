@@ -34,8 +34,42 @@ const App = () => {
       }
     };
 
+    const preventTouchZoom = (e) => {
+      const modal = document.querySelector("[data-rmiz-modal][open]");
+      if (modal && e.touches.length > 1) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
+    };
+
+    const preventDoubleTapZoom = (e) => {
+      const modal = document.querySelector("[data-rmiz-modal][open]");
+      if (modal) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
+    };
+
+    // Prevent wheel zoom on desktop
     document.addEventListener("wheel", preventWheelUnzoom, {
       passive: true,
+      capture: true,
+    });
+
+    // Prevent pinch zoom on mobile
+    document.addEventListener("touchstart", preventTouchZoom, {
+      passive: false,
+      capture: true,
+    });
+
+    document.addEventListener("touchmove", preventTouchZoom, {
+      passive: false,
+      capture: true,
+    });
+
+    // Prevent double-tap zoom on mobile
+    document.addEventListener("touchend", preventDoubleTapZoom, {
+      passive: false,
       capture: true,
     });
 
@@ -43,16 +77,25 @@ const App = () => {
       document.removeEventListener("wheel", preventWheelUnzoom, {
         capture: true,
       });
+      document.removeEventListener("touchstart", preventTouchZoom, {
+        capture: true,
+      });
+      document.removeEventListener("touchmove", preventTouchZoom, {
+        capture: true,
+      });
+      document.removeEventListener("touchend", preventDoubleTapZoom, {
+        capture: true,
+      });
     };
   }, []);
 
   useEffect(() => {
-    const pageName = location.pathname === '/' ? 'Landing Page' : 
-                   location.pathname === '/info' ? 'About Page' :
-                   location.pathname === '/dataGrid' ? 'Data Grid Case Study' :
-                   location.pathname === '/studentProfile' ? 'Student Profile Case Study' :
-                   'Unknown Page';
-    
+    const pageName = location.pathname === '/' ? 'Landing Page' :
+      location.pathname === '/info' ? 'About Page' :
+        location.pathname === '/dataGrid' ? 'Data Grid Case Study' :
+          location.pathname === '/studentProfile' ? 'Student Profile Case Study' :
+            'Unknown Page';
+
     trackPageView(pageName, location.pathname);
   }, [location]);
 
