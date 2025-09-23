@@ -122,9 +122,9 @@ const useStyles = createUseStyles({
     height: "auto",
     borderRadius: 6,
     "&::-webkit-media-controls-volume-slider, &::-webkit-media-controls-mute-button":
-      {
-        display: "none !important",
-      },
+    {
+      display: "none !important",
+    },
     "@media (min-width: 0px) and (max-width: 499px)": {
       width: "100%",
     },
@@ -224,6 +224,19 @@ const Info = () => {
     const totalImages = imagesToPreload.length;
     let loadedCount = 0;
     let animationStarted = false;
+    let animationComplete = false;
+    let allImagesLoaded = false;
+
+    const checkIfReadyToHide = () => {
+      if (animationComplete && allImagesLoaded) {
+        setTimeout(() => {
+          setAllImagesLoaded(true);
+          setTimeout(() => {
+            setShowLoader(false);
+          }, 300);
+        }, 400);
+      }
+    };
 
     const startAnimation = () => {
       if (animationStarted) return;
@@ -247,14 +260,8 @@ const Info = () => {
 
         if (currentPercentage >= 100) {
           clearInterval(timer);
-          if (loadedCount === totalImages) {
-            setTimeout(() => {
-              setAllImagesLoaded(true);
-              setTimeout(() => {
-                setShowLoader(false);
-              }, 300);
-            }, 400);
-          }
+          animationComplete = true;
+          checkIfReadyToHide();
         }
       }, 15);
     };
@@ -265,6 +272,10 @@ const Info = () => {
         loadedCount++;
         if (loadedCount === 1) {
           startAnimation();
+        }
+        if (loadedCount === totalImages) {
+          allImagesLoaded = true;
+          checkIfReadyToHide();
         }
       };
       img.src = src;
