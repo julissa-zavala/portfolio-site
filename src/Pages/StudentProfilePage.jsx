@@ -9,7 +9,7 @@ import dots from "../images/dots.svg";
 import heroImage from "../images/hero_SP.svg";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
-import beforeImageSVG from "../images/beforeStudentProfile.svg";
+import beforeImageSVG from "../images/beforeStudentProfile.jpg";
 import afterImageSVG from "../images/after.svg";
 import ReactBeforeSliderComponent from "react-before-after-slider-component";
 import "react-before-after-slider-component/dist/build.css";
