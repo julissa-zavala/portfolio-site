@@ -328,7 +328,7 @@ const useStyles = createUseStyles({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "32px 0",
+    padding: "32px 8px",
     marginTop: 16,
   },
   nextProjectHeader: {
