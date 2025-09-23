@@ -91,20 +91,20 @@ const Landing = () => {
   const caseStudies = [
     {
       title:
-        "From data silos to quick insights: designing a student overview panel",
-      description:
-        "Every stakeholder team wanted their metrics included in the new student overview panel, creating a classic design challenge. Through user research and strategic collaboration, I turned competing priorities into a focused solution that educators actually wanted to use. The technical constraints led to innovations that improved performance across the entire platform.",
-      image: studentProfileLandingImage,
-      route: "studentProfile",
-    },
-    {
-      title:
         "The feature users loved to leave: Redesigning the data grid to stop the spreadsheet exodus",
 
       description:
         "The Portal's most-used feature was driving away 10,000+ users who rebuilt grid setups daily before abandoning the platform for static spreadsheets. Through user research and stakeholder alignment, I designed a template system that balanced technical constraints with user needs. The solution restored engagement with live data and became foundational to how NYC educators interact with student information.",
       image: dataGridLandingImage,
       route: "dataGrid",
+    },
+    {
+      title:
+        "From data silos to quick insights: designing a student overview panel",
+      description:
+        "Every stakeholder team wanted their metrics included in the new student overview panel, creating a classic design challenge. Through user research and strategic collaboration, I turned competing priorities into a focused solution that educators actually wanted to use. The technical constraints led to innovations that improved performance across the entire platform.",
+      image: studentProfileLandingImage,
+      route: "studentProfile",
     },
   ];
 
@@ -169,9 +169,8 @@ const Landing = () => {
             rates, and designing for multi-role educational platforms.
           </p>
           <section
-            className={`${classes.selectedWork} ${classes.animatedSection} ${
-              animatedSections.has(0) ? "animate" : ""
-            }`}
+            className={`${classes.selectedWork} ${classes.animatedSection} ${animatedSections.has(0) ? "animate" : ""
+              }`}
             ref={(el) => (sectionRefs.current[0] = el)}
             data-section-index="0"
             style={{
@@ -189,9 +188,8 @@ const Landing = () => {
           </section>
         </section>
         <section
-          className={`${classes.caseStudiesContainer} ${
-            classes.animatedSection
-          } ${animatedSections.has(1) ? "animate" : ""}`}
+          className={`${classes.caseStudiesContainer} ${classes.animatedSection
+            } ${animatedSections.has(1) ? "animate" : ""}`}
           ref={(el) => (sectionRefs.current[1] = el)}
           data-section-index="1"
         >
@@ -207,9 +205,8 @@ const Landing = () => {
         </section>
       </section>
       <div
-        className={`${classes.animatedSection} ${
-          animatedSections.has(2) ? "animate" : ""
-        }`}
+        className={`${classes.animatedSection} ${animatedSections.has(2) ? "animate" : ""
+          }`}
         ref={(el) => (sectionRefs.current[2] = el)}
         data-section-index="2"
       >
