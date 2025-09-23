@@ -296,7 +296,7 @@ const Info = () => {
           </div>
         </div>
       )}
-      <div className={`${classes.contentContainer} loaded`}>
+      <div className={`${classes.contentContainer} ${!showLoader ? 'loaded' : ''}`}>
         <section className="container">
           <HeaderNav />
           <section className={classes.infoContainer}>
