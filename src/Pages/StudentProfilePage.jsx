@@ -794,7 +794,7 @@ const StudentProfile = () => {
                 </p>
               </div>
             </section>
-            <img src={width >= 551 ? dots : line} className={classes.dots} alt="Decorative dots or line separator" />
+            <img src={line} className={classes.dots} alt="Decorative dots or line separator" />
 
             <section
               className={clsx(
@@ -845,7 +845,7 @@ const StudentProfile = () => {
                 - From a stakeholder during design review
               </p>
             </div>
-            <img src={width >= 551 ? dots : line} className={classes.dots} alt="Decorative dots or line separator" />
+            <img src={line} className={classes.dots} alt="Decorative dots or line separator" />
 
             <section
               className={clsx(
@@ -893,7 +893,7 @@ const StudentProfile = () => {
                 </Zoom>
               </div>
             </section>
-            <img src={width >= 551 ? dots : line} className={classes.dots} alt="Decorative dots or line separator" />
+            <img src={line} className={classes.dots} alt="Decorative dots or line separator" />
 
             <section
               className={clsx(
@@ -938,7 +938,7 @@ const StudentProfile = () => {
                 </Zoom>
               </div>
             </section>
-            <img src={width >= 551 ? dots : line} className={classes.dots} alt="Decorative dots or line separator" />
+            <img src={line} className={classes.dots} alt="Decorative dots or line separator" />
 
             <section
               className={clsx(
@@ -1001,7 +1001,7 @@ const StudentProfile = () => {
                 </p>
               </div>
             </section>
-            <img src={width >= 551 ? dots : line} className={classes.dots} alt="Decorative dots or line separator" />
+            <img src={line} className={classes.dots} alt="Decorative dots or line separator" />
 
             <section
               className={clsx(
@@ -1065,7 +1065,7 @@ const StudentProfile = () => {
                 />
               )}
             </section>
-            <img src={width >= 551 ? dots : line} className={classes.dots} alt="Decorative dots or line separator" />
+            <img src={line} className={classes.dots} alt="Decorative dots or line separator" />
 
             <section
               className={clsx(
@@ -1215,7 +1215,7 @@ const StudentProfile = () => {
                 </Zoom>
               </div>
             </section>
-            <img src={width >= 551 ? dots : line} className={classes.dots} alt="Decorative dots or line separator" />
+            <img src={line} className={classes.dots} alt="Decorative dots or line separator" />
 
             <section
               className={clsx(
@@ -1320,7 +1320,7 @@ const StudentProfile = () => {
                 </div>
               </section>
             </section>
-            <img src={width >= 551 ? dots : line} className={classes.dots} alt="Decorative dots or line separator" />
+            <img src={line} className={classes.dots} alt="Decorative dots or line separator" />
 
             <section
               className={clsx(
