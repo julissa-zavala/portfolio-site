@@ -744,7 +744,7 @@ const DataGrid = () => {
               </div>
             </section>
             <img
-              src={{line} }
+              src={line}
               className={classes.dots}
               alt="Decorative dots or line separator"
             />
@@ -810,7 +810,7 @@ const DataGrid = () => {
               />
             </Zoom>
             <img
-              src={{line} }
+              src={line}
               className={classes.dots}
               alt="Decorative dots or line separator"
             />
@@ -973,7 +973,7 @@ const DataGrid = () => {
               </div>
             </section>
             <img
-              src={{line} }
+              src={line}
               className={classes.dots}
               alt="Decorative dots or line separator"
             />
@@ -1047,7 +1047,7 @@ const DataGrid = () => {
               )}
             </section>
             <img
-              src={{line} }
+              src={line}
               className={classes.dots}
               alt="Decorative dots or line separator"
             />
@@ -1092,7 +1092,7 @@ const DataGrid = () => {
               </div>
             </section>
             <img
-              src={{line} }
+              src={line}
               className={classes.dots}
               alt="Decorative dots or line separator"
             />
@@ -1155,7 +1155,7 @@ const DataGrid = () => {
               </div>
             </section>
             <img
-              src={{line} }
+              src={line}
               className={classes.dots}
               alt="Decorative dots or line separator"
             />
@@ -1230,7 +1230,7 @@ const DataGrid = () => {
               )}
             </section>
             <img
-              src={{line} }
+              src={line}
               className={classes.dots}
               alt="Decorative dots or line separator"
             />
