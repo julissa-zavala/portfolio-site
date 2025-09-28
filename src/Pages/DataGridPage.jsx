@@ -272,49 +272,6 @@ const useStyles = createUseStyles({
       backgroundColor: "#1E1E1E !important",
     },
   },
-  loadingContainer: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    width: "100vw",
-    height: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#ffffff",
-    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
-    zIndex: 9999,
-    transition: "opacity 0.5s ease-out",
-  },
-  percentageText: {
-    fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
-    color: "#1E1E1E",
-    fontSize: 14,
-    lineHeight: "normal",
-    position: "relative",
-    marginBottom: 32,
-  },
-  loadingLineThrough: {
-    position: "absolute",
-    width: "100%",
-    height: 1,
-    bottom: 1,
-    left: 0,
-    backgroundColor: "#1E1E1E",
-    transform: "scaleX(0)",
-    transformOrigin: "left center",
-    transition: "transform 0.1s ease-out",
-  },
-  contentContainer: {
-    opacity: 0,
-    transform: "translateY(20px)",
-    transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
-    "&.loaded": {
-      opacity: 1,
-      transform: "translateY(0px)",
-    },
-  },
   animatedSection: {
     opacity: 0,
     transform: "translateY(40px)",
@@ -389,72 +346,9 @@ const useStyles = createUseStyles({
 const DataGrid = () => {
   const classes = useStyles();
   const { width } = useWindowDimensions();
-  const [allImagesLoaded, setAllImagesLoaded] = useState(false);
-  const [loadingPercentage, setLoadingPercentage] = useState(0);
-  const [showLoader, setShowLoader] = useState(true);
   const [animatedSections, setAnimatedSections] = useState(new Set());
   const sectionRefs = useRef([]);
 
-  useEffect(() => {
-    const imagesToPreload = [
-      { key: "dataGridHero", src: dataGridHero },
-      { key: "graph", src: graph },
-      { key: "beforeImage", src: beforeImageSVG },
-      { key: "afterImage", src: afterImageSVG },
-      { key: "viewDiagram", src: viewDiagram },
-      { key: "workFlow", src: workFlow },
-      { key: "templateView", src: templateView },
-      { key: "customView", src: customView },
-      { key: "defaultView", src: defaultView },
-    ];
-
-    const totalImages = imagesToPreload.length;
-    let loadedCount = 0;
-
-    const animatePercentage = (targetPercentage) => {
-      let currentPercentage = 0;
-      setLoadingPercentage(0);
-
-      const timer = setInterval(() => {
-        currentPercentage += 2;
-
-        if (currentPercentage === 69) {
-          currentPercentage += 1;
-        }
-
-        if (currentPercentage > 100) {
-          currentPercentage = 100;
-        }
-
-        setLoadingPercentage(currentPercentage);
-
-        if (currentPercentage >= targetPercentage || currentPercentage >= 100) {
-          clearInterval(timer);
-          if (currentPercentage >= 100 && loadedCount === totalImages) {
-            setTimeout(() => {
-              setAllImagesLoaded(true);
-              setTimeout(() => {
-                setShowLoader(false);
-              }, 300);
-            }, 400);
-          }
-        }
-      }, 15);
-    };
-
-    imagesToPreload.forEach(({ src }) => {
-      const img = new Image();
-      img.onload = () => {
-        loadedCount++;
-        const targetPercentage = Math.min(
-          100,
-          Math.round((loadedCount / totalImages) * 100)
-        );
-        animatePercentage(targetPercentage);
-      };
-      img.src = src;
-    });
-  }, []);
 
   useEffect(() => {
     const ref = sectionRefs.current;
@@ -482,19 +376,8 @@ const DataGrid = () => {
         if (ref) observer.unobserve(ref);
       });
     };
-  }, [allImagesLoaded]);
+  }, []);
 
-  useEffect(() => {
-    if (showLoader) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [showLoader]);
 
   const beforeImage = {
     imageUrl: beforeImageSVG,
@@ -518,18 +401,7 @@ const DataGrid = () => {
 
   return (
     <>
-      {showLoader && (
-        <div className={classes.loadingContainer}>
-          <div className={classes.percentageText}>
-            {loadingPercentage}%
-            <div
-              className={classes.loadingLineThrough}
-              style={{ transform: `scaleX(${loadingPercentage / 100})` }}
-            ></div>
-          </div>
-        </div>
-      )}
-      <div className={`${classes.contentContainer} loaded`}>
+      <div>
         <section className="container">
           <HeaderNav />
           <section className={classes.caseStudyContainer}>
