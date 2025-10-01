@@ -120,7 +120,7 @@ const useStyles = createUseStyles({
     },
   },
   caseStudyCompanyName: {
-    color: "#767676",
+    color: "#707070",
     fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontSize: 14,
     fontWeight: 100,

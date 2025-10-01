@@ -29,6 +29,55 @@ const useStyles = createUseStyles({
     fontSize: 48,
     marginBottom: 24,
   },
+  waveWord: {
+    display: "inline-block",
+    opacity: 0,
+    transform: "translateY(20px) rotateX(90deg)",
+    animation: "$waveIn 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards",
+    transformOrigin: "center bottom",
+    "&:nth-child(1)": { animationDelay: "0.2s" },
+    "&:nth-child(2)": { animationDelay: "0.4s" },
+    "&:nth-child(3)": { animationDelay: "0.6s" },
+    "&:nth-child(4)": { animationDelay: "0.8s" },
+    "&:nth-child(5)": { animationDelay: "1.0s" },
+    "&:nth-child(6)": { animationDelay: "1.2s" },
+  },
+  wavePeriod: {
+    display: "inline-block",
+    opacity: 0,
+    transform: "scale(0) rotate(180deg)",
+    animation: "$periodPop 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards",
+    animationDelay: "1.5s",
+    transformOrigin: "center center",
+  },
+  "@keyframes waveIn": {
+    "0%": {
+      opacity: 0,
+      transform: "translateY(20px) rotateX(90deg)",
+    },
+    "50%": {
+      opacity: 0.7,
+      transform: "translateY(-5px) rotateX(0deg)",
+    },
+    "100%": {
+      opacity: 1,
+      transform: "translateY(0) rotateX(0deg)",
+    },
+  },
+  "@keyframes periodPop": {
+    "0%": {
+      opacity: 0,
+      transform: "scale(0) rotate(180deg)",
+    },
+    "70%": {
+      opacity: 1,
+      transform: "scale(1.3) rotate(0deg)",
+    },
+    "100%": {
+      opacity: 1,
+      transform: "scale(1) rotate(0deg)",
+    },
+  },
   landingSecondaryHeading: {
     fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontWeight: 100,
@@ -68,7 +117,7 @@ const useStyles = createUseStyles({
     },
   },
   companyName: {
-    color: "#767676",
+    color: "#707070",
   },
   animatedSection: {
     opacity: 0,
@@ -115,6 +164,7 @@ const Landing = () => {
     }
   }, [height, width]);
 
+
   useEffect(() => {
     const ref = sectionRefs.current;
     const observer = new IntersectionObserver(
@@ -148,7 +198,14 @@ const Landing = () => {
       <section className="container">
         <HeaderNav />
         <section className={classes.welcomeSection}>
-          <h1 className={classes.landingHeading}>Hi, my name is Julissa.</h1>
+          <h1 className={classes.landingHeading}>
+            <span className={classes.waveWord}>Hi,</span>{" "}
+            <span className={classes.waveWord}>my</span>{" "}
+            <span className={classes.waveWord}>name</span>{" "}
+            <span className={classes.waveWord}>is</span>{" "}
+            <span className={classes.waveWord}>Julissa</span>
+            <span className={classes.wavePeriod}>.</span>
+          </h1>
           <p className={classes.landingSecondaryHeading}>
             Currently working as a Product Designer II at{" "}
             <span className={classes.companyName}>
