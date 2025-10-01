@@ -119,6 +119,11 @@ const useStyles = createUseStyles({
     objectFit: "cover",
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
+    opacity: 0,
+    transition: "opacity 0.6s ease-in-out",
+    "&.loaded": {
+      opacity: 1,
+    },
     "@media (min-width: 0px) and (max-width: 1200px)": {
       marginBottom: 24,
       maxHeight: "50vh",
@@ -347,6 +352,7 @@ const DataGrid = () => {
   const classes = useStyles();
   const { width } = useWindowDimensions();
   const [animatedSections, setAnimatedSections] = useState(new Set());
+  const [heroImageLoaded, setHeroImageLoaded] = useState(false);
   const sectionRefs = useRef([]);
 
 
@@ -407,8 +413,9 @@ const DataGrid = () => {
           <section className={classes.caseStudyContainer}>
             <img
               src={dataGridHero}
-              className={classes.heroImage}
+              className={`${classes.heroImage} ${heroImageLoaded ? 'loaded' : ''}`}
               alt="Data grid interface showing student information in a table format with customizable columns and filters"
+              onLoad={() => setHeroImageLoaded(true)}
             />
             <h1 className={classes.mainHeading}>
               The feature users loved to leave: Redesigning the data grid to

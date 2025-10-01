@@ -96,6 +96,11 @@ const useStyles = createUseStyles({
     height: 319,
     borderRadius: 6,
     marginLeft: "0%",
+    opacity: 0,
+    transition: "opacity 0.6s ease-in-out",
+    "&.loaded": {
+      opacity: 1,
+    },
     "@media (min-width: 931px) and (max-width: 1270px)": {
       marginLeft: "4%",
     },
@@ -151,18 +156,31 @@ const useStyles = createUseStyles({
     bottom: 11,
     width: "42%",
     borderRadius: 6,
+    opacity: 0,
+    transition: "opacity 0.6s ease-in-out",
+    "&.loaded": {
+      opacity: 1,
+    },
   },
   ceramicSculpture: {
     display: "inline-block",
     width: "49%",
     marginLeft: "9%",
     borderRadius: 6,
+    opacity: 0,
+    transition: "opacity 0.6s ease-in-out",
+    "&.loaded": {
+      opacity: 1,
+    },
   },
 });
 
 const Info = () => {
   const classes = useStyles();
   const { width } = useWindowDimensions();
+  const [profileImageLoaded, setProfileImageLoaded] = useState(false);
+  const [ceramicPotLoaded, setCeramicPotLoaded] = useState(false);
+  const [ceramicSculptureLoaded, setCeramicSculptureLoaded] = useState(false);
 
 
 
@@ -223,11 +241,12 @@ const Info = () => {
                 </p>
               </section>
               <img
-                className={classes.infoImage}
+                className={`${classes.infoImage} ${profileImageLoaded ? 'loaded' : ''}`}
                 src={selfie}
                 alt="A photo of me, Julissa Zavala, smiling and standing in front of closed storefront in NYC"
                 loading="lazy"
-              ></img>
+                onLoad={() => setProfileImageLoaded(true)}
+              />
             </section>
             <section className={classes.infoContainerRight}>
               <video
@@ -264,12 +283,14 @@ const Info = () => {
               <img
                 src={ceramicPot}
                 alt="Cerapic pot of a girl with black hair and large hands leaning over and cradling herself"
-                className={classes.ceramicPot}
+                className={`${classes.ceramicPot} ${ceramicPotLoaded ? 'loaded' : ''}`}
+                onLoad={() => setCeramicPotLoaded(true)}
               />
               <img
                 src={ceramicSculpture}
                 alt="Ceramic sculpture of a hand holding a flower. The hand has a chrome finish and the flower has yellow petals and a green stem"
-                className={classes.ceramicSculpture}
+                className={`${classes.ceramicSculpture} ${ceramicSculptureLoaded ? 'loaded' : ''}`}
+                onLoad={() => setCeramicSculptureLoaded(true)}
               />
             </section>
           </section>
