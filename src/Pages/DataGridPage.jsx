@@ -147,7 +147,7 @@ const useStyles = createUseStyles({
     fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontSize: 12,
     marginTop: 10,
-    color: "#767676",
+    color: "#707070",
   },
   scrollToLearnMore: {
     display: "flex",
@@ -175,7 +175,7 @@ const useStyles = createUseStyles({
   },
   number: {
     fontSize: 12,
-    color: "#767676",
+    color: "#707070",
     fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontWeight: 100,
     marginRight: 8,
@@ -291,7 +291,7 @@ const useStyles = createUseStyles({
   nextProjectHeader: {
     fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     fontSize: 12,
-    color: "#767676",
+    color: "#707070",
     marginBottom: 8,
     textAlign: "center",
     textTransform: "uppercase",

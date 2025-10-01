@@ -117,7 +117,7 @@ const useStyles = createUseStyles({
     },
   },
   companyName: {
-    color: "#767676",
+    color: "#707070",
   },
   animatedSection: {
     opacity: 0,
