@@ -113,6 +113,11 @@ const useStyles = createUseStyles({
     objectFit: "cover",
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
+    opacity: 0,
+    transition: "opacity 0.6s ease-in-out",
+    "&.loaded": {
+      opacity: 1,
+    },
     "@media (min-width: 0px) and (max-width: 1200px)": {
       marginBottom: 24,
       maxHeight: "50vh",
@@ -385,6 +390,7 @@ const StudentProfile = () => {
   const classes = useStyles();
   const { width } = useWindowDimensions();
   const [animatedSections, setAnimatedSections] = useState(new Set());
+  const [heroImageLoaded, setHeroImageLoaded] = useState(false);
   const sectionRefs = useRef([]);
   const impactAnimationTriggered = useRef(false);
   const [currentNumbers, setCurrentNumbers] = useState({
@@ -466,7 +472,12 @@ const StudentProfile = () => {
         <section className="container">
           <HeaderNav />
           <section className={classes.caseStudyContainer}>
-            <img src={heroImage} className={classes.heroImage} alt="Student profile interface showing overview panel with attendance, academic, and graduation tracking modules" />
+            <img 
+              src={heroImage} 
+              className={`${classes.heroImage} ${heroImageLoaded ? 'loaded' : ''}`} 
+              alt="Student profile interface showing overview panel with attendance, academic, and graduation tracking modules"
+              onLoad={() => setHeroImageLoaded(true)}
+            />
             <h1 className={classes.mainHeading}>
               From data silos to quick insights: Designing a student overview
               panel
