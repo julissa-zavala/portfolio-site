@@ -126,6 +126,11 @@ const useStyles = createUseStyles({
     width: "75%",
     height: "auto",
     borderRadius: 6,
+    opacity: 0,
+    transition: "opacity 0.6s ease-in-out",
+    "&.loaded": {
+      opacity: 1,
+    },
     "&::-webkit-media-controls-volume-slider, &::-webkit-media-controls-mute-button":
     {
       display: "none !important",
@@ -181,6 +186,7 @@ const Info = () => {
   const [profileImageLoaded, setProfileImageLoaded] = useState(false);
   const [ceramicPotLoaded, setCeramicPotLoaded] = useState(false);
   const [ceramicSculptureLoaded, setCeramicSculptureLoaded] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
 
 
@@ -254,9 +260,10 @@ const Info = () => {
                 autoPlay={width > 500}
                 loop
                 muted
-                className={classes.customVideo}
+                className={`${classes.customVideo} ${videoLoaded ? 'loaded' : ''}`}
                 controlsList="nodownload noplaybackrate noremoteplayback"
                 disablePictureInPicture
+                onLoadedData={() => setVideoLoaded(true)}
                 onPlay={() =>
                   trackVideoInteraction("Ceramic Hands Feet", "play")
                 }
