@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { createUseStyles } from "react-jss";
 import rightArrowIcon from "../images/right-arrow-black.svg";
+import { trackClick, trackCaseStudyInteraction } from "../utils/analytics";
 
 const useStyles = createUseStyles({
   caseStudyContainer: {
@@ -26,6 +28,11 @@ const useStyles = createUseStyles({
   caseStudyImage: {
     width: "47%",
     borderRadius: 4,
+    cursor: "pointer",
+    transition: "transform 0.3s ease-in-out",
+    "&:hover": {
+      transform: "scale(0.96)",
+    },
     "@media (min-width: 0px) and (max-width: 1280px)": {
       width: "clamp(300px, 98%, 608px)",
     },
@@ -68,10 +75,10 @@ const useStyles = createUseStyles({
     position: "absolute",
     width: 68.5,
     height: 1,
-    bottom: 10.5,
+    bottom: 2,
     left: 0,
     backgroundColor: "#1E1E1E",
-    transform: "translateY(-50%) scaleX(0)",
+    transform: "scaleX(0)",
     transformOrigin: "left center",
     transition: "transform 0.15s ease-in-out",
   },
@@ -85,11 +92,15 @@ const useStyles = createUseStyles({
     textDecoration: "none",
     display: "flex",
     flexDirection: "row",
+    alignItems: "center",
     width: 92,
     marginTop: 25,
     "&:hover $readMoreTextLineThrough": {
-      transform: "translateY(-50%) scaleX(1)",
-      bottom: 10.5,
+      transform: "scaleX(1)",
+      bottom: 0.7,
+    },
+    "&:hover $rightArrow": {
+      transform: "translateX(4px)",
     },
     "@media (min-width: 0px) and (max-width: 499px)": {
       marginTop: 0,
@@ -98,30 +109,58 @@ const useStyles = createUseStyles({
   rightArrow: {
     marginLeft: 7,
     position: "relative",
-    bottom: 5,
-    display: "block",
+    top: 1,
+    display: "inline-block",
+    width: 16,
+    height: 16,
+    verticalAlign: "middle",
+    transition: "transform 0.3s ease-in-out",
+    "&:hover": {
+      transform: "translateX(4px)",
+    },
   },
   caseStudyCompanyName: {
-    color: "#767676",
+    color: "#707070",
     fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: 100,
   },
 });
 
 const CaseStudy = ({ title, description, route, image }) => {
   const classes = useStyles();
+  const navigate = useNavigate();
+
+  const handleImageClick = () => {
+    trackClick("image", title, "Case Study Preview");
+    trackCaseStudyInteraction(title, "click", "preview_image");
+    navigate(route);
+  };
+
+  const handleReadMoreClick = () => {
+    trackClick("link", "READ MORE", "Case Study CTA");
+    trackCaseStudyInteraction(title, "click", "read_more_button");
+  };
 
   return (
     <section className={classes.caseStudyContainer}>
-      <img src={image} className={classes.caseStudyImage} />
+      <img
+        src={image}
+        className={classes.caseStudyImage}
+        alt={`Case study preview image for ${title}`}
+        onClick={handleImageClick}
+      />
       <section className={classes.caseStudyInfo}>
         <p className={classes.caseStudyTitle}>{title}</p>
         <span className={classes.caseStudyCompanyName}>
           New Visions For Public Schools
         </span>
         <p className={classes.caseStudyDescription}>{description}</p>
-        <Link to={`/${route}`} className={classes.caseStudyReadMore}>
+        <Link
+          to={`/${route}`}
+          className={classes.caseStudyReadMore}
+          onClick={handleReadMoreClick}
+        >
           <div className={classes.readMoreTextText}>READ MORE</div>
           <div className={classes.readMoreTextLineThrough}></div>
           <img

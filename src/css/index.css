@@ -1,21 +1,17 @@
-
-/* FONTS */
-
 @font-face {
-  font-family: 'Roobert_Latin_Bold';
-  src: url('../fonts/Roobert-LatinProportionalBold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
+    font-family: 'Roobert_Latin_Bold';
+    src: url('../fonts/Roobert-LatinProportionalBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Roobert_Latin_Regular';
-  src: url('../fonts/Roobert-LatinProportionalRegular.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
+    font-family: 'Roobert_Latin_Regular';
+    src: url('../fonts/Roobert-LatinProportionalRegular.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
 }
 
-/* SHARED STYLES */
 
 * {
     -webkit-box-sizing: border-box;
@@ -27,9 +23,16 @@
 
 body {
     margin: 0px;
+    background: #FAFAFA;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
     margin: 0px;
 }
 
@@ -41,13 +44,14 @@ h1, h2, h3, h4, h5, h6, p {
 
 .custom-styles {
     &::part(button) {
-    padding: 0px;
-    width: 160px;
-    display: flex;
-    justify-content: center;
-    cursor: default;
-    height: 16px;
+        padding: 0px;
+        width: 160px;
+        display: flex;
+        justify-content: center;
+        cursor: default;
+        height: 16px;
     }
+
     &:hover {
         font-family: "Roobert_Latin_Regular, Verdana, sans-serif" !important;
     }
@@ -59,7 +63,7 @@ sl-icon {
     top: 3px;
 }
 
-sl-icon > svg {
+sl-icon>svg {
     width: 100% !important;
     height: 30px !important;
     padding-top: 10px !important;
@@ -96,11 +100,24 @@ sl-icon > svg {
     border-color: #047d5f !important;
 }
 
-.before-after-slider__delimiter {
-    height: 98%;
+.before-after-slider {
+    border-radius: 8px;
 }
 
-/* MEDIA QUERY STYLES */
+.before-after-slider__first-photo-container {
+    border-radius: 8px !important;
+}
+
+.before-after-slider__second-photo-container {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.before-after-slider__delimiter {
+    height: 98%;
+    border-radius: 8px;
+}
+
 
 @media (min-width: 1201px) and (max-width: 1300px) {
     .before-after-slider__delimiter {
@@ -135,5 +152,40 @@ sl-icon > svg {
 @media (min-width: 0px) and (max-width: 500px) {
     .container {
         padding: 48px 16px;
+    }
+}
+
+/* Prevent mobile zoom conflicts with react-medium-image-zoom */
+[data-rmiz-modal] {
+    touch-action: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+[data-rmiz-modal][open] {
+    touch-action: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+[data-rmiz-modal] img {
+    touch-action: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+/* Prevent double-tap zoom on mobile */
+@media (max-width: 768px) {
+    [data-rmiz-modal] {
+        -webkit-tap-highlight-color: transparent !important;
     }
 }

@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import HeaderNav from "../components/HeaderNav";
 import CaseStudy from "../components/CaseStudy";
 import Footer from "../components/Footer";
@@ -6,6 +7,7 @@ import useWindowDimensions from "../hooks/useWindowDimensions";
 import { createUseStyles } from "react-jss";
 import clsx from "clsx";
 import dataGridLandingImage from "../images/dataDrigLandingImage.svg";
+import studentProfileLandingImage from "../images/homepage_SPpicture.svg";
 
 const useStyles = createUseStyles({
   welcomeSection: {
@@ -26,6 +28,55 @@ const useStyles = createUseStyles({
     fontFamily: "Roobert_Latin_Bold, Verdana, sans-serif",
     fontSize: 48,
     marginBottom: 24,
+  },
+  waveWord: {
+    display: "inline-block",
+    opacity: 0,
+    transform: "translateY(20px) rotateX(90deg)",
+    animation: "$waveIn 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards",
+    transformOrigin: "center bottom",
+    "&:nth-child(1)": { animationDelay: "0.2s" },
+    "&:nth-child(2)": { animationDelay: "0.4s" },
+    "&:nth-child(3)": { animationDelay: "0.6s" },
+    "&:nth-child(4)": { animationDelay: "0.8s" },
+    "&:nth-child(5)": { animationDelay: "1.0s" },
+    "&:nth-child(6)": { animationDelay: "1.2s" },
+  },
+  wavePeriod: {
+    display: "inline-block",
+    opacity: 0,
+    transform: "scale(0) rotate(180deg)",
+    animation: "$periodPop 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards",
+    animationDelay: "1.5s",
+    transformOrigin: "center center",
+  },
+  "@keyframes waveIn": {
+    "0%": {
+      opacity: 0,
+      transform: "translateY(20px) rotateX(90deg)",
+    },
+    "50%": {
+      opacity: 0.7,
+      transform: "translateY(-5px) rotateX(0deg)",
+    },
+    "100%": {
+      opacity: 1,
+      transform: "translateY(0) rotateX(0deg)",
+    },
+  },
+  "@keyframes periodPop": {
+    "0%": {
+      opacity: 0,
+      transform: "scale(0) rotate(180deg)",
+    },
+    "70%": {
+      opacity: 1,
+      transform: "scale(1.3) rotate(0deg)",
+    },
+    "100%": {
+      opacity: 1,
+      transform: "scale(1) rotate(0deg)",
+    },
   },
   landingSecondaryHeading: {
     fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
@@ -66,23 +117,27 @@ const useStyles = createUseStyles({
     },
   },
   companyName: {
-    color: "#767676",
+    color: "#707070",
+  },
+  animatedSection: {
+    opacity: 0,
+    transform: "translateY(40px)",
+    transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
+    "&.animate": {
+      opacity: 1,
+      transform: "translateY(0)",
+    },
   },
 });
 
 const Landing = () => {
   const classes = useStyles();
-  const { height } = useWindowDimensions();
+  const { height, width } = useWindowDimensions();
+  const [animatedSections, setAnimatedSections] = useState(new Set());
+  const sectionRefs = useRef([]);
+  const initialHeightRef = useRef(null);
 
   const caseStudies = [
-    {
-      title:
-        "From data silos to quick insights: designing a student overview panel",
-      description:
-        "Every stakeholder team wanted their metrics included in the new student overview panel, creating a classic design challenge. Through user research and strategic collaboration, I turned competing priorities into a focused solution that educators actually wanted to use. The technical constraints led to innovations that improved performance across the entire platform.",
-      image: dataGridLandingImage,
-      route: "studentProfile",
-    },
     {
       title:
         "The feature users loved to leave: Redesigning the data grid to stop the spreadsheet exodus",
@@ -92,14 +147,65 @@ const Landing = () => {
       image: dataGridLandingImage,
       route: "dataGrid",
     },
+    {
+      title:
+        "From data silos to quick insights: designing a student overview panel",
+      description:
+        "Every stakeholder team wanted their metrics included in the new student overview panel, creating a classic design challenge. Through user research and strategic collaboration, I turned competing priorities into a focused solution that educators actually wanted to use. The technical constraints led to innovations that improved performance across the entire platform.",
+      image: studentProfileLandingImage,
+      route: "studentProfile",
+    },
   ];
+
+  useEffect(() => {
+    if (width >= 551) return;
+    if (initialHeightRef.current === null && height) {
+      initialHeightRef.current = height - 500;
+    }
+  }, [height, width]);
+
+
+  useEffect(() => {
+    const ref = sectionRefs.current;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionIndex = parseInt(entry.target.dataset.sectionIndex);
+            setAnimatedSections((prev) => new Set([...prev, sectionIndex]));
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      }
+    );
+
+    ref.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      ref.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
 
   return (
     <>
       <section className="container">
         <HeaderNav />
         <section className={classes.welcomeSection}>
-          <h1 className={classes.landingHeading}>Hi, my name is Julissa.</h1>
+          <h1 className={classes.landingHeading}>
+            <span className={classes.waveWord}>Hi,</span>{" "}
+            <span className={classes.waveWord}>my</span>{" "}
+            <span className={classes.waveWord}>name</span>{" "}
+            <span className={classes.waveWord}>is</span>{" "}
+            <span className={classes.waveWord}>Julissa</span>
+            <span className={classes.wavePeriod}>.</span>
+          </h1>
           <p className={classes.landingSecondaryHeading}>
             Currently working as a Product Designer II at{" "}
             <span className={classes.companyName}>
@@ -120,15 +226,15 @@ const Landing = () => {
             rates, and designing for multi-role educational platforms.
           </p>
           <section
-            className={classes.selectedWork}
-            style={{ height: height - 500 }}
+            className={`${classes.selectedWork} ${classes.animatedSection} ${animatedSections.has(0) ? "animate" : ""
+              }`}
+            ref={(el) => (sectionRefs.current[0] = el)}
+            data-section-index="0"
+            style={{
+              height: initialHeightRef.current || height - 500,
+            }}
           >
             <section>
-              <img
-                src={downArrowIcon}
-                alt="Black arrow pointing down"
-                className={classes.downArrow}
-              />
               <h3 className={classes.selectedWorkText}>Selected work</h3>
               <img
                 src={downArrowIcon}
@@ -138,7 +244,12 @@ const Landing = () => {
             </section>
           </section>
         </section>
-        <section className={classes.caseStudiesContainer}>
+        <section
+          className={`${classes.caseStudiesContainer} ${classes.animatedSection
+            } ${animatedSections.has(1) ? "animate" : ""}`}
+          ref={(el) => (sectionRefs.current[1] = el)}
+          data-section-index="1"
+        >
           {caseStudies.map((caseStudy) => (
             <CaseStudy
               key={caseStudy.route}
@@ -150,7 +261,14 @@ const Landing = () => {
           ))}
         </section>
       </section>
-      <Footer />
+      <div
+        className={`${classes.animatedSection} ${animatedSections.has(2) ? "animate" : ""
+          }`}
+        ref={(el) => (sectionRefs.current[2] = el)}
+        data-section-index="2"
+      >
+        <Footer />
+      </div>
     </>
   );
 };
