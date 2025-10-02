@@ -140,7 +140,7 @@ const Landing = () => {
   const caseStudies = [
     {
       title:
-        "The feature users loved to leave: Redesigning the data grid to stop the spreadsheet exodus",
+        "The feature users loved to leave: Building saved views to stop the spreadsheet exodus",
 
       description:
         "The Portal's most-used feature was driving away 10,000+ users who rebuilt grid setups daily before abandoning the platform for static spreadsheets. Through user research and stakeholder alignment, I designed a template system that balanced technical constraints with user needs. The solution restored engagement with live data and became foundational to how NYC educators interact with student information.",

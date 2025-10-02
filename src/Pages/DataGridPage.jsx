@@ -417,8 +417,7 @@ const DataGrid = () => {
               onLoad={() => setHeroImageLoaded(true)}
             />
             <h1 className={classes.mainHeading}>
-              The feature users loved to leave: Redesigning the data grid to
-              stop spreadsheet exodus
+              The feature users loved to leave: Building saved views to stop the spreadsheet exodus
             </h1>
             {width >= 551 && (
               <>
