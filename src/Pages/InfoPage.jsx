@@ -170,6 +170,7 @@ const useStyles = createUseStyles({
   ceramicSculpture: {
     display: "inline-block",
     width: "49%",
+    height: "auto",
     marginLeft: "9%",
     borderRadius: 6,
     opacity: 0,
@@ -298,6 +299,8 @@ const Info = () => {
                 alt="Ceramic sculpture of a hand holding a flower. The hand has a chrome finish and the flower has yellow petals and a green stem"
                 className={`${classes.ceramicSculpture} ${ceramicSculptureLoaded ? 'loaded' : ''}`}
                 onLoad={() => setCeramicSculptureLoaded(true)}
+                width="200"
+                height="200"
               />
             </section>
           </section>
