@@ -5,7 +5,6 @@ import HeaderNav from "../components/HeaderNav";
 import Footer from "../components/Footer";
 import clsx from "clsx";
 import downArrowIcon from "../images/down-arrow-black.svg";
-import dots from "../images/dots.svg";
 import heroImage from "../images/hero_SP.svg";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
@@ -91,7 +90,7 @@ const useStyles = createUseStyles({
     color: "#1E1E1E",
     fontFamily: "Roobert_Latin_Regular, Verdana, sans-serif",
     lineHeight: 1.2,
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: 100,
     marginRight: 32,
   },
@@ -472,9 +471,9 @@ const StudentProfile = () => {
         <section className="container">
           <HeaderNav />
           <section className={classes.caseStudyContainer}>
-            <img 
-              src={heroImage} 
-              className={`${classes.heroImage} ${heroImageLoaded ? 'loaded' : ''}`} 
+            <img
+              src={heroImage}
+              className={`${classes.heroImage} ${heroImageLoaded ? 'loaded' : ''}`}
               alt="Student profile interface showing overview panel with attendance, academic, and graduation tracking modules"
               onLoad={() => setHeroImageLoaded(true)}
             />
@@ -488,7 +487,7 @@ const StudentProfile = () => {
                   {" "}
                   <span
                     className={clsx(classes.caseStudyDetails, classes.bold)}
-                    style={{ marginRight: 134 }}
+                    style={{ marginRight: 152 }}
                   >
                     Role
                   </span>
@@ -1094,7 +1093,6 @@ const StudentProfile = () => {
                     src={afterImageSVG}
                     width="100%"
                     alt="Final student profile design showing consolidated overview panel with four critical data points for quick student assessment"
-                    style={{ border: "0.5px solid #e4e4e7", borderRadius: 8 }}
                   />
                 </Zoom>
               </div>
