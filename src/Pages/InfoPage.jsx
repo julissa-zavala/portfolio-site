@@ -172,11 +172,6 @@ const useStyles = createUseStyles({
     width: "49%",
     marginLeft: "9%",
     borderRadius: 6,
-    opacity: 0,
-    transition: "opacity 0.6s ease-in-out",
-    "&.loaded": {
-      opacity: 1,
-    },
   },
 });
 
@@ -296,8 +291,7 @@ const Info = () => {
               <img
                 src={ceramicSculpture}
                 alt="Ceramic sculpture of a hand holding a flower. The hand has a chrome finish and the flower has yellow petals and a green stem"
-                className={`${classes.ceramicSculpture} ${ceramicSculptureLoaded ? 'loaded' : ''}`}
-                onLoad={() => setCeramicSculptureLoaded(true)}
+                className={classes.ceramicSculpture}
               />
             </section>
           </section>
