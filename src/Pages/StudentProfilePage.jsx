@@ -478,7 +478,7 @@ const StudentProfile = () => {
               onLoad={() => setHeroImageLoaded(true)}
             />
             <h1 className={classes.mainHeading}>
-              From data silos to quick insights: Designing a student overview
+              From data silos to quick insights: Launching a new student overview
               panel
             </h1>
             {width >= 551 && (

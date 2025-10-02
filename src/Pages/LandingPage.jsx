@@ -149,7 +149,7 @@ const Landing = () => {
     },
     {
       title:
-        "From data silos to quick insights: designing a student overview panel",
+        "From data silos to quick insights: Launching a new student overview",
       description:
         "Every stakeholder team wanted their metrics included in the new student overview panel, creating a classic design challenge. Through user research and strategic collaboration, I turned competing priorities into a focused solution that educators actually wanted to use. The technical constraints led to innovations that improved performance across the entire platform.",
       image: studentProfileLandingImage,
