@@ -493,7 +493,7 @@ const StudentProfile = () => {
                   </span>
                   <span
                     className={clsx(classes.caseStudyDetails, classes.bold)}
-                    style={{ marginRight: 30 }}
+                    style={{ marginRight: 33 }}
                   >
                     Duration
                   </span>
