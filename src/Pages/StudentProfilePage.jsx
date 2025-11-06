@@ -506,7 +506,7 @@ const StudentProfile = () => {
                   <span className={classes.caseStudyDetails}>
                     Lead Product Designer
                   </span>
-                  <span className={classes.caseStudyDetails}>13 Weeks</span>
+                  <span className={classes.caseStudyDetails}>8 Weeks</span>
                   <span className={classes.caseStudyDetails}>
                     Figma, Miro, Mixpanel
                   </span>
@@ -540,7 +540,7 @@ const StudentProfile = () => {
                   >
                     Duration{" "}
                   </span>{" "}
-                  <br />13 Weeks
+                  <br />8 Weeks
                 </div>
                 <div className={classes.caseStudyDetails}>
                   {" "}

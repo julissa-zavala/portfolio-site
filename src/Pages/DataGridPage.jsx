@@ -446,7 +446,7 @@ const DataGrid = () => {
                   <span className={classes.caseStudyDetails}>
                     Lead Product Designer
                   </span>
-                  <span className={classes.caseStudyDetails}>8 Weeks</span>
+                  <span className={classes.caseStudyDetails}>6 Weeks</span>
                   <span
                     className={classes.caseStudyDetails}
                     style={{ width: "10%" }}
@@ -483,7 +483,7 @@ const DataGrid = () => {
                   >
                     Duration{" "}
                   </span>{" "}
-                  <br />8 Weeks
+                  <br />6 Weeks
                 </div>
                 <div className={classes.caseStudyDetails}>
                   {" "}

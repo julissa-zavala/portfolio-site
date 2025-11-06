@@ -35,6 +35,7 @@ const useStyles = createUseStyles({
     },
     "@media (min-width: 0px) and (max-width: 1280px)": {
       width: "clamp(300px, 98%, 608px)",
+      marginLeft: 10,
     },
   },
   caseStudyInfo: {
@@ -109,7 +110,6 @@ const useStyles = createUseStyles({
   rightArrow: {
     marginLeft: 7,
     position: "relative",
-    top: 1,
     display: "inline-block",
     width: 16,
     height: 16,

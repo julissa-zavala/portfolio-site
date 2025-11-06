@@ -56,7 +56,7 @@ const useStyles = createUseStyles({
     },
   },
   footerEmail: {
-    marginLeft: 8,
+    marginLeft: 4,
     cursor: "pointer",
     position: "relative",
     transition: "all 0.2s ease-in-out",
