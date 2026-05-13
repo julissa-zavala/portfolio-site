@@ -24,7 +24,7 @@ const ScrollToTop = ({ children }) => {
 };
 
 const App = () => {
-  const location = useLocation(); 
+  const location = useLocation();
 
   useEffect(() => {
     const preventWheelUnzoom = (e) => {
