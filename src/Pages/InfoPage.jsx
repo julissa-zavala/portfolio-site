@@ -92,8 +92,8 @@ const useStyles = createUseStyles({
     transition: "transform 0.3s ease-in-out",
   },
   infoImage: {
-    width: 264,
-    height: 319,
+    width: 260,
+    height: 339,
     borderRadius: 6,
     marginLeft: "0%",
     opacity: 0,
