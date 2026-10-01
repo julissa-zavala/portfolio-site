@@ -338,7 +338,7 @@ const Footer = ({ containerStyles }) => {
           )}
         </section>
         <span className={clsx(classes.footerItem, classes.footerCopyright)}>
-          Julissa Zavala © 2025
+          Julissa Zavala © 2026
         </span>
       </section>
     </footer>
